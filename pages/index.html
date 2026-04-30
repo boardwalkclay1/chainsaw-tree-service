@@ -5,18 +5,127 @@
   <title>Chainsaw Clay's Tree Service</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <!-- Main Styles -->
+  <!-- Styles -->
   <link rel="stylesheet" href="../css/main.css">
   <link rel="stylesheet" href="../css/seasonal.css">
 </head>
 
 <body>
 
-  <!-- ROOT APP WRAPPER -->
+  <!-- ========================= -->
+  <!-- FIXED HEADER WITH LOGO    -->
+  <!-- ========================= -->
+  <header id="header">
+    <img src="../assets/logo.png" alt="Chainsaw Clay Logo" class="header-logo">
+    <nav class="header-nav">
+      <a data-scroll="#features">Features</a>
+      <a data-scroll="#media">Photos & Videos</a>
+      <a data-scroll="#services">Services</a>
+      <a data-scroll="#estimate">Estimate</a>
+      <a data-scroll="#contact">Contact</a>
+    </nav>
+  </header>
+
+  <!-- ========================= -->
+  <!-- HERO SECTION              -->
+  <!-- ========================= -->
+  <section id="hero" style="background-image: url('../assets/backgrounds/rtg-192.png');">
+    <div class="hero-overlay"></div>
+
+    <div class="hero-content">
+      <img src="../assets/logo.png" class="hero-logo">
+
+      <h1>Chainsaw Clay's Tree Service</h1>
+      <p class="hero-tagline">Professional Tree Care • Real Experience • Real Results</p>
+
+      <p class="hero-description">
+        High‑level climbing, safe removals, precision pruning, tree health evaluations, storm cleanup,
+        debris removal, gardening, fruit trees, vegetable beds, and full yard planning — powered by
+        advanced tools, tech, and real‑world experience.
+      </p>
+
+      <div class="hero-buttons">
+        <button class="btn primary" data-scroll="#estimate">Request Estimate</button>
+        <button class="btn secondary" data-scroll="#media">See Our Work</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================= -->
+  <!-- ADVANCED FEATURES SECTION -->
+  <!-- ========================= -->
+  <section id="features">
+    <h2>What Makes Us Different</h2>
+
+    <div class="features-grid">
+
+      <div class="feature-card">
+        <h3>High‑Level Climbing</h3>
+        <p>Advanced rigging, tight‑space removals, and canopy navigation.</p>
+      </div>
+
+      <div class="feature-card">
+        <h3>Tree Health Tech</h3>
+        <p>Movement analysis, structure evaluation, and disease detection.</p>
+      </div>
+
+      <div class="feature-card">
+        <h3>Storm Cleanup</h3>
+        <p>Fast, safe, and precise cleanup after storms and emergencies.</p>
+      </div>
+
+      <div class="feature-card">
+        <h3>Full Yard Planning</h3>
+        <p>Flowers, shrubs, fruit trees, vegetable beds, and seasonal layouts.</p>
+      </div>
+
+      <div class="feature-card">
+        <h3>Advanced Tools</h3>
+        <p>Tree measurement tools, photo analyzers, and yard designer modules.</p>
+      </div>
+
+      <div class="feature-card">
+        <h3>Tech‑Powered Service</h3>
+        <p>Custom CRM, automated reminders, digital estimates, and more.</p>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ========================= -->
+  <!-- SCROLLING MEDIA SECTION   -->
+  <!-- ========================= -->
+  <section id="media">
+    <h2>Photos & Videos of Our Work</h2>
+
+    <div class="media-scroller">
+      <img src="../assets/photos/photo1.jpg">
+      <img src="../assets/photos/photo2.jpg">
+      <img src="../assets/photos/photo3.jpg">
+      <video src="../assets/videos/video1.mp4" autoplay muted loop></video>
+      <img src="../assets/photos/photo4.jpg">
+      <video src="../assets/videos/video2.mp4" autoplay muted loop></video>
+    </div>
+  </section>
+
+  <!-- ========================= -->
+  <!-- MODULES INJECTION POINT   -->
+  <!-- ========================= -->
   <div id="app"></div>
 
-  <!-- MAIN JS ENTRY -->
-  <script type="module" src="../index.js"></script>
+  <!-- ========================= -->
+  <!-- CONTACT SECTION           -->
+  <!-- ========================= -->
+  <section id="contact">
+    <h2>Contact Us</h2>
+    <p>Email: boardwalkclay1@gmail.com</p>
+    <p>Phone: 678‑683‑0570</p>
+  </section>
+
+  <!-- ========================= -->
+  <!-- MAIN JS ENTRY             -->
+  <!-- ========================= -->
+  <script type="module" src="../js/index.js"></script>
 
 </body>
 </html>
