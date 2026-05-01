@@ -1,0 +1,15 @@
+body.season-winter {
+  background: radial-gradient(circle at top, #1b2434 0, #050608 60%);
+}
+
+body.season-spring {
+  background: radial-gradient(circle at top, #1f2f24 0, #050608 60%);
+}
+
+body.season-summer {
+  background: radial-gradient(circle at top, #1f2f3a 0, #050608 60%);
+}
+
+body.season-fall {
+  background: radial-gradient(circle at top, #2b2220 0, #050608 60%);
+}
