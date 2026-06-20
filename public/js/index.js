@@ -41,12 +41,48 @@ const difference = `
 const estimate = `
 <section id="estimate">
   <h2>Request an Estimate</h2>
-  <form id="estimate-form">
-    <input type="text" placeholder="Your Name" required>
-    <input type="email" placeholder="Email" required>
-    <input type="text" placeholder="Service Needed" required>
-    <textarea placeholder="Describe your project"></textarea>
-    <button type="submit" class="btn primary">Submit</button>
+  <form id="estimate-form" enctype="multipart/form-data">
+    <h3>Service Details</h3>
+
+    <label>Service Type</label>
+    <select name="serviceType" required>
+      <option value="">Select a service</option>
+      <option value="full-removal">Full Removal</option>
+      <option value="pruning">Pruning</option>
+      <option value="storm-cleanup">Storm Cleanup</option>
+      <option value="general-cleanup">General Cleanup</option>
+      <option value="planting-layout">Planting / Layout</option>
+    </select>
+
+    <label>Upload Photos (optional)</label>
+    <input type="file" name="photos" multiple accept="image/*">
+
+    <label>Project Description</label>
+    <textarea name="description" placeholder="Describe your trees, access, hazards, and goals"></textarea>
+
+    <h3>Contact Info</h3>
+
+    <label>Your Name</label>
+    <input type="text" name="name" required>
+
+    <label>Phone Number</label>
+    <input type="tel" name="phone" required>
+
+    <label>Email</label>
+    <input type="email" name="email" required>
+
+    <label>Address</label>
+    <input type="text" name="address" required>
+
+    <h3>Availability for Estimate</h3>
+
+    <label>Days Available</label>
+    <input type="text" name="days" placeholder="Example: Mon, Wed, Sat">
+
+    <label>Times Available</label>
+    <input type="text" name="times" placeholder="Example: 9am–12pm, 4pm–7pm">
+
+    <button type="submit" class="btn primary">Submit Estimate Request</button>
   </form>
 </section>
 `;
@@ -97,11 +133,11 @@ const app = document.getElementById("app");
 app.innerHTML = hero + difference + estimate + climbingClass + footer;
 
 // =========================
-// SCROLL LOGIC ONLY
+// SCROLL + FORM LOGIC
 // =========================
 function initScroll() {
-  document.querySelectorAll("[data-scroll]").forEach(function(link) {
-    link.addEventListener("click", function(e) {
+  document.querySelectorAll("[data-scroll]").forEach(function (link) {
+    link.addEventListener("click", function (e) {
       e.preventDefault();
       const target = document.querySelector(link.getAttribute("data-scroll"));
       if (target) {
@@ -111,4 +147,21 @@ function initScroll() {
   });
 }
 
+function initEstimateForm() {
+  const form = document.getElementById("estimate-form");
+  if (!form) return;
+
+  form.addEventListener("submit", function (e) {
+    e.preventDefault();
+
+    const formData = new FormData(form);
+
+    // TODO: send to admin dash API
+    // fetch("/api/estimates", { method: "POST", body: formData })
+
+    alert("Your estimate request has been submitted. Clay will review it in the admin dash.");
+  });
+}
+
 initScroll();
+initEstimateForm();
