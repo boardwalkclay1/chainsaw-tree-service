@@ -86,7 +86,7 @@ const climbingClass = `
 const footer = `
 <footer id="footer">
   <p>© 2026 Chainsaw Clay’s Tree Service • All Rights Reserved</p>
-  <p>Email: boardwalkclay1@gmail.com | Phone: 678‑683‑0570</p>
+  <p>Email: boardwalkclay1@gmail.com | Phone: (470)‑695‑2055</p>
 </footer>
 `;
 
@@ -97,7 +97,7 @@ const app = document.getElementById("app");
 app.innerHTML = hero + difference + estimate + climbingClass + footer;
 
 // =========================
-// SCROLL LOGIC ONLY
+– SCROLL LOGIC ONLY
 // =========================
 function initScroll() {
   document.querySelectorAll("[data-scroll]").forEach(link => {
