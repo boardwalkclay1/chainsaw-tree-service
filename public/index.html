@@ -24,12 +24,25 @@
   <link rel="stylesheet" href="css/seasonal.css">
 
   <style>
-    /* Dropdown styling */
+    /* Dropdown container */
     .nav-dropdown {
       position: relative;
       display: inline-block;
     }
 
+    /* Logo ABOVE dropdown */
+    .dropdown-logo {
+      width: 90px;
+      position: absolute;
+      top: -110px;
+      left: 50%;
+      transform: translateX(-50%);
+      opacity: 0;
+      transition: opacity .25s ease;
+      pointer-events: none;
+    }
+
+    /* Dropdown box */
     .dropdown-content {
       display: none;
       position: absolute;
@@ -38,15 +51,10 @@
       background: #111;
       padding: 20px;
       width: 320px;
-      border-radius: 10px;
+      border-radius: 12px;
       box-shadow: 0 4px 20px rgba(0,0,0,0.4);
       z-index: 999;
-    }
-
-    .dropdown-content img {
-      width: 80px;
-      display: block;
-      margin: 0 auto 10px auto;
+      text-align: center;
     }
 
     .dropdown-content p {
@@ -54,7 +62,6 @@
       font-size: 14px;
       line-height: 1.4;
       margin-bottom: 10px;
-      text-align: center;
     }
 
     .dropdown-content button {
@@ -69,8 +76,13 @@
       margin-top: 10px;
     }
 
+    /* Hover behavior */
     .nav-dropdown:hover .dropdown-content {
       display: block;
+    }
+
+    .nav-dropdown:hover .dropdown-logo {
+      opacity: 1;
     }
   </style>
 
@@ -90,13 +102,14 @@
       <a data-scroll="#services">Services</a>
       <a data-scroll="#estimate">Estimate</a>
 
-      <!-- DROPDOWN NAV ITEM -->
+      <!-- DROPDOWN NAV ITEM WITH LOGO ABOVE -->
       <div class="nav-dropdown">
         <a>Climbing Class ▾</a>
 
-        <div class="dropdown-content">
-          <img src="img/climbing-class-logo.png" alt="Climbing Class Logo">
+        <!-- Logo ABOVE dropdown -->
+        <img src="img/climbing-class-logo.png" class="dropdown-logo" alt="Climbing Class Logo">
 
+        <div class="dropdown-content">
           <p>
             Learn real climbing from a real climber — knots, gear, movement, safety, and canopy flow.
           </p>
@@ -173,7 +186,7 @@
   <section id="contact">
     <h2>Contact Us</h2>
     <p>Email: boardwalkclay1@gmail.com</p>
-    <p>Phone: (470)‑695‑2055</p>
+    <p>Phone: 678‑683‑0570</p>
   </section>
 
   <!-- ========================= -->
