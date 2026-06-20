@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Training Prices — Tree Climbing Classes & Courses</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <link rel="icon" type="image/jpeg" href="/climb-logo.jpg" />
+  <link rel="stylesheet" href="/styles.css" />
+
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background: url('/img/climb-signup.jpg') no-repeat center center fixed;
+      background-size: cover;
+      color: #fff;
+      font-family: system-ui, sans-serif;
+    }
+
+    .overlay {
+      background: rgba(0,0,0,0.70);
+      min-height: 100vh;
+      padding-bottom: 60px;
+      position: relative;
+    }
+
+    /* HEADER */
+    .site-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 25px 30px;
+      background: rgba(0,0,0,0.65);
+      border-bottom: 2px solid #00c853;
+    }
+
+    .left-header {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+    }
+
+    .logo {
+      cursor: pointer;
+    }
+
+    .logo img {
+      width: 130px;
+      height: auto;
+      border-radius: 10px;
+      box-shadow: 0 0 12px rgba(0,0,0,0.6);
+    }
+
+    .site-title {
+      font-size: 1.8rem;
+      font-weight: 700;
+      color: #00c853;
+      letter-spacing: 1px;
+    }
+
+    /* NAVIGATION */
+    .top-nav a {
+      color: #fff;
+      text-decoration: none;
+      margin-left: 20px;
+      font-size: 1rem;
+      font-weight: 600;
+      transition: color 0.2s ease;
+    }
+
+    .top-nav a:hover {
+      color: #00c853;
+    }
+
+    /* MENU PANEL */
+    #menuPanel {
+      position: fixed;
+      top: 0;
+      left: -280px;
+      width: 280px;
+      height: 100%;
+      background: rgba(0,0,0,0.95);
+      padding: 30px;
+      transition: 0.3s ease;
+      z-index: 9999;
+      border-right: 2px solid #00c853;
+    }
+
+    #menuPanel a {
+      display: block;
+      color: #fff;
+      text-decoration: none;
+      padding: 14px 0;
+      font-size: 18px;
+      border-bottom: 1px solid #333;
+    }
+
+    .close-btn {
+      font-size: 28px;
+      font-weight: bold;
+      color: #00c853;
+      cursor: pointer;
+      margin-bottom: 20px;
+      display: inline-block;
+    }
+
+    /* PRICING SECTIONS */
+    .pricing-section {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 40px 20px;
+    }
+
+    .pricing-card {
+      background: rgba(0,0,0,0.55);
+      padding: 25px;
+      border-radius: 12px;
+      border: 1px solid #333;
+      margin-bottom: 25px;
+    }
+
+    .pricing-card h2 {
+      margin-top: 0;
+      font-size: 28px;
+    }
+
+    .price {
+      font-size: 40px;
+      font-weight: bold;
+      color: #00c853;
+      margin-bottom: 10px;
+    }
+
+    .pricing-card ul {
+      padding-left: 20px;
+    }
+
+    /* DROPDOWNS */
+    details {
+      background: rgba(0,0,0,0.45);
+      padding: 15px;
+      border-radius: 10px;
+      border: 1px solid #222;
+      margin-top: 12px;
+      cursor: pointer;
+    }
+
+    summary {
+      font-size: 18px;
+      font-weight: 700;
+      color: #00c853;
+      cursor: pointer;
+    }
+
+    summary:hover {
+      opacity: 0.8;
+    }
+
+    /* SQUIRREL */
+    #squirrelChatBtn {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      width: 160px;
+      height: auto;
+      cursor: pointer;
+      z-index: 9999;
+    }
+
+    #squirrelChatBox {
+      position: fixed;
+      bottom: 200px;
+      right: 20px;
+      width: 320px;
+      background: rgba(0,0,0,0.92);
+      border: 2px solid #00c853;
+      border-radius: 12px;
+      padding: 15px;
+      display: none;
+      z-index: 9999;
+      color: #fff;
+    }
+
+    #squirrelMessages {
+      height: 180px;
+      overflow-y: auto;
+      margin-bottom: 10px;
+      font-size: 14px;
+      padding-right: 5px;
+    }
+
+    #squirrelInput {
+      width: 100%;
+      padding: 10px;
+      border-radius: 8px;
+      border: none;
+      outline: none;
+      font-size: 14px;
+    }
+  </style>
+</head>
+
+<body>
+
+<div class="overlay">
+
+  <!-- HEADER -->
+  <header class="site-header">
+
+    <div class="left-header">
+      <div class="logo" onclick="toggleMenu()">
+        <img src="/climb-logo.jpg" alt="Logo">
+      </div>
+
+      <div class="site-title">Tree Climbing Class</div>
+    </div>
+
+    <nav class="top-nav">
+      <a href="/">Home</a>
+      <a href="/pages/classes.html">Classes</a>
+      <a href="/pages/pricing.html" style="color:#00c853;">Pricing</a>
+      <a href="/pages/app-info.html">About</a>
+      <a href="/pages/contact.html">Contact</a>
+    </nav>
+
+  </header>
+
+  <!-- MENU PANEL -->
+  <div id="menuPanel">
+    <span class="close-btn" onclick="toggleMenu()">✕</span>
+
+    <a href="/">Home</a>
+    <a href="/pages/classes.html">Classes</a>
+    <a href="/pages/pricing.html">Pricing</a>
+    <a href="/pages/app-info.html">About the App</a>
+    <a href="/pages/contact.html">Contact</a>
+    <a href="/app/pages/index.html">Open Training App</a>
+  </div>
+
+  <!-- PRICING CONTENT -->
+  <section class="pricing-section">
+
+    <!-- LIVE CLASSES -->
+    <div class="pricing-card">
+      <h2>Group Climbing Class</h2>
+      <div class="price">$80</div>
+      <ul>
+        <li>Gear setup & safety</li>
+        <li>Throwline & anchor setting</li>
+        <li>Basic climbing techniques</li>
+        <li>Movement & positioning</li>
+        <li>Real‑tree climbing practice</li>
+      </ul>
+    </div>
+
+    <div class="pricing-card">
+      <h2>Personal 1‑on‑1 Training</h2>
+      <div class="price">$200/hr</div>
+      <ul>
+        <li>Advanced climbing systems</li>
+        <li>Rigging & lowering</li>
+        <li>Chainsaw technique overview</li>
+        <li>Business coaching</li>
+        <li>Real‑world jobsite scenarios</li>
+      </ul>
+    </div>
+
+    <div class="pricing-card">
+      <h2>$500 Beginner Gear + Climbing Package</h2>
+      <div class="price">$500</div>
+      <ul>
+        <li>Harness, rope, carabiners included</li>
+        <li>Body thrusting</li>
+        <li>Rappelling</li>
+        <li>Safe gear usage</li>
+      </ul>
+    </div>
+
+    <div class="pricing-card">
+      <h2>$700 Intermediate Gear + Technique Package</h2>
+      <div class="price">$700</div>
+      <ul>
+        <li>Harness, lifeline rope, 2 buckstraps, carabiners</li>
+        <li>Everything from the $500 package</li>
+        <li>Footlocking</li>
+        <li>Alternate lanyard technique</li>
+      </ul>
+    </div>
+
+    <div class="pricing-card">
+      <h2>$1000 Full Arborist Package</h2>
+      <div class="price">$1000</div>
+      <ul>
+        <li>Harness, lifeline rope, 2 buckstraps, carabiners, spikes</li>
+        <li>Everything from the $500 & $700 packages</li>
+        <li>Safe spiking technique</li>
+        <li>When to spike & when NOT to</li>
+        <li>How to land tree jobs</li>
+        <li>Business training</li>
+      </ul>
+      <p>Add a chainsaw for <strong>$200 extra</strong>.</p>
+    </div>
+
+    <!-- DIGITAL TRAINING -->
+    <div class="pricing-card">
+      <h2>Digital Training Courses</h2>
+
+      <details>
+        <summary>Basic Access — $20/month</summary>
+        <ul>
+          <li>All beginner lessons</li>
+          <li>Knots & friction hitches</li>
+          <li>Gear fundamentals</li>
+          <li>Progress tracking</li>
+        </ul>
+      </details>
+
+      <details>
+        <summary>Pro Access — $49/month</summary>
+        <ul>
+          <li>Everything in Basic</li>
+          <li>Intermediate climbing lessons</li>
+          <li>Rigging fundamentals</li>
+          <li>Throwline mastery</li>
+          <li>Unlocks 10% class discounts every 5 videos</li>
+        </ul>
+      </details>
+
+      <details>
+        <summary>Elite Access — $99/month</summary>
+        <ul>
+          <li>Everything in Pro</li>
+          <li>Advanced climbing systems</li>
+          <li>Business & pricing lessons</li>
+          <li>Cutting & jobsite flow modules</li>
+          <li>Exclusive premium videos</li>
+          <li>Priority support</li>
+        </ul>
+      </details>
+
+      <p style="margin-top:15px;">
+        Every 5 videos you complete unlocks <strong>10% off</strong> a live class  
+        (up to <strong>20% max</strong> per class).
+      </p>
+    </div>
+
+  </section>
+
+</div>
+
+<script>
+  function toggleMenu() {
+    const panel = document.getElementById("menuPanel");
+    panel.style.left = panel.style.left === "0px" ? "-280px" : "0px";
+  }
+</script>
+
+<script src="/public/js/squirrel.js"></script>
+
+</body>
+</html>

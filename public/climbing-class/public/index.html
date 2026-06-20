@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Tree Climbing Classes & Training App</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <link rel="icon" type="image/jpeg" href="/climb-logo.jpg" />
+  <link rel="stylesheet" href="/styles.css" />
+
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background: url('/img/climb-index.jpg') no-repeat center center fixed;
+      background-size: cover;
+      color: #fff;
+      font-family: system-ui, sans-serif;
+    }
+
+    .overlay {
+      background: rgba(0,0,0,0.65);
+      min-height: 100vh;
+      padding-bottom: 60px;
+      position: relative;
+    }
+
+    /* LOGO BURGER TRIGGER */
+    #logoTrigger {
+      position: fixed;
+      top: 20px;
+      left: 20px;
+      width: 90px;
+      height: auto;
+      cursor: pointer;
+      z-index: 9999;
+    }
+
+    /* SIDEBAR */
+    #sidebar {
+      position: fixed;
+      top: 0;
+      left: -260px;
+      width: 260px;
+      height: 100%;
+      background: rgba(0,0,0,0.95);
+      padding: 30px;
+      transition: 0.3s ease;
+      z-index: 9998;
+      border-right: 2px solid #00c853;
+    }
+
+    #sidebar a {
+      display: block;
+      color: #fff;
+      text-decoration: none;
+      padding: 12px 0;
+      font-size: 18px;
+      border-bottom: 1px solid #333;
+    }
+
+    #sidebar.open {
+      left: 0;
+    }
+
+    .site-header {
+      text-align: center;
+      padding: 120px 20px 40px;
+    }
+
+    .site-header h1 {
+      font-size: 32px;
+      margin-bottom: 10px;
+      font-weight: 700;
+    }
+
+    .site-header p {
+      font-size: 18px;
+      max-width: 600px;
+      margin: 0 auto 25px;
+      opacity: 0.9;
+    }
+
+    .header-buttons {
+      display: flex;
+      justify-content: center;
+      gap: 15px;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      padding: 12px 20px;
+      border-radius: 10px;
+      text-decoration: none;
+      font-weight: 700;
+      font-size: 16px;
+      display: inline-block;
+    }
+
+    .primary {
+      background: #00c853;
+      color: #000;
+    }
+
+    .secondary {
+      background: #1a1a1a;
+      color: #fff;
+      border: 1px solid #333;
+    }
+
+    .section {
+      padding: 40px 20px;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    .section h2 {
+      font-size: 26px;
+      margin-bottom: 15px;
+    }
+
+    .category-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 20px;
+      margin-top: 25px;
+    }
+
+    .category-card {
+      background: rgba(0,0,0,0.55);
+      padding: 20px;
+      border-radius: 12px;
+      border: 1px solid #333;
+    }
+
+    .category-card h3 {
+      margin-top: 0;
+      margin-bottom: 10px;
+      font-size: 20px;
+    }
+
+    .category-card ul {
+      padding-left: 20px;
+      margin: 0;
+    }
+
+    .category-card li {
+      margin-bottom: 6px;
+      opacity: 0.9;
+    }
+
+    /* IMAGE INSIDE CUTTING SECTION */
+    .cutting-img {
+      width: 100%;
+      border-radius: 10px;
+      margin-top: 12px;
+      box-shadow: 0 0 12px rgba(0,0,0,0.7);
+    }
+
+    .site-footer {
+      text-align: center;
+      padding: 30px 20px;
+      opacity: 0.8;
+      font-size: 14px;
+    }
+
+    /* SQUIRREL */
+    #squirrelChatBtn {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      width: 160px;
+      height: auto;
+      cursor: pointer;
+      z-index: 9999;
+    }
+
+    #squirrelChatBox {
+      position: fixed;
+      bottom: 200px;
+      right: 20px;
+      width: 320px;
+      background: rgba(0,0,0,0.92);
+      border: 2px solid #00c853;
+      border-radius: 12px;
+      padding: 15px;
+      display: none;
+      z-index: 9999;
+      color: #fff;
+    }
+
+    #squirrelMessages {
+      height: 180px;
+      overflow-y: auto;
+      margin-bottom: 10px;
+      font-size: 14px;
+      padding-right: 5px;
+    }
+
+    #squirrelInput {
+      width: 100%;
+      padding: 10px;
+      border-radius: 8px;
+      border: none;
+      outline: none;
+      font-size: 14px;
+    }
+  </style>
+</head>
+<body>
+
+<!-- LOGO TRIGGER -->
+<img src="/climb-logo.jpg" id="logoTrigger" onclick="toggleSidebar()">
+
+<!-- SIDEBAR -->
+<div id="sidebar">
+  <a href="/">Home</a>
+  <a href="/pages/classes.html">Classes</a>
+  <a href="/pages/pricing.html">Pricing</a>
+  <a href="/pages/app-info.html">About the App</a>
+  <a href="/pages/contact.html">Contact</a>
+  <a href="/pages/privacy.html">Privacy Agreement</a>
+</div>
+
+<script>
+function toggleSidebar() {
+  document.getElementById("sidebar").classList.toggle("open");
+}
+</script>
+
+<div class="overlay">
+
+<header class="site-header">
+  <h1>Professional Tree Climbing Training</h1>
+  <p>Learn knots, safety, gear, climbing styles, rigging, and real arborist techniques.</p>
+
+  <div class="header-buttons">
+    <a href="/pages/pricing.html" class="btn primary">View Class Pricing</a>
+    <a href="/pages/classes.html" class="btn secondary">Class Schedule</a>
+    <a href="/pages/app-info.html" class="btn secondary">About the App</a>
+    <a href="/app/pages/index.html" class="btn secondary">Open Training App</a>
+  </div>
+</header>
+
+<section class="section">
+  <h2>Class Pricing</h2>
+  <p><strong>Group Class:</strong> $80</p>
+  <p><strong>Personal 1‑on‑1 Session:</strong> $200/hr</p>
+  <p><a href="/pages/pricing.html" style="color:#00c853;">View full pricing →</a></p>
+</section>
+
+<section class="section">
+  <h2>Start Training Before Class</h2>
+  <p>Every 5 videos you complete unlocks <strong>10% off</strong> a live class — up to <strong>20% max</strong>.</p>
+  <p>Your access never expires.</p>
+</section>
+
+<section class="section">
+  <h2>Training Categories</h2>
+
+  <div class="category-grid">
+
+    <div class="category-card">
+      <h3>Gear & Safety</h3>
+      <ul>
+        <li>Gear Overview</li>
+        <li>How to Put Gear On</li>
+        <li>Understanding Your Lifeline</li>
+        <li>Two‑Point Safety Technique</li>
+        <li>Basic Movement & Positioning</li>
+      </ul>
+    </div>
+
+    <div class="category-card">
+      <h3>Throwball Mastery</h3>
+      <ul>
+        <li>Throwball Basics</li>
+        <li>Setting a Perfect Anchor</li>
+        <li>Advanced Throwline Techniques</li>
+        <li>High‑Accuracy Throws</li>
+        <li>Throwline Recovery</li>
+      </ul>
+    </div>
+
+    <div class="category-card">
+      <h3>Climbing Styles</h3>
+
+      <strong>Body Thrusting</strong>
+      <ul>
+        <li>Body Thrust Basics</li>
+        <li>Hip Thrust Efficiency</li>
+      </ul>
+
+      <strong>Footlocking</strong>
+      <ul>
+        <li>Footlock Fundamentals</li>
+        <li>Ascending Smoothly</li>
+      </ul>
+
+      <strong>Spiking</strong>
+      <ul>
+        <li>Spiking Basics</li>
+        <li>Safe Spike Ascending</li>
+      </ul>
+    </div>
+
+    <div class="category-card">
+      <h3>Rigging</h3>
+      <ul>
+        <li>Rigging Gear Overview</li>
+        <li>Basic Rigging Setup</li>
+        <li>Rigging Knots</li>
+        <li>Rigging Cuts</li>
+        <li>Advanced Rigging Scenarios</li>
+        <li>Negative Rigging</li>
+        <li>Speedline Techniques</li>
+      </ul>
+    </div>
+
+    <div class="category-card">
+      <h3>Knots</h3>
+      <ul>
+        <li>Basic Arborist Knots</li>
+        <li>Friction Hitches</li>
+        <li>Rigging Knots</li>
+        <li>Advanced Knot Scenarios</li>
+      </ul>
+    </div>
+
+    <div class="category-card">
+      <h3>Cutting Techniques</h3>
+      <ul>
+        <li>Chainsaw Safety</li>
+        <li>Basic Cuts</li>
+        <li>Advanced Cuts</li>
+        <li>Scenario‑Based Cutting</li>
+      </ul>
+
+      <!-- ADDED IMAGE -->
+      <img src="/app/img/climb-img-4.jpg" class="cutting-img" alt="Cutting Training Image">
+    </div>
+
+    <div class="category-card">
+      <h3>Business & Jobsite Flow</h3>
+      <ul>
+        <li>How to Price Jobs</li>
+        <li>Jobsite Setup</li>
+        <li>Crew Communication</li>
+        <li>Customer Safety & Liability</li>
+      </ul>
+    </div>
+
+  </div>
+</section>
+
+<footer class="site-footer">
+  <p>Install the app from the App page to keep your training on your home screen.</p>
+</footer>
+
+</div>
+
+<img src="/app/img/squirell-img.jpg" id="squirrelChatBtn">
+
+<div id="squirrelChatBox">
+  <div style="font-weight: bold; margin-bottom: 10px; font-size: 18px;">🐿️ Helper Squirrel</div>
+  <div id="squirrelMessages">
+    <div>Hey! Ask me anything about classes, pricing, knots, climbing techniques, business skills, or the app.</div>
+  </div>
+  <input id="squirrelInput" type="text" placeholder="Ask me something…">
+</div>
+
+<script src="/js/squirrel.js"></script>
+
+</body>
+</html>

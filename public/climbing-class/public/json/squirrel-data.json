@@ -1,0 +1,135 @@
+{
+  "intro": [
+    "Hey! I’m your Helper Squirrel — your guide through the website, the training app, classes, knots, climbing techniques, business lessons, and account setup.",
+    "If you're new, I can explain how the classes work, how the app works, and what you’ll learn in each part of the training system.",
+    "Want to know how much classes cost, what’s included, or how to prepare? Just ask me.",
+    "I can also break down knots, climbing techniques, business skills, and real‑world tree work situations.",
+    "Need help installing the app or setting up your account? I’ve got you covered.",
+    "I’m always here in the bottom‑right corner — click me anytime you need help.",
+    "Let’s get you climbing smarter, safer, and more confidently.",
+    "Ready when you are — what do you want to learn today?"
+  ],
+
+  "website_info": [
+    "This website is your full hub for professional tree climbing training. You can explore classes, learn about the training app, check gear, and get direct help from me anytime.",
+    "The site is designed to guide you from beginner to advanced climber. Everything is organized so you can grow step‑by‑step.",
+    "If you're preparing for a class, the website gives you early access to training materials so you can start learning before you even show up.",
+    "The Classes page shows pricing, what’s included, and how each session works.",
+    "The About page explains the training app and how it connects to your real‑world climbing progress.",
+    "The Gear page explains the equipment used in tree climbing and why each piece matters.",
+    "This website is your roadmap — the app is your training ground."
+  ],
+
+  "class_info": [
+    "Group Classes cost $80 and cover gear setup, throwline work, basic climbing, movement, safety systems, and real‑tree practice.",
+    "Personal 1‑on‑1 sessions cost $200 per hour and let you focus on anything you want — advanced climbing, rigging, chainsaw technique, business coaching, or real‑world scenarios.",
+    "Classes are organized into hands‑on sections: gear setup, anchor setting, climbing systems, movement, safety, and canopy practice.",
+    "Group classes are great for beginners or anyone wanting structured training.",
+    "1‑on‑1 sessions are perfect for advanced climbers or people who want personalized coaching.",
+    "Every class includes real‑tree climbing time so you can apply what you learned immediately.",
+    "You can sign up for classes directly on the Classes page.",
+    "The training app prepares you before class so you show up confident and ready.",
+    "Completing app lessons unlocks discounts for live classes.",
+    "If you want help choosing a class, just ask me!"
+  ],
+
+  "course_info": [
+    "Courses inside the app are organized into categories: Knots, Climbing Techniques, Gear & Safety, Rigging, Cutting Techniques, and Business Skills.",
+    "Each course contains multiple short lessons designed to be easy to follow and packed with real‑world value.",
+    "You get lifetime access to every course you unlock.",
+    "The app tracks your progress automatically — no passwords needed.",
+    "Every 5 videos you complete unlocks a 30% discount on a live class.",
+    "Courses are designed to prepare you for real climbing, real jobs, and real safety situations.",
+    "You can learn at your own pace, anytime, anywhere.",
+    "Courses include step‑by‑step videos, explanations, and real‑world examples.",
+    "The app is your personal training library — always available, always growing.",
+    "If you want help choosing a course, I can guide you!"
+  ],
+
+  "app_info": [
+    "The training app gives you lifetime access to lessons, knots, climbing techniques, and business training.",
+    "You log in using your email — no password needed. The app sends you a secure login link.",
+    "Inside the app, you’ll find step‑by‑step videos that teach you everything from basic knots to advanced climbing systems.",
+    "The app includes a full knot library with real‑world explanations of when and why each knot is used.",
+    "You’ll learn climbing techniques like SRS, MRS, footlocking, rope walking, spur climbing, redirects, and limb walking.",
+    "The app also includes business lessons that teach you how to price jobs, communicate with customers, manage a crew, and run a professional tree service.",
+    "Every 5 videos you complete unlocks a 30% discount on a live class.",
+    "You can install the app on iPhone, Android, or desktop.",
+    "The app works offline after the first load — perfect for training outdoors.",
+    "Whether you're preparing for a class or learning on your own, the app gives you everything you need to climb safely and professionally."
+  ],
+
+  "account_setup": [
+    "To set up your account, go to the App page and enter your email. You’ll receive a secure login link — no password needed.",
+    "Once logged in, the app automatically saves your progress, completed lessons, and unlocked rewards.",
+    "Your account gives you lifetime access to all lessons you’ve purchased or unlocked.",
+    "If you switch devices, just log in with the same email — your progress syncs instantly.",
+    "If you don’t receive your login link, check your spam folder or try again.",
+    "Your account stores your discounts, class unlocks, and any special rewards you earn.",
+    "You can update your email anytime by contacting support.",
+    "Your account is your key to the entire training system.",
+    "Once your account is set up, you can start learning immediately.",
+    "If you need help setting up your account, just ask me!"
+  ],
+
+  "install_app": [
+    "iPhone: Tap the share icon → Add to Home Screen.",
+    "Android: Tap the menu (⋮) → Install App.",
+    "Desktop: Click the install icon in the address bar.",
+    "Once installed, the app works offline after the first load.",
+    "The installed version loads faster and feels like a native app.",
+    "You can install the app on multiple devices — your progress syncs automatically.",
+    "If installation doesn’t appear, try refreshing the page.",
+    "The app is lightweight and optimized for speed.",
+    "Installing the app gives you a cleaner, distraction‑free training experience.",
+    "If you need help installing, I can walk you through it."
+  ],
+
+  "knots": [
+    "Blake’s Hitch — smooth, reliable friction hitch used in MRS climbing. Great for beginners and pros.",
+    "Prusik — versatile hitch used for backups, rescues, and climbing systems.",
+    "Running Bowline — essential for rigging. Tightens under load and secures limbs safely.",
+    "Alpine Butterfly — creates a strong mid‑line loop for redirects or isolating rope damage.",
+    "Munter Hitch — used for controlled lowering and descent.",
+    "Bowline — strong, secure, and easy to untie after loading.",
+    "Clove Hitch — great for temporary holds and quick adjustments.",
+    "Figure‑Eight — used for climbing, anchoring, and creating secure loops.",
+    "Timber Hitch — perfect for securing logs and branches.",
+    "Double Fisherman’s — used to join two ropes securely."
+  ],
+
+  "climbing_techniques": [
+    "SRS — efficient for long ascents and conserving energy.",
+    "MRS — classic arborist climbing, great for limb walking.",
+    "Footlocking — fast vertical ascent technique.",
+    "Rope Walking — smooth, efficient, low‑energy climbing.",
+    "Spur Climbing — used for removals and spar work.",
+    "Limb Walking — essential for pruning and canopy movement.",
+    "Redirects — change your rope angle for better positioning.",
+    "Canopy Anchoring — setting safe, strong anchor points.",
+    "Double‑Rope Techniques — traditional climbing methods.",
+    "Advanced Movement — combining redirects, limb walking, and body positioning."
+  ],
+
+  "business": [
+    "Pricing Jobs — estimate based on time, risk, cleanup, and crew size.",
+    "Customer Communication — explain the job clearly and professionally.",
+    "Jobsite Flow — organize ropes, gear, and crew positions.",
+    "Crew Leadership — keep your team coordinated and safe.",
+    "Liability & Safety — protect yourself and your customers.",
+    "Real‑World Examples — storm damage, removals, pruning.",
+    "Marketing Basics — present your services professionally.",
+    "Upselling Services — offer additional work ethically.",
+    "Time Management — complete jobs efficiently.",
+    "Professionalism — stand out as a reliable arborist."
+  ],
+
+  "links": {
+    "home": "/",
+    "classes": "/pages/classes.html",
+    "about": "/pages/app-info.html",
+    "app": "/app/pages/index.html",
+    "contact": "/contact.html",
+    "account": "/app/pages/account.html"
+  }
+}
