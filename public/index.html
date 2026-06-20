@@ -26,18 +26,19 @@
   <img src="img/tree-service-logo.png" alt="Chainsaw Clay Logo" class="header-logo">
 
   <nav class="header-nav">
+    <a data-scroll="#hero">Home</a>
     <a data-scroll="#features">Features</a>
     <a data-scroll="#estimate">Estimate</a>
 
     <div class="nav-dropdown">
-      <a class="dropdown-btn">Climbing Class ▾</a>
+      <button class="dropdown-btn" type="button">Climbing Class ▾</button>
 
       <img src="/img/climb-logo.jpg" class="dropdown-logo" alt="Climbing Class Logo">
 
       <div class="dropdown-content">
         <p>Learn real climbing from a real climber — knots, gear, movement, safety, and canopy flow.</p>
 
-        <button onclick="window.location.href='/climbing-class/public/index.html'">
+        <button type="button" onclick="window.location.href='/climbing-class/public/index.html'">
           View Full Class Page
         </button>
       </div>
@@ -47,12 +48,120 @@
   </nav>
 </header>
 
-<div id="app"></div>
+<main>
+  <!-- HERO -->
+  <section id="hero">
+    <div class="hero-overlay"></div>
+    <div class="hero-content">
+      <img src="img/tree-service-logo.png" class="hero-logo" alt="Chainsaw Clay Tree Service Logo">
+      <h1>Chainsaw Clay's Tree Service</h1>
+      <p class="hero-tagline">Professional Tree Care • Real Experience • Real Results</p>
+      <p class="hero-description">
+        High-level climbing, safe removals, precision pruning, storm cleanup, gardening, and
+        professional climbing classes taught by a real climber with 10+ years in the canopy.
+      </p>
+      <div class="hero-buttons">
+        <button class="btn primary" data-scroll="#estimate">Request Estimate</button>
+        <button class="btn secondary" data-scroll="#climbing-class">Climbing Class Info</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- FEATURES -->
+  <section id="features">
+    <h2>What Makes Us Different</h2>
+    <div class="features-grid">
+      <div class="feature-card"><h3>High-Level Climbing</h3><p>Advanced rigging and canopy navigation.</p></div>
+      <div class="feature-card"><h3>Tree Health Tech</h3><p>Movement analysis and structure evaluation.</p></div>
+      <div class="feature-card"><h3>Storm Cleanup</h3><p>Fast, safe, and precise emergency cleanup.</p></div>
+      <div class="feature-card"><h3>Full Yard Planning</h3><p>Flowers, shrubs, fruit trees, and layouts.</p></div>
+      <div class="feature-card"><h3>Advanced Tools</h3><p>Measurement tools and yard designer modules.</p></div>
+      <div class="feature-card"><h3>Tech-Powered Service</h3><p>Digital estimates and visual planning.</p></div>
+    </div>
+  </section>
+
+  <!-- ESTIMATE -->
+  <section id="estimate">
+    <h2>Request an Estimate</h2>
+    <form id="estimate-form" enctype="multipart/form-data">
+      <h3>Service Details</h3>
+
+      <label>Service Type</label>
+      <select name="serviceType" required>
+        <option value="">Select a service</option>
+        <option value="full-removal">Full Removal</option>
+        <option value="pruning">Pruning</option>
+        <option value="storm-cleanup">Storm Cleanup</option>
+        <option value="general-cleanup">General Cleanup</option>
+        <option value="planting-layout">Planting / Layout</option>
+      </select>
+
+      <label>Upload Photos (optional)</label>
+      <input type="file" name="photos" multiple accept="image/*">
+
+      <label>Project Description</label>
+      <textarea name="description" placeholder="Describe your trees, access, hazards, and goals"></textarea>
+
+      <h3>Contact Info</h3>
+
+      <label>Your Name</label>
+      <input type="text" name="name" required>
+
+      <label>Phone Number</label>
+      <input type="tel" name="phone" required>
+
+      <label>Email</label>
+      <input type="email" name="email" required>
+
+      <label>Address</label>
+      <input type="text" name="address" required>
+
+      <h3>Availability for Estimate</h3>
+
+      <label>Days Available</label>
+      <input type="text" name="days" placeholder="Example: Mon, Wed, Sat">
+
+      <label>Times Available</label>
+      <input type="text" name="times" placeholder="Example: 9am–12pm, 4pm–7pm">
+
+      <button type="submit" class="btn primary">Submit Estimate Request</button>
+    </form>
+  </section>
+
+  <!-- CLIMBING CLASS -->
+  <section id="climbing-class">
+    <h2>Chainsaw Clay's Tree Climbing Class</h2>
+    <img src="img/climbing-class-logo.png" alt="Climbing Class Logo" class="climb-logo">
+    <p class="climb-small">
+      Learn real climbing from a real climber — gear, knots, movement, safety, and canopy flow.
+    </p>
+    <details class="climb-details">
+      <summary>Full Class Description</summary>
+      <div class="climb-description">
+        <p>
+          The Chainsaw Clay Climbing Class is a hands-on, real-world training experience designed for
+          beginners, homeowners, and future arborists. You will learn:
+        </p>
+        <ul>
+          <li>Rope setup, knots, and climbing systems</li>
+          <li>Movement, balance, and canopy flow</li>
+          <li>Gear selection and safety fundamentals</li>
+          <li>Tree structure, anchor points, and load awareness</li>
+          <li>How to climb confidently and safely</li>
+        </ul>
+        <p>
+          Classes are available as group workshops or personal 1-on-1 sessions.
+          All training is based on real climbing experience — not theory.
+        </p>
+      </div>
+    </details>
+  </section>
+</main>
 
 <section id="contact">
   <h2>Contact Us</h2>
   <p>Email: boardwalkclay1@gmail.com</p>
-  <p>Phone: (470)‑695‑2055</p>
+  <p>Phone: (470)-695-2055</p>
 </section>
 
 <script src="js/index.js"></script>
