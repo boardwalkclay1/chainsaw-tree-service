@@ -3,6 +3,7 @@ import difference from "./modules/difference.js";
 import estimate from "./modules/estimate.js";
 import selfCheck from "./modules/selfCheck.js";
 import services from "./modules/services.js";
+import climbingClass from "./modules/climbingClass.js"; // ✅ new module
 import gardening from "./modules/gardening.js";
 import about from "./modules/about.js";
 import footer from "./modules/footer.js";
@@ -18,6 +19,7 @@ app.innerHTML =
   estimate() +
   selfCheck() +
   services() +
+  climbingClass() + // ✅ inserted here
   gardening() +
   about() +
   yardDesigner() +
