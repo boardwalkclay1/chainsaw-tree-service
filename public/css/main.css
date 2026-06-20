@@ -1,329 +1,38 @@
-/* =========================================
-   ROOT THEME
-========================================= */
-:root {
-  --bg: #050608;
-  --bg-alt: #0b0e12;
-  --accent: #3fd46b;
-  --accent-strong: #2ab257;
-  --accent-soft: rgba(63, 212, 107, 0.15);
-  --text: #f5f7fb;
-  --text-soft: #a7b0c5;
-  --card-bg: #11141b;
-  --border-soft: #252a36;
-  --shadow-soft: 0 18px 45px rgba(0,0,0,0.55);
-  --radius-lg: 18px;
-  --radius-md: 12px;
-  --radius-sm: 8px;
-  --header-height: 70px;
-  --max-width: 1120px;
-  --transition-fast: .18s ease-out;
-  --transition-med: .25s ease-out;
-  --font-main: system-ui, -apple-system, BlinkMacSystemFont, "SF Pro Text", "Segoe UI", sans-serif;
-}
+/* ============================
+   FORM FIELDS (GLOBAL)
+============================ */
 
-/* =========================================
-   GLOBAL RESET
-========================================= */
-*,
-*::before,
-*::after {
-  box-sizing: border-box;
-}
-
-html, body {
-  margin: 0;
-  padding: 0;
-  background: radial-gradient(circle at top, #151a24 0, #050608 55%);
+input,
+textarea,
+select {
+  width: 100%;
+  background: #0a0d12;
+  border: 1px solid var(--border-soft);
+  padding: 12px 14px;
+  border-radius: 10px;
   color: var(--text);
+  font-size: 0.95rem;
   font-family: var(--font-main);
-  scroll-behavior: smooth;
+  transition: border var(--transition-fast), background var(--transition-fast);
 }
 
-body {
-  min-height: 100vh;
+input:focus,
+textarea:focus,
+select:focus {
+  border-color: var(--accent);
+  background: #0f131a;
+  outline: none;
 }
 
-/* =========================================
-   HEADER
-========================================= */
-#header {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  height: var(--header-height);
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 0 32px;
-  background: rgba(5,6,8,0.92);
-  backdrop-filter: blur(16px);
-  z-index: 9999;
+textarea {
+  min-height: 120px;
+  resize: vertical;
 }
 
-.header-logo {
-  height: 42px;
-  width: auto;
-  object-fit: contain;
-}
-
-.header-nav {
-  display: flex;
-  gap: 18px;
-  font-size: .9rem;
-}
-
-.header-nav a {
-  color: var(--text-soft);
-  text-decoration: none;
-  padding: 6px 10px;
-  border-radius: 999px;
-  cursor: pointer;
-  transition: .2s ease;
-}
-
-.header-nav a:hover {
-  color: var(--accent);
-  background: rgba(63,212,107,0.08);
-  transform: translateY(-1px);
-}
-
-/* =========================================
-   DROPDOWN + CLIMBING LOGO
-========================================= */
-.nav-dropdown {
-  position: relative;
-  display: inline-block;
-}
-
-/* FIXED: ALWAYS VISIBLE, ALWAYS ON TOP */
-.dropdown-logo {
-  width: 90px;
-  position: absolute;
-  top: -95px;
-  left: 50%;
-  transform: translateX(-50%);
-  opacity: 1;
-  pointer-events: none;
-  z-index: 10000;
-}
-
-/* Dropdown box */
-.dropdown-content {
-  display: none;
-  position: absolute;
-  top: 40px;
-  right: 0;
-  width: 320px;
-  padding: 20px;
-  background: #111;
-  border-radius: 12px;
-  box-shadow: 0 4px 20px rgba(0,0,0,0.4);
-  text-align: center;
-  z-index: 9998;
-}
-
-.nav-dropdown:hover .dropdown-content {
+/* Labels */
+form label {
   display: block;
-}
-
-/* =========================================
-   HERO
-========================================= */
-#hero {
-  position: relative;
-  min-height: calc(100vh + 40px);
-  padding-top: var(--header-height);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background-size: cover;
-  background-position: center;
-}
-
-.hero-overlay {
-  position: absolute;
-  inset: 0;
-  background: radial-gradient(circle at top, rgba(0,0,0,0.2), #050608 70%);
-}
-
-.hero-content {
-  position: relative;
-  z-index: 2;
-  max-width: var(--max-width);
-  padding: 80px 24px 60px;
-}
-
-.hero-logo {
-  height: 70px;
-  margin-bottom: 18px;
-}
-
-.hero-content h1 {
-  font-size: clamp(2.4rem, 4vw, 3.2rem);
-  margin: 0 0 10px;
-}
-
-.hero-tagline {
-  margin: 0 0 16px;
-  font-size: 1rem;
-  text-transform: uppercase;
-  letter-spacing: .16em;
-  color: var(--accent);
-}
-
-.hero-description {
-  max-width: 640px;
+  margin-bottom: 6px;
   color: var(--text-soft);
-  line-height: 1.6;
-  margin-bottom: 24px;
-}
-
-.hero-buttons {
-  display: flex;
-  gap: 12px;
-  flex-wrap: wrap;
-}
-
-/* =========================================
-   BUTTONS
-========================================= */
-.btn {
-  padding: 10px 18px;
-  border-radius: 999px;
-  font-size: .95rem;
-  font-weight: 500;
-  cursor: pointer;
-  border: none;
-  transition: .2s ease;
-}
-
-.btn.primary {
-  background: linear-gradient(135deg, var(--accent), var(--accent-strong));
-  color: #050608;
-  box-shadow: 0 12px 30px rgba(63,212,107,0.45);
-}
-
-.btn.primary:hover {
-  transform: translateY(-1px);
-  box-shadow: 0 16px 40px rgba(63,212,107,0.6);
-}
-
-.btn.secondary {
-  background: rgba(15,19,27,0.9);
-  border: 1px solid var(--border-soft);
-  color: var(--text);
-}
-
-.btn.secondary:hover {
-  background: rgba(20,25,35,0.95);
-  transform: translateY(-1px);
-}
-
-/* =========================================
-   FEATURES
-========================================= */
-#features {
-  background: radial-gradient(circle at top, #151a24 0, #050608 60%);
-  padding: 70px 24px;
-}
-
-.features-grid {
-  max-width: var(--max-width);
-  margin: 0 auto;
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(230px,1fr));
-  gap: 18px;
-}
-
-.feature-card {
-  background: var(--card-bg);
-  border-radius: var(--radius-md);
-  padding: 16px;
-  border: 1px solid var(--border-soft);
-  box-shadow: var(--shadow-soft);
-}
-
-/* =========================================
-   MEDIA
-========================================= */
-#media {
-  background: #050608;
-  padding: 70px 24px;
-}
-
-.media-scroller {
-  max-width: var(--max-width);
-  margin: 0 auto;
-  display: flex;
-  gap: 14px;
-  overflow-x: auto;
-  scroll-snap-type: x mandatory;
-}
-
-.media-scroller img,
-.media-scroller video {
-  height: 220px;
-  border-radius: var(--radius-md);
-  object-fit: cover;
-  flex: 0 0 auto;
-  scroll-snap-align: center;
-  border: 1px solid var(--border-soft);
-  box-shadow: var(--shadow-soft);
-}
-
-/* =========================================
-   CONTACT
-========================================= */
-#contact {
-  max-width: var(--max-width);
-  margin: 0 auto;
-  padding: 70px 24px;
-  border-top: 1px solid var(--border-soft);
-}
-
-#contact p {
-  color: var(--text-soft);
-}
-
-/* =========================================
-   FOOTER
-========================================= */
-#footer {
-  max-width: var(--max-width);
-  margin: 40px auto;
-  padding: 24px;
-  background: var(--card-bg);
-  border-radius: var(--radius-lg);
-  border: 1px solid var(--border-soft);
-  text-align: center;
-  box-shadow: var(--shadow-soft);
-}
-
-#footer p {
-  color: var(--text-soft);
-}
-
-/* =========================================
-   RESPONSIVE
-========================================= */
-@media (max-width: 768px) {
-  #header {
-    padding: 0 16px;
-  }
-
-  .header-nav {
-    gap: 10px;
-    font-size: .8rem;
-  }
-
-  .dropdown-logo {
-    top: -80px;
-    width: 70px;
-  }
-
-  section {
-    padding: 50px 16px;
-  }
+  font-size: 0.9rem;
 }
