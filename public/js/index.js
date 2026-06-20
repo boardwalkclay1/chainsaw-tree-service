@@ -91,7 +91,7 @@ const estimate = `
 const climbingClass = `
 <section id="climbing-class">
   <h2>Chainsaw Clay's Tree Climbing Class</h2>
-  <img src="img/climbing-class-logo.png" alt="Climbing Class Logo" class="climb-logo">
+  <img src="/img/climb-logo.jpg" alt="Climbing Class Logo" class="climb-logo">
   <p class="climb-small">
     Learn real climbing from a real climber — gear, knots, movement, safety, and canopy flow.
   </p>
