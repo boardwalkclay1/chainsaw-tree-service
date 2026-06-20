@@ -1,38 +1,244 @@
-/* ============================
-   FORM FIELDS (GLOBAL)
-============================ */
+/* ROOT */
+:root {
+  --bg: #050608;
+  --accent: #3fd46b;
+  --accent-strong: #2ab257;
+  --text: #f5f7fb;
+  --text-soft: #a7b0c5;
+  --card-bg: #11141b;
+  --border-soft: #252a36;
+  --shadow-soft: 0 18px 45px rgba(0,0,0,0.55);
+  --radius-md: 12px;
+  --radius-lg: 18px;
+  --font-main: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+}
 
-input,
-textarea,
-select {
-  width: 100%;
-  background: #0a0d12;
-  border: 1px solid var(--border-soft);
-  padding: 12px 14px;
-  border-radius: 10px;
+/* GLOBAL */
+body {
+  margin: 0;
+  padding: 0;
+  background: var(--bg);
   color: var(--text);
-  font-size: 0.95rem;
   font-family: var(--font-main);
-  transition: border var(--transition-fast), background var(--transition-fast);
+  scroll-behavior: smooth;
 }
 
-input:focus,
-textarea:focus,
-select:focus {
-  border-color: var(--accent);
-  background: #0f131a;
-  outline: none;
+/* HEADER */
+#header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 70px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 32px;
+  background: rgba(5,6,8,0.92);
+  backdrop-filter: blur(16px);
+  z-index: 9999;
 }
 
-textarea {
-  min-height: 120px;
-  resize: vertical;
+.header-logo {
+  height: 42px;
+  width: auto;
 }
 
-/* Labels */
-form label {
-  display: block;
-  margin-bottom: 6px;
+/* NAV */
+.header-nav {
+  display: flex;
+  gap: 18px;
+  align-items: center;
+}
+
+.header-nav a {
   color: var(--text-soft);
-  font-size: 0.9rem;
+  text-decoration: none;
+  padding: 8px 14px;
+  border-radius: 999px;
+  background: rgba(20,25,35,0.9);
+  border: 1px solid var(--border-soft);
+  transition: .2s ease;
+}
+
+.header-nav a:hover {
+  background: rgba(30,35,45,0.95);
+  color: var(--accent);
+}
+
+/* DROPDOWN */
+.nav-dropdown {
+  position: relative;
+}
+
+.dropdown-btn {
+  cursor: pointer;
+}
+
+.dropdown-logo {
+  width: 80px;
+  height: auto;
+  position: absolute;
+  top: -85px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 99999;
+  pointer-events: none;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  top: 48px;
+  right: 0;
+  width: 300px;
+  padding: 20px;
+  background: var(--card-bg);
+  border-radius: var(--radius-md);
+  border: 1px solid var(--border-soft);
+  box-shadow: var(--shadow-soft);
+  text-align: center;
+  z-index: 9999;
+}
+
+.nav-dropdown:hover .dropdown-content {
+  display: block;
+}
+
+.dropdown-content button {
+  width: 100%;
+  padding: 12px;
+  border-radius: 999px;
+  background: linear-gradient(135deg, var(--accent), var(--accent-strong));
+  border: none;
+  color: #050608;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+/* HERO */
+#hero {
+  width: 100%;
+  min-height: 100vh;
+  background-image: url("img/tree-service-bg.jpg");
+  background-size: cover;
+  background-position: center;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0,0,0,0.35);
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  padding: 40px;
+}
+
+.hero-logo {
+  height: 70px;
+  margin-bottom: 20px;
+}
+
+.hero-tagline {
+  color: var(--accent);
+  text-transform: uppercase;
+  letter-spacing: .15em;
+}
+
+.hero-description {
+  max-width: 600px;
+  margin: 20px auto;
+  color: var(--text-soft);
+}
+
+/* BUTTONS */
+.btn {
+  padding: 12px 20px;
+  border-radius: 999px;
+  border: none;
+  cursor: pointer;
+  font-size: 1rem;
+}
+
+.btn.primary {
+  background: linear-gradient(135deg, var(--accent), var(--accent-strong));
+  color: #050608;
+}
+
+.btn.secondary {
+  background: rgba(20,25,35,0.9);
+  border: 1px solid var(--border-soft);
+  color: var(--text);
+}
+
+/* FEATURES */
+#features {
+  padding: 80px 24px;
+}
+
+.features-grid {
+  max-width: 1100px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(230px,1fr));
+  gap: 20px;
+}
+
+.feature-card {
+  background: var(--card-bg);
+  padding: 20px;
+  border-radius: var(--radius-md);
+  border: 1px solid var(--border-soft);
+  box-shadow: var(--shadow-soft);
+}
+
+/* ESTIMATE */
+#estimate {
+  padding: 80px 24px;
+}
+
+#estimate-form {
+  max-width: 600px;
+  margin: 0 auto;
+  background: var(--card-bg);
+  padding: 20px;
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--border-soft);
+}
+
+input, textarea {
+  width: 100%;
+  padding: 12px;
+  margin-bottom: 12px;
+  border-radius: var(--radius-md);
+  border: 1px solid var(--border-soft);
+  background: #0a0d12;
+  color: var(--text);
+}
+
+/* CLIMBING CLASS */
+#climbing-class {
+  padding: 80px 24px;
+  text-align: center;
+}
+
+.climb-logo {
+  width: 180px;
+  height: auto;
+  margin-bottom: 20px;
+}
+
+/* FOOTER */
+#footer {
+  padding: 40px;
+  text-align: center;
+  color: var(--text-soft);
 }
