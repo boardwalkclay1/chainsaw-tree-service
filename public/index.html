@@ -22,6 +22,58 @@
   <!-- Styles -->
   <link rel="stylesheet" href="css/main.css">
   <link rel="stylesheet" href="css/seasonal.css">
+
+  <style>
+    /* Dropdown styling */
+    .nav-dropdown {
+      position: relative;
+      display: inline-block;
+    }
+
+    .dropdown-content {
+      display: none;
+      position: absolute;
+      top: 40px;
+      right: 0;
+      background: #111;
+      padding: 20px;
+      width: 320px;
+      border-radius: 10px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.4);
+      z-index: 999;
+    }
+
+    .dropdown-content img {
+      width: 80px;
+      display: block;
+      margin: 0 auto 10px auto;
+    }
+
+    .dropdown-content p {
+      color: #fff;
+      font-size: 14px;
+      line-height: 1.4;
+      margin-bottom: 10px;
+      text-align: center;
+    }
+
+    .dropdown-content button {
+      width: 100%;
+      padding: 10px;
+      border: none;
+      background: #28a745;
+      color: #fff;
+      border-radius: 6px;
+      cursor: pointer;
+      font-size: 15px;
+      margin-top: 10px;
+    }
+
+    .nav-dropdown:hover .dropdown-content {
+      display: block;
+    }
+  </style>
+
 </head>
 
 <body>
@@ -37,7 +89,24 @@
       <a data-scroll="#media">Photos</a>
       <a data-scroll="#services">Services</a>
       <a data-scroll="#estimate">Estimate</a>
-      <a data-scroll="#climbing-class">Climbing Class</a>
+
+      <!-- DROPDOWN NAV ITEM -->
+      <div class="nav-dropdown">
+        <a>Climbing Class ▾</a>
+
+        <div class="dropdown-content">
+          <img src="img/climbing-class-logo.png" alt="Climbing Class Logo">
+
+          <p>
+            Learn real climbing from a real climber — knots, gear, movement, safety, and canopy flow.
+          </p>
+
+          <button onclick="window.location.href='climbing-class/index.html'">
+            View Full Class Page
+          </button>
+        </div>
+      </div>
+
       <a data-scroll="#contact">Contact</a>
     </nav>
   </header>
@@ -54,7 +123,6 @@
       <h1>Chainsaw Clay's Tree Service</h1>
       <p class="hero-tagline">Professional Tree Care • Real Experience • Real Results</p>
 
-      <!-- Small description including climbing class -->
       <p class="hero-description">
         High‑level climbing, safe removals, precision pruning, storm cleanup, gardening, and now
         **professional climbing classes** taught by a real climber with 10+ years in the canopy.
@@ -68,7 +136,7 @@
   </section>
 
   <!-- ========================= -->
-  <!-- ADVANCED FEATURES         -->
+  <!-- FEATURES SECTION          -->
   <!-- ========================= -->
   <section id="features">
     <h2>What Makes Us Different</h2>
@@ -84,7 +152,7 @@
   </section>
 
   <!-- ========================= -->
-  <!-- SCROLLING MEDIA           -->
+  <!-- MEDIA SECTION             -->
   <!-- ========================= -->
   <section id="media">
     <h2>Photos & Videos of Our Work</h2>
@@ -97,43 +165,6 @@
       <img src="assets/photos/photo4.jpg">
       <video src="assets/videos/video2.mp4" autoplay muted loop></video>
     </div>
-  </section>
-
-  <!-- ========================= -->
-  <!-- CLIMBING CLASS SECTION    -->
-  <!-- ========================= -->
-  <section id="climbing-class" class="dropdown-section">
-    <h2>Chainsaw Clay’s Climbing Class</h2>
-
-    <img src="img/climbing-class-logo.png" alt="Climbing Class Logo" class="climb-logo">
-
-    <p class="climb-small">
-      Learn real climbing from a real climber — gear, knots, movement, safety, and canopy flow.
-    </p>
-
-    <details class="climb-details">
-      <summary>Full Class Description</summary>
-
-      <div class="climb-description">
-        <p>
-          The Chainsaw Clay Climbing Class is a hands‑on, real‑world training experience designed for
-          beginners, homeowners, and future arborists. You’ll learn:
-        </p>
-
-        <ul>
-          <li>Rope setup, knots, and climbing systems</li>
-          <li>Movement, balance, and canopy flow</li>
-          <li>Gear selection and safety fundamentals</li>
-          <li>Tree structure, anchor points, and load awareness</li>
-          <li>How to climb confidently and safely</li>
-        </ul>
-
-        <p>
-          Classes are available as group workshops or personal 1‑on‑1 sessions.  
-          All training is based on real climbing experience — not theory.
-        </p>
-      </div>
-    </details>
   </section>
 
   <!-- ========================= -->
