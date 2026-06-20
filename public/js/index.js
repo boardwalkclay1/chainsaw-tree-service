@@ -11,7 +11,7 @@ const hero = `
     <h1>Chainsaw Clay's Tree Service</h1>
     <p class="hero-tagline">Professional Tree Care • Real Experience • Real Results</p>
     <p class="hero-description">
-      High‑level climbing, safe removals, precision pruning, storm cleanup, gardening, and now
+      High-level climbing, safe removals, precision pruning, storm cleanup, gardening, and now
       <strong>professional climbing classes</strong> taught by a real climber with 10+ years in the canopy.
     </p>
     <div class="hero-buttons">
@@ -27,12 +27,12 @@ const difference = `
 <section id="features">
   <h2>What Makes Us Different</h2>
   <div class="features-grid">
-    <div class="feature-card"><h3>High‑Level Climbing</h3><p>Advanced rigging and canopy navigation.</p></div>
+    <div class="feature-card"><h3>High-Level Climbing</h3><p>Advanced rigging and canopy navigation.</p></div>
     <div class="feature-card"><h3>Tree Health Tech</h3><p>Movement analysis and structure evaluation.</p></div>
     <div class="feature-card"><h3>Storm Cleanup</h3><p>Fast, safe, and precise emergency cleanup.</p></div>
     <div class="feature-card"><h3>Full Yard Planning</h3><p>Flowers, shrubs, fruit trees, and layouts.</p></div>
     <div class="feature-card"><h3>Advanced Tools</h3><p>Measurement tools and yard designer modules.</p></div>
-    <div class="feature-card"><h3>Tech‑Powered Service</h3><p>Digital estimates and visual planning.</p></div>
+    <div class="feature-card"><h3>Tech-Powered Service</h3><p>Digital estimates and visual planning.</p></div>
   </div>
 </section>
 `;
@@ -54,7 +54,7 @@ const estimate = `
 // CLIMBING CLASS SECTION
 const climbingClass = `
 <section id="climbing-class">
-  <h2>Chainsaw Clay’s Tree Climbing Class</h2>
+  <h2>Chainsaw Clay's Tree Climbing Class</h2>
   <img src="img/climbing-class-logo.png" alt="Climbing Class Logo" class="climb-logo">
   <p class="climb-small">
     Learn real climbing from a real climber — gear, knots, movement, safety, and canopy flow.
@@ -63,8 +63,8 @@ const climbingClass = `
     <summary>Full Class Description</summary>
     <div class="climb-description">
       <p>
-        The Chainsaw Clay Climbing Class is a hands‑on, real‑world training experience designed for
-        beginners, homeowners, and future arborists. You’ll learn:
+        The Chainsaw Clay Climbing Class is a hands-on, real-world training experience designed for
+        beginners, homeowners, and future arborists. You will learn:
       </p>
       <ul>
         <li>Rope setup, knots, and climbing systems</li>
@@ -74,7 +74,7 @@ const climbingClass = `
         <li>How to climb confidently and safely</li>
       </ul>
       <p>
-        Classes are available as group workshops or personal 1‑on‑1 sessions.  
+        Classes are available as group workshops or personal 1-on-1 sessions.
         All training is based on real climbing experience — not theory.
       </p>
     </div>
@@ -85,8 +85,8 @@ const climbingClass = `
 // FOOTER SECTION
 const footer = `
 <footer id="footer">
-  <p>© 2026 Chainsaw Clay’s Tree Service • All Rights Reserved</p>
-  <p>Email: boardwalkclay1@gmail.com | Phone: (470)‑695‑2055</p>
+  <p>© 2026 Chainsaw Clay's Tree Service • All Rights Reserved</p>
+  <p>Email: boardwalkclay1@gmail.com | Phone: (470)-695-2055</p>
 </footer>
 `;
 
@@ -97,14 +97,16 @@ const app = document.getElementById("app");
 app.innerHTML = hero + difference + estimate + climbingClass + footer;
 
 // =========================
-– SCROLL LOGIC ONLY
+// SCROLL LOGIC ONLY
 // =========================
 function initScroll() {
-  document.querySelectorAll("[data-scroll]").forEach(link => {
-    link.addEventListener("click", e => {
+  document.querySelectorAll("[data-scroll]").forEach(function(link) {
+    link.addEventListener("click", function(e) {
       e.preventDefault();
       const target = document.querySelector(link.getAttribute("data-scroll"));
-      if (target) target.scrollIntoView({ behavior: "smooth" });
+      if (target) {
+        target.scrollIntoView({ behavior: "smooth" });
+      }
     });
   });
 }
