@@ -1,135 +1,168 @@
 {
-  "intro": [
-    "Hey! I’m your Helper Squirrel — your guide through the website, the training app, classes, knots, climbing techniques, business lessons, and account setup.",
-    "If you're new, I can explain how the classes work, how the app works, and what you’ll learn in each part of the training system.",
-    "Want to know how much classes cost, what’s included, or how to prepare? Just ask me.",
-    "I can also break down knots, climbing techniques, business skills, and real‑world tree work situations.",
-    "Need help installing the app or setting up your account? I’ve got you covered.",
-    "I’m always here in the bottom‑right corner — click me anytime you need help.",
-    "Let’s get you climbing smarter, safer, and more confidently.",
-    "Ready when you are — what do you want to learn today?"
+  "systemMessages": {
+    "emergency": "If someone is hurt, bleeding, unconscious, or in danger, stop everything and call 911 immediately. Tree work is serious — safety comes first.",
+    "fallback": "I’m not fully sure about that one yet, but I can explain classes, pricing, knots, climbing techniques, business skills, the training app, or account setup. Try asking about one of those."
+  },
+
+  "pricing": {
+    "overview": "Here’s the full pricing breakdown:\n\n• Group Climbing Class: $80 per person\n• Personal 1-on-1 Training: $200/hr\n• $500 Beginner Gear + Climbing Package\n• $700 Intermediate Gear + Technique Package\n• $1000 Full Arborist Package\n\nDigital Training:\n• Single Video: $20\n• 2-Video Bundle: $30\n• 4-Video Bundle: $40\n\nDeposits are 50% of the package price, non-refundable, and reserve your spot.",
+    "groupClass": "Group Climbing Class is $80 per person. You’ll learn gear setup, safety, throwline and anchor setting, basic climbing techniques, movement and positioning, and get real-tree climbing practice.",
+    "personalTraining": "Personal 1-on-1 Training is $200/hr. It covers advanced climbing systems, rigging and lowering, chainsaw technique overview, business coaching, and real-world jobsite scenarios tailored to you.",
+    "package500": "The $500 Beginner Gear + Climbing Package includes harness, rope, and carabiners. You’ll learn body thrusting, rappelling, and how to use the gear safely in real trees.",
+    "package700": "The $700 Intermediate Gear + Technique Package includes harness, lifeline rope, 2 buckstraps, and carabiners. You get everything from the $500 package plus footlocking and alternate lanyard technique.",
+    "package1000": "The $1000 Full Arborist Package includes harness, lifeline rope, 2 buckstraps, carabiners, and spikes. You get everything from the $500 and $700 packages plus safe spiking technique, when to spike and when not to, how to land jobs, and business training.",
+    "digitalOverview": "Digital training has three main ways to pay:\n\n• Single Video: $20\n• 2-Video Bundle: $30\n• 4-Video Bundle: $40\n\nYou can mix and match videos to build your own training path.",
+    "digitalSingle": "Single digital training videos are $20 each. Great if you want to focus on one specific skill like a knot, a climbing technique, or a business lesson.",
+    "digitalTwoPack": "You can buy 2 videos for $30. This is a bundle deal that saves you money compared to buying them individually.",
+    "digitalFourPack": "You can buy 4 videos for $40. This is the best value if you know you want multiple lessons and want to stack skills quickly.",
+    "deposits": "Deposits are 50% of the class or package price. They are non-refundable and reserve your spot. The remaining 50% is due on the day of class."
+  },
+
+  "classes": {
+    "overview": "Classes are built around real arborist skills:\n\n• Group Class ($80): foundational safety and climbing\n• Personal 1-on-1 ($200/hr): advanced systems and business coaching\n• Premium packages ($500, $700, $1000): gear included and deeper training.\n\nYou can see openings on the Classes page and reserve your spot with a deposit.",
+    "groupClass": "Group Climbing Class ($80) covers gear setup and safety, throwline and anchor setting, basic climbing techniques, movement and positioning, and real-tree climbing practice with others.",
+    "personalTraining": "Personal 1-on-1 Training ($200/hr) is focused on you. We can go deep into advanced climbing systems, rigging, lowering, chainsaw technique, and business coaching based on your goals.",
+    "premiumPackages": "Premium packages:\n\n• $500 Beginner Gear + Climbing Package\n• $700 Intermediate Gear + Technique Package\n• $1000 Full Arborist Package\n\nEach package has a 50% non-refundable deposit to reserve your spot.",
+    "schedule": "The Classes page shows a calendar with upcoming dates and openings. You select a date, choose your class type or package, and then reserve your spot with a deposit.",
+    "whatYouLearn": "In classes you’ll learn safety basics, essential knots, gear setup, throwline and anchor setting, climbing techniques (body thrusting, footlocking, spiking), rigging, cutting, and business skills."
+  },
+
+  "digital": {
+    "overview": "Digital training is your on-demand library of videos covering knots, safety, gear, climbing styles, rigging, cutting, and business.",
+    "appInstall": "You can install the training app from the App page. On most phones, you’ll see an 'Add to Home Screen' or 'Install App' option.",
+    "rewards": "Every 5 videos you complete unlocks 10% off a live class, up to 20% max per class.",
+    "access": "Your digital training access does not expire. Once you own a video, you can return to it anytime.",
+    "categories": {
+      "knots": "Covers bowline, running bowline, figure-eight, friction hitches, and rigging knots.",
+      "climbing": "Covers body thrusting, footlocking, rope walking, SRS, MRS, and spiking.",
+      "rigging": "Covers basic rigging, negative rigging, speedlines, redirects, and load control.",
+      "cutting": "Covers chainsaw safety, basic cuts, advanced cuts, hinge control, and scenario-based cutting.",
+      "business": "Covers pricing jobs, customer communication, jobsite flow, liability, and marketing."
+    }
+  },
+
+  "knots": {
+    "overview": "Knots are the backbone of safe climbing and rigging.",
+    "basic": "Basic arborist knots include the bowline, running bowline, figure-eight, and half-hitches.",
+    "friction": "Friction hitches include the Blake’s hitch, Prusik, VT (Valdotain Tresse), Schwabisch, and Distel.",
+    "rigging": "Rigging knots include the timber hitch, cow hitch, running bowline, and knots for securing logs and branches.",
+    "advanced": "Advanced knots include the monkey’s fist, alpine butterfly, marlin spike, and directional figure-eight.",
+    "usage": {
+      "tieIn": "Knots used for tie-in include the running bowline, figure-eight, and anchor knots.",
+      "rigging": "Rigging knots are used to secure loads, control movement, and attach hardware.",
+      "rescue": "Rescue knots include the Munter hitch, mariner’s knot, and load-releasing hitches."
+    }
+  },
+
+  "climbing": {
+    "overview": "Climbing techniques include body thrusting, footlocking, rope walking, SRS, MRS, and spiking.",
+    "bodyThrust": "Body thrusting is a foundational climbing technique using your hips and legs to move up the rope.",
+    "footlock": "Footlocking is a technique where you lock the rope between your feet to ascend.",
+    "spiking": "Spiking involves using climbing spikes to ascend a tree. Must be used carefully.",
+    "srs": "SRS uses a single static rope with specialized devices or hitches.",
+    "mrs": "MRS is the classic doubled rope system.",
+    "ropeWalking": "Rope walking uses foot ascenders to move smoothly up the rope.",
+    "redirects": "Redirects change your climbing angle and reduce friction.",
+    "lanyard": "Lanyard techniques include double lanyard movement, flipline control, and positioning.",
+    "canopyMovement": "Canopy movement includes limb walking, balance, and controlled transitions."
+  },
+
+  "rigging": {
+    "overview": "Rigging is how you control wood when you cut it.",
+    "basic": "Basic rigging covers gear overview, setting up a rigging point, and controlled lowers.",
+    "negative": "Negative rigging is when you cut wood below your anchor point.",
+    "speedline": "Speedline techniques move branches or logs quickly from the tree to a landing zone.",
+    "cutting": "Cutting techniques include chainsaw safety, basic cuts, advanced cuts, and scenario-based cutting.",
+    "hardware": {
+      "blocks": "Rigging blocks reduce friction and allow smooth lowering.",
+      "pulleys": "Pulleys redirect loads and reduce strain.",
+      "slings": "Slings attach hardware to the tree safely.",
+      "ropes": "Rigging ropes must be strong, static, and rated for load."
+    },
+    "scenarios": {
+      "tightDropZone": "When space is limited, use negative rigging or speedlines.",
+      "overHouse": "Use controlled lowering, redirects, and friction devices.",
+      "stormDamage": "Storm-damaged wood is unpredictable — use extra caution."
+    }
+  },
+
+  "cutting": {
+    "overview": "Cutting techniques include chainsaw safety, basic cuts, advanced cuts, hinge control, and scenario-based cutting.",
+    "safety": "Always wear PPE: helmet, chaps, gloves, eye protection, and hearing protection.",
+    "basicCuts": "Basic cuts include the snap cut, bypass cut, and undercut.",
+    "advancedCuts": "Advanced cuts include the bore cut, hinge control, and step cuts.",
+    "stormCuts": "Storm-damaged wood is under tension — identify compression and tension sides.",
+    "sawCare": "Saw care includes sharpening, bar maintenance, cleaning, and fuel mix.",
+    "kickback": "Kickback happens when the upper bar tip contacts wood — avoid it by controlling your cuts."
+  },
+
+  "business": {
+    "overview": "Business and jobsite flow covers pricing jobs, setup, communication, and safety.",
+    "pricingJobs": "Pricing jobs involves time, difficulty, risk, gear, disposal, and travel.",
+    "customers": "Customer communication includes explaining what you’ll do and setting expectations.",
+    "jobsiteFlow": "Jobsite flow covers setup, gear placement, crew roles, and efficiency.",
+    "liability": "Liability includes safety, signage, barriers, and risk management.",
+    "marketing": "Marketing includes photos, videos, before/after shots, and customer reviews.",
+    "upsells": "Upsells include stump grinding, debris removal, and additional pruning.",
+    "quotes": "Quotes should be clear, written, and include scope, price, and timeline."
+  },
+
+  "policy": {
+    "overview": "Policy covers deposits, refunds, and cancellations.",
+    "refunds": "Deposits are non-refundable.",
+    "deposits": "Deposits are 50% of the class or package price.",
+    "cancellations": "If you need to cancel or reschedule, contact the instructor.",
+    "weather": "If weather is unsafe, class may be rescheduled.",
+    "late": "If you are late, your session time may be reduced."
+  },
+
+  "account": {
+    "overview": "Account and access covers login, unlocking content, and support.",
+    "login": "If the app uses login, sign in with your email.",
+    "access": "Purchases unlock content for your account or device.",
+    "contact": "For account issues, contact the instructor’s business email.",
+    "lostAccess": "If you lose access, provide your email and purchase details."
+  },
+
+  "faq": [
+    {
+      "keywords": ["what are the prices", "how much", "cost"],
+      "reply": "Prices:\n• Group Class: $80\n• Personal 1-on-1: $200/hr\n• $500 Beginner Package\n• $700 Intermediate Package\n• $1000 Full Arborist Package\n• Digital videos: $20 each, 2 for $30, 4 for $40."
+    },
+    {
+      "keywords": ["what do i learn", "learn", "skills"],
+      "reply": "You’ll learn safety basics, knots, gear setup, throwline and anchor setting, climbing techniques, rigging, cutting, and business skills."
+    },
+    {
+      "keywords": ["deposit", "refundable", "non refundable"],
+      "reply": "Deposits are 50% and non-refundable. They reserve your spot."
+    },
+    {
+      "keywords": ["access", "expire", "how long"],
+      "reply": "Digital training access never expires."
+    },
+    {
+      "keywords": ["gear included", "what gear"],
+      "reply": "Premium packages include gear:\n• $500: harness, rope, carabiners\n• $700: adds lifeline rope, 2 buckstraps\n• $1000: adds spikes"
+    }
   ],
 
-  "website_info": [
-    "This website is your full hub for professional tree climbing training. You can explore classes, learn about the training app, check gear, and get direct help from me anytime.",
-    "The site is designed to guide you from beginner to advanced climber. Everything is organized so you can grow step‑by‑step.",
-    "If you're preparing for a class, the website gives you early access to training materials so you can start learning before you even show up.",
-    "The Classes page shows pricing, what’s included, and how each session works.",
-    "The About page explains the training app and how it connects to your real‑world climbing progress.",
-    "The Gear page explains the equipment used in tree climbing and why each piece matters.",
-    "This website is your roadmap — the app is your training ground."
-  ],
-
-  "class_info": [
-    "Group Classes cost $80 and cover gear setup, throwline work, basic climbing, movement, safety systems, and real‑tree practice.",
-    "Personal 1‑on‑1 sessions cost $200 per hour and let you focus on anything you want — advanced climbing, rigging, chainsaw technique, business coaching, or real‑world scenarios.",
-    "Classes are organized into hands‑on sections: gear setup, anchor setting, climbing systems, movement, safety, and canopy practice.",
-    "Group classes are great for beginners or anyone wanting structured training.",
-    "1‑on‑1 sessions are perfect for advanced climbers or people who want personalized coaching.",
-    "Every class includes real‑tree climbing time so you can apply what you learned immediately.",
-    "You can sign up for classes directly on the Classes page.",
-    "The training app prepares you before class so you show up confident and ready.",
-    "Completing app lessons unlocks discounts for live classes.",
-    "If you want help choosing a class, just ask me!"
-  ],
-
-  "course_info": [
-    "Courses inside the app are organized into categories: Knots, Climbing Techniques, Gear & Safety, Rigging, Cutting Techniques, and Business Skills.",
-    "Each course contains multiple short lessons designed to be easy to follow and packed with real‑world value.",
-    "You get lifetime access to every course you unlock.",
-    "The app tracks your progress automatically — no passwords needed.",
-    "Every 5 videos you complete unlocks a 30% discount on a live class.",
-    "Courses are designed to prepare you for real climbing, real jobs, and real safety situations.",
-    "You can learn at your own pace, anytime, anywhere.",
-    "Courses include step‑by‑step videos, explanations, and real‑world examples.",
-    "The app is your personal training library — always available, always growing.",
-    "If you want help choosing a course, I can guide you!"
-  ],
-
-  "app_info": [
-    "The training app gives you lifetime access to lessons, knots, climbing techniques, and business training.",
-    "You log in using your email — no password needed. The app sends you a secure login link.",
-    "Inside the app, you’ll find step‑by‑step videos that teach you everything from basic knots to advanced climbing systems.",
-    "The app includes a full knot library with real‑world explanations of when and why each knot is used.",
-    "You’ll learn climbing techniques like SRS, MRS, footlocking, rope walking, spur climbing, redirects, and limb walking.",
-    "The app also includes business lessons that teach you how to price jobs, communicate with customers, manage a crew, and run a professional tree service.",
-    "Every 5 videos you complete unlocks a 30% discount on a live class.",
-    "You can install the app on iPhone, Android, or desktop.",
-    "The app works offline after the first load — perfect for training outdoors.",
-    "Whether you're preparing for a class or learning on your own, the app gives you everything you need to climb safely and professionally."
-  ],
-
-  "account_setup": [
-    "To set up your account, go to the App page and enter your email. You’ll receive a secure login link — no password needed.",
-    "Once logged in, the app automatically saves your progress, completed lessons, and unlocked rewards.",
-    "Your account gives you lifetime access to all lessons you’ve purchased or unlocked.",
-    "If you switch devices, just log in with the same email — your progress syncs instantly.",
-    "If you don’t receive your login link, check your spam folder or try again.",
-    "Your account stores your discounts, class unlocks, and any special rewards you earn.",
-    "You can update your email anytime by contacting support.",
-    "Your account is your key to the entire training system.",
-    "Once your account is set up, you can start learning immediately.",
-    "If you need help setting up your account, just ask me!"
-  ],
-
-  "install_app": [
-    "iPhone: Tap the share icon → Add to Home Screen.",
-    "Android: Tap the menu (⋮) → Install App.",
-    "Desktop: Click the install icon in the address bar.",
-    "Once installed, the app works offline after the first load.",
-    "The installed version loads faster and feels like a native app.",
-    "You can install the app on multiple devices — your progress syncs automatically.",
-    "If installation doesn’t appear, try refreshing the page.",
-    "The app is lightweight and optimized for speed.",
-    "Installing the app gives you a cleaner, distraction‑free training experience.",
-    "If you need help installing, I can walk you through it."
-  ],
-
-  "knots": [
-    "Blake’s Hitch — smooth, reliable friction hitch used in MRS climbing. Great for beginners and pros.",
-    "Prusik — versatile hitch used for backups, rescues, and climbing systems.",
-    "Running Bowline — essential for rigging. Tightens under load and secures limbs safely.",
-    "Alpine Butterfly — creates a strong mid‑line loop for redirects or isolating rope damage.",
-    "Munter Hitch — used for controlled lowering and descent.",
-    "Bowline — strong, secure, and easy to untie after loading.",
-    "Clove Hitch — great for temporary holds and quick adjustments.",
-    "Figure‑Eight — used for climbing, anchoring, and creating secure loops.",
-    "Timber Hitch — perfect for securing logs and branches.",
-    "Double Fisherman’s — used to join two ropes securely."
-  ],
-
-  "climbing_techniques": [
-    "SRS — efficient for long ascents and conserving energy.",
-    "MRS — classic arborist climbing, great for limb walking.",
-    "Footlocking — fast vertical ascent technique.",
-    "Rope Walking — smooth, efficient, low‑energy climbing.",
-    "Spur Climbing — used for removals and spar work.",
-    "Limb Walking — essential for pruning and canopy movement.",
-    "Redirects — change your rope angle for better positioning.",
-    "Canopy Anchoring — setting safe, strong anchor points.",
-    "Double‑Rope Techniques — traditional climbing methods.",
-    "Advanced Movement — combining redirects, limb walking, and body positioning."
-  ],
-
-  "business": [
-    "Pricing Jobs — estimate based on time, risk, cleanup, and crew size.",
-    "Customer Communication — explain the job clearly and professionally.",
-    "Jobsite Flow — organize ropes, gear, and crew positions.",
-    "Crew Leadership — keep your team coordinated and safe.",
-    "Liability & Safety — protect yourself and your customers.",
-    "Real‑World Examples — storm damage, removals, pruning.",
-    "Marketing Basics — present your services professionally.",
-    "Upselling Services — offer additional work ethically.",
-    "Time Management — complete jobs efficiently.",
-    "Professionalism — stand out as a reliable arborist."
-  ],
-
-  "links": {
-    "home": "/",
-    "classes": "/pages/classes.html",
-    "about": "/pages/app-info.html",
-    "app": "/app/pages/index.html",
-    "contact": "/contact.html",
-    "account": "/app/pages/account.html"
-  }
+  "smallTalk": [
+    {
+      "keywords": ["hi", "hello", "hey"],
+      "reply": "Hey! I’m your Helper Squirrel — your guide through classes, pricing, knots, climbing techniques, business lessons, and the training app."
+    },
+    {
+      "keywords": ["thank you", "thanks"],
+      "reply": "You’re welcome! Ask me anything else you want to know."
+    },
+    {
+      "keywords": ["who are you", "what are you"],
+      "reply": "I’m the Helper Squirrel. I live inside this site and app to explain how everything works and help you make smart moves in your training."
+    },
+    {
+      "keywords": ["you real"],
+      "reply": "I’m digital, but the skills I talk about are very real. The trees, ropes, and chainsaws don’t care if you’re ready or not — so we train for real."
+    }
+  ]
 }
