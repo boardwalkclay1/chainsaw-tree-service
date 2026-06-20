@@ -1,10 +1,10 @@
 // =========================
-// CHAINSaw Clay's Tree Service + Climbing Class
+// Chainsaw Clay's Tree Service + Climbing Class
 // =========================
 
 // HERO SECTION
 const hero = `
-<section id="hero" style="background-image: url('img/tree-service-bg.jpg');">
+<section id="hero">
   <div class="hero-overlay"></div>
   <div class="hero-content">
     <img src="img/tree-service-logo.png" class="hero-logo">
@@ -97,7 +97,7 @@ const app = document.getElementById("app");
 app.innerHTML = hero + difference + estimate + climbingClass + footer;
 
 // =========================
-// SCROLL + SEASONAL LOGIC
+// SCROLL LOGIC ONLY
 // =========================
 function initScroll() {
   document.querySelectorAll("[data-scroll]").forEach(link => {
@@ -109,14 +109,4 @@ function initScroll() {
   });
 }
 
-function initSeasonal() {
-  const month = new Date().getMonth();
-  const body = document.body;
-  if (month >= 2 && month <= 4) body.classList.add("spring");
-  else if (month >= 5 && month <= 7) body.classList.add("summer");
-  else if (month >= 8 && month <= 10) body.classList.add("fall");
-  else body.classList.add("winter");
-}
-
 initScroll();
-initSeasonal();
