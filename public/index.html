@@ -23,11 +23,7 @@
   <link rel="stylesheet" href="css/main.css">
 </head>
 
-<!-- FULL BACKGROUND -->
-<body style="
-  background: url('/img/tree-service-logo.png') no-repeat center center fixed;
-  background-size: cover;
-">
+<body style="background: url('/img/tree-service-logo.png') no-repeat center center fixed; background-size: cover;">
 
 <header id="header">
   <img src="/img/tree-service-logo.png" alt="Chainsaw Clay Logo" class="header-logo">
@@ -57,12 +53,13 @@
 
 <main>
 
-  <!-- HERO WITH DARK BLOCKS BEHIND TEXT -->
+  <!-- HERO WITH BOTH LOGOS + BLACK BLOCKS -->
   <section id="hero">
     <div class="hero-content">
 
-      <div class="text-block">
+      <div class="text-block" style="display:flex; gap:20px; justify-content:center; align-items:center;">
         <img src="/img/tree-service-logo.png" class="hero-logo" alt="Chainsaw Clay Tree Service Logo">
+        <img src="/img/climb-logo.jpg" class="hero-logo" alt="Climbing Class Logo" style="height:90px;">
       </div>
 
       <div class="text-block">
@@ -80,9 +77,9 @@
         </p>
       </div>
 
-      <div class="hero-buttons">
-        <button class="btn primary" data-scroll="#estimate">Request Estimate</button>
-        <button class="btn secondary" data-scroll="#climbing-class">Climbing Class Info</button>
+      <div class="hero-buttons text-block">
+        <button class="btn primary">Request Estimate</button>
+        <button class="btn secondary">Climbing Class Info</button>
       </div>
 
     </div>
