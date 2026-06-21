@@ -7,24 +7,36 @@
 
   <link rel="icon" type="image/x-icon" href="img/favicon.ico">
 
+  <meta property="og:title" content="Chainsaw Clay's Tree Service">
+  <meta property="og:description" content="Tree service, climbing classes, storm cleanup, pruning, and full yard planning.">
+  <meta property="og:image" content="img/tree-service-logo.png">
+  <meta property="og:type" content="website">
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Chainsaw Clay's Tree Service">
+  <meta name="twitter:description" content="Professional Tree Care • Real Experience • Real Results">
+  <meta name="twitter:image" content="img/tree-service-logo.png">
+
   <link href="https://fonts.googleapis.com/css2?family=Anton&family=Staatliches&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/main.css">
 
   <style>
-    /* PAGE BACKGROUND */
+    /* PAGE BACKGROUND: logo fixed at top, black behind */
     body {
       background: #000 url('/img/tree-service-logo.png') no-repeat center top fixed;
       background-size: contain;
       margin: 0;
       padding: 0;
+      color: white;
+      font-family: 'Staatliches', sans-serif;
     }
 
-    /* CLAY PHOTO — TOP LEFT, OVER EVERYTHING */
+    /* Clay photo — top-left, slightly smaller, over everything */
     #clay-photo {
       position: absolute;
       top: 0;
       left: 0;
-      width: 264px;   /* quarter inch smaller */
+      width: 264px;
       height: 264px;
       object-fit: cover;
       border-radius: 8px;
@@ -33,7 +45,7 @@
       z-index: 99999;
     }
 
-    /* NAVIGATION — MOVED TO THE RIGHT OF THE PHOTO */
+    /* Navigation to the right of photo */
     .header-nav {
       position: absolute;
       top: 20px;
@@ -47,14 +59,14 @@
     .header-nav a,
     .dropdown-btn {
       font-family: 'Anton', sans-serif;
-      font-size: 22px;
-      color: white;
+      font-size: 20px;
+      color: #00ff00; /* green */
       cursor: pointer;
       text-transform: uppercase;
       letter-spacing: 1px;
+      text-decoration: none;
     }
 
-    /* DROPDOWN STYLING */
     .nav-dropdown {
       position: relative;
     }
@@ -62,7 +74,7 @@
     .dropdown-btn {
       background: none;
       border: none;
-      color: gold;
+      padding: 0;
     }
 
     .dropdown-content {
@@ -70,9 +82,9 @@
       position: absolute;
       top: 35px;
       left: 0;
-      background: rgba(0,0,0,0.9);
+      background: rgba(0,0,0,0.95);
       padding: 20px;
-      border: 2px solid gold;
+      border: 2px solid #00ff00;
       border-radius: 8px;
       width: 260px;
       z-index: 9999;
@@ -87,11 +99,11 @@
       width: 100%;
       padding: 10px;
       margin-top: 10px;
-      background: gold;
+      background: #00ff00;
       border: none;
       color: black;
       font-family: 'Anton';
-      font-size: 18px;
+      font-size: 16px;
       cursor: pointer;
       border-radius: 6px;
       text-align: center;
@@ -99,112 +111,413 @@
       text-decoration: none;
     }
 
-    /* CLIMBING CLASS SECTION — CINEMATIC */
-    #climbing-class {
-      background: rgba(0,0,0,0.85);
-      padding: 40px;
-      margin-top: 40px;
-      border-top: 3px solid gold;
-      border-bottom: 3px solid gold;
+    .climb-logo-inline {
+      height: 32px;
+      border-radius: 4px;
+      vertical-align: middle;
+      margin-right: 6px;
     }
 
-    #climbing-class h2 {
-      font-family: 'Anton';
-      font-size: 40px;
-      color: gold;
+    main {
+      padding-top: 340px; /* clear space for photo + nav */
+    }
+
+    h1, h2, h3 {
+      font-family: 'Anton', sans-serif;
+    }
+
+    .text-block {
+      margin-bottom: 12px;
+    }
+
+    .hero-content {
       text-align: center;
+      padding: 40px 20px;
+    }
+
+    .hero-logo {
+      height: 90px;
+    }
+
+    .hero-tagline {
+      font-size: 22px;
+    }
+
+    .hero-description {
+      max-width: 700px;
+      margin: 0 auto;
+      font-size: 18px;
+    }
+
+    .hero-buttons {
+      margin-top: 20px;
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+    }
+
+    .btn {
+      padding: 10px 20px;
+      border-radius: 6px;
+      border: none;
+      cursor: pointer;
+      font-family: 'Anton';
+      font-size: 16px;
+    }
+
+    .btn.primary {
+      background: #00ff00;
+      color: black;
+    }
+
+    .btn.secondary {
+      background: transparent;
+      border: 2px solid #00ff00;
+      color: #00ff00;
+    }
+
+    /* Features grid */
+    #features {
+      padding: 40px 20px;
+    }
+
+    #features h2 {
+      text-align: center;
+      font-size: 32px;
+      color: #00ff00;
       margin-bottom: 20px;
     }
 
-    .climb-description {
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 20px;
+    }
+
+    .feature-card {
       background: #111;
       padding: 20px;
       border-radius: 8px;
-      border: 2px solid gold;
+      border: 2px solid #00ff00;
+    }
+
+    .feature-card h3 {
+      margin-bottom: 8px;
+      font-size: 20px;
+      color: #00ff00;
+    }
+
+    /* Estimate section */
+    #estimate {
+      padding: 40px 20px;
+    }
+
+    #estimate h2 {
+      text-align: center;
+      font-size: 32px;
+      color: #00ff00;
+      margin-bottom: 20px;
+    }
+
+    #estimate-form {
+      max-width: 700px;
+      margin: 0 auto;
+      background: #111;
+      padding: 20px;
+      border-radius: 8px;
+      border: 2px solid #00ff00;
+    }
+
+    #estimate-form label {
+      display: block;
+      margin-top: 10px;
+      margin-bottom: 4px;
+    }
+
+    #estimate-form input,
+    #estimate-form select,
+    #estimate-form textarea {
+      width: 100%;
+      padding: 8px;
+      border-radius: 4px;
+      border: 1px solid #333;
+      background: #000;
+      color: white;
+      font-family: 'Staatliches', sans-serif;
+    }
+
+    #estimate-form button {
+      margin-top: 20px;
+      width: 100%;
+    }
+
+    /* Climbing class section */
+    #climbing-class {
+      padding: 40px 20px;
+      background: rgba(0,0,0,0.9);
+      border-top: 3px solid #00ff00;
+      border-bottom: 3px solid #00ff00;
+    }
+
+    #climbing-class h2 {
+      text-align: center;
+      font-size: 32px;
+      color: #00ff00;
+      margin-bottom: 20px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .climb-logo-main {
+      height: 60px;
+      border-radius: 6px;
+    }
+
+    .climb-small {
+      text-align: center;
+      font-size: 18px;
+      margin-bottom: 20px;
+    }
+
+    .climb-details {
+      max-width: 700px;
+      margin: 0 auto;
+      background: #111;
+      border-radius: 8px;
+      border: 2px solid #00ff00;
+      padding: 10px 20px;
+    }
+
+    .climb-description {
       color: white;
       font-size: 18px;
     }
 
+    details summary {
+      cursor: pointer;
+      font-size: 20px;
+      color: #00ff00;
+    }
+
+    /* Contact section */
+    #contact {
+      padding: 40px 20px;
+      text-align: center;
+    }
+
+    #contact h2 {
+      font-size: 28px;
+      color: #00ff00;
+      margin-bottom: 10px;
+    }
   </style>
 </head>
 
 <body>
 
-<!-- CLAY PHOTO -->
+<!-- Clay photo -->
 <img id="clay-photo" src="/img/me-climb.jpg" alt="Clayvonte Climbing">
 
 <header id="header">
 
-  <!-- NAVIGATION -->
+  <!-- Navigation to the right of photo -->
   <nav class="header-nav">
+    <a class="text-block" data-scroll="#hero">Home</a>
+    <a class="text-block" data-scroll="#features">Features</a>
+    <a class="text-block" data-scroll="#estimate">Estimate</a>
 
-    <a data-scroll="#hero">Home</a>
-    <a data-scroll="#features">Features</a>
-    <a data-scroll="#estimate">Estimate</a>
+    <!-- First climbing class dropdown -->
+    <div class="nav-dropdown text-block">
+      <button class="dropdown-btn">
+        <img src="/img/climb-logo.jpg" class="climb-logo-inline" alt="Climbing Class Logo">
+        Climbing Class ▾
+      </button>
 
-    <!-- FIRST DROPDOWN -->
-    <div class="nav-dropdown">
-      <button class="dropdown-btn">Climbing Class ▾</button>
-
-      <div class="dropdown-content">
-        <p>Learn knots, gear, movement, safety, canopy flow.</p>
-        <button onclick="window.location.href='/climbing-class/public/index.html'">
+      <div class="dropdown-content text-block">
+        <p>Learn real climbing from a real climber — knots, gear, movement, safety, and canopy flow.</p>
+        <button type="button" onclick="window.location.href='/climbing-class/public/index.html'">
           View Full Class Page
         </button>
       </div>
     </div>
 
-    <!-- SECOND DROPDOWN WITH LINK TO ENTER SITE -->
-    <div class="nav-dropdown">
-      <button class="dropdown-btn">Enter Class Site ▾</button>
+    <!-- Second dropdown: enter class site -->
+    <div class="nav-dropdown text-block">
+      <button class="dropdown-btn">
+        <img src="/img/climb-logo.jpg" class="climb-logo-inline" alt="Climbing Class Logo">
+        Enter Class Site ▾
+      </button>
 
-      <div class="dropdown-content">
+      <div class="dropdown-content text-block">
         <a href="/climbing-class/public/index.html">Enter Climbing Class Site</a>
       </div>
     </div>
 
-    <a data-scroll="#contact">Contact</a>
-
+    <a class="text-block" data-scroll="#contact">Contact</a>
   </nav>
 </header>
 
 <main>
 
   <!-- HERO -->
-  <section id="hero" style="padding-top:350px;">
-    <div class="hero-content text-block">
-      <h1 style="color:white; text-align:center;">Chainsaw Clay's Tree Service</h1>
+  <section id="hero">
+    <div class="hero-content">
+
+      <div class="text-block" style="display:flex; gap:20px; justify-content:center; align-items:center;">
+        <img src="/img/tree-service-logo.png" class="hero-logo" alt="Tree Service Logo">
+        <img src="/img/climb-logo.jpg" class="hero-logo" alt="Climbing Class Logo">
+      </div>
+
+      <div class="text-block">
+        <h1>Chainsaw Clay's Tree Service</h1>
+      </div>
+
+      <div class="text-block">
+        <p class="hero-tagline">Professional Tree Care • Real Experience • Real Results</p>
+      </div>
+
+      <div class="text-block">
+        <p class="hero-description">
+          High-level climbing, safe removals, precision pruning, storm cleanup, gardening, and
+          professional climbing classes taught by a real climber with 10+ years in the canopy.
+        </p>
+      </div>
+
+      <div class="text-block hero-buttons">
+        <button class="btn primary">Request Estimate</button>
+        <button class="btn secondary">Climbing Class Info</button>
+      </div>
+
     </div>
   </section>
 
   <!-- FEATURES -->
-  <section id="features" style="color:white; padding:40px;">
+  <section id="features">
     <h2 class="text-block">What Makes Us Different</h2>
+
+    <div class="features-grid">
+      <div class="feature-card text-block">
+        <h3>High-Level Climbing</h3>
+        <p>Advanced rigging and canopy navigation.</p>
+      </div>
+      <div class="feature-card text-block">
+        <h3>Tree Health Tech</h3>
+        <p>Movement analysis and structure evaluation.</p>
+      </div>
+      <div class="feature-card text-block">
+        <h3>Storm Cleanup</h3>
+        <p>Fast, safe, and precise emergency cleanup.</p>
+      </div>
+      <div class="feature-card text-block">
+        <h3>Full Yard Planning</h3>
+        <p>Flowers, shrubs, fruit trees, and layouts.</p>
+      </div>
+      <div class="feature-card text-block">
+        <h3>Advanced Tools</h3>
+        <p>Measurement tools and yard designer modules.</p>
+      </div>
+      <div class="feature-card text-block">
+        <h3>Tech-Powered Service</h3>
+        <p>Digital estimates and visual planning.</p>
+      </div>
+    </div>
   </section>
 
   <!-- ESTIMATE -->
-  <section id="estimate" style="color:white; padding:40px;">
+  <section id="estimate">
     <h2 class="text-block">Request an Estimate</h2>
+
+    <form id="estimate-form" enctype="multipart/form-data" class="text-block">
+      <h3>Service Details</h3>
+
+      <label>Service Type</label>
+      <select name="serviceType" required>
+        <option value="">Select a service</option>
+        <option value="full-removal">Full Removal</option>
+        <option value="pruning">Pruning</option>
+        <option value="storm-cleanup">Storm Cleanup</option>
+        <option value="general-cleanup">General Cleanup</option>
+        <option value="planting-layout">Planting / Layout</option>
+      </select>
+
+      <label>Upload Photos (optional)</label>
+      <input type="file" name="photos" multiple accept="image/*">
+
+      <label>Project Description</label>
+      <textarea name="description"></textarea>
+
+      <h3>Contact Info</h3>
+
+      <label>Your Name</label>
+      <input type="text" name="name" required>
+
+      <label>Phone Number</label>
+      <input type="tel" name="phone" required>
+
+      <label>Email</label>
+      <input type="email" name="email" required>
+
+      <label>Address</label>
+      <input type="text" name="address" required>
+
+      <h3>Availability for Estimate</h3>
+
+      <label>Days Available</label>
+      <input type="text" name="days">
+
+      <label>Times Available</label>
+      <input type="text" name="times">
+
+      <button class="btn primary">Submit Estimate Request</button>
+    </form>
   </section>
 
-  <!-- CLIMBING CLASS — STYLED -->
+  <!-- CLIMBING CLASS -->
   <section id="climbing-class">
-    <h2>Chainsaw Clay's Tree Climbing Class</h2>
+    <h2 class="text-block">
+      <img src="/img/climb-logo.jpg" class="climb-logo-main" alt="Climbing Class Logo">
+      Chainsaw Clay's Tree Climbing Class
+      <img src="/img/climb-logo.jpg" class="climb-logo-main" alt="Climbing Class Logo">
+    </h2>
 
-    <div class="climb-description">
-      <p>
-        Real climbing. Real knots. Real canopy flow.  
-        Learn gear, movement, anchor points, safety, and full tree navigation.
-      </p>
+    <div class="text-block">
+      <img src="/img/climb-logo.jpg" class="climb-logo-main" alt="Climbing Class Logo">
     </div>
+
+    <p class="climb-small text-block">
+      Learn real climbing from a real climber — gear, knots, movement, safety, and canopy flow.
+    </p>
+
+    <details class="climb-details text-block">
+      <summary>Full Class Description</summary>
+      <div class="climb-description">
+        <p>
+          The Chainsaw Clay Climbing Class is a hands-on, real-world training experience designed for
+          beginners, homeowners, and future arborists. You will learn:
+        </p>
+        <ul>
+          <li>Rope setup, knots, and climbing systems</li>
+          <li>Movement, balance, and canopy flow</li>
+          <li>Gear selection and safety fundamentals</li>
+          <li>Tree structure, anchor points, and load awareness</li>
+          <li>How to climb confidently and safely</li>
+        </ul>
+        <p>
+          Classes are available as group workshops or personal 1-on-1 sessions.
+          All training is based on real climbing experience — not theory.
+        </p>
+      </div>
+    </details>
   </section>
 
 </main>
 
-<section id="contact" style="color:white; padding:40px;">
-  <h2>Contact Us</h2>
-  <p>Email: boardwalkclay1@gmail.com</p>
-  <p>Phone: (470)-695-2055</p>
+<section id="contact">
+  <h2 class="text-block">Contact Us</h2>
+  <p class="text-block">Email: boardwalkclay1@gmail.com</p>
+  <p class="text-block">Phone: (470)-695-2055</p>
 </section>
 
 <script src="js/index.js"></script>
