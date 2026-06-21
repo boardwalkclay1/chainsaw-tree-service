@@ -5,10 +5,8 @@
   <title>Chainsaw Clay's Tree Service</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <!-- FAVICON -->
   <link rel="icon" type="image/x-icon" href="img/favicon.ico">
 
-  <!-- SOCIAL PREVIEW -->
   <meta property="og:title" content="Chainsaw Clay's Tree Service">
   <meta property="og:description" content="Tree service, climbing classes, storm cleanup, pruning, and full yard planning.">
   <meta property="og:image" content="img/tree-service-logo.png">
@@ -19,68 +17,28 @@
   <meta name="twitter:description" content="Professional Tree Care • Real Experience • Real Results">
   <meta name="twitter:image" content="img/tree-service-logo.png">
 
-  <!-- FONTS -->
   <link href="https://fonts.googleapis.com/css2?family=Anton&family=Staatliches&display=swap" rel="stylesheet">
-
-  <!-- MAIN CSS -->
   <link rel="stylesheet" href="css/main.css">
-
-  <style>
-    /* FULL BACKGROUND SECTION */
-    .bg-section {
-      background: url('/img/tree-service-logo.png') no-repeat center center fixed;
-      background-size: cover;
-      padding-bottom: 80px;
-    }
-
-    /* BLACK CUTOFF BELOW */
-    #contact {
-      background: #000;
-      color: #fff;
-      padding: 60px 20px;
-    }
-
-    /* OPTIONAL FADE EFFECT */
-    .bg-section::after {
-      content: "";
-      display: block;
-      height: 120px;
-      background: linear-gradient(to bottom, rgba(0,0,0,0) 0%, #000 100%);
-      margin-top: -60px;
-    }
-
-    /* LOGO SIZE FIX */
-    .header-logo {
-      height: 120px;
-      width: auto;
-    }
-
-    .hero-logo {
-      height: 120px;
-      width: auto;
-    }
-  </style>
 </head>
 
-<body>
-
-<!-- EVERYTHING ABOVE THE CUTOFF -->
-<div class="bg-section">
+<body style="background: url('/img/tree-service-logo.png') no-repeat center center fixed; background-size: cover;">
 
 <header id="header">
-  <img src="/img/tree-service-logo.png" alt="Chainsaw Clay Logo" class="header-logo">
+  <div class="text-block">
+    <img src="/img/tree-service-logo.png" alt="Chainsaw Clay Logo" class="header-logo">
+  </div>
 
   <nav class="header-nav">
-    <a data-scroll="#hero">Home</a>
-    <a data-scroll="#features">Features</a>
-    <a data-scroll="#estimate">Estimate</a>
+    <a class="text-block" data-scroll="#hero">Home</a>
+    <a class="text-block" data-scroll="#features">Features</a>
+    <a class="text-block" data-scroll="#estimate">Estimate</a>
 
-    <div class="nav-dropdown">
+    <div class="nav-dropdown text-block">
       <button class="dropdown-btn" type="button">Climbing Class ▾</button>
 
       <img src="/img/climb-logo.jpg" class="dropdown-logo" alt="Climbing Class Logo">
 
-      <div class="dropdown-content">
+      <div class="dropdown-content text-block">
         <p>Learn real climbing from a real climber — knots, gear, movement, safety, and canopy flow.</p>
 
         <button type="button" onclick="window.location.href='/climbing-class/public/index.html'">
@@ -89,7 +47,7 @@
       </div>
     </div>
 
-    <a data-scroll="#contact">Contact</a>
+    <a class="text-block" data-scroll="#contact">Contact</a>
   </nav>
 </header>
 
@@ -100,8 +58,8 @@
     <div class="hero-content">
 
       <div class="text-block" style="display:flex; gap:20px; justify-content:center; align-items:center;">
-        <img src="/img/tree-service-logo.png" class="hero-logo" alt="Chainsaw Clay Tree Service Logo">
-        <img src="/img/climb-logo.jpg" class="hero-logo" alt="Climbing Class Logo" style="height:120px;">
+        <img src="/img/tree-service-logo.png" class="hero-logo">
+        <img src="/img/climb-logo.jpg" class="hero-logo" style="height:90px;">
       </div>
 
       <div class="text-block">
@@ -119,9 +77,9 @@
         </p>
       </div>
 
-      <div class="hero-buttons text-block">
-        <button class="btn primary" data-scroll="#estimate">Request Estimate</button>
-        <button class="btn secondary" onclick="window.location.href='/climbing-class/public/index.html'">Climbing Class Info</button>
+      <div class="text-block hero-buttons">
+        <button class="btn primary">Request Estimate</button>
+        <button class="btn secondary">Climbing Class Info</button>
       </div>
 
     </div>
@@ -162,7 +120,7 @@
       <input type="file" name="photos" multiple accept="image/*">
 
       <label>Project Description</label>
-      <textarea name="description" placeholder="Describe your trees, access, hazards, and goals"></textarea>
+      <textarea name="description"></textarea>
 
       <h3>Contact Info</h3>
 
@@ -181,12 +139,12 @@
       <h3>Availability for Estimate</h3>
 
       <label>Days Available</label>
-      <input type="text" name="days" placeholder="Example: Mon, Wed, Sat">
+      <input type="text" name="days">
 
       <label>Times Available</label>
-      <input type="text" name="times" placeholder="Example: 9am–12pm, 4pm–7pm">
+      <input type="text" name="times">
 
-      <button type="submit" class="btn primary">Submit Estimate Request</button>
+      <button class="btn primary">Submit Estimate Request</button>
     </form>
   </section>
 
@@ -195,7 +153,7 @@
     <h2 class="text-block">Chainsaw Clay's Tree Climbing Class</h2>
 
     <div class="text-block">
-      <img src="/img/climb-logo.jpg" alt="Climbing Class Logo" class="climb-logo" style="height:120px;">
+      <img src="/img/climb-logo.jpg" class="climb-logo">
     </div>
 
     <p class="climb-small text-block">
@@ -226,9 +184,6 @@
 
 </main>
 
-</div> <!-- END OF BACKGROUND SECTION -->
-
-<!-- BLACK CUTOFF SECTION -->
 <section id="contact">
   <h2 class="text-block">Contact Us</h2>
   <p class="text-block">Email: boardwalkclay1@gmail.com</p>
