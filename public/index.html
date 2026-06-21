@@ -5,8 +5,10 @@
   <title>Chainsaw Clay's Tree Service</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
+  <!-- FAVICON -->
   <link rel="icon" type="image/x-icon" href="img/favicon.ico">
 
+  <!-- SOCIAL PREVIEW -->
   <meta property="og:title" content="Chainsaw Clay's Tree Service">
   <meta property="og:description" content="Tree service, climbing classes, storm cleanup, pruning, and full yard planning.">
   <meta property="og:image" content="img/tree-service-logo.png">
@@ -17,13 +19,53 @@
   <meta name="twitter:description" content="Professional Tree Care • Real Experience • Real Results">
   <meta name="twitter:image" content="img/tree-service-logo.png">
 
-  <!-- NEW FONT -->
+  <!-- FONTS -->
   <link href="https://fonts.googleapis.com/css2?family=Anton&family=Staatliches&display=swap" rel="stylesheet">
 
+  <!-- MAIN CSS -->
   <link rel="stylesheet" href="css/main.css">
+
+  <style>
+    /* FULL BACKGROUND SECTION */
+    .bg-section {
+      background: url('/img/tree-service-logo.png') no-repeat center center fixed;
+      background-size: cover;
+      padding-bottom: 80px;
+    }
+
+    /* BLACK CUTOFF BELOW */
+    #contact {
+      background: #000;
+      color: #fff;
+      padding: 60px 20px;
+    }
+
+    /* OPTIONAL FADE EFFECT */
+    .bg-section::after {
+      content: "";
+      display: block;
+      height: 120px;
+      background: linear-gradient(to bottom, rgba(0,0,0,0) 0%, #000 100%);
+      margin-top: -60px;
+    }
+
+    /* LOGO SIZE FIX */
+    .header-logo {
+      height: 120px;
+      width: auto;
+    }
+
+    .hero-logo {
+      height: 120px;
+      width: auto;
+    }
+  </style>
 </head>
 
-<body style="background: url('/img/tree-service-logo.png') no-repeat center center fixed; background-size: cover;">
+<body>
+
+<!-- EVERYTHING ABOVE THE CUTOFF -->
+<div class="bg-section">
 
 <header id="header">
   <img src="/img/tree-service-logo.png" alt="Chainsaw Clay Logo" class="header-logo">
@@ -53,13 +95,13 @@
 
 <main>
 
-  <!-- HERO WITH BOTH LOGOS + BLACK BLOCKS -->
+  <!-- HERO -->
   <section id="hero">
     <div class="hero-content">
 
       <div class="text-block" style="display:flex; gap:20px; justify-content:center; align-items:center;">
         <img src="/img/tree-service-logo.png" class="hero-logo" alt="Chainsaw Clay Tree Service Logo">
-        <img src="/img/climb-logo.jpg" class="hero-logo" alt="Climbing Class Logo" style="height:90px;">
+        <img src="/img/climb-logo.jpg" class="hero-logo" alt="Climbing Class Logo" style="height:120px;">
       </div>
 
       <div class="text-block">
@@ -78,8 +120,8 @@
       </div>
 
       <div class="hero-buttons text-block">
-        <button class="btn primary">Request Estimate</button>
-        <button class="btn secondary">Climbing Class Info</button>
+        <button class="btn primary" data-scroll="#estimate">Request Estimate</button>
+        <button class="btn secondary" onclick="window.location.href='/climbing-class/public/index.html'">Climbing Class Info</button>
       </div>
 
     </div>
@@ -153,7 +195,7 @@
     <h2 class="text-block">Chainsaw Clay's Tree Climbing Class</h2>
 
     <div class="text-block">
-      <img src="/img/climb-logo.jpg" alt="Climbing Class Logo" class="climb-logo">
+      <img src="/img/climb-logo.jpg" alt="Climbing Class Logo" class="climb-logo" style="height:120px;">
     </div>
 
     <p class="climb-small text-block">
@@ -184,6 +226,9 @@
 
 </main>
 
+</div> <!-- END OF BACKGROUND SECTION -->
+
+<!-- BLACK CUTOFF SECTION -->
 <section id="contact">
   <h2 class="text-block">Contact Us</h2>
   <p class="text-block">Email: boardwalkclay1@gmail.com</p>
