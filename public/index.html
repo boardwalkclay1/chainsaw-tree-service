@@ -21,32 +21,36 @@
   <link rel="stylesheet" href="css/main.css">
 
   <style>
-    /* Clay photo — NOT fixed, NOT floating, lowered 1 inch, 1.5× size */
+    /* Clay photo — top-left, on top of everything, NOT fixed */
     #clay-photo {
       position: absolute;
-      top: 96px;      /* 1 inch down */
-      left: 10px;
-      width: 288px;   /* 1.5 × 192px */
+      top: 0;
+      left: 0;
+      width: 288px;   /* 1.5× size */
       height: 288px;
-      border-radius: 8px;
       object-fit: cover;
+      border-radius: 8px;
       border: 3px solid #fff;
       box-shadow: 0 0 10px rgba(0,0,0,0.4);
+      z-index: 9999;
       background: #000;
-      z-index: 10;
+    }
+
+    /* Remove the old header logo spacing */
+    header .text-block img.header-logo {
+      display: none !important;
     }
   </style>
 </head>
 
 <body style="background: url('/img/tree-service-logo.png') no-repeat center center fixed; background-size: cover;">
 
-<!-- Clay photo (NOT floating, NOT scrolling) -->
+<!-- Clay photo (top-left, absolute, not scrolling) -->
 <img id="clay-photo" src="/img/me-climb.jpg" alt="Clayvonte Climbing">
 
 <header id="header">
-  <div class="text-block">
-    <img src="/img/tree-service-logo.png" alt="Chainsaw Clay Logo" class="header-logo">
-  </div>
+
+  <!-- Logo removed per your request -->
 
   <nav class="header-nav">
     <a class="text-block" data-scroll="#hero">Home</a>
