@@ -21,7 +21,7 @@
   <link rel="stylesheet" href="css/main.css">
 
   <style>
-    /* Clay photo — top-left, on top of everything, NOT fixed */
+    /* Clay photo — top-left, above EVERYTHING */
     #clay-photo {
       position: absolute;
       top: 0;
@@ -32,11 +32,22 @@
       border-radius: 8px;
       border: 3px solid #fff;
       box-shadow: 0 0 10px rgba(0,0,0,0.4);
-      z-index: 9999;
       background: #000;
+      z-index: 99999; /* OVER EVERYTHING */
     }
 
-    /* Remove the old header logo spacing */
+    /* Move nav to the right of the photo */
+    .header-nav {
+      position: absolute;
+      top: 20px;
+      left: 310px; /* 288px photo + spacing */
+      display: flex;
+      gap: 25px;
+      align-items: center;
+      z-index: 5000;
+    }
+
+    /* Remove old logo entirely */
     header .text-block img.header-logo {
       display: none !important;
     }
@@ -45,13 +56,12 @@
 
 <body style="background: url('/img/tree-service-logo.png') no-repeat center center fixed; background-size: cover;">
 
-<!-- Clay photo (top-left, absolute, not scrolling) -->
+<!-- Clay photo (top-left, overlays nav) -->
 <img id="clay-photo" src="/img/me-climb.jpg" alt="Clayvonte Climbing">
 
 <header id="header">
 
-  <!-- Logo removed per your request -->
-
+  <!-- NAV NOW TO THE RIGHT OF YOUR PHOTO -->
   <nav class="header-nav">
     <a class="text-block" data-scroll="#hero">Home</a>
     <a class="text-block" data-scroll="#features">Features</a>
