@@ -27,7 +27,8 @@
     body {
       margin: 0;
       padding: 0;
-      background: #050608;
+      background: url('/img/tree-service-bg.jpg') no-repeat center center fixed;
+      background-size: cover;
       color: #fff;
       font-family: 'Anton', sans-serif;
       overflow-x: hidden;
@@ -46,6 +47,18 @@
       text-shadow: 0 0 10px #ff7b00;
     }
 
+    /* TOP LEFT PHOTO */
+    #top-left-photo {
+      position: absolute;
+      top: 20px;
+      left: 20px;
+      height: 160px;
+      width: auto;
+      border-radius: 12px;
+      box-shadow: 0 0 18px #ff7b00;
+      z-index: 999;
+    }
+
     /* NAVIGATION */
     #header {
       width: 100%;
@@ -57,7 +70,7 @@
       border-bottom: 2px solid #ff7b00;
       position: sticky;
       top: 0;
-      z-index: 999;
+      z-index: 998;
     }
 
     #header a {
@@ -78,7 +91,7 @@
 
     /* HERO */
     #hero {
-      padding: 120px 20px 80px;
+      padding: 160px 20px 80px;
       text-align: center;
     }
 
@@ -218,6 +231,9 @@
   📞 (470)-695-2055 &nbsp; | &nbsp; ✉️ boardwalkclay1@gmail.com
 </div>
 
+<!-- TOP LEFT PHOTO -->
+<img id="top-left-photo" src="/img/tree-service-logo.png" alt="Tree Service Photo">
+
 <!-- NAVIGATION -->
 <header id="header">
   <a href="#hero">Home</a>
@@ -262,7 +278,7 @@
   </div>
 </section>
 
-<!-- CLIMBING CLASS PROMO (SECOND LOGO APPEARANCE) -->
+<!-- CLIMBING CLASS PROMO -->
 <section id="climb-promo">
   <div class="promo-box">
 
