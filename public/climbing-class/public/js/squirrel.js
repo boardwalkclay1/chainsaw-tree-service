@@ -17,7 +17,7 @@
   // -----------------------------
   async function loadSquirrelData() {
     try {
-      const res = await fetch("/public/js/squirrel-data.json");
+      const res = await fetch("/climbing-class/public/json/squirrel-data.json");
       squirrelData = await res.json();
       logSystem("Squirrel data loaded.");
     } catch (err) {
