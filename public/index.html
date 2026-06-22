@@ -27,7 +27,7 @@
     body {
       margin: 0;
       padding: 0;
-      background: url('/img/tree-service-logo.png') no-repeat center center fixed;
+      background: url('img/tree-service-logo.png') no-repeat center center fixed;
       background-size: cover;
       color: #fff;
       font-family: 'Anton', sans-serif;
@@ -47,14 +47,13 @@
       text-shadow: 0 0 10px #ff7b00;
     }
 
-    /* TOP LEFT PHOTO — SQUARE + BIGGER */
+    /* TOP LEFT PHOTO */
     #top-left-photo {
       position: absolute;
       top: 20px;
       left: 20px;
-      height: 200px;
-      width: 200px;
-      object-fit: cover;
+      height: 160px;
+      width: auto;
       border-radius: 12px;
       box-shadow: 0 0 18px #ff7b00;
       z-index: 999;
@@ -92,7 +91,7 @@
 
     /* HERO */
     #hero {
-      padding: 200px 20px 80px;
+      padding: 160px 20px 80px;
       text-align: center;
     }
 
@@ -193,6 +192,50 @@
       border-color: #ff9d3b;
     }
 
+    /* ESTIMATE FORM */
+    #estimate {
+      padding: 80px 20px;
+      text-align: center;
+    }
+
+    #estimate-box {
+      max-width: 700px;
+      margin: 0 auto;
+      background: rgba(0,0,0,0.75);
+      padding: 30px;
+      border-radius: 18px;
+      border: 2px solid #ff7b00;
+      box-shadow: 0 0 18px rgba(0,0,0,0.8);
+    }
+
+    #estimate-box h2 {
+      color: #ff7b00;
+      text-shadow: 0 0 18px #ff7b00;
+      margin-bottom: 20px;
+    }
+
+    #estimate-box label {
+      display: block;
+      text-align: left;
+      margin: 10px 0 5px;
+      color: #ff9d3b;
+      text-shadow: 0 0 10px #ff7b00;
+    }
+
+    #estimate-box input,
+    #estimate-box textarea,
+    #estimate-box select {
+      width: 100%;
+      padding: 14px;
+      border-radius: 10px;
+      border: 2px solid #ff7b00;
+      background: #000;
+      color: #fff;
+      font-size: 1rem;
+      margin-bottom: 14px;
+      font-family: 'Anton', sans-serif;
+    }
+
     /* CLIMBING CLASS PROMO */
     #climb-promo {
       padding: 80px 20px;
@@ -257,13 +300,14 @@
   📞 (470)-695-2055 &nbsp; | &nbsp; ✉️ boardwalkclay1@gmail.com
 </div>
 
-<!-- TOP LEFT PHOTO (SQUARE + BIGGER) -->
-<img id="top-left-photo" src="img/me-climb.jpg" alt="Chainsaw Clay Tree Service Photo">
+<!-- TOP LEFT PHOTO -->
+<img id="top-left-photo" src="/img/me-climb.jpg" alt="Chainsaw Clay Tree Service Photo">
 
 <!-- NAVIGATION -->
 <header id="header">
   <a href="#hero">Home</a>
   <a href="#features">Features</a>
+  <a href="#estimate">Estimate</a>
   <a href="#climb-promo">Climbing Class</a>
   <a href="#contact">Contact</a>
 </header>
@@ -285,7 +329,7 @@
     professional climbing classes taught by a real climber with 10+ years in the canopy.
   </p>
 
-  <button class="btn" onclick="document.querySelector('#contact').scrollIntoView({behavior:'smooth'})">Request Estimate</button>
+  <button class="btn" onclick="document.querySelector('#estimate').scrollIntoView({behavior:'smooth'})">Request Estimate</button>
   <button class="btn" onclick="document.querySelector('#climb-promo').scrollIntoView({behavior:'smooth'})">Climbing Class Info</button>
 
 </section>
@@ -301,6 +345,49 @@
     <div class="feature-card"><h3>Full Yard Planning</h3><p>Flowers, shrubs, fruit trees, and layouts.</p></div>
     <div class="feature-card"><h3>Advanced Tools</h3><p>Measurement tools and yard designer modules.</p></div>
     <div class="feature-card"><h3>Tech-Powered Service</h3><p>Digital estimates and visual planning.</p></div>
+  </div>
+</section>
+
+<!-- ESTIMATE FORM SECTION -->
+<section id="estimate">
+  <div id="estimate-box">
+
+    <h2>Request an Estimate</h2>
+
+    <form action="/admin/estimate" method="POST" enctype="multipart/form-data">
+
+      <label>Full Name</label>
+      <input type="text" name="name" required>
+
+      <label>Phone Number</label>
+      <input type="tel" name="phone" required>
+
+      <label>Email</label>
+      <input type="email" name="email" required>
+
+      <label>Address</label>
+      <input type="text" name="address" required>
+
+      <label>Service Type</label>
+      <select name="service" required>
+        <option value="">Select a service</option>
+        <option value="tree-removal">Tree Removal</option>
+        <option value="pruning">Pruning</option>
+        <option value="storm-cleanup">Storm Cleanup</option>
+        <option value="general-cleanup">General Cleanup</option>
+        <option value="planting-layout">Planting / Layout</option>
+      </select>
+
+      <label>Project Description</label>
+      <textarea name="description" rows="5" placeholder="Describe your trees, access, hazards, and goals"></textarea>
+
+      <label>Upload Photos (optional)</label>
+      <input type="file" name="photos[]" multiple accept="image/*">
+
+      <button class="btn" type="submit">Submit Estimate Request</button>
+
+    </form>
+
   </div>
 </section>
 
