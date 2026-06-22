@@ -5,33 +5,36 @@
   <title>Chainsaw Clay's Tree Service</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-  <!-- FAVICON -->
   <link rel="icon" type="image/x-icon" href="img/favicon.ico">
 
-  <!-- SOCIAL PREVIEW -->
   <meta property="og:title" content="Chainsaw Clay's Tree Service">
   <meta property="og:description" content="Professional Tree Care • Real Experience • Real Results">
   <meta property="og:image" content="img/tree-service-logo.png">
   <meta property="og:type" content="website">
-  <meta property="og:url" content="https://yourdomain.com">
 
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Chainsaw Clay's Tree Service">
   <meta name="twitter:description" content="High‑level climbing, safe removals, precision pruning, storm cleanup, and real climbing classes.">
   <meta name="twitter:image" content="img/tree-service-logo.png">
 
-  <!-- FONTS -->
   <link href="https://fonts.googleapis.com/css2?family=Anton&family=Staatliches&display=swap" rel="stylesheet">
 
   <style>
     body {
       margin: 0;
       padding: 0;
-      background: url('img/tree-service-logo.png') no-repeat center center fixed;
-      background-size: cover;
+      background: #000 url('img/tree-service-logo.png') no-repeat center top;
+      background-size: 500px auto;
       color: #fff;
       font-family: 'Anton', sans-serif;
       overflow-x: hidden;
+    }
+
+    @media(max-width: 768px) {
+      body {
+        background-size: 300px auto;
+        background-position: center 20px;
+      }
     }
 
     /* TOP CONTACT BAR */
@@ -42,21 +45,33 @@
       text-align: center;
       font-size: 1.25rem;
       color: #ff7b00;
-      letter-spacing: 1px;
       border-bottom: 2px solid #ff7b00;
       text-shadow: 0 0 10px #ff7b00;
+      position: relative;
+      z-index: 1000;
     }
 
-    /* TOP LEFT PHOTO */
+    /* TOP LEFT PHOTO — FIXED FOR MOBILE */
     #top-left-photo {
       position: absolute;
       top: 20px;
       left: 20px;
-      height: 160px;
-      width: auto;
+      height: 200px;
+      width: 200px;
+      object-fit: cover;
       border-radius: 12px;
       box-shadow: 0 0 18px #ff7b00;
       z-index: 999;
+    }
+
+    @media(max-width: 768px) {
+      #top-left-photo {
+        position: relative;
+        margin: 20px auto 0;
+        display: block;
+        left: 0;
+        top: 0;
+      }
     }
 
     /* NAVIGATION */
@@ -80,19 +95,30 @@
       border-radius: 999px;
       border: 2px solid #ff7b00;
       background: rgba(20,20,20,0.9);
-      transition: 0.2s ease;
     }
 
-    #header a:hover {
-      background: #ff7b00;
-      color: #000;
-      transform: translateY(-2px);
+    @media(max-width: 768px) {
+      #header {
+        flex-wrap: wrap;
+        padding: 10px;
+        gap: 10px;
+      }
+      #header a {
+        padding: 8px 14px;
+        font-size: 0.9rem;
+      }
     }
 
     /* HERO */
     #hero {
-      padding: 160px 20px 80px;
+      padding: 200px 20px 80px;
       text-align: center;
+    }
+
+    @media(max-width: 768px) {
+      #hero {
+        padding-top: 40px;
+      }
     }
 
     .logo-row {
@@ -100,11 +126,18 @@
       justify-content: center;
       gap: 40px;
       margin-bottom: 30px;
+      flex-wrap: wrap;
     }
 
     .hero-logo {
       height: 150px;
       filter: drop-shadow(0 0 18px #ff7b00);
+    }
+
+    @media(max-width: 768px) {
+      .hero-logo {
+        height: 110px;
+      }
     }
 
     .hero-title,
@@ -116,25 +149,20 @@
       border-radius: 12px;
       margin-bottom: 12px;
       border: 2px solid #ff7b00;
+      max-width: 90%;
     }
 
     .hero-title {
-      font-size: 3.2rem;
-      color: #ff7b00;
-      text-shadow: 0 0 18px #ff7b00;
+      font-size: 3rem;
     }
 
-    .hero-tagline {
-      font-size: 1.5rem;
-      color: #ff9d3b;
-      text-shadow: 0 0 12px #ff7b00;
+    @media(max-width: 768px) {
+      .hero-title {
+        font-size: 2.2rem;
+      }
     }
 
-    .hero-description {
-      max-width: 700px;
-      margin: 0 auto 30px;
-    }
-
+    /* BUTTONS */
     .btn {
       padding: 12px 20px;
       border-radius: 999px;
@@ -143,15 +171,14 @@
       color: #ff7b00;
       font-size: 1.2rem;
       cursor: pointer;
-      transition: 0.2s ease;
       margin: 5px;
-      text-shadow: 0 0 10px #ff7b00;
     }
 
-    .btn:hover {
-      background: #ff7b00;
-      color: #000;
-      transform: translateY(-2px);
+    @media(max-width: 768px) {
+      .btn {
+        font-size: 1rem;
+        padding: 10px 16px;
+      }
     }
 
     /* FEATURES */
@@ -162,12 +189,10 @@
 
     #features h2 {
       background: rgba(0,0,0,0.75);
-      display: inline-block;
       padding: 14px 22px;
       border-radius: 12px;
       border: 2px solid #ff7b00;
-      color: #ff7b00;
-      text-shadow: 0 0 18px #ff7b00;
+      display: inline-block;
     }
 
     .features-grid {
@@ -176,20 +201,6 @@
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
       gap: 20px;
-    }
-
-    .feature-card {
-      background: rgba(0,0,0,0.75);
-      padding: 20px;
-      border-radius: 12px;
-      border: 2px solid #ff7b00;
-      box-shadow: 0 0 18px rgba(0,0,0,0.7);
-      transition: 0.2s ease;
-    }
-
-    .feature-card:hover {
-      transform: translateY(-4px);
-      border-color: #ff9d3b;
     }
 
     /* ESTIMATE FORM */
@@ -205,21 +216,6 @@
       padding: 30px;
       border-radius: 18px;
       border: 2px solid #ff7b00;
-      box-shadow: 0 0 18px rgba(0,0,0,0.8);
-    }
-
-    #estimate-box h2 {
-      color: #ff7b00;
-      text-shadow: 0 0 18px #ff7b00;
-      margin-bottom: 20px;
-    }
-
-    #estimate-box label {
-      display: block;
-      text-align: left;
-      margin: 10px 0 5px;
-      color: #ff9d3b;
-      text-shadow: 0 0 10px #ff7b00;
     }
 
     #estimate-box input,
@@ -231,40 +227,14 @@
       border: 2px solid #ff7b00;
       background: #000;
       color: #fff;
-      font-size: 1rem;
       margin-bottom: 14px;
       font-family: 'Anton', sans-serif;
     }
 
-    /* CLIMBING CLASS PROMO */
+    /* CLIMBING CLASS */
     #climb-promo {
       padding: 80px 20px;
       text-align: center;
-    }
-
-    .promo-box {
-      max-width: 700px;
-      margin: 0 auto;
-      background: rgba(0,0,0,0.75);
-      padding: 30px;
-      border-radius: 18px;
-      border: 2px solid #ff7b00;
-      box-shadow: 0 0 18px rgba(0,0,0,0.8);
-    }
-
-    .promo-logo {
-      height: 150px;
-      margin-bottom: 20px;
-      filter: drop-shadow(0 0 18px #ff7b00);
-    }
-
-    .promo-dropdown {
-      margin-top: 20px;
-      background: rgba(0,0,0,0.75);
-      border: 2px solid #ff7b00;
-      padding: 20px;
-      border-radius: 14px;
-      text-shadow: 0 0 10px #ff7b00;
     }
 
     /* CONTACT */
@@ -274,36 +244,17 @@
       background: #000;
       border-top: 2px solid #ff7b00;
     }
-
-    #contact h2,
-    #contact p {
-      background: rgba(0,0,0,0.75);
-      display: inline-block;
-      padding: 14px 22px;
-      border-radius: 12px;
-      border: 2px solid #ff7b00;
-      margin-bottom: 12px;
-    }
-
-    #contact p {
-      color: #ff9d3b;
-      font-size: 1.3rem;
-      text-shadow: 0 0 12px #ff7b00;
-    }
   </style>
 </head>
 
 <body>
 
-<!-- TOP CONTACT BAR -->
 <div id="top-contact">
   📞 (470)-695-2055 &nbsp; | &nbsp; ✉️ boardwalkclay1@gmail.com
 </div>
 
-<!-- TOP LEFT PHOTO -->
-<img id="top-left-photo" src="/img/me-climb.jpg" alt="Chainsaw Clay Tree Service Photo">
+<img id="top-left-photo" src="/img/me-climb.jpg">
 
-<!-- NAVIGATION -->
 <header id="header">
   <a href="#hero">Home</a>
   <a href="#features">Features</a>
@@ -312,12 +263,11 @@
   <a href="#contact">Contact</a>
 </header>
 
-<!-- HERO -->
 <section id="hero">
 
   <div class="logo-row">
-    <img src="img/tree-service-logo.png" class="hero-logo" alt="Tree Service Logo" />
-    <img src="img/climb-logo.jpg" class="hero-logo" alt="Climbing Class Logo" />
+    <img src="img/tree-service-logo.png" class="hero-logo">
+    <img src="img/climb-logo.jpg" class="hero-logo">
   </div>
 
   <h1 class="hero-title">Chainsaw Clay's Tree Service</h1>
@@ -334,7 +284,6 @@
 
 </section>
 
-<!-- FEATURES -->
 <section id="features">
   <h2>What Makes Us Different</h2>
 
@@ -348,7 +297,6 @@
   </div>
 </section>
 
-<!-- ESTIMATE FORM SECTION -->
 <section id="estimate">
   <div id="estimate-box">
 
@@ -379,7 +327,7 @@
       </select>
 
       <label>Project Description</label>
-      <textarea name="description" rows="5" placeholder="Describe your trees, access, hazards, and goals"></textarea>
+      <textarea name="description" rows="5"></textarea>
 
       <label>Upload Photos (optional)</label>
       <input type="file" name="photos[]" multiple accept="image/*">
@@ -391,13 +339,12 @@
   </div>
 </section>
 
-<!-- CLIMBING CLASS PROMO -->
 <section id="climb-promo">
   <div class="promo-box">
 
-    <img src="img/climb-logo.jpg" class="promo-logo" alt="Climbing Class Logo" />
+    <img src="img/climb-logo.jpg" class="promo-logo">
 
-    <h2 style="color:#ff7b00; text-shadow:0 0 18px #ff7b00;">Chainsaw Clay's Tree Climbing Class</h2>
+    <h2 style="color:#ff7b00;">Chainsaw Clay's Tree Climbing Class</h2>
 
     <div class="promo-dropdown">
       Learn real climbing from a real climber — knots, gear, movement, safety, and canopy flow.
@@ -408,9 +355,8 @@
   </div>
 </section>
 
-<!-- CONTACT -->
 <section id="contact">
-  <h2 style="color:#ff7b00; text-shadow:0 0 18px #ff7b00;">Contact Us</h2>
+  <h2 style="color:#ff7b00;">Contact Us</h2>
   <p>Email: boardwalkclay1@gmail.com</p>
   <p>Phone: (470)-695-2055</p>
 </section>
