@@ -27,7 +27,7 @@
     body {
       margin: 0;
       padding: 0;
-      background: url('img/tree-service-logo.png') no-repeat center center fixed;
+      background: url('img/tree-service-bg.jpg') no-repeat center center fixed;
       background-size: cover;
       color: #fff;
       font-family: 'Anton', sans-serif;
@@ -47,13 +47,14 @@
       text-shadow: 0 0 10px #ff7b00;
     }
 
-    /* TOP LEFT PHOTO (NOT LOGO) */
+    /* TOP LEFT PHOTO — SQUARE + BIGGER */
     #top-left-photo {
       position: absolute;
       top: 20px;
       left: 20px;
-      height: 160px;
-      width: auto;
+      height: 200px;
+      width: 200px;
+      object-fit: cover;
       border-radius: 12px;
       box-shadow: 0 0 18px #ff7b00;
       z-index: 999;
@@ -91,7 +92,7 @@
 
     /* HERO */
     #hero {
-      padding: 160px 20px 80px;
+      padding: 200px 20px 80px;
       text-align: center;
     }
 
@@ -107,34 +108,39 @@
       filter: drop-shadow(0 0 18px #ff7b00);
     }
 
+    .hero-title,
+    .hero-tagline,
+    .hero-description {
+      background: rgba(0,0,0,0.75);
+      display: inline-block;
+      padding: 14px 22px;
+      border-radius: 12px;
+      margin-bottom: 12px;
+      border: 2px solid #ff7b00;
+    }
+
     .hero-title {
       font-size: 3.2rem;
       color: #ff7b00;
       text-shadow: 0 0 18px #ff7b00;
-      margin-bottom: 10px;
     }
 
     .hero-tagline {
       font-size: 1.5rem;
       color: #ff9d3b;
       text-shadow: 0 0 12px #ff7b00;
-      margin-bottom: 20px;
     }
 
     .hero-description {
       max-width: 700px;
       margin: 0 auto 30px;
-      background: rgba(0,0,0,0.7);
-      padding: 20px;
-      border-radius: 12px;
-      border: 2px solid #ff7b00;
     }
 
     .btn {
       padding: 12px 20px;
       border-radius: 999px;
       border: 2px solid #ff7b00;
-      background: transparent;
+      background: rgba(0,0,0,0.75);
       color: #ff7b00;
       font-size: 1.2rem;
       cursor: pointer;
@@ -155,6 +161,16 @@
       text-align: center;
     }
 
+    #features h2 {
+      background: rgba(0,0,0,0.75);
+      display: inline-block;
+      padding: 14px 22px;
+      border-radius: 12px;
+      border: 2px solid #ff7b00;
+      color: #ff7b00;
+      text-shadow: 0 0 18px #ff7b00;
+    }
+
     .features-grid {
       max-width: 1100px;
       margin: 0 auto;
@@ -164,7 +180,7 @@
     }
 
     .feature-card {
-      background: rgba(0,0,0,0.7);
+      background: rgba(0,0,0,0.75);
       padding: 20px;
       border-radius: 12px;
       border: 2px solid #ff7b00;
@@ -201,7 +217,7 @@
 
     .promo-dropdown {
       margin-top: 20px;
-      background: #000;
+      background: rgba(0,0,0,0.75);
       border: 2px solid #ff7b00;
       padding: 20px;
       border-radius: 14px;
@@ -214,6 +230,16 @@
       text-align: center;
       background: #000;
       border-top: 2px solid #ff7b00;
+    }
+
+    #contact h2,
+    #contact p {
+      background: rgba(0,0,0,0.75);
+      display: inline-block;
+      padding: 14px 22px;
+      border-radius: 12px;
+      border: 2px solid #ff7b00;
+      margin-bottom: 12px;
     }
 
     #contact p {
@@ -231,8 +257,8 @@
   📞 (470)-695-2055 &nbsp; | &nbsp; ✉️ boardwalkclay1@gmail.com
 </div>
 
-<!-- TOP LEFT PHOTO (NOT LOGO) -->
-<img id="top-left-photo" src="/img/me-climb.jpg" alt="Chainsaw Clay Tree Service Photo">
+<!-- TOP LEFT PHOTO (SQUARE + BIGGER) -->
+<img id="top-left-photo" src="img/me-climb.jpg" alt="Chainsaw Clay Tree Service Photo">
 
 <!-- NAVIGATION -->
 <header id="header">
@@ -266,7 +292,7 @@
 
 <!-- FEATURES -->
 <section id="features">
-  <h2 style="color:#ff7b00; text-shadow:0 0 18px #ff7b00;">What Makes Us Different</h2>
+  <h2>What Makes Us Different</h2>
 
   <div class="features-grid">
     <div class="feature-card"><h3>High-Level Climbing</h3><p>Advanced rigging and canopy navigation.</p></div>
