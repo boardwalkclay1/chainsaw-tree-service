@@ -9,13 +9,13 @@
   <link rel="icon" type="image/jpeg" href="/img/climb-logo.jpg" />
 
   <!-- MAIN CSS -->
-  <link rel="stylesheet" href="/climbing-class/public/styles.css" />
+  <link rel="stylesheet" href="/styles.css" />
 
   <style>
     body {
       margin: 0;
       padding: 0;
-      background: url('/climbing-class/public/img/climb-index.jpg') no-repeat center center fixed;
+      background: url('/img/climb-index.jpg') no-repeat center center fixed;
       background-size: cover;
       color: #fff;
       font-family: system-ui, sans-serif;
@@ -28,7 +28,7 @@
       position: relative;
     }
 
-    /* LOGO BURGER TRIGGER — TWICE AS BIG */
+    /* LOGO BURGER TRIGGER */
     #logoTrigger {
       position: fixed;
       top: 20px;
@@ -66,9 +66,29 @@
       left: 0;
     }
 
+    /* TREE SERVICE LOGO */
+    #treeLogo {
+      display: block;
+      margin: 40px auto 10px;
+      height: 120px;
+      filter: drop-shadow(0 0 12px #00c853);
+    }
+
+    .back-home {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    .back-home a {
+      color: #00c853;
+      font-size: 18px;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
     .site-header {
       text-align: center;
-      padding: 120px 20px 40px;
+      padding: 40px 20px 40px;
     }
 
     .site-header h1 {
@@ -215,12 +235,12 @@
 
 <!-- SIDEBAR -->
 <div id="sidebar">
-  <a href="/">Home</a>
-  <a href="/climbing-class/public/pages/classes.html">Classes</a>
-  <a href="/climbing-class/public/pages/pricing.html">Pricing</a>
-  <a href="/climbing-class/public/pages/app-info.html">About the App</a>
-  <a href="/climbing-class/public/pages/contact.html">Contact</a>
-  <a href="/climbing-class/public/pages/privacy.html">Privacy Agreement</a>
+  <a href="https://chainsawclay.com">Tree Service Home</a>
+  <a href="/pages/classes.html">Classes</a>
+  <a href="/pages/pricing.html">Pricing</a>
+  <a href="/pages/app-info.html">About the App</a>
+  <a href="/pages/contact.html">Contact</a>
+  <a href="/pages/privacy.html">Privacy Agreement</a>
 </div>
 
 <script>
@@ -231,15 +251,22 @@ function toggleSidebar() {
 
 <div class="overlay">
 
+<!-- TREE SERVICE LOGO + LINK -->
+<img id="treeLogo" src="/img/tree-service-logo.png" alt="Chainsaw Clay's Tree Service Logo">
+
+<div class="back-home">
+  <a href="https://chainsawclay.com">← Back to Chainsaw Clay’s Tree Service</a>
+</div>
+
 <header class="site-header">
   <h1>Professional Tree Climbing Training</h1>
   <p>Learn knots, safety, gear, climbing styles, rigging, and real arborist techniques.</p>
 
   <div class="header-buttons">
-    <a href="/climbing-class/public/pages/pricing.html" class="btn primary">View Class Pricing</a>
-    <a href="/climbing-class/public/pages/classes.html" class="btn secondary">Class Schedule</a>
-    <a href="/climbing-class/public/pages/app-info.html" class="btn secondary">About the App</a>
-    <a href="/climbing-class/public/app/pages/index.html" class="btn secondary">Open Training App</a>
+    <a href="/pages/pricing.html" class="btn primary">View Class Pricing</a>
+    <a href="/pages/classes.html" class="btn secondary">Class Schedule</a>
+    <a href="/pages/app-info.html" class="btn secondary">About the App</a>
+    <a href="/app/pages/index.html" class="btn secondary">Open Training App</a>
   </div>
 </header>
 
@@ -247,7 +274,7 @@ function toggleSidebar() {
   <h2>Class Pricing</h2>
   <p><strong>Group Class:</strong> $80</p>
   <p><strong>Personal 1‑on‑1 Session:</strong> $200/hr</p>
-  <p><a href="/climbing-class/public/pages/pricing.html" style="color:#00c853;">View full pricing →</a></p>
+  <p><a href="/pages/pricing.html" style="color:#00c853;">View full pricing →</a></p>
 </section>
 
 <section class="section">
@@ -337,10 +364,9 @@ function toggleSidebar() {
         <li>Scenario‑Based Cutting</li>
       </ul>
 
-      <img src="/climbing-class/public/app/img/climb-img-4.jpg" class="cutting-img" alt="Cutting Training Image">
+      <img src="/app/img/climb-img-4.jpg" class="cutting-img" alt="Cutting Training Image">
     </div>
 
-    <!-- UPDATED BUSINESS SECTION WITH NEW IMAGE -->
     <div class="category-card">
       <h3>Business & Jobsite Flow</h3>
       <ul>
@@ -350,22 +376,21 @@ function toggleSidebar() {
         <li>Customer Safety & Liability</li>
       </ul>
 
-      <img src="/climbing-class/public/app/img/business-img-1.jpg"
-           class="cutting-img"
-           alt="Business Training Image">
+      <img src="/app/img/business-img-1.jpg" class="cutting-img" alt="Business Training Image">
     </div>
 
   </div>
 </section>
 
 <footer class="site-footer">
-  <p>Install the app from the App page to keep your training on your home screen.</p>
+  <p>Contact: clay@chainsawclay.com</p>
+  <p>Back to main business: <a href="https://chainsawclay.com" style="color:#00c853;">Chainsaw Clay’s Tree Service</a></p>
 </footer>
 
 </div>
 
 <!-- SQUIRREL CHAT -->
-<img src="/climbing-class/public/app/img/squirell-img.jpg" id="squirrelChatBtn">
+<img src="/app/img/squirell-img.jpg" id="squirrelChatBtn">
 
 <div id="squirrelChatBox">
   <div style="font-weight: bold; margin-bottom: 10px; font-size: 18px;">🐿️ Helper Squirrel</div>
@@ -376,7 +401,7 @@ function toggleSidebar() {
 </div>
 
 <!-- JS -->
-<script src="/climbing-class/public/js/squirrel.js"></script>
+<script src="/js/squirrel.js"></script>
 
 </body>
 </html>
