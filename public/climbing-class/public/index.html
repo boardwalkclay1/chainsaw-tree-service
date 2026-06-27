@@ -71,10 +71,10 @@
       border-bottom: 1px solid #333;
     }
 
-    /* TREE SERVICE LOGO */
+    /* TREE SERVICE LOGO UNDER TOP HEADER */
     #treeLogo {
       display: block;
-      margin: 160px auto 10px;
+      margin: 20px auto 10px;
       height: 120px;
       filter: drop-shadow(0 0 12px #ff7b00);
     }
@@ -94,7 +94,7 @@
     /* HEADER — TRUE TOP */
     .site-header {
       text-align: center;
-      padding: 20px 20px 40px;
+      padding: 20px 20px 20px;
       margin-top: 0;
     }
 
@@ -118,6 +118,7 @@
       justify-content: center;
       gap: 15px;
       flex-wrap: wrap;
+      margin-bottom: 20px;
     }
 
     .btn {
@@ -236,8 +237,8 @@
 </head>
 <body>
 
-<!-- LOGO TRIGGER -->
-<img src="/climbing-class/public/img/climb-logo.jpg" id="logoTrigger" onclick="toggleSidebar()">
+<!-- LOGO TRIGGER (CLIMB LOGO) -->
+<img src="/img/climb-logo.jpg" id="logoTrigger" onclick="toggleSidebar()">
 
 <!-- SIDEBAR -->
 <div id="sidebar">
@@ -258,13 +259,6 @@ function toggleSidebar() {
 
 <div class="overlay">
 
-  <!-- TREE SERVICE LOGO + LINK -->
-  <img id="treeLogo" src="/climbing-class/public/img/tree-service-logo.png" alt="Chainsaw Clay's Tree Service Logo">
-
-  <div class="back-home">
-    <a href="https://chainsawclay.com">← Back to Chainsaw Clay’s Tree Service</a>
-  </div>
-
   <header class="site-header">
     <h1>Chainsaw Clay’s Tree Climbing Classes</h1>
     <p>Learn knots, safety, gear, climbing styles, rigging, and real arborist techniques.</p>
@@ -274,6 +268,13 @@ function toggleSidebar() {
       <a href="/climbing-class/public/pages/classes.html" class="btn secondary">Class Schedule</a>
       <a href="/climbing-class/public/pages/app-info.html" class="btn secondary">About the App</a>
       <a href="/climbing-class/public/app/pages/index.html" class="btn secondary">Open Training App</a>
+    </div>
+
+    <!-- LOGOS UNDER TOP NAV / HEADER -->
+    <img id="treeLogo" src="/img/tree-service-logo.png" alt="Chainsaw Clay's Tree Service Logo">
+
+    <div class="back-home">
+      <a href="https://chainsawclay.com">← Back to Chainsaw Clay’s Tree Service</a>
     </div>
   </header>
 
