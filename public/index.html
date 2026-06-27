@@ -5,37 +5,30 @@
   <title>Chainsaw Clay's Tree Service</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-  <link rel="icon" type="image/x-icon" href="img/favicon.ico">
-
+  <!-- SOCIAL PREVIEW -->
   <meta property="og:title" content="Chainsaw Clay's Tree Service">
-  <meta property="og:description" content="Professional Tree Care • Real Experience • Real Results">
-  <meta property="og:image" content="img/tree-service-logo.png">
+  <meta property="og:description" content="High‑level climbing, safe removals, precision pruning, storm cleanup, and real climbing classes.">
+  <meta property="og:image" content="https://chainsawclay.com/img/social-preview.jpg">
   <meta property="og:type" content="website">
+  <meta property="og:url" content="https://chainsawclay.com">
 
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Chainsaw Clay's Tree Service">
-  <meta name="twitter:description" content="High‑level climbing, safe removals, precision pruning, storm cleanup, and real climbing classes.">
-  <meta name="twitter:image" content="img/tree-service-logo.png">
+  <meta name="twitter:description" content="Professional Tree Care • Real Experience • Real Results">
+  <meta name="twitter:image" content="https://chainsawclay.com/img/social-preview.jpg">
 
+  <link rel="icon" type="image/x-icon" href="img/favicon.ico">
   <link href="https://fonts.googleapis.com/css2?family=Anton&family=Staatliches&display=swap" rel="stylesheet">
 
   <style>
-    /* GLOBAL */
     body {
       margin: 0;
       padding: 0;
-      background: #000 url('img/tree-service-logo.png') no-repeat center top;
-      background-size: 420px auto;
+      background: #000 url('img/tree-service-bg.jpg') no-repeat center center fixed;
+      background-size: cover;
       color: #fff;
       font-family: 'Anton', sans-serif;
       overflow-x: hidden;
-    }
-
-    @media(max-width: 768px) {
-      body {
-        background-size: 240px auto;
-        background-position: center 10px;
-      }
     }
 
     /* TOP CONTACT BAR */
@@ -48,33 +41,6 @@
       color: #ff7b00;
       border-bottom: 2px solid #ff7b00;
       text-shadow: 0 0 10px #ff7b00;
-      position: relative;
-      z-index: 1000;
-    }
-
-    /* TOP LEFT PHOTO */
-    #top-left-photo {
-      position: absolute;
-      top: 20px;
-      left: 20px;
-      height: 180px;
-      width: 180px;
-      object-fit: cover;
-      border-radius: 12px;
-      box-shadow: 0 0 18px #ff7b00;
-      z-index: 999;
-    }
-
-    @media(max-width: 768px) {
-      #top-left-photo {
-        position: relative;
-        margin: 20px auto 0;
-        display: block;
-        left: 0;
-        top: 0;
-        height: 150px;
-        width: 150px;
-      }
     }
 
     /* NAVIGATION */
@@ -101,47 +67,26 @@
       font-size: 1.1rem;
     }
 
-    @media(max-width: 768px) {
-      #header {
-        flex-wrap: wrap;
-        padding: 10px;
-        gap: 10px;
-      }
-      #header a {
-        padding: 8px 14px;
-        font-size: 0.85rem;
-      }
-    }
-
     /* HERO */
     #hero {
-      padding: 240px 20px 80px;
+      padding: 180px 20px 80px;
       text-align: center;
-    }
-
-    @media(max-width: 768px) {
-      #hero {
-        padding-top: 40px;
-      }
     }
 
     .logo-row {
       display: flex;
       justify-content: center;
-      gap: 40px;
+      align-items: center;
+      gap: 50px;
       margin-bottom: 30px;
       flex-wrap: wrap;
     }
 
     .hero-logo {
-      height: 140px;
+      height: 160px;
+      width: auto;
+      object-fit: contain;
       filter: drop-shadow(0 0 18px #ff7b00);
-    }
-
-    @media(max-width: 768px) {
-      .hero-logo {
-        height: 90px;
-      }
     }
 
     .hero-title,
@@ -151,19 +96,13 @@
       display: inline-block;
       padding: 14px 22px;
       border-radius: 12px;
-      margin-bottom: 12px;
+      margin-bottom: 14px;
       border: 2px solid #ff7b00;
       max-width: 90%;
     }
 
     .hero-title {
       font-size: 3rem;
-    }
-
-    @media(max-width: 768px) {
-      .hero-title {
-        font-size: 2.1rem;
-      }
     }
 
     /* BUTTONS */
@@ -175,36 +114,7 @@
       color: #ff7b00;
       font-size: 1.2rem;
       cursor: pointer;
-      margin: 5px;
-    }
-
-    @media(max-width: 768px) {
-      .btn {
-        font-size: 1rem;
-        padding: 10px 16px;
-      }
-    }
-
-    /* FEATURES */
-    #features {
-      padding: 80px 20px;
-      text-align: center;
-    }
-
-    #features h2 {
-      background: rgba(0,0,0,0.75);
-      padding: 14px 22px;
-      border-radius: 12px;
-      border: 2px solid #ff7b00;
-      display: inline-block;
-    }
-
-    .features-grid {
-      max-width: 1100px;
-      margin: 0 auto;
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-      gap: 20px;
+      margin: 8px;
     }
 
     /* ESTIMATE FORM */
@@ -222,6 +132,15 @@
       border: 2px solid #ff7b00;
     }
 
+    #estimate-box label {
+      display: block;
+      text-align: left;
+      margin-bottom: 6px;
+      margin-top: 18px;
+      color: #ff7b00;
+      font-size: 1.1rem;
+    }
+
     #estimate-box input,
     #estimate-box textarea,
     #estimate-box select {
@@ -233,12 +152,19 @@
       color: #fff;
       margin-bottom: 14px;
       font-family: 'Anton', sans-serif;
+      font-size: 1rem;
     }
 
     /* CLIMBING CLASS */
     #climb-promo {
       padding: 80px 20px;
       text-align: center;
+    }
+
+    .promo-logo {
+      height: 160px;
+      filter: drop-shadow(0 0 18px #ff7b00);
+      margin-bottom: 20px;
     }
 
     /* CONTACT */
@@ -254,14 +180,11 @@
 <body>
 
 <div id="top-contact">
-  📞 (470)-695-2055 &nbsp; | &nbsp; ✉️ clay@chainsawclay.com
+  📞 (470)-695-2055 &nbsp; | &nbsp; ✉️ support@chainsawclay.com
 </div>
-
-<img id="top-left-photo" src="/img/me-climb.jpg">
 
 <header id="header">
   <a href="#hero">Home</a>
-  <a href="#features">Features</a>
   <a href="#estimate">Estimate</a>
   <a href="#climb-promo">Climbing Class</a>
   <a href="#contact">Contact</a>
@@ -288,55 +211,42 @@
 
 </section>
 
-<section id="features">
-  <h2>What Makes Us Different</h2>
-
-  <div class="features-grid">
-    <div class="feature-card"><h3>High-Level Climbing</h3><p>Advanced rigging and canopy navigation.</p></div>
-    <div class="feature-card"><h3>Tree Health Tech</h3><p>Movement analysis and structure evaluation.</p></div>
-    <div class="feature-card"><h3>Storm Cleanup</h3><p>Fast, safe, and precise emergency cleanup.</p></div>
-    <div class="feature-card"><h3>Full Yard Planning</h3><p>Flowers, shrubs, fruit trees, and layouts.</p></div>
-    <div class="feature-card"><h3>Advanced Tools</h3><p>Measurement tools and yard designer modules.</p></div>
-    <div class="feature-card"><h3>Tech-Powered Service</h3><p>Digital estimates and visual planning.</p></div>
-  </div>
-</section>
-
 <section id="estimate">
   <div id="estimate-box">
 
-    <h2>Request an Estimate</h2>
+    <h2 style="color:#ff7b00;">Request an Estimate</h2>
 
-    <form action="/admin/estimate" method="POST" enctype="multipart/form-data">
+    <form id="estimateForm">
 
       <label>Full Name</label>
-      <input type="text" name="name" required>
+      <input type="text" id="name" required>
 
       <label>Phone Number</label>
-      <input type="tel" name="phone" required>
+      <input type="tel" id="phone" required>
 
       <label>Email</label>
-      <input type="email" name="email" required>
+      <input type="email" id="email" required>
 
       <label>Address</label>
-      <input type="text" name="address" required>
+      <input type="text" id="address" required>
 
       <label>Service Type</label>
-      <select name="service" required>
+      <select id="service" required>
         <option value="">Select a service</option>
-        <option value="tree-removal">Tree Removal</option>
-        <option value="pruning">Pruning</option>
-        <option value="storm-cleanup">Storm Cleanup</option>
-        <option value="general-cleanup">General Cleanup</option>
-        <option value="planting-layout">Planting / Layout</option>
+        <option value="Tree Removal">Tree Removal</option>
+        <option value="Pruning">Pruning</option>
+        <option value="Storm Cleanup">Storm Cleanup</option>
+        <option value="General Cleanup">General Cleanup</option>
+        <option value="Planting / Layout">Planting / Layout</option>
       </select>
 
       <label>Project Description</label>
-      <textarea name="description" rows="5"></textarea>
+      <textarea id="description" rows="5"></textarea>
 
       <label>Upload Photos (optional)</label>
-      <input type="file" name="photos[]" multiple accept="image/*">
+      <input type="file" id="photos" multiple accept="image/*">
 
-      <button class="btn" type="submit">Submit Estimate Request</button>
+      <button class="btn" type="button" onclick="sendEstimateEmail()">Submit Estimate Request</button>
 
     </form>
 
@@ -344,26 +254,52 @@
 </section>
 
 <section id="climb-promo">
-  <div class="promo-box">
+  <img src="img/climb-logo.jpg" class="promo-logo">
 
-    <img src="img/climb-logo.jpg" class="promo-logo">
+  <h2 style="color:#ff7b00;">Chainsaw Clay's Tree Climbing Class</h2>
 
-    <h2 style="color:#ff7b00;">Chainsaw Clay's Tree Climbing Class</h2>
+  <p style="background:rgba(0,0,0,0.75); padding:14px 22px; border-radius:12px; border:2px solid #ff7b00; display:inline-block;">
+    Learn real climbing from a real climber — knots, gear, movement, safety, and canopy flow.
+  </p>
 
-    <div class="promo-dropdown">
-      Learn real climbing from a real climber — knots, gear, movement, safety, and canopy flow.
-      <br><br>
-      <button class="btn" onclick="window.location.href='https://climb.chainsawclay.com'">Open Class Site</button>
-    </div>
+  <br><br>
 
-  </div>
+  <button class="btn" onclick="window.location.href='https://climb.chainsawclay.com'">Open Class Site</button>
 </section>
 
 <section id="contact">
   <h2 style="color:#ff7b00;">Contact Us</h2>
-  <p>Email: clay@chainsawclay.com</p>
+  <p>Email: support@chainsawclay.com</p>
   <p>Phone: (470)-695-2055</p>
 </section>
+
+<script>
+function sendEstimateEmail() {
+  const name = document.getElementById("name").value;
+  const phone = document.getElementById("phone").value;
+  const email = document.getElementById("email").value;
+  const address = document.getElementById("address").value;
+  const service = document.getElementById("service").value;
+  const description = document.getElementById("description").value;
+
+  const body =
+    "New Estimate Request:%0D%0A%0D%0A" +
+    "Name: " + name + "%0D%0A" +
+    "Phone: " + phone + "%0D%0A" +
+    "Email: " + email + "%0D%0A" +
+    "Address: " + address + "%0D%0A" +
+    "Service Type: " + service + "%0D%0A%0D%0A" +
+    "Description:%0D%0A" + description + "%0D%0A%0D%0A" +
+    "Photos: Attach photos manually if your device supports it.";
+
+  const mailtoLink =
+    "mailto:support@chainsawclay.com" +
+    "?subject=New Estimate Request from " + encodeURIComponent(name) +
+    "&body=" + body;
+
+  window.location.href = mailtoLink;
+}
+</script>
 
 </body>
 </html>
