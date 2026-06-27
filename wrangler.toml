@@ -1,16 +1,39 @@
-name = "video-uploader"
-main = "worker/worker.js"
-compatibility_date = "2024-11-01"
+name = "chainsawclay-admin"
+main = "worker.js"
+compatibility_date = "2024-12-01"
+workers_dev = true
 
-# R2 bucket binding
+# ============================
+# D1 DATABASE
+# ============================
+[[d1_databases]]
+binding = "DB_chainsaw"
+database_name = "chainsaw"
+database_id = "b836fa8d-4f53-49d4-93d2-70a7557d5f7c"
+
+# ============================
+# R2 BUCKET (Videos)
+# ============================
 [[r2_buckets]]
-binding = "VIDEOS"
-bucket_name = "climbing-class-videos"
+binding = "VIDEOS_BUCKET"
+bucket_name = "chainsawclay-videos"
 
-# Public URL for your R2 bucket (set this in Cloudflare dashboard)
+# ============================
+# ENVIRONMENT VARIABLES
+# ============================
 [vars]
-PUBLIC_URL = "https://<your-account-id>.r2.cloudflarestorage.com/climbing-class-videos"
+ADMIN_EMAIL = "support@chainsawclay.com"
+MAIL_FROM = "support@chainsawclay.com"
 
-# Enable uploads up to large sizes
-[limits]
-upload_body_size = "1gb"
+# ============================
+# ROUTES (API)
+# ============================
+routes = [
+  { pattern = "chainsawclay.com/api/*", zone_name = "chainsawclay.com" },
+  { pattern = "www.chainsawclay.com/api/*", zone_name = "chainsawclay.com" }
+]
+
+# ============================
+# NODE COMPAT (needed for crypto)
+# ============================
+node_compat = true
