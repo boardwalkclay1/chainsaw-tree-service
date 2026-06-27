@@ -9,7 +9,7 @@
   <link rel="icon" type="image/jpeg" href="/img/climb-logo.jpg" />
 
   <!-- MAIN CSS -->
-  <link rel="stylesheet" href="/styles.css" />
+  <link rel="stylesheet" href="/climbing-class/public/styles.css" />
 
   <style>
     body {
@@ -22,15 +22,15 @@
     }
 
     .overlay {
-      background: rgba(0,0,0,0.65);
+      background: rgba(0,0,0,0.75);
       min-height: 100vh;
       padding-bottom: 60px;
       position: relative;
       border-left: 4px solid #ff7b00;
-      border-right: 4px solid #ff7b00;
+      border-right: 4px solid #00c853;
     }
 
-    /* LOGO BURGER TRIGGER — HIDDEN UNTIL CLICKED */
+    /* LOGO BURGER TRIGGER */
     #logoTrigger {
       position: fixed;
       top: 20px;
@@ -41,10 +41,10 @@
       z-index: 9999;
       border: 3px solid #ff7b00;
       border-radius: 12px;
-      box-shadow: 0 0 18px #ff7b00;
+      box-shadow: 0 0 18px #00c853;
     }
 
-    /* SIDEBAR — HIDDEN UNTIL LOGO CLICK */
+    /* SIDEBAR */
     #sidebar {
       position: fixed;
       top: 0;
@@ -55,7 +55,7 @@
       padding: 30px;
       transition: 0.3s ease;
       z-index: 9998;
-      border-right: 3px solid #ff7b00;
+      border-right: 3px solid #00c853;
     }
 
     #sidebar a {
@@ -85,13 +85,12 @@
     }
 
     .back-home a {
-      color: #ff7b00;
+      color: #00c853;
       font-size: 18px;
       text-decoration: none;
       font-weight: bold;
     }
 
-    /* CLIMBING CLASS HERO — BIGGER, MORE ATTENTION */
     .site-header {
       text-align: center;
       padding: 60px 20px 40px;
@@ -101,6 +100,7 @@
       font-size: 40px;
       margin-bottom: 10px;
       font-weight: 900;
+      color: #ff7b00;
       text-shadow: 0 0 12px #ff7b00;
     }
 
@@ -136,6 +136,7 @@
     .secondary {
       background: #1a1a1a;
       color: #fff;
+      border-color: #00c853;
     }
 
     .section {
@@ -147,7 +148,8 @@
     .section h2 {
       font-size: 28px;
       margin-bottom: 15px;
-      text-shadow: 0 0 10px #ff7b00;
+      color: #00c853;
+      text-shadow: 0 0 10px #00c853;
     }
 
     .category-grid {
@@ -158,7 +160,7 @@
     }
 
     .category-card {
-      background: rgba(0,0,0,0.55);
+      background: rgba(0,0,0,0.6);
       padding: 20px;
       border-radius: 12px;
       border: 2px solid #ff7b00;
@@ -186,7 +188,7 @@
       border-radius: 10px;
       margin-top: 12px;
       box-shadow: 0 0 12px #ff7b00;
-      border: 2px solid #ff7b00;
+      border: 2px solid #00c853;
     }
 
     .site-footer {
@@ -195,6 +197,11 @@
       opacity: 0.8;
       font-size: 14px;
       border-top: 2px solid #ff7b00;
+    }
+
+    .site-footer a {
+      color: #00c853;
+      text-decoration: none;
     }
 
     #squirrelChatBtn {
@@ -207,6 +214,7 @@
       z-index: 9999;
       border: 2px solid #ff7b00;
       border-radius: 12px;
+      box-shadow: 0 0 12px #00c853;
     }
 
     #squirrelChatBox {
@@ -215,7 +223,7 @@
       right: 20px;
       width: 320px;
       background: rgba(0,0,0,0.92);
-      border: 2px solid #ff7b00;
+      border: 2px solid #00c853;
       border-radius: 12px;
       padding: 15px;
       display: none;
@@ -249,11 +257,11 @@
 <!-- SIDEBAR -->
 <div id="sidebar">
   <a href="https://chainsawclay.com">Tree Service Home</a>
-  <a href="/pages/classes.html">Classes</a>
-  <a href="/pages/pricing.html">Pricing</a>
-  <a href="/pages/app-info.html">About the App</a>
-  <a href="/pages/contact.html">Contact</a>
-  <a href="/pages/privacy.html">Privacy Agreement</a>
+  <a href="/climbing-class/public/pages/classes.html">Classes</a>
+  <a href="/climbing-class/public/pages/pricing.html">Pricing</a>
+  <a href="/climbing-class/public/pages/app-info.html">About the App</a>
+  <a href="/climbing-class/public/pages/contact.html">Contact</a>
+  <a href="/climbing-class/public/pages/privacy.html">Privacy Agreement</a>
 </div>
 
 <script>
@@ -264,146 +272,146 @@ function toggleSidebar() {
 
 <div class="overlay">
 
-<!-- TREE SERVICE LOGO + LINK -->
-<img id="treeLogo" src="/img/tree-service-logo.png" alt="Chainsaw Clay's Tree Service Logo">
+  <!-- TREE SERVICE LOGO + LINK -->
+  <img id="treeLogo" src="/img/tree-service-logo.png" alt="Chainsaw Clay's Tree Service Logo">
 
-<div class="back-home">
-  <a href="https://chainsawclay.com">← Back to Chainsaw Clay’s Tree Service</a>
-</div>
-
-<header class="site-header">
-  <h1>Chainsaw Clay’s Tree Climbing Classes</h1>
-  <p>Learn knots, safety, gear, climbing styles, rigging, and real arborist techniques.</p>
-
-  <div class="header-buttons">
-    <a href="/pages/pricing.html" class="btn primary">View Class Pricing</a>
-    <a href="/pages/classes.html" class="btn secondary">Class Schedule</a>
-    <a href="/pages/app-info.html" class="btn secondary">About the App</a>
-    <a href="/app/pages/index.html" class="btn secondary">Open Training App</a>
+  <div class="back-home">
+    <a href="https://chainsawclay.com">← Back to Chainsaw Clay’s Tree Service</a>
   </div>
-</header>
 
-<section class="section">
-  <h2>Class Pricing</h2>
-  <p><strong>Group Class:</strong> $80</p>
-  <p><strong>Personal 1‑on‑1 Session:</strong> $200/hr</p>
-  <p><a href="/pages/pricing.html" style="color:#ff7b00;">View full pricing →</a></p>
-</section>
+  <header class="site-header">
+    <h1>Chainsaw Clay’s Tree Climbing Classes</h1>
+    <p>Learn knots, safety, gear, climbing styles, rigging, and real arborist techniques.</p>
 
-<section class="section">
-  <h2>Start Training Before Class</h2>
-  <p>Every 5 videos you complete unlocks <strong>10% off</strong> a live class — up to <strong>20% max</strong>.</p>
-  <p>Your access never expires.</p>
-</section>
-
-<section class="section">
-  <h2>Training Categories</h2>
-
-  <div class="category-grid">
-
-    <div class="category-card">
-      <h3>Gear & Safety</h3>
-      <ul>
-        <li>Gear Overview</li>
-        <li>How to Put Gear On</li>
-        <li>Understanding Your Lifeline</li>
-        <li>Two‑Point Safety Technique</li>
-        <li>Basic Movement & Positioning</li>
-      </ul>
+    <div class="header-buttons">
+      <a href="/climbing-class/public/pages/pricing.html" class="btn primary">View Class Pricing</a>
+      <a href="/climbing-class/public/pages/classes.html" class="btn secondary">Class Schedule</a>
+      <a href="/climbing-class/public/pages/app-info.html" class="btn secondary">About the App</a>
+      <a href="/climbing-class/public/app/pages/index.html" class="btn secondary">Open Training App</a>
     </div>
+  </header>
 
-    <div class="category-card">
-      <h3>Throwball Mastery</h3>
-      <ul>
-        <li>Throwball Basics</li>
-        <li>Setting a Perfect Anchor</li>
-        <li>Advanced Throwline Techniques</li>
-        <li>High‑Accuracy Throws</li>
-        <li>Throwline Recovery</li>
-      </ul>
+  <section class="section">
+    <h2>Class Pricing</h2>
+    <p><strong>Group Class:</strong> $80</p>
+    <p><strong>Personal 1‑on‑1 Session:</strong> $200/hr</p>
+    <p><a href="/climbing-class/public/pages/pricing.html" style="color:#00c853;">View full pricing →</a></p>
+  </section>
+
+  <section class="section">
+    <h2>Start Training Before Class</h2>
+    <p>Every 5 videos you complete unlocks <strong>10% off</strong> a live class — up to <strong>20% max</strong>.</p>
+    <p>Your access never expires.</p>
+  </section>
+
+  <section class="section">
+    <h2>Training Categories</h2>
+
+    <div class="category-grid">
+
+      <div class="category-card">
+        <h3>Gear & Safety</h3>
+        <ul>
+          <li>Gear Overview</li>
+          <li>How to Put Gear On</li>
+          <li>Understanding Your Lifeline</li>
+          <li>Two‑Point Safety Technique</li>
+          <li>Basic Movement & Positioning</li>
+        </ul>
+      </div>
+
+      <div class="category-card">
+        <h3>Throwball Mastery</h3>
+        <ul>
+          <li>Throwball Basics</li>
+          <li>Setting a Perfect Anchor</li>
+          <li>Advanced Throwline Techniques</li>
+          <li>High‑Accuracy Throws</li>
+          <li>Throwline Recovery</li>
+        </ul>
+      </div>
+
+      <div class="category-card">
+        <h3>Climbing Styles</h3>
+
+        <strong>Body Thrusting</strong>
+        <ul>
+          <li>Body Thrust Basics</li>
+          <li>Hip Thrust Efficiency</li>
+        </ul>
+
+        <strong>Footlocking</strong>
+        <ul>
+          <li>Footlock Fundamentals</li>
+          <li>Ascending Smoothly</li>
+        </ul>
+
+        <strong>Spiking</strong>
+        <ul>
+          <li>Spiking Basics</li>
+          <li>Safe Spike Ascending</li>
+        </ul>
+      </div>
+
+      <div class="category-card">
+        <h3>Rigging</h3>
+        <ul>
+          <li>Rigging Gear Overview</li>
+          <li>Basic Rigging Setup</li>
+          <li>Rigging Knots</li>
+          <li>Rigging Cuts</li>
+          <li>Advanced Rigging Scenarios</li>
+          <li>Negative Rigging</li>
+          <li>Speedline Techniques</li>
+        </ul>
+      </div>
+
+      <div class="category-card">
+        <h3>Knots</h3>
+        <ul>
+          <li>Basic Arborist Knots</li>
+          <li>Friction Hitches</li>
+          <li>Rigging Knots</li>
+          <li>Advanced Knot Scenarios</li>
+        </ul>
+      </div>
+
+      <div class="category-card">
+        <h3>Cutting Techniques</h3>
+        <ul>
+          <li>Chainsaw Safety</li>
+          <li>Basic Cuts</li>
+          <li>Advanced Cuts</li>
+          <li>Scenario‑Based Cutting</li>
+        </ul>
+
+        <img src="/climbing-class/public/app/img/climb-img-4.jpg" class="cutting-img" alt="Cutting Training Image">
+      </div>
+
+      <div class="category-card">
+        <h3>Business & Jobsite Flow</h3>
+        <ul>
+          <li>How to Price Jobs</li>
+          <li>Jobsite Setup</li>
+          <li>Crew Communication</li>
+          <li>Customer Safety & Liability</li>
+        </ul>
+
+        <img src="/climbing-class/public/app/img/business-img-1.jpg" class="cutting-img" alt="Business Training Image">
+      </div>
+
     </div>
+  </section>
 
-    <div class="category-card">
-      <h3>Climbing Styles</h3>
-
-      <strong>Body Thrusting</strong>
-      <ul>
-        <li>Body Thrust Basics</li>
-        <li>Hip Thrust Efficiency</li>
-      </ul>
-
-      <strong>Footlocking</strong>
-      <ul>
-        <li>Footlock Fundamentals</li>
-        <li>Ascending Smoothly</li>
-      </ul>
-
-      <strong>Spiking</strong>
-      <ul>
-        <li>Spiking Basics</li>
-        <li>Safe Spike Ascending</li>
-      </ul>
-    </div>
-
-    <div class="category-card">
-      <h3>Rigging</h3>
-      <ul>
-        <li>Rigging Gear Overview</li>
-        <li>Basic Rigging Setup</li>
-        <li>Rigging Knots</li>
-        <li>Rigging Cuts</li>
-        <li>Advanced Rigging Scenarios</li>
-        <li>Negative Rigging</li>
-        <li>Speedline Techniques</li>
-      </ul>
-    </div>
-
-    <div class="category-card">
-      <h3>Knots</h3>
-      <ul>
-        <li>Basic Arborist Knots</li>
-        <li>Friction Hitches</li>
-        <li>Rigging Knots</li>
-        <li>Advanced Knot Scenarios</li>
-      </ul>
-    </div>
-
-    <div class="category-card">
-      <h3>Cutting Techniques</h3>
-      <ul>
-        <li>Chainsaw Safety</li>
-        <li>Basic Cuts</li>
-        <li>Advanced Cuts</li>
-        <li>Scenario‑Based Cutting</li>
-      </ul>
-
-      <img src="/climbing-class/public/app/img/climb-img-4.jpg" class="cutting-img" alt="Cutting Training Image">
-    </div>
-
-    <div class="category-card">
-      <h3>Business & Jobsite Flow</h3>
-      <ul>
-        <li>How to Price Jobs</li>
-        <li>Jobsite Setup</li>
-        <li>Crew Communication</li>
-        <li>Customer Safety & Liability</li>
-      </ul>
-
-      <img src="/climbing-class/public/app/img/business-img-1.jpg" class="cutting-img" alt="Business Training Image">
-    </div>
-
-  </div>
-</section>
-
-<footer class="site-footer">
-  <p>Contact: clay@chainsawclay.com</p>
-  <p>Back to main business: <a href="https://chainsawclay.com" style="color:#ff7b00;">Chainsaw Clay’s Tree Service</a></p>
-</footer>
+  <footer class="site-footer">
+    <p>Contact: clay@chainsawclay.com</p>
+    <p>Back to main business: <a href="https://chainsawclay.com">Chainsaw Clay’s Tree Service</a></p>
+  </footer>
 
 </div>
 
 <!-- SQUIRREL CHAT -->
-<img src="/app/img/squirell-img.jpg" id="squirrelChatBtn">
+<img src="/climbing-class/public/app/img/squirell-img.jpg" id="squirrelChatBtn">
 
 <div id="squirrelChatBox">
   <div style="font-weight: bold; margin-bottom: 10px; font-size: 18px;">🐿️ Helper Squirrel</div>
@@ -414,7 +422,7 @@ function toggleSidebar() {
 </div>
 
 <!-- JS -->
-<script src="/js/squirrel.js"></script>
+<script src="/climbing-class/public/js/squirrel.js"></script>
 
 </body>
 </html>
