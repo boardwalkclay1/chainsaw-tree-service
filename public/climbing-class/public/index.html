@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>Tree Climbing Classes & Training App</title>
+  <title>Chainsaw Clay — Tree Climbing Classes & Training App</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <!-- FAVICON -->
@@ -15,7 +15,7 @@
     body {
       margin: 0;
       padding: 0;
-      background: url('/climbing-class/public/img/climb-index.jpg') no-repeat center center fixed;
+      background: url('/img/climb-index.jpg') no-repeat center center fixed;
       background-size: cover;
       color: #fff;
       font-family: system-ui, sans-serif;
@@ -26,9 +26,11 @@
       min-height: 100vh;
       padding-bottom: 60px;
       position: relative;
+      border-left: 4px solid #ff7b00;
+      border-right: 4px solid #ff7b00;
     }
 
-    /* LOGO BURGER TRIGGER */
+    /* LOGO BURGER TRIGGER — HIDDEN UNTIL CLICKED */
     #logoTrigger {
       position: fixed;
       top: 20px;
@@ -37,20 +39,23 @@
       height: auto;
       cursor: pointer;
       z-index: 9999;
+      border: 3px solid #ff7b00;
+      border-radius: 12px;
+      box-shadow: 0 0 18px #ff7b00;
     }
 
-    /* SIDEBAR */
+    /* SIDEBAR — HIDDEN UNTIL LOGO CLICK */
     #sidebar {
       position: fixed;
       top: 0;
       left: -260px;
       width: 260px;
       height: 100%;
-      background: rgba(0,0,0,0.95);
+      background: rgba(0,0,0,0.97);
       padding: 30px;
       transition: 0.3s ease;
       z-index: 9998;
-      border-right: 2px solid #00c853;
+      border-right: 3px solid #ff7b00;
     }
 
     #sidebar a {
@@ -71,7 +76,7 @@
       display: block;
       margin: 40px auto 10px;
       height: 120px;
-      filter: drop-shadow(0 0 12px #00c853);
+      filter: drop-shadow(0 0 12px #ff7b00);
     }
 
     .back-home {
@@ -80,28 +85,30 @@
     }
 
     .back-home a {
-      color: #00c853;
+      color: #ff7b00;
       font-size: 18px;
       text-decoration: none;
       font-weight: bold;
     }
 
+    /* CLIMBING CLASS HERO — BIGGER, MORE ATTENTION */
     .site-header {
       text-align: center;
-      padding: 40px 20px 40px;
+      padding: 60px 20px 40px;
     }
 
     .site-header h1 {
-      font-size: 32px;
+      font-size: 40px;
       margin-bottom: 10px;
-      font-weight: 700;
+      font-weight: 900;
+      text-shadow: 0 0 12px #ff7b00;
     }
 
     .site-header p {
-      font-size: 18px;
-      max-width: 600px;
+      font-size: 20px;
+      max-width: 650px;
       margin: 0 auto 25px;
-      opacity: 0.9;
+      opacity: 0.95;
     }
 
     .header-buttons {
@@ -118,17 +125,17 @@
       font-weight: 700;
       font-size: 16px;
       display: inline-block;
+      border: 2px solid #ff7b00;
     }
 
     .primary {
-      background: #00c853;
+      background: #ff7b00;
       color: #000;
     }
 
     .secondary {
       background: #1a1a1a;
       color: #fff;
-      border: 1px solid #333;
     }
 
     .section {
@@ -138,8 +145,9 @@
     }
 
     .section h2 {
-      font-size: 26px;
+      font-size: 28px;
       margin-bottom: 15px;
+      text-shadow: 0 0 10px #ff7b00;
     }
 
     .category-grid {
@@ -153,13 +161,14 @@
       background: rgba(0,0,0,0.55);
       padding: 20px;
       border-radius: 12px;
-      border: 1px solid #333;
+      border: 2px solid #ff7b00;
     }
 
     .category-card h3 {
       margin-top: 0;
       margin-bottom: 10px;
       font-size: 20px;
+      color: #ff7b00;
     }
 
     .category-card ul {
@@ -176,7 +185,8 @@
       width: 100%;
       border-radius: 10px;
       margin-top: 12px;
-      box-shadow: 0 0 12px rgba(0,0,0,0.7);
+      box-shadow: 0 0 12px #ff7b00;
+      border: 2px solid #ff7b00;
     }
 
     .site-footer {
@@ -184,6 +194,7 @@
       padding: 30px 20px;
       opacity: 0.8;
       font-size: 14px;
+      border-top: 2px solid #ff7b00;
     }
 
     #squirrelChatBtn {
@@ -194,6 +205,8 @@
       height: auto;
       cursor: pointer;
       z-index: 9999;
+      border: 2px solid #ff7b00;
+      border-radius: 12px;
     }
 
     #squirrelChatBox {
@@ -202,7 +215,7 @@
       right: 20px;
       width: 320px;
       background: rgba(0,0,0,0.92);
-      border: 2px solid #00c853;
+      border: 2px solid #ff7b00;
       border-radius: 12px;
       padding: 15px;
       display: none;
@@ -259,7 +272,7 @@ function toggleSidebar() {
 </div>
 
 <header class="site-header">
-  <h1>Professional Tree Climbing Training</h1>
+  <h1>Chainsaw Clay’s Tree Climbing Classes</h1>
   <p>Learn knots, safety, gear, climbing styles, rigging, and real arborist techniques.</p>
 
   <div class="header-buttons">
@@ -274,7 +287,7 @@ function toggleSidebar() {
   <h2>Class Pricing</h2>
   <p><strong>Group Class:</strong> $80</p>
   <p><strong>Personal 1‑on‑1 Session:</strong> $200/hr</p>
-  <p><a href="/pages/pricing.html" style="color:#00c853;">View full pricing →</a></p>
+  <p><a href="/pages/pricing.html" style="color:#ff7b00;">View full pricing →</a></p>
 </section>
 
 <section class="section">
@@ -384,7 +397,7 @@ function toggleSidebar() {
 
 <footer class="site-footer">
   <p>Contact: clay@chainsawclay.com</p>
-  <p>Back to main business: <a href="https://chainsawclay.com" style="color:#00c853;">Chainsaw Clay’s Tree Service</a></p>
+  <p>Back to main business: <a href="https://chainsawclay.com" style="color:#ff7b00;">Chainsaw Clay’s Tree Service</a></p>
 </footer>
 
 </div>
