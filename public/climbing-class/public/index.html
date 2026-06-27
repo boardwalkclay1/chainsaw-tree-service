@@ -30,51 +30,51 @@
       border-right: 4px solid #00c853;
     }
 
-    /* LOGO BURGER TRIGGER */
+    /* LOGO BURGER TRIGGER — ALWAYS ON TOP */
     #logoTrigger {
       position: fixed;
-      top: 20px;
-      left: 20px;
-      width: 180px;
+      top: 10px;
+      left: 10px;
+      width: 150px;
       height: auto;
       cursor: pointer;
-      z-index: 9999;
+      z-index: 99999;
       border: 3px solid #ff7b00;
       border-radius: 12px;
       box-shadow: 0 0 18px #00c853;
     }
 
-    /* SIDEBAR */
+    /* SIDEBAR — SLIDES OVER EVERYTHING */
     #sidebar {
       position: fixed;
       top: 0;
-      left: -260px;
-      width: 260px;
+      left: -280px;
+      width: 280px;
       height: 100%;
       background: rgba(0,0,0,0.97);
       padding: 30px;
       transition: 0.3s ease;
-      z-index: 9998;
+      z-index: 99998;
       border-right: 3px solid #00c853;
-    }
-
-    #sidebar a {
-      display: block;
-      color: #fff;
-      text-decoration: none;
-      padding: 12px 0;
-      font-size: 18px;
-      border-bottom: 1px solid #333;
     }
 
     #sidebar.open {
       left: 0;
     }
 
+    #sidebar a {
+      display: block;
+      color: #fff;
+      text-decoration: none;
+      padding: 14px 0;
+      font-size: 20px;
+      border-bottom: 1px solid #333;
+    }
+
     /* TREE SERVICE LOGO */
     #treeLogo {
       display: block;
-      margin: 40px auto 10px;
+      margin: 160px auto 10px;
       height: 120px;
       filter: drop-shadow(0 0 12px #ff7b00);
     }
@@ -91,9 +91,11 @@
       font-weight: bold;
     }
 
+    /* HEADER — TRUE TOP */
     .site-header {
       text-align: center;
-      padding: 60px 20px 40px;
+      padding: 20px 20px 40px;
+      margin-top: 0;
     }
 
     .site-header h1 {
@@ -230,29 +232,12 @@
       z-index: 9999;
       color: #fff;
     }
-
-    #squirrelMessages {
-      height: 180px;
-      overflow-y: auto;
-      margin-bottom: 10px;
-      font-size: 14px;
-      padding-right: 5px;
-    }
-
-    #squirrelInput {
-      width: 100%;
-      padding: 10px;
-      border-radius: 8px;
-      border: none;
-      outline: none;
-      font-size: 14px;
-    }
   </style>
 </head>
 <body>
 
 <!-- LOGO TRIGGER -->
-<img src="/img/climb-logo.jpg" id="logoTrigger" onclick="toggleSidebar()">
+<img src="/climbing-class/public/img/climb-logo.jpg" id="logoTrigger" onclick="toggleSidebar()">
 
 <!-- SIDEBAR -->
 <div id="sidebar">
@@ -262,6 +247,7 @@
   <a href="/climbing-class/public/pages/app-info.html">About the App</a>
   <a href="/climbing-class/public/pages/contact.html">Contact</a>
   <a href="/climbing-class/public/pages/privacy.html">Privacy Agreement</a>
+  <a href="mailto:support@chainsawclay.com">Email Support</a>
 </div>
 
 <script>
@@ -273,7 +259,7 @@ function toggleSidebar() {
 <div class="overlay">
 
   <!-- TREE SERVICE LOGO + LINK -->
-  <img id="treeLogo" src="/img/tree-service-logo.png" alt="Chainsaw Clay's Tree Service Logo">
+  <img id="treeLogo" src="/climbing-class/public/img/tree-service-logo.png" alt="Chainsaw Clay's Tree Service Logo">
 
   <div class="back-home">
     <a href="https://chainsawclay.com">← Back to Chainsaw Clay’s Tree Service</a>
@@ -404,7 +390,7 @@ function toggleSidebar() {
   </section>
 
   <footer class="site-footer">
-    <p>Contact: clay@chainsawclay.com</p>
+    <p>Email: <a href="mailto:support@chainsawclay.com">support@chainsawclay.com</a></p>
     <p>Back to main business: <a href="https://chainsawclay.com">Chainsaw Clay’s Tree Service</a></p>
   </footer>
 
