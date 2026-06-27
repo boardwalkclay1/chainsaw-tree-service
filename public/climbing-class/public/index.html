@@ -30,7 +30,7 @@
       border-right: 4px solid #00c853;
     }
 
-    /* LOGO BURGER TRIGGER — ALWAYS ON TOP */
+    /* CLIMB LOGO BURGER TRIGGER — ALWAYS ON TOP */
     #logoTrigger {
       position: fixed;
       top: 10px;
@@ -38,13 +38,13 @@
       width: 150px;
       height: auto;
       cursor: pointer;
-      z-index: 99999;
+      z-index: 99999; /* ← highest layer */
       border: 3px solid #ff7b00;
       border-radius: 12px;
       box-shadow: 0 0 18px #00c853;
     }
 
-    /* SIDEBAR — SLIDES OVER EVERYTHING */
+    /* SIDEBAR — MUST COVER EVERYTHING */
     #sidebar {
       position: fixed;
       top: 0;
@@ -54,7 +54,7 @@
       background: rgba(0,0,0,0.97);
       padding: 30px;
       transition: 0.3s ease;
-      z-index: 99998;
+      z-index: 99998; /* ← under logoTrigger but above EVERYTHING else */
       border-right: 3px solid #00c853;
     }
 
@@ -69,14 +69,6 @@
       padding: 14px 0;
       font-size: 20px;
       border-bottom: 1px solid #333;
-    }
-
-    /* TREE SERVICE LOGO UNDER TOP HEADER */
-    #treeLogo {
-      display: block;
-      margin: 20px auto 10px;
-      height: 120px;
-      filter: drop-shadow(0 0 12px #ff7b00);
     }
 
     /* HEADER — TRUE TOP */
@@ -195,6 +187,14 @@
       text-decoration: none;
     }
 
+    /* TREE SERVICE LOGO — NOW AT BOTTOM ONLY */
+    #treeLogoBottom {
+      display: block;
+      margin: 20px auto 10px;
+      height: 120px;
+      filter: drop-shadow(0 0 12px #ff7b00);
+    }
+
     #squirrelChatBtn {
       position: fixed;
       bottom: 20px;
@@ -225,7 +225,7 @@
 </head>
 <body>
 
-<!-- LOGO TRIGGER (CLIMB LOGO) -->
+<!-- CLIMB LOGO (BURGER TRIGGER) -->
 <img src="/img/climb-logo.jpg" id="logoTrigger" onclick="toggleSidebar()">
 
 <!-- SIDEBAR -->
@@ -256,10 +256,6 @@ function toggleSidebar() {
       <a href="/climbing-class/public/pages/app-info.html" class="btn secondary">About the App</a>
       <a href="/climbing-class/public/app/pages/index.html" class="btn secondary">Open Training App</a>
     </div>
-
-    <!-- LOGO UNDER HEADER (CORRECT PATH) -->
-    <img id="treeLogo" src="/img/tree-service-logo.png" alt="Chainsaw Clay's Tree Service Logo">
-
   </header>
 
   <section class="section">
@@ -375,6 +371,10 @@ function toggleSidebar() {
   </section>
 
   <footer class="site-footer">
+
+    <!-- TREE SERVICE LOGO MOVED TO BOTTOM ONLY -->
+    <img id="treeLogoBottom" src="/img/tree-service-logo.png" alt="Chainsaw Clay's Tree Service Logo">
+
     <p>Email: <a href="mailto:support@chainsawclay.com">support@chainsawclay.com</a></p>
     <p><a href="https://chainsawclay.com">← Back to Chainsaw Clay’s Tree Service</a></p>
   </footer>
