@@ -1,0 +1,16 @@
+name = "video-uploader"
+main = "worker/worker.js"
+compatibility_date = "2024-11-01"
+
+# R2 bucket binding
+[[r2_buckets]]
+binding = "VIDEOS"
+bucket_name = "climbing-class-videos"
+
+# Public URL for your R2 bucket (set this in Cloudflare dashboard)
+[vars]
+PUBLIC_URL = "https://<your-account-id>.r2.cloudflarestorage.com/climbing-class-videos"
+
+# Enable uploads up to large sizes
+[limits]
+upload_body_size = "1gb"
