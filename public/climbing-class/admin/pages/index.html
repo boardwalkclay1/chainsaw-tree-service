@@ -4,25 +4,64 @@
   <meta charset="UTF-8" />
   <title>Admin Dashboard</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <link rel="stylesheet" href="/admin/admin.css" />
+  <link rel="stylesheet" href="/climbing-class/admin/admin.css" />
 </head>
+
 <body>
 
 <header class="admin-header">
   <h1>Admin Dashboard</h1>
+
   <nav>
-    <a href="/admin/pages/students.html">Students</a>
-    <a href="/admin/pages/lessons.html">Lessons</a>
-    <a href="/admin/pages/cities.html">Cities</a>
-    <a href="/admin/pages/reservations.html">Reservations</a>
+    <a href="/climbing-class/admin/pages/index.html">Dashboard</a>
+    <a href="/climbing-class/admin/pages/students.html">Students</a>
+    <a href="/climbing-class/admin/pages/lessons.html">Lessons</a>
+    <a href="/climbing-class/admin/pages/cities.html">Cities</a>
+    <a href="/climbing-class/admin/pages/reservations.html">Reservations</a>
+    <a href="/climbing-class/admin/pages/videos.html">Videos</a>
+    <a href="/climbing-class/admin/pages/messages.html">Messages</a>
+    <a href="/climbing-class/admin/pages/clients.html">Clients</a>
+    <a href="/climbing-class/admin/pages/payments.html">Finances</a>
   </nav>
 </header>
 
 <main class="section">
-  <h2>Welcome to the Admin Panel</h2>
-  <p>Use the navigation above to manage the platform.</p>
+
+  <h2>Admin Overview</h2>
+  <p>This dashboard shows live analytics, students, clients, lessons, reservations, and finances.</p>
+
+  <!-- ANALYTICS -->
+  <section>
+    <h3>Analytics Summary</h3>
+    <div id="admin-analytics" class="grid"></div>
+  </section>
+
+  <!-- STUDENTS -->
+  <section>
+    <h3>Students</h3>
+    <div id="admin-students" class="list"></div>
+  </section>
+
+  <!-- CLIENTS -->
+  <section>
+    <h3>Clients</h3>
+    <div id="admin-clients" class="list"></div>
+  </section>
+
+  <!-- LESSONS -->
+  <section>
+    <h3>Lessons</h3>
+    <div id="admin-lessons" class="list"></div>
+  </section>
+
+  <!-- RESERVATIONS -->
+  <section>
+    <h3>Reservations</h3>
+    <div id="admin-reservations" class="list"></div>
+  </section>
+
 </main>
 
-<script src="/admin/js/admin.js"></script>
+<script src="/climbing-class/admin/admin.js"></script>
 </body>
 </html>
