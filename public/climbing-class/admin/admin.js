@@ -1,6 +1,6 @@
 // admin.js
-// Chainsaw Clay Admin — Tree Service + Climbing Class
-// Single front-end controller talking to Cloudflare Worker + D1
+// Chainsaw Clay Admin — Unified Admin Controller
+// Talks directly to ONE Worker (public + admin routes)
 
 const API_BASE = '/api';
 
@@ -15,20 +15,16 @@ async function apiRequest(path, options = {}) {
     ...options,
     body: options.body ? JSON.stringify(options.body) : undefined,
   });
+
   if (!res.ok) throw new Error(`API error: ${res.status}`);
   return res.json();
 }
 
-function qs(sel) {
-  return document.querySelector(sel);
-}
-
-function qsa(sel) {
-  return Array.from(document.querySelectorAll(sel));
-}
+const qs = (sel) => document.querySelector(sel);
+const qsa = (sel) => Array.from(document.querySelectorAll(sel));
 
 // =========================
-// AUTH + USERS
+// AUTH
 // =========================
 
 async function loginAdmin(email, password) {
@@ -43,51 +39,31 @@ async function getCurrentUser() {
 }
 
 // =========================
+// ADMIN DASHBOARD
+// =========================
+
+async function loadAdminDashboard() {
+  return apiRequest('/admin/dashboard', { method: 'GET' });
+}
+
+// =========================
 // ANALYTICS
 // =========================
 
-async function trackView(type, meta = {}) {
-  return apiRequest('/analytics/view', {
-    method: 'POST',
-    body: { type, meta },
-  });
-}
-
-async function trackVideoPlay(videoId) {
-  return apiRequest('/analytics/video-play', {
-    method: 'POST',
-    body: { videoId },
-  });
-}
-
-async function trackLogin(userId) {
-  return apiRequest('/analytics/login', {
-    method: 'POST',
-    body: { userId },
-  });
-}
-
 async function loadAnalyticsSummary() {
-  return apiRequest('/analytics/summary', { method: 'GET' });
+  return apiRequest('/admin/analytics/summary', { method: 'GET' });
 }
 
 // =========================
-// PAYMENTS (Deposits + Full)
+// PAYMENTS
 // =========================
 
-async function createPaymentIntent(payload) {
-  // payload: { studentId/clientId, amount, type: 'deposit'|'full', source: 'class'|'tree-service' }
-  return apiRequest('/payments/intent', {
-    method: 'POST',
-    body: payload,
-  });
+async function listPayments() {
+  return apiRequest('/admin/payments/list', { method: 'GET' });
 }
 
-async function listPayments(filter = {}) {
-  return apiRequest('/payments/list', {
-    method: 'POST',
-    body: filter,
-  });
+async function loadPaymentsSummary() {
+  return apiRequest('/admin/payments/summary', { method: 'GET' });
 }
 
 // =========================
@@ -95,36 +71,19 @@ async function listPayments(filter = {}) {
 // =========================
 
 async function getVideoUploadUrl(meta) {
-  // meta: { title, lessonId, category: 'class'|'tree-service' }
-  return apiRequest('/videos/upload-url', {
+  return apiRequest('/admin/videos/upload-url', {
     method: 'POST',
     body: meta,
-  });
-}
-
-async function listVideos(filter = {}) {
-  return apiRequest('/videos/list', {
-    method: 'POST',
-    body: filter,
-  });
-}
-
-async function deleteVideo(videoId) {
-  return apiRequest('/videos/delete', {
-    method: 'POST',
-    body: { videoId },
   });
 }
 
 async function uploadVideoFile(file, meta) {
   const { uploadUrl, videoId } = await getVideoUploadUrl(meta);
 
-  const formData = new FormData();
-  formData.append('file', file);
-
+  // R2 presigned URLs REQUIRE PUT, not POST
   const res = await fetch(uploadUrl, {
-    method: 'POST',
-    body: formData,
+    method: 'PUT',
+    body: file,
   });
 
   if (!res.ok) throw new Error('Video upload failed');
@@ -132,280 +91,244 @@ async function uploadVideoFile(file, meta) {
   return { videoId };
 }
 
+async function listVideos() {
+  return apiRequest('/admin/videos/list', { method: 'GET' });
+}
+
+async function deleteVideo(videoId) {
+  return apiRequest('/admin/videos/delete', {
+    method: 'POST',
+    body: { videoId },
+  });
+}
+
 // =========================
-// LESSONS (Climbing Class)
+// LESSONS
 // =========================
 
+async function listLessons() {
+  return apiRequest('/admin/lessons/list', { method: 'GET' });
+}
+
 async function createLesson(data) {
-  // data: { title, description, level, videoIds: [] }
-  return apiRequest('/lessons/create', {
+  return apiRequest('/admin/lessons/create', {
     method: 'POST',
     body: data,
   });
 }
 
 async function updateLesson(id, data) {
-  return apiRequest('/lessons/update', {
+  return apiRequest('/admin/lessons/update', {
     method: 'POST',
     body: { id, ...data },
   });
 }
 
 async function deleteLesson(id) {
-  return apiRequest('/lessons/delete', {
+  return apiRequest('/admin/lessons/delete', {
     method: 'POST',
     body: { id },
   });
 }
 
-async function listLessons(filter = {}) {
-  return apiRequest('/lessons/list', {
-    method: 'POST',
-    body: filter,
-  });
+// =========================
+// RESERVATIONS
+// =========================
+
+async function listReservations() {
+  return apiRequest('/admin/reservations/list', { method: 'GET' });
 }
 
-// =========================
-// RESERVATIONS / SCHEDULE
-// =========================
-
 async function createReservation(data) {
-  // data: { studentId, classId, date, status }
-  return apiRequest('/reservations/create', {
+  return apiRequest('/admin/reservations/create', {
     method: 'POST',
     body: data,
   });
 }
 
-async function listReservations(filter = {}) {
-  return apiRequest('/reservations/list', {
-    method: 'POST',
-    body: filter,
-  });
-}
-
 async function updateReservation(id, data) {
-  return apiRequest('/reservations/update', {
+  return apiRequest('/admin/reservations/update', {
     method: 'POST',
     body: { id, ...data },
   });
 }
 
 // =========================
-// TREE SERVICE CLIENTS
+// CLIENTS
 // =========================
 
-async function listClients(filter = {}) {
-  return apiRequest('/clients/list', {
-    method: 'POST',
-    body: filter,
-  });
+async function listClients() {
+  return apiRequest('/admin/clients/list', { method: 'GET' });
 }
 
 async function createClient(data) {
-  // data: { name, phone, email, address, notes }
-  return apiRequest('/clients/create', {
+  return apiRequest('/admin/clients/create', {
     method: 'POST',
     body: data,
   });
 }
 
 async function updateClient(id, data) {
-  return apiRequest('/clients/update', {
+  return apiRequest('/admin/clients/update', {
     method: 'POST',
     body: { id, ...data },
   });
 }
 
-// =========================
-// STUDENTS (Climbing Class)
-// =========================
-
-async function listStudents(filter = {}) {
-  return apiRequest('/students/list', {
+async function sendEstimate(data) {
+  return apiRequest('/admin/clients/estimate', {
     method: 'POST',
-    body: filter,
+    body: data,
   });
 }
 
+// =========================
+// STUDENTS
+// =========================
+
+async function listStudents() {
+  return apiRequest('/admin/students/list', { method: 'GET' });
+}
+
 async function createStudent(data) {
-  // data: { name, phone, email, level, notes }
-  return apiRequest('/students/create', {
+  return apiRequest('/admin/students/create', {
     method: 'POST',
     body: data,
   });
 }
 
 async function updateStudent(id, data) {
-  return apiRequest('/students/update', {
+  return apiRequest('/admin/students/update', {
     method: 'POST',
     body: { id, ...data },
   });
 }
 
 // =========================
-// CITIES / LOCATIONS
+// CITIES
 // =========================
 
 async function listCities() {
-  return apiRequest('/cities/list', { method: 'GET' });
+  return apiRequest('/admin/cities/list', { method: 'GET' });
 }
 
 async function addCity(data) {
-  // data: { name, state, type: 'tree-service'|'class' }
-  return apiRequest('/cities/create', {
+  return apiRequest('/admin/cities/create', {
     method: 'POST',
     body: data,
   });
 }
 
 // =========================
-// MESSAGING (Clients + Students)
+// MESSAGES
 // =========================
 
 async function sendMessage(data) {
-  // data: { toType: 'client'|'student', toId, subject, body }
-  return apiRequest('/messages/send', {
+  return apiRequest('/admin/messages/send', {
     method: 'POST',
     body: data,
   });
 }
 
-async function listMessages(filter = {}) {
-  return apiRequest('/messages/list', {
-    method: 'POST',
-    body: filter,
-  });
+async function listMessages() {
+  return apiRequest('/admin/messages/list', { method: 'GET' });
 }
 
 // =========================
-// UI WIRING
+// UI INITIALIZATION
 // =========================
 
 async function initAdminDashboard() {
   try {
     const user = await getCurrentUser();
-    console.log('Logged in as:', user.email);
+    console.log('Admin logged in:', user.email);
 
-    // Track admin login
-    if (user.id) await trackLogin(user.id);
+    const dashboard = await loadAdminDashboard();
 
-    // Load analytics summary
-    const analytics = await loadAnalyticsSummary();
-    renderAnalytics(analytics);
+    renderAnalytics(dashboard.analytics);
+    renderStudents(dashboard.students);
+    renderClients(dashboard.clients);
+    renderLessons(dashboard.lessons);
+    renderReservations(dashboard.reservations);
 
-    // Load students, clients, lessons, reservations
-    const [students, clients, lessons, reservations] = await Promise.all([
-      listStudents(),
-      listClients(),
-      listLessons(),
-      listReservations(),
-    ]);
-
-    renderStudents(students);
-    renderClients(clients);
-    renderLessons(lessons);
-    renderReservations(reservations);
-
-    // Wire forms
-    wireEstimateForm();
-    wireClassReservationForm();
-    wireVideoUploadForm();
-    wireMessageForm();
+    wireForms();
   } catch (err) {
     console.error('Admin init failed:', err);
   }
 }
 
 // =========================
-// RENDER HELPERS (DOM)
+// RENDER HELPERS
 // =========================
 
 function renderAnalytics(data) {
   const el = qs('#admin-analytics');
   if (!el) return;
+
   el.innerHTML = `
-    <div class="card">
-      <h3>Website Views</h3>
-      <p>${data.websiteViews ?? 0}</p>
-    </div>
-    <div class="card">
-      <h3>App Logins</h3>
-      <p>${data.appLogins ?? 0}</p>
-    </div>
-    <div class="card">
-      <h3>Video Plays</h3>
-      <p>${data.videoPlays ?? 0}</p>
-    </div>
-    <div class="card">
-      <h3>Class Signups</h3>
-      <p>${data.classSignups ?? 0}</p>
-    </div>
-    <div class="card">
-      <h3>Estimate Requests</h3>
-      <p>${data.estimateRequests ?? 0}</p>
-    </div>
+    <div class="card"><h3>Views</h3><p>${data.view ?? 0}</p></div>
+    <div class="card"><h3>Logins</h3><p>${data.login ?? 0}</p></div>
+    <div class="card"><h3>Video Plays</h3><p>${data['video-play'] ?? 0}</p></div>
   `;
 }
 
 function renderStudents(students) {
   const el = qs('#admin-students');
   if (!el) return;
+
   el.innerHTML = students
-    .map(
-      (s) => `
-    <div class="row">
-      <span>${s.name}</span>
-      <span>${s.level}</span>
-      <span>${s.email}</span>
-    </div>`
-    )
+    .map(s => `
+      <div class="row">
+        <span>${s.name}</span>
+        <span>${s.level}</span>
+        <span>${s.email}</span>
+      </div>
+    `)
     .join('');
 }
 
 function renderClients(clients) {
   const el = qs('#admin-clients');
   if (!el) return;
+
   el.innerHTML = clients
-    .map(
-      (c) => `
-    <div class="row">
-      <span>${c.name}</span>
-      <span>${c.phone}</span>
-      <span>${c.address}</span>
-    </div>`
-    )
+    .map(c => `
+      <div class="row">
+        <span>${c.name}</span>
+        <span>${c.phone}</span>
+        <span>${c.address}</span>
+      </div>
+    `)
     .join('');
 }
 
 function renderLessons(lessons) {
   const el = qs('#admin-lessons');
   if (!el) return;
+
   el.innerHTML = lessons
-    .map(
-      (l) => `
-    <div class="row">
-      <span>${l.title}</span>
-      <span>${l.level}</span>
-      <span>${(l.videoCount ?? 0)} videos</span>
-    </div>`
-    )
+    .map(l => `
+      <div class="row">
+        <span>${l.title}</span>
+        <span>${l.level}</span>
+      </div>
+    `)
     .join('');
 }
 
 function renderReservations(reservations) {
   const el = qs('#admin-reservations');
   if (!el) return;
+
   el.innerHTML = reservations
-    .map(
-      (r) => `
-    <div class="row">
-      <span>${r.studentName}</span>
-      <span>${r.classTitle}</span>
-      <span>${r.date}</span>
-      <span>${r.status}</span>
-    </div>`
-    )
+    .map(r => `
+      <div class="row">
+        <span>${r.studentId}</span>
+        <span>${r.classId}</span>
+        <span>${r.date}</span>
+        <span>${r.status}</span>
+      </div>
+    `)
     .join('');
 }
 
@@ -413,44 +336,44 @@ function renderReservations(reservations) {
 // FORM WIRING
 // =========================
 
+function wireForms() {
+  wireEstimateForm();
+  wireReservationForm();
+  wireVideoUploadForm();
+  wireMessageForm();
+}
+
 function wireEstimateForm() {
   const form = qs('#estimate-form');
   if (!form) return;
 
   form.addEventListener('submit', async (e) => {
     e.preventDefault();
-    const fd = new FormData(form);
-    const payload = Object.fromEntries(fd.entries());
+    const payload = Object.fromEntries(new FormData(form).entries());
 
     try {
-      await apiRequest('/clients/estimate', {
-        method: 'POST',
-        body: payload,
-      });
-      alert('Estimate request sent.');
+      await sendEstimate(payload);
+      alert('Estimate sent.');
       form.reset();
     } catch (err) {
-      console.error(err);
       alert('Error sending estimate.');
     }
   });
 }
 
-function wireClassReservationForm() {
+function wireReservationForm() {
   const form = qs('#class-reservation-form');
   if (!form) return;
 
   form.addEventListener('submit', async (e) => {
     e.preventDefault();
-    const fd = new FormData(form);
-    const payload = Object.fromEntries(fd.entries());
+    const payload = Object.fromEntries(new FormData(form).entries());
 
     try {
       await createReservation(payload);
       alert('Reservation created.');
       form.reset();
     } catch (err) {
-      console.error(err);
       alert('Error creating reservation.');
     }
   });
@@ -462,12 +385,9 @@ function wireVideoUploadForm() {
 
   form.addEventListener('submit', async (e) => {
     e.preventDefault();
-    const fileInput = qs('#video-file');
-    const file = fileInput?.files?.[0];
-    if (!file) {
-      alert('Select a video file.');
-      return;
-    }
+
+    const file = qs('#video-file').files[0];
+    if (!file) return alert('Select a video.');
 
     const fd = new FormData(form);
     const meta = {
@@ -481,7 +401,6 @@ function wireVideoUploadForm() {
       alert('Video uploaded.');
       form.reset();
     } catch (err) {
-      console.error(err);
       alert('Error uploading video.');
     }
   });
@@ -493,15 +412,13 @@ function wireMessageForm() {
 
   form.addEventListener('submit', async (e) => {
     e.preventDefault();
-    const fd = new FormData(form);
-    const payload = Object.fromEntries(fd.entries());
+    const payload = Object.fromEntries(new FormData(form).entries());
 
     try {
       await sendMessage(payload);
       alert('Message sent.');
       form.reset();
     } catch (err) {
-      console.error(err);
       alert('Error sending message.');
     }
   });
