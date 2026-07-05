@@ -80,7 +80,6 @@ async function getVideoUploadUrl(meta) {
 async function uploadVideoFile(file, meta) {
   const { uploadUrl, videoId } = await getVideoUploadUrl(meta);
 
-  // R2 presigned URLs REQUIRE PUT, not POST
   const res = await fetch(uploadUrl, {
     method: 'PUT',
     body: file,
