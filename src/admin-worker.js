@@ -1,85 +1,67 @@
+// worker.js
+// Chainsaw Clay Admin API — Tree Service + Climbing Class
+// Runs at https://api.chainsawclay.com/
+
 export default {
   async fetch(request, env) {
     const url = new URL(request.url);
     const path = url.pathname;
 
     try {
-      // =========================
       // AUTH
-      // =========================
-      if (path === "/api/auth/login") return login(request, env);
-      if (path === "/api/auth/me") return me(request, env);
+      if (path === "/api/auth/login") return safe(login, request, env);
+      if (path === "/api/auth/me") return safe(me, request, env);
 
-      // =========================
       // ADMIN DASHBOARD
-      // =========================
-      if (path === "/api/admin/dashboard") return adminDashboard(request, env);
+      if (path === "/api/admin/dashboard") return safe(adminDashboard, request, env);
 
-      // =========================
       // ANALYTICS
-      // =========================
-      if (path === "/api/analytics/view") return analyticsView(request, env);
-      if (path === "/api/analytics/video-play") return analyticsVideoPlay(request, env);
-      if (path === "/api/analytics/login") return analyticsLogin(request, env);
-      if (path === "/api/analytics/summary") return analyticsSummary(request, env);
+      if (path === "/api/analytics/view") return safe(analyticsView, request, env);
+      if (path === "/api/analytics/video-play") return safe(analyticsVideoPlay, request, env);
+      if (path === "/api/analytics/login") return safe(analyticsLogin, request, env);
+      if (path === "/api/analytics/summary") return safe(analyticsSummary, request, env);
 
-      // =========================
-      // PAYMENTS / FINANCES
-      // =========================
-      if (path === "/api/payments/intent") return createPaymentIntent(request, env);
-      if (path === "/api/payments/list") return listPayments(request, env);
-      if (path === "/api/payments/summary") return paymentsSummary(request, env);
+      // PAYMENTS
+      if (path === "/api/payments/intent") return safe(createPaymentIntent, request, env);
+      if (path === "/api/payments/list") return safe(listPayments, request, env);
+      if (path === "/api/payments/summary") return safe(paymentsSummary, request, env);
 
-      // =========================
-      // VIDEOS (R2 + ADMIN)
-      // =========================
-      if (path === "/api/videos/upload-url") return getVideoUploadUrl(request, env);
-      if (path === "/api/videos/list") return listVideos(request, env);
-      if (path === "/api/videos/delete") return deleteVideo(request, env);
-      if (path === "/api/videos/admin/list") return adminListVideos(request, env);
-      if (path === "/api/videos/admin/get") return adminGetVideo(request, env);
+      // VIDEOS
+      if (path === "/api/videos/upload-url") return safe(getVideoUploadUrl, request, env);
+      if (path === "/api/videos/list") return safe(listVideos, request, env);
+      if (path === "/api/videos/delete") return safe(deleteVideo, request, env);
+      if (path === "/api/videos/admin/list") return safe(adminListVideos, request, env);
+      if (path === "/api/videos/admin/get") return safe(adminGetVideo, request, env);
 
-      // =========================
       // LESSONS
-      // =========================
-      if (path === "/api/lessons/create") return createLesson(request, env);
-      if (path === "/api/lessons/update") return updateLesson(request, env);
-      if (path === "/api/lessons/delete") return deleteLesson(request, env);
-      if (path === "/api/lessons/list") return listLessons(request, env);
+      if (path === "/api/lessons/create") return safe(createLesson, request, env);
+      if (path === "/api/lessons/update") return safe(updateLesson, request, env);
+      if (path === "/api/lessons/delete") return safe(deleteLesson, request, env);
+      if (path === "/api/lessons/list") return safe(listLessons, request, env);
 
-      // =========================
       // RESERVATIONS
-      // =========================
-      if (path === "/api/reservations/create") return createReservation(request, env);
-      if (path === "/api/reservations/list") return listReservations(request, env);
-      if (path === "/api/reservations/update") return updateReservation(request, env);
+      if (path === "/api/reservations/create") return safe(createReservation, request, env);
+      if (path === "/api/reservations/list") return safe(listReservations, request, env);
+      if (path === "/api/reservations/update") return safe(updateReservation, request, env);
 
-      // =========================
       // CLIENTS
-      // =========================
-      if (path === "/api/clients/list") return listClients(request, env);
-      if (path === "/api/clients/create") return createClient(request, env);
-      if (path === "/api/clients/update") return updateClient(request, env);
-      if (path === "/api/clients/estimate") return estimateRequest(request, env);
+      if (path === "/api/clients/list") return safe(listClients, request, env);
+      if (path === "/api/clients/create") return safe(createClient, request, env);
+      if (path === "/api/clients/update") return safe(updateClient, request, env);
+      if (path === "/api/clients/estimate") return safe(estimateRequest, request, env);
 
-      // =========================
       // STUDENTS
-      // =========================
-      if (path === "/api/students/list") return listStudents(request, env);
-      if (path === "/api/students/create") return createStudent(request, env);
-      if (path === "/api/students/update") return updateStudent(request, env);
+      if (path === "/api/students/list") return safe(listStudents, request, env);
+      if (path === "/api/students/create") return safe(createStudent, request, env);
+      if (path === "/api/students/update") return safe(updateStudent, request, env);
 
-      // =========================
       // CITIES
-      // =========================
-      if (path === "/api/cities/list") return listCities(request, env);
-      if (path === "/api/cities/create") return createCity(request, env);
+      if (path === "/api/cities/list") return safe(listCities, request, env);
+      if (path === "/api/cities/create") return safe(createCity, request, env);
 
-      // =========================
       // MESSAGES
-      // =========================
-      if (path === "/api/messages/send") return sendMessage(request, env);
-      if (path === "/api/messages/list") return listMessages(request, env);
+      if (path === "/api/messages/send") return safe(sendMessage, request, env);
+      if (path === "/api/messages/list") return safe(listMessages, request, env);
 
       return json({ error: "Not found" }, 404);
     } catch (err) {
@@ -87,6 +69,25 @@ export default {
     }
   }
 };
+
+// =========================
+// SAFETY WRAPPER
+// =========================
+
+async function safe(fn, request, env) {
+  try {
+    return await fn(request, env);
+  } catch (err) {
+    if (err.message?.includes("no such table")) {
+      return json({
+        error: "Missing D1 table",
+        detail: err.message,
+        fix: "Create required tables in D1 (users, videos, lessons, clients, students, reservations, cities, messages, analytics, payments, estimates)."
+      }, 500);
+    }
+    return json({ error: err.message || "Server error" }, 500);
+  }
+}
 
 // =========================
 // HELPERS
@@ -122,12 +123,11 @@ async function login(request, env) {
 }
 
 async function me(request, env) {
-  // simple static admin identity for now
   return json({ id: 1, email: "admin@chainsawclay.com", role: "admin" });
 }
 
 // =========================
-// ADMIN DASHBOARD (ALL DATA)
+// ADMIN DASHBOARD
 // =========================
 
 async function adminDashboard(request, env) {
@@ -159,9 +159,7 @@ async function adminDashboard(request, env) {
     messages: messages.results,
     analytics: analyticsSummary,
     payments: payments.results,
-    finances: {
-      totalRevenue
-    }
+    finances: { totalRevenue }
   });
 }
 
@@ -205,7 +203,7 @@ async function analyticsSummary(request, env) {
 }
 
 // =========================
-// PAYMENTS / FINANCES
+// PAYMENTS
 // =========================
 
 async function createPaymentIntent(request, env) {
@@ -233,14 +231,11 @@ async function paymentsSummary(request, env) {
     byType[t] = (byType[t] || 0) + (p.amount || 0);
   });
 
-  return json({
-    totalRevenue,
-    byType
-  });
+  return json({ totalRevenue, byType });
 }
 
 // =========================
-// VIDEO UPLOADS (R2)
+// VIDEOS (R2)
 // =========================
 
 async function getVideoUploadUrl(request, env) {
@@ -257,7 +252,7 @@ async function getVideoUploadUrl(request, env) {
 
   await env.DB.prepare(
     "INSERT INTO videos (id, title, lessonId, category, key) VALUES (?, ?, ?, ?, ?)"
-  ).bind(videoId, data.title, data.lessonId, data.category, key).run();
+  ).bind(videoId, data.title, data.lessonId || null, data.category, key).run();
 
   return json({ uploadUrl, videoId, key });
 }
@@ -282,7 +277,6 @@ async function deleteVideo(request, env) {
   return json({ ok: true });
 }
 
-// Admin video list with preview URL (assuming public bucket or signed GET)
 async function adminListVideos(request, env) {
   const rows = await env.DB.prepare("SELECT * FROM videos").all();
 
@@ -308,9 +302,7 @@ async function adminGetVideo(request, env) {
   if (!object) return json({ error: "Not found" }, 404);
 
   return new Response(object.body, {
-    headers: {
-      "Content-Type": "video/mp4"
-    }
+    headers: { "Content-Type": "video/mp4" }
   });
 }
 
