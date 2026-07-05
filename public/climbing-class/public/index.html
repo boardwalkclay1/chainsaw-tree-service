@@ -126,16 +126,39 @@
     /* HEADER */
     .site-header {
       text-align: center;
-      padding: 140px 20px 20px;
+      padding: 160px 20px 20px;
       margin-top: 0;
     }
 
-    .header-buttons {
+    .intro-wrapper {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 40px 20px;
+      text-align: center;
+      animation: fadeIn 1.2s ease-out;
+    }
+
+    .intro-title {
+      font-size: 34px;
+      font-weight: 900;
+      color: #ff7b00;
+      text-shadow: 0 0 12px #ff7b00;
+      margin-bottom: 20px;
+    }
+
+    .intro-text {
+      font-size: 20px;
+      line-height: 1.6;
+      max-width: 800px;
+      margin: 15px auto;
+      opacity: 0.95;
+    }
+
+    .path-buttons {
       display: flex;
       justify-content: center;
-      gap: 15px;
-      flex-wrap: wrap;
-      margin-bottom: 20px;
+      gap: 20px;
+      margin: 25px 0;
     }
 
     .btn {
@@ -214,14 +237,18 @@
       opacity: 0.9;
     }
 
-    .cutting-img,
+    .gear-img,
+    .move-img,
+    .throwball-img,
     .blakes-hitch-img,
-    .throwball-img {
+    .cutting-img {
       width: 100%;
-      border-radius: 10px;
-      margin-top: 12px;
-      box-shadow: 0 0 12px #ff7b00;
+      max-width: 420px;
+      margin: 15px auto;
+      display: block;
+      border-radius: 12px;
       border: 2px solid #00c853;
+      box-shadow: 0 0 12px #ff7b00;
     }
 
     .site-footer {
@@ -310,28 +337,52 @@ function toggleSidebar() {
 
 <div class="overlay">
 
+  <!-- NEW INTRO SECTION -->
   <header class="site-header">
-    <div class="header-buttons">
-      <a href="/climbing-class/public/pages/pricing.html" class="btn primary">View Class Pricing</a>
-      <a href="/climbing-class/public/pages/classes.html" class="btn secondary">Class Schedule</a>
-      <a href="/climbing-class/public/pages/app-info.html" class="btn secondary">About the App</a>
-      <a href="/climbing-class/public/app/pages/index.html" class="btn secondary">Open Training App</a>
+    <div class="intro-wrapper">
+
+      <h2 class="intro-title">Your Personal Tree‑Climbing Guide — Anywhere, Anytime</h2>
+
+      <p class="intro-text">
+        This isn’t just a class.  
+        This is your lifelong climbing companion — a guide you can return to at any moment, even 
+        <strong>100 feet up in a tree</strong> with the wind in your face and the world below your feet.
+      </p>
+
+      <p class="intro-text">
+        Inside, you’ll find <strong>courses, videos, photos, and deeply detailed breakdowns</strong> on how to scale 
+        any tree you ever see — from backyard maples to towering oaks and monster pines.  
+        Whether you climb for <strong>leisure</strong> or for <strong>professional arborist work</strong>, this system grows with you.
+      </p>
+
+      <p class="intro-text">Choose your path:</p>
+
+      <div class="path-buttons">
+        <a href="/climbing-class/public/pages/leisure.html" class="btn primary">Leisure Climbing</a>
+        <a href="/climbing-class/public/pages/professional.html" class="btn secondary">Professional Arborist Training</a>
+      </div>
+
+      <p class="intro-text">
+        The leisure side explores the beauty of tree life — <strong>hammocks high in the canopy</strong>,  
+        <strong>tent platforms suspended over the forest</strong>,  
+        <strong>swings and rope structures</strong>,  
+        and ways to enjoy nature in ways most people will never experience.
+      </p>
+
+      <p class="intro-text">
+        The professional side teaches you how to climb, rig, cut, and move like a real arborist — safely, efficiently, and confidently.
+      </p>
+
+      <p class="intro-text">
+        And throughout the entire system, you’ll unlock <strong>interactive video quizzes</strong> —  
+        real‑time learning tools not found anywhere else.  
+        They respond to your choices, test your instincts, and sharpen your skills with every climb.
+      </p>
+
     </div>
   </header>
 
-  <section class="section">
-    <h2>Class Pricing</h2>
-    <p><strong>Group Class:</strong> $80</p>
-    <p><strong>Personal 1‑on‑1 Session:</strong> $200/hr</p>
-    <p><a href="/climbing-class/public/pages/pricing.html" style="color:#00c853;">View full pricing →</a></p>
-  </section>
-
-  <section class="section">
-    <h2>Start Training Before Class</h2>
-    <p>Every 5 videos you complete unlocks <strong>10% off</strong> a live class — up to <strong>20% max</strong>.</p>
-    <p>Your access never expires.</p>
-  </section>
-
+  <!-- TRAINING CATEGORIES -->
   <section class="section">
     <h2>Training Categories</h2>
 
@@ -347,10 +398,11 @@ function toggleSidebar() {
           <li>Basic Movement & Positioning</li>
         </ul>
 
-         <img src="/climbing-class/public/app/img/gear.jpg"
+        <img src="/climbing-class/public/app/img/gear.jpg"
              class="gear-img"
              alt="Gear Training">
-          <img src="/climbing-class/public/app/img/gear-climber.jpg"
+
+        <img src="/climbing-class/public/app/img/gear-climber.jpg"
              class="move-img"
              alt="Movement Training">
       </div>
