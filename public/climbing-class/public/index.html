@@ -19,8 +19,29 @@
       background-size: cover;
       color: #fff;
       font-family: system-ui, sans-serif;
+      overflow-x: hidden;
     }
 
+    /* FALLING LEAVES */
+    .leaf {
+      position: fixed;
+      top: -50px;
+      width: 18px;
+      height: 18px;
+      background: #ff7b00;
+      opacity: 0.8;
+      border-radius: 50%;
+      filter: drop-shadow(0 0 6px #ff7b00);
+      animation: fall linear infinite;
+      z-index: 1;
+    }
+
+    @keyframes fall {
+      0% { transform: translateY(0) rotate(0deg); }
+      100% { transform: translateY(120vh) rotate(360deg); }
+    }
+
+    /* OVERLAY */
     .overlay {
       background: rgba(0,0,0,0.75);
       min-height: 100vh;
@@ -28,9 +49,10 @@
       position: relative;
       border-left: 4px solid #ff7b00;
       border-right: 4px solid #00c853;
+      z-index: 2;
     }
 
-    /* BURGER TRIGGER */
+    /* TOP LEFT LOGO — CLEAN */
     #logoTrigger {
       position: fixed;
       top: 10px;
@@ -39,9 +61,39 @@
       height: auto;
       cursor: pointer;
       z-index: 99999;
-      border: 3px solid #ff7b00;
-      border-radius: 12px;
-      box-shadow: 0 0 18px #00c853;
+      border: none;
+      border-radius: 0;
+      box-shadow: none;
+    }
+
+    /* TITLE NEXT TO LOGO */
+    .header-title-wrapper {
+      position: fixed;
+      top: 20px;
+      left: 180px;
+      z-index: 99999;
+      animation: fadeIn 1s ease-out;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(-10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .header-title-wrapper h1 {
+      margin: 0;
+      font-size: 42px;
+      font-weight: 900;
+      color: #ff7b00;
+      text-shadow: 0 0 12px #ff7b00;
+    }
+
+    .header-title-wrapper p {
+      margin: 5px 0 0;
+      font-size: 18px;
+      color: #fff;
+      opacity: 0.9;
+      max-width: 500px;
     }
 
     /* SIDEBAR */
@@ -74,23 +126,8 @@
     /* HEADER */
     .site-header {
       text-align: center;
-      padding: 20px 20px 20px;
+      padding: 140px 20px 20px;
       margin-top: 0;
-    }
-
-    .site-header h1 {
-      font-size: 40px;
-      margin-bottom: 10px;
-      font-weight: 900;
-      color: #ff7b00;
-      text-shadow: 0 0 12px #ff7b00;
-    }
-
-    .site-header p {
-      font-size: 20px;
-      max-width: 650px;
-      margin: 0 auto 25px;
-      opacity: 0.95;
     }
 
     .header-buttons {
@@ -109,6 +146,11 @@
       font-size: 16px;
       display: inline-block;
       border: 2px solid #ff7b00;
+      transition: 0.2s ease;
+    }
+
+    .btn:hover {
+      transform: scale(1.05);
     }
 
     .primary {
@@ -147,6 +189,12 @@
       padding: 20px;
       border-radius: 12px;
       border: 2px solid #ff7b00;
+      animation: floatUp 1.2s ease;
+    }
+
+    @keyframes floatUp {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
     }
 
     .category-card h3 {
@@ -191,6 +239,7 @@
       filter: drop-shadow(0 0 12px #ff7b00);
     }
 
+    /* SQUIRREL CHAT BUTTON — CLEAN */
     #squirrelChatBtn {
       position: fixed;
       bottom: 20px;
@@ -199,9 +248,9 @@
       height: auto;
       cursor: pointer;
       z-index: 9999;
-      border: 2px solid #ff7b00;
-      border-radius: 12px;
-      box-shadow: 0 0 12px #00c853;
+      border: none;
+      border-radius: 0;
+      box-shadow: none;
     }
 
     #squirrelChatBox {
@@ -222,8 +271,25 @@
 
 <body>
 
+<!-- FALLING LEAVES -->
+<script>
+for (let i = 0; i < 25; i++) {
+  const leaf = document.createElement('div');
+  leaf.className = 'leaf';
+  leaf.style.left = Math.random() * 100 + 'vw';
+  leaf.style.animationDuration = (4 + Math.random() * 6) + 's';
+  document.body.appendChild(leaf);
+}
+</script>
+
 <!-- BURGER TRIGGER -->
 <img src="/img/climb-logo.jpg" id="logoTrigger" onclick="toggleSidebar()">
+
+<!-- TITLE NEXT TO LOGO -->
+<div class="header-title-wrapper">
+  <h1>Chainsaw Clay’s Tree Climbing Classes</h1>
+  <p>Learn knots, safety, gear, climbing styles, rigging, and real arborist techniques.</p>
+</div>
 
 <!-- SIDEBAR -->
 <div id="sidebar">
@@ -245,9 +311,6 @@ function toggleSidebar() {
 <div class="overlay">
 
   <header class="site-header">
-    <h1>Chainsaw Clay’s Tree Climbing Classes</h1>
-    <p>Learn knots, safety, gear, climbing styles, rigging, and real arborist techniques.</p>
-
     <div class="header-buttons">
       <a href="/climbing-class/public/pages/pricing.html" class="btn primary">View Class Pricing</a>
       <a href="/climbing-class/public/pages/classes.html" class="btn secondary">Class Schedule</a>
@@ -295,7 +358,6 @@ function toggleSidebar() {
           <li>Throwline Recovery</li>
         </ul>
 
-        <!-- THROWBALL IMAGE (correct placement) -->
         <img src="/climbing-class/public/app/img/throwball.jpg"
              class="throwball-img"
              alt="Throwball Training">
@@ -345,7 +407,6 @@ function toggleSidebar() {
           <li>Advanced Knot Scenarios</li>
         </ul>
 
-        <!-- BLAKES HITCH IMAGE -->
         <img src="/climbing-class/public/app/img/blakes-hitch.jpg"
              class="blakes-hitch-img"
              alt="Blake's Hitch Knot">
