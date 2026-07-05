@@ -30,7 +30,7 @@
       border-right: 4px solid #00c853;
     }
 
-    /* CLIMB LOGO BURGER TRIGGER — ALWAYS ON TOP */
+    /* BURGER TRIGGER */
     #logoTrigger {
       position: fixed;
       top: 10px;
@@ -38,13 +38,13 @@
       width: 150px;
       height: auto;
       cursor: pointer;
-      z-index: 99999; /* ← highest layer */
+      z-index: 99999;
       border: 3px solid #ff7b00;
       border-radius: 12px;
       box-shadow: 0 0 18px #00c853;
     }
 
-    /* SIDEBAR — MUST COVER EVERYTHING */
+    /* SIDEBAR */
     #sidebar {
       position: fixed;
       top: 0;
@@ -54,7 +54,7 @@
       background: rgba(0,0,0,0.97);
       padding: 30px;
       transition: 0.3s ease;
-      z-index: 99998; /* ← under logoTrigger but above EVERYTHING else */
+      z-index: 99998;
       border-right: 3px solid #00c853;
     }
 
@@ -71,7 +71,7 @@
       border-bottom: 1px solid #333;
     }
 
-    /* HEADER — TRUE TOP */
+    /* HEADER */
     .site-header {
       text-align: center;
       padding: 20px 20px 20px;
@@ -91,6 +91,17 @@
       max-width: 650px;
       margin: 0 auto 25px;
       opacity: 0.95;
+    }
+
+    /* THROWBALL HERO IMAGE */
+    #throwballHero {
+      display: block;
+      width: 90%;
+      max-width: 600px;
+      margin: 25px auto;
+      border-radius: 12px;
+      border: 3px solid #00c853;
+      box-shadow: 0 0 18px #ff7b00;
     }
 
     .header-buttons {
@@ -166,7 +177,9 @@
       opacity: 0.9;
     }
 
-    .cutting-img {
+    .cutting-img,
+    .blakes-hitch-img,
+    .throwball-img {
       width: 100%;
       border-radius: 10px;
       margin-top: 12px;
@@ -182,12 +195,6 @@
       border-top: 2px solid #ff7b00;
     }
 
-    .site-footer a {
-      color: #00c853;
-      text-decoration: none;
-    }
-
-    /* TREE SERVICE LOGO — NOW AT BOTTOM ONLY */
     #treeLogoBottom {
       display: block;
       margin: 20px auto 10px;
@@ -223,13 +230,15 @@
     }
   </style>
 </head>
+
 <body>
 
-<!-- CLIMB LOGO (BURGER TRIGGER) -->
+<!-- BURGER TRIGGER -->
 <img src="/img/climb-logo.jpg" id="logoTrigger" onclick="toggleSidebar()">
 
 <!-- SIDEBAR -->
 <div id="sidebar">
+  <a href="/climbing-class/public/pages/index.html">Home</a>
   <a href="/climbing-class/public/pages/classes.html">Classes</a>
   <a href="/climbing-class/public/pages/pricing.html">Pricing</a>
   <a href="/climbing-class/public/pages/app-info.html">About the App</a>
@@ -249,6 +258,9 @@ function toggleSidebar() {
   <header class="site-header">
     <h1>Chainsaw Clay’s Tree Climbing Classes</h1>
     <p>Learn knots, safety, gear, climbing styles, rigging, and real arborist techniques.</p>
+
+    <!-- THROWBALL HERO IMAGE -->
+    <img src="/climbing-class/public/app/img/throwball.jpg" id="throwballHero" alt="Throwball Training">
 
     <div class="header-buttons">
       <a href="/climbing-class/public/pages/pricing.html" class="btn primary">View Class Pricing</a>
@@ -296,6 +308,9 @@ function toggleSidebar() {
           <li>High‑Accuracy Throws</li>
           <li>Throwline Recovery</li>
         </ul>
+
+        <!-- THROWBALL IMAGE INSIDE CATEGORY -->
+        <img src="/climbing-class/public/app/img/throwball.jpg" class="throwball-img" alt="Throwball Training">
       </div>
 
       <div class="category-card">
@@ -372,8 +387,6 @@ function toggleSidebar() {
   </section>
 
   <footer class="site-footer">
-
-    <!-- TREE SERVICE LOGO MOVED TO BOTTOM ONLY -->
     <img id="treeLogoBottom" src="/img/tree-service-logo.png" alt="Chainsaw Clay's Tree Service Logo">
 
     <p>Email: <a href="mailto:support@chainsawclay.com">support@chainsawclay.com</a></p>
