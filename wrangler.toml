@@ -15,7 +15,7 @@ database_id = "b836fa8d-4f53-49d4-93d2-70a7557d5f7c"
 # R2 BUCKET (Videos)
 # ============================
 [[r2_buckets]]
-binding = "https://cd66209393471bee4b76a0f267205f55.r2.cloudflarestorage.com/chainsawclay-videos"
+binding = "VIDEOS_BUCKET"
 bucket_name = "chainsawclay-videos"
 
 # ============================
@@ -29,8 +29,7 @@ MAIL_FROM = "support@chainsawclay.com"
 # ROUTES (THIS IS THE FIX)
 # ============================
 routes = [
-  # Your Worker lives at api.chainsawclay.com
-  { pattern = "api.chainsawclay.com/api/*", zone_name = "chainsawclay.com" }
+  { pattern = "api.chainsawclay.com/*", zone_name = "chainsawclay.com" }
 ]
 
 # ============================
