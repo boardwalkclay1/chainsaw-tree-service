@@ -1,7 +1,7 @@
 name = "chainsawclay-admin"
 main = "src/worker.js"
 compatibility_date = "2024-12-01"
-workers_dev = true
+workers_dev = false
 
 # ============================
 # D1 DATABASE
@@ -26,11 +26,11 @@ ADMIN_EMAIL = "support@chainsawclay.com"
 MAIL_FROM = "support@chainsawclay.com"
 
 # ============================
-# ROUTES (API)
+# ROUTES (THIS IS THE FIX)
 # ============================
 routes = [
-  { pattern = "chainsawclay.com/api/*", zone_name = "chainsawclay.com" },
-  { pattern = "www.chainsawclay.com/api/*", zone_name = "chainsawclay.com" }
+  # Your Worker lives at api.chainsawclay.com
+  { pattern = "api.chainsawclay.com/api/*", zone_name = "chainsawclay.com" }
 ]
 
 # ============================
