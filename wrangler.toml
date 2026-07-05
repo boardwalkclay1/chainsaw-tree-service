@@ -1,38 +1,25 @@
 name = "chainsawclay-admin"
 main = "src/worker.js"
 compatibility_date = "2024-12-01"
-workers_dev = false
 
-# ============================
-# D1 DATABASE
-# ============================
+# ENABLE workers.dev fallback
+workers_dev = true
+
 [[d1_databases]]
 binding = "DB_chainsaw"
 database_name = "chainsaw"
 database_id = "b836fa8d-4f53-49d4-93d2-70a7557d5f7c"
 
-# ============================
-# R2 BUCKET (Videos)
-# ============================
 [[r2_buckets]]
 binding = "VIDEOS_BUCKET"
 bucket_name = "chainsawclay-videos"
 
-# ============================
-# ENVIRONMENT VARIABLES
-# ============================
 [vars]
 ADMIN_EMAIL = "support@chainsawclay.com"
 MAIL_FROM = "support@chainsawclay.com"
 
-# ============================
-# ROUTES (THIS IS THE FIX)
-# ============================
 routes = [
   { pattern = "api.chainsawclay.com/*", zone_name = "chainsawclay.com" }
 ]
 
-# ============================
-# NODE COMPAT (needed for crypto)
-# ============================
 node_compat = true
