@@ -1,7 +1,3 @@
-// worker.js
-// Chainsaw Clay Admin API — Tree Service + Climbing Class
-// Runs at https://api.chainsawclay.com/
-
 export default {
   async fetch(request, env) {
     const url = new URL(request.url);
@@ -16,54 +12,49 @@ export default {
       if (path === "/api/admin/dashboard") return safe(adminDashboard, request, env);
 
       // ANALYTICS
-      if (path === "/api/analytics/view") return safe(analyticsView, request, env);
-      if (path === "/api/analytics/video-play") return safe(analyticsVideoPlay, request, env);
-      if (path === "/api/analytics/login") return safe(analyticsLogin, request, env);
-      if (path === "/api/analytics/summary") return safe(analyticsSummary, request, env);
+      if (path === "/api/admin/analytics/summary") return safe(analyticsSummary, request, env);
 
       // PAYMENTS
-      if (path === "/api/payments/intent") return safe(createPaymentIntent, request, env);
-      if (path === "/api/payments/list") return safe(listPayments, request, env);
-      if (path === "/api/payments/summary") return safe(paymentsSummary, request, env);
+      if (path === "/api/admin/payments/list") return safe(listPayments, request, env);
+      if (path === "/api/admin/payments/summary") return safe(paymentsSummary, request, env);
 
       // VIDEOS
-      if (path === "/api/videos/upload-url") return safe(getVideoUploadUrl, request, env);
-      if (path === "/api/videos/list") return safe(listVideos, request, env);
-      if (path === "/api/videos/delete") return safe(deleteVideo, request, env);
-      if (path === "/api/videos/admin/list") return safe(adminListVideos, request, env);
-      if (path === "/api/videos/admin/get") return safe(adminGetVideo, request, env);
+      if (path === "/api/admin/videos/upload-url") return safe(getVideoUploadUrl, request, env);
+      if (path === "/api/admin/videos/list") return safe(listVideos, request, env);
+      if (path === "/api/admin/videos/delete") return safe(deleteVideo, request, env);
 
       // LESSONS
-      if (path === "/api/lessons/create") return safe(createLesson, request, env);
-      if (path === "/api/lessons/update") return safe(updateLesson, request, env);
-      if (path === "/api/lessons/delete") return safe(deleteLesson, request, env);
-      if (path === "/api/lessons/list") return safe(listLessons, request, env);
+      if (path === "/api/admin/lessons/list") return safe(listLessons, request, env);
+      if (path === "/api/admin/lessons/create") return safe(createLesson, request, env);
+      if (path === "/api/admin/lessons/update") return safe(updateLesson, request, env);
+      if (path === "/api/admin/lessons/delete") return safe(deleteLesson, request, env);
 
       // RESERVATIONS
-      if (path === "/api/reservations/create") return safe(createReservation, request, env);
-      if (path === "/api/reservations/list") return safe(listReservations, request, env);
-      if (path === "/api/reservations/update") return safe(updateReservation, request, env);
+      if (path === "/api/admin/reservations/list") return safe(listReservations, request, env);
+      if (path === "/api/admin/reservations/create") return safe(createReservation, request, env);
+      if (path === "/api/admin/reservations/update") return safe(updateReservation, request, env);
 
       // CLIENTS
-      if (path === "/api/clients/list") return safe(listClients, request, env);
-      if (path === "/api/clients/create") return safe(createClient, request, env);
-      if (path === "/api/clients/update") return safe(updateClient, request, env);
-      if (path === "/api/clients/estimate") return safe(estimateRequest, request, env);
+      if (path === "/api/admin/clients/list") return safe(listClients, request, env);
+      if (path === "/api/admin/clients/create") return safe(createClient, request, env);
+      if (path === "/api/admin/clients/update") return safe(updateClient, request, env);
+      if (path === "/api/admin/clients/estimate") return safe(estimateRequest, request, env);
 
       // STUDENTS
-      if (path === "/api/students/list") return safe(listStudents, request, env);
-      if (path === "/api/students/create") return safe(createStudent, request, env);
-      if (path === "/api/students/update") return safe(updateStudent, request, env);
+      if (path === "/api/admin/students/list") return safe(listStudents, request, env);
+      if (path === "/api/admin/students/create") return safe(createStudent, request, env);
+      if (path === "/api/admin/students/update") return safe(updateStudent, request, env);
 
       // CITIES
-      if (path === "/api/cities/list") return safe(listCities, request, env);
-      if (path === "/api/cities/create") return safe(createCity, request, env);
+      if (path === "/api/admin/cities/list") return safe(listCities, request, env);
+      if (path === "/api/admin/cities/create") return safe(createCity, request, env);
 
       // MESSAGES
-      if (path === "/api/messages/send") return safe(sendMessage, request, env);
-      if (path === "/api/messages/list") return safe(listMessages, request, env);
+      if (path === "/api/admin/messages/list") return safe(listMessages, request, env);
+      if (path === "/api/admin/messages/send") return safe(sendMessage, request, env);
 
       return json({ error: "Not found" }, 404);
+
     } catch (err) {
       return json({ error: err.message || "Server error" }, 500);
     }
@@ -82,10 +73,10 @@ async function safe(fn, request, env) {
       return json({
         error: "Missing D1 table",
         detail: err.message,
-        fix: "Create required tables in D1 (users, videos, lessons, clients, students, reservations, cities, messages, analytics, payments, estimates)."
+        fix: "Run your D1 schema to create all required tables."
       }, 500);
     }
-    return json({ error: err.message || "Server error" }, 500);
+    return json({ error: err.message }, 500);
   }
 }
 
@@ -111,18 +102,15 @@ async function body(request) {
 
 async function login(request, env) {
   const data = await body(request);
-  const { email, password } = data;
-
   const user = await env.DB.prepare(
     "SELECT id, email FROM users WHERE email = ? AND password = ?"
-  ).bind(email, password).first();
+  ).bind(data.email, data.password).first();
 
   if (!user) return json({ error: "Invalid login" }, 401);
-
-  return json({ id: user.id, email: user.email });
+  return json(user);
 }
 
-async function me(request, env) {
+async function me() {
   return json({ id: 1, email: "admin@chainsawclay.com", role: "admin" });
 }
 
@@ -131,23 +119,30 @@ async function me(request, env) {
 // =========================
 
 async function adminDashboard(request, env) {
-  const [videos, lessons, clients, students, reservations, cities, messages, analytics, payments] =
-    await Promise.all([
-      env.DB.prepare("SELECT * FROM videos").all(),
-      env.DB.prepare("SELECT * FROM lessons").all(),
-      env.DB.prepare("SELECT * FROM clients").all(),
-      env.DB.prepare("SELECT * FROM students").all(),
-      env.DB.prepare("SELECT * FROM reservations").all(),
-      env.DB.prepare("SELECT * FROM cities").all(),
-      env.DB.prepare("SELECT * FROM messages").all(),
-      env.DB.prepare("SELECT type, COUNT(*) as count FROM analytics GROUP BY type").all(),
-      env.DB.prepare("SELECT * FROM payments").all()
-    ]);
+  const [
+    videos,
+    lessons,
+    clients,
+    students,
+    reservations,
+    cities,
+    messages,
+    analytics,
+    payments
+  ] = await Promise.all([
+    env.DB.prepare("SELECT * FROM videos").all(),
+    env.DB.prepare("SELECT * FROM lessons").all(),
+    env.DB.prepare("SELECT * FROM clients").all(),
+    env.DB.prepare("SELECT * FROM students").all(),
+    env.DB.prepare("SELECT * FROM reservations").all(),
+    env.DB.prepare("SELECT * FROM cities").all(),
+    env.DB.prepare("SELECT * FROM messages").all(),
+    env.DB.prepare("SELECT type, COUNT(*) as count FROM analytics GROUP BY type").all(),
+    env.DB.prepare("SELECT * FROM payments").all()
+  ]);
 
   const analyticsSummary = {};
   analytics.results.forEach(r => analyticsSummary[r.type] = r.count);
-
-  const totalRevenue = payments.results.reduce((sum, p) => sum + (p.amount || 0), 0);
 
   return json({
     videos: videos.results,
@@ -158,38 +153,13 @@ async function adminDashboard(request, env) {
     cities: cities.results,
     messages: messages.results,
     analytics: analyticsSummary,
-    payments: payments.results,
-    finances: { totalRevenue }
+    payments: payments.results
   });
 }
 
 // =========================
 // ANALYTICS
 // =========================
-
-async function analyticsView(request, env) {
-  const data = await body(request);
-  await env.DB.prepare(
-    "INSERT INTO analytics (type, meta) VALUES (?, ?)"
-  ).bind("view", JSON.stringify(data.meta || {})).run();
-  return json({ ok: true });
-}
-
-async function analyticsVideoPlay(request, env) {
-  const data = await body(request);
-  await env.DB.prepare(
-    "INSERT INTO analytics (type, meta) VALUES (?, ?)"
-  ).bind("video-play", JSON.stringify({ videoId: data.videoId })).run();
-  return json({ ok: true });
-}
-
-async function analyticsLogin(request, env) {
-  const data = await body(request);
-  await env.DB.prepare(
-    "INSERT INTO analytics (type, meta) VALUES (?, ?)"
-  ).bind("login", JSON.stringify({ userId: data.userId })).run();
-  return json({ ok: true });
-}
 
 async function analyticsSummary(request, env) {
   const rows = await env.DB.prepare(
@@ -206,16 +176,6 @@ async function analyticsSummary(request, env) {
 // PAYMENTS
 // =========================
 
-async function createPaymentIntent(request, env) {
-  const data = await body(request);
-
-  await env.DB.prepare(
-    "INSERT INTO payments (userId, amount, type, source) VALUES (?, ?, ?, ?)"
-  ).bind(data.userId, data.amount, data.type, data.source).run();
-
-  return json({ ok: true });
-}
-
 async function listPayments(request, env) {
   const rows = await env.DB.prepare("SELECT * FROM payments").all();
   return json(rows.results);
@@ -223,15 +183,10 @@ async function listPayments(request, env) {
 
 async function paymentsSummary(request, env) {
   const rows = await env.DB.prepare("SELECT * FROM payments").all();
+
   const totalRevenue = rows.results.reduce((sum, p) => sum + (p.amount || 0), 0);
 
-  const byType = {};
-  rows.results.forEach(p => {
-    const t = p.type || "unknown";
-    byType[t] = (byType[t] || 0) + (p.amount || 0);
-  });
-
-  return json({ totalRevenue, byType });
+  return json({ totalRevenue });
 }
 
 // =========================
@@ -277,38 +232,14 @@ async function deleteVideo(request, env) {
   return json({ ok: true });
 }
 
-async function adminListVideos(request, env) {
-  const rows = await env.DB.prepare("SELECT * FROM videos").all();
-
-  const videos = rows.results.map(v => ({
-    ...v,
-    previewUrl: `/api/videos/admin/get?id=${v.id}`
-  }));
-
-  return json(videos);
-}
-
-async function adminGetVideo(request, env) {
-  const url = new URL(request.url);
-  const id = url.searchParams.get("id");
-
-  const video = await env.DB.prepare(
-    "SELECT key FROM videos WHERE id = ?"
-  ).bind(id).first();
-
-  if (!video) return json({ error: "Not found" }, 404);
-
-  const object = await env.VIDEOS_BUCKET.get(video.key);
-  if (!object) return json({ error: "Not found" }, 404);
-
-  return new Response(object.body, {
-    headers: { "Content-Type": "video/mp4" }
-  });
-}
-
 // =========================
 // LESSONS
 // =========================
+
+async function listLessons(request, env) {
+  const rows = await env.DB.prepare("SELECT * FROM lessons").all();
+  return json(rows.results);
+}
 
 async function createLesson(request, env) {
   const data = await body(request);
@@ -338,14 +269,14 @@ async function deleteLesson(request, env) {
   return json({ ok: true });
 }
 
-async function listLessons(request, env) {
-  const rows = await env.DB.prepare("SELECT * FROM lessons").all();
-  return json(rows.results);
-}
-
 // =========================
 // RESERVATIONS
 // =========================
+
+async function listReservations(request, env) {
+  const rows = await env.DB.prepare("SELECT * FROM reservations").all();
+  return json(rows.results);
+}
 
 async function createReservation(request, env) {
   const data = await body(request);
@@ -355,11 +286,6 @@ async function createReservation(request, env) {
   ).bind(data.studentId, data.classId, data.date, "pending").run();
 
   return json({ ok: true });
-}
-
-async function listReservations(request, env) {
-  const rows = await env.DB.prepare("SELECT * FROM reservations").all();
-  return json(rows.results);
 }
 
 async function updateReservation(request, env) {
@@ -463,6 +389,11 @@ async function createCity(request, env) {
 // MESSAGES
 // =========================
 
+async function listMessages(request, env) {
+  const rows = await env.DB.prepare("SELECT * FROM messages").all();
+  return json(rows.results);
+}
+
 async function sendMessage(request, env) {
   const data = await body(request);
 
@@ -471,9 +402,4 @@ async function sendMessage(request, env) {
   ).bind(data.toType, data.toId, data.subject, data.body).run();
 
   return json({ ok: true });
-}
-
-async function listMessages(request, env) {
-  const rows = await env.DB.prepare("SELECT * FROM messages").all();
-  return json(rows.results);
 }
