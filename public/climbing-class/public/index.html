@@ -5,10 +5,7 @@
   <title>Chainsaw Clay — Tree Climbing Classes & Training App</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-  <!-- FAVICON -->
   <link rel="icon" type="image/jpeg" href="/img/climb-logo.jpg" />
-
-  <!-- MAIN CSS -->
   <link rel="stylesheet" href="/climbing-class/public/styles.css" />
 
   <style>
@@ -35,13 +32,11 @@
       animation: fall linear infinite;
       z-index: 1;
     }
-
     @keyframes fall {
       0% { transform: translateY(0) rotate(0deg); }
       100% { transform: translateY(120vh) rotate(360deg); }
     }
 
-    /* OVERLAY */
     .overlay {
       background: rgba(0,0,0,0.75);
       min-height: 100vh;
@@ -52,17 +47,15 @@
       z-index: 2;
     }
 
-    /* TOP LEFT LOGO — CLEAN */
+    /* CLEAN LOGO */
     #logoTrigger {
       position: fixed;
       top: 10px;
       left: 10px;
       width: 150px;
-      height: auto;
       cursor: pointer;
       z-index: 99999;
       border: none;
-      border-radius: 0;
       box-shadow: none;
     }
 
@@ -72,14 +65,7 @@
       top: 20px;
       left: 180px;
       z-index: 99999;
-      animation: fadeIn 1s ease-out;
     }
-
-    @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(-10px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-
     .header-title-wrapper h1 {
       margin: 0;
       font-size: 42px;
@@ -87,11 +73,9 @@
       color: #ff7b00;
       text-shadow: 0 0 12px #ff7b00;
     }
-
     .header-title-wrapper p {
       margin: 5px 0 0;
       font-size: 18px;
-      color: #fff;
       opacity: 0.9;
       max-width: 500px;
     }
@@ -109,44 +93,54 @@
       z-index: 99998;
       border-right: 3px solid #00c853;
     }
-
-    #sidebar.open {
-      left: 0;
-    }
-
+    #sidebar.open { left: 0; }
     #sidebar a {
       display: block;
       color: #fff;
-      text-decoration: none;
       padding: 14px 0;
       font-size: 20px;
       border-bottom: 1px solid #333;
+      text-decoration: none;
     }
 
-    /* HEADER */
+    /* HEADER BUTTONS */
     .site-header {
       text-align: center;
       padding: 160px 20px 20px;
-      margin-top: 0;
     }
+    .header-buttons {
+      display: flex;
+      justify-content: center;
+      gap: 15px;
+      flex-wrap: wrap;
+    }
+    .btn {
+      padding: 12px 20px;
+      border-radius: 10px;
+      font-weight: 700;
+      border: 2px solid #ff7b00;
+      text-decoration: none;
+      transition: 0.2s ease;
+    }
+    .btn:hover { transform: scale(1.05); }
+    .primary { background: #ff7b00; color: #000; }
+    .secondary { background: #1a1a1a; color: #fff; border-color: #00c853; }
 
-    .intro-wrapper {
+    /* INTRO SECTION (NOW BELOW HEADER) */
+    .intro-section {
       max-width: 900px;
       margin: 0 auto;
       padding: 40px 20px;
       text-align: center;
-      animation: fadeIn 1.2s ease-out;
     }
-
-    .intro-title {
+    .intro-section h2 {
       font-size: 34px;
       font-weight: 900;
       color: #ff7b00;
       text-shadow: 0 0 12px #ff7b00;
       margin-bottom: 20px;
     }
-
-    .intro-text {
+    .intro-section p {
       font-size: 20px;
       line-height: 1.6;
       max-width: 800px;
@@ -161,87 +155,30 @@
       margin: 25px 0;
     }
 
-    .btn {
-      padding: 12px 20px;
-      border-radius: 10px;
-      text-decoration: none;
-      font-weight: 700;
-      font-size: 16px;
-      display: inline-block;
-      border: 2px solid #ff7b00;
-      transition: 0.2s ease;
-    }
-
-    .btn:hover {
-      transform: scale(1.05);
-    }
-
-    .primary {
-      background: #ff7b00;
-      color: #000;
-    }
-
-    .secondary {
-      background: #1a1a1a;
-      color: #fff;
-      border-color: #00c853;
-    }
-
+    /* CATEGORY GRID */
     .section {
       padding: 40px 20px;
       max-width: 1100px;
       margin: 0 auto;
     }
-
     .section h2 {
       font-size: 28px;
       margin-bottom: 15px;
       color: #00c853;
       text-shadow: 0 0 10px #00c853;
     }
-
     .category-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
       gap: 20px;
-      margin-top: 25px;
     }
-
     .category-card {
       background: rgba(0,0,0,0.6);
       padding: 20px;
       border-radius: 12px;
       border: 2px solid #ff7b00;
-      animation: floatUp 1.2s ease;
     }
-
-    @keyframes floatUp {
-      from { opacity: 0; transform: translateY(20px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-
-    .category-card h3 {
-      margin-top: 0;
-      margin-bottom: 10px;
-      font-size: 20px;
-      color: #ff7b00;
-    }
-
-    .category-card ul {
-      padding-left: 20px;
-      margin: 0;
-    }
-
-    .category-card li {
-      margin-bottom: 6px;
-      opacity: 0.9;
-    }
-
-    .gear-img,
-    .move-img,
-    .throwball-img,
-    .blakes-hitch-img,
-    .cutting-img {
+    .category-card img {
       width: 100%;
       max-width: 420px;
       margin: 15px auto;
@@ -251,6 +188,7 @@
       box-shadow: 0 0 12px #ff7b00;
     }
 
+    /* FOOTER */
     .site-footer {
       text-align: center;
       padding: 30px 20px;
@@ -258,7 +196,6 @@
       font-size: 14px;
       border-top: 2px solid #ff7b00;
     }
-
     #treeLogoBottom {
       display: block;
       margin: 20px auto 10px;
@@ -266,32 +203,16 @@
       filter: drop-shadow(0 0 12px #ff7b00);
     }
 
-    /* SQUIRREL CHAT BUTTON — CLEAN */
+    /* SQUIRREL BUTTON CLEAN */
     #squirrelChatBtn {
       position: fixed;
       bottom: 20px;
       right: 20px;
       width: 160px;
-      height: auto;
       cursor: pointer;
       z-index: 9999;
       border: none;
-      border-radius: 0;
       box-shadow: none;
-    }
-
-    #squirrelChatBox {
-      position: fixed;
-      bottom: 200px;
-      right: 20px;
-      width: 320px;
-      background: rgba(0,0,0,0.92);
-      border: 2px solid #00c853;
-      border-radius: 12px;
-      padding: 15px;
-      display: none;
-      z-index: 9999;
-      color: #fff;
     }
   </style>
 </head>
@@ -309,10 +230,10 @@ for (let i = 0; i < 25; i++) {
 }
 </script>
 
-<!-- BURGER TRIGGER -->
+<!-- LOGO -->
 <img src="/img/climb-logo.jpg" id="logoTrigger" onclick="toggleSidebar()">
 
-<!-- TITLE NEXT TO LOGO -->
+<!-- TITLE -->
 <div class="header-title-wrapper">
   <h1>Chainsaw Clay’s Tree Climbing Classes</h1>
   <p>Learn knots, safety, gear, climbing styles, rigging, and real arborist techniques.</p>
@@ -337,52 +258,54 @@ function toggleSidebar() {
 
 <div class="overlay">
 
-  <!-- NEW INTRO SECTION -->
+  <!-- HEADER BUTTONS -->
   <header class="site-header">
-    <div class="intro-wrapper">
-
-      <h2 class="intro-title">Your Personal Tree‑Climbing Guide — Anywhere, Anytime</h2>
-
-      <p class="intro-text">
-        This isn’t just a class.  
-        This is your lifelong climbing companion — a guide you can return to at any moment, even 
-        <strong>100 feet up in a tree</strong> with the wind in your face and the world below your feet.
-      </p>
-
-      <p class="intro-text">
-        Inside, you’ll find <strong>courses, videos, photos, and deeply detailed breakdowns</strong> on how to scale 
-        any tree you ever see — from backyard maples to towering oaks and monster pines.  
-        Whether you climb for <strong>leisure</strong> or for <strong>professional arborist work</strong>, this system grows with you.
-      </p>
-
-      <p class="intro-text">Choose your path:</p>
-
-      <div class="path-buttons">
-        <a href="/climbing-class/public/pages/leisure.html" class="btn primary">Leisure Climbing</a>
-        <a href="/climbing-class/public/pages/professional.html" class="btn secondary">Professional Arborist Training</a>
-      </div>
-
-      <p class="intro-text">
-        The leisure side explores the beauty of tree life — <strong>hammocks high in the canopy</strong>,  
-        <strong>tent platforms suspended over the forest</strong>,  
-        <strong>swings and rope structures</strong>,  
-        and ways to enjoy nature in ways most people will never experience.
-      </p>
-
-      <p class="intro-text">
-        The professional side teaches you how to climb, rig, cut, and move like a real arborist — safely, efficiently, and confidently.
-      </p>
-
-      <p class="intro-text">
-        And throughout the entire system, you’ll unlock <strong>interactive video quizzes</strong> —  
-        real‑time learning tools not found anywhere else.  
-        They respond to your choices, test your instincts, and sharpen your skills with every climb.
-      </p>
-
+    <div class="header-buttons">
+      <a href="/climbing-class/public/pages/pricing.html" class="btn primary">View Class Pricing</a>
+      <a href="/climbing-class/public/pages/classes.html" class="btn secondary">Class Schedule</a>
+      <a href="/climbing-class/public/pages/app-info.html" class="btn secondary">About the App</a>
+      <a href="/climbing-class/public/app/pages/index.html" class="btn secondary">Open Training App</a>
     </div>
   </header>
 
-  <!-- TRAINING CATEGORIES -->
+  <!-- ⭐ NEW INTRO SECTION (NOW IN THE RIGHT PLACE) -->
+  <section class="intro-section">
+    <h2>Your Personal Tree‑Climbing Guide — Anywhere, Anytime</h2>
+
+    <p>
+      This isn’t just a class.  
+      This is your lifelong climbing companion — a guide you can return to at any moment, even 
+      <strong>100 feet up in a tree</strong> with the wind in your face and the world below your feet.
+    </p>
+
+    <p>
+      Inside, you’ll find <strong>courses, videos, photos, and deeply detailed breakdowns</strong> on how to scale 
+      any tree you ever see — from backyard maples to towering oaks and monster pines.
+    </p>
+
+    <p>
+      Whether you climb for <strong>leisure</strong> or for <strong>professional arborist work</strong>, this system grows with you.
+    </p>
+
+    <div class="path-buttons">
+      <a href="/climbing-class/public/pages/leisure.html" class="btn primary">Leisure Climbing</a>
+      <a href="/climbing-class/public/pages/professional.html" class="btn secondary">Professional Arborist Training</a>
+    </div>
+
+    <p>
+      The leisure side explores the beauty of tree life — hammocks high in the canopy, tent platforms suspended over the forest, swings, rope structures, and ways to enjoy nature in ways most people will never experience.
+    </p>
+
+    <p>
+      The professional side teaches you how to climb, rig, cut, and move like a real arborist — safely, efficiently, and confidently.
+    </p>
+
+    <p>
+      And throughout the entire system, you’ll unlock <strong>interactive video quizzes</strong> — real‑time learning tools not found anywhere else.
+    </p>
+  </section>
+
+  <!-- TRAINING CARDS BELOW INTRO -->
   <section class="section">
     <h2>Training Categories</h2>
 
@@ -397,14 +320,8 @@ function toggleSidebar() {
           <li>Two‑Point Safety Technique</li>
           <li>Basic Movement & Positioning</li>
         </ul>
-
-        <img src="/climbing-class/public/app/img/gear.jpg"
-             class="gear-img"
-             alt="Gear Training">
-
-        <img src="/climbing-class/public/app/img/gear-climber.jpg"
-             class="move-img"
-             alt="Movement Training">
+        <img src="/climbing-class/public/app/img/gear.jpg" class="gear-img">
+        <img src="/climbing-class/public/app/img/gear-climber.jpg" class="move-img">
       </div>
 
       <div class="category-card">
@@ -416,32 +333,17 @@ function toggleSidebar() {
           <li>High‑Accuracy Throws</li>
           <li>Throwline Recovery</li>
         </ul>
-
-        <img src="/climbing-class/public/app/img/throwball.jpg"
-             class="throwball-img"
-             alt="Throwball Training">
+        <img src="/climbing-class/public/app/img/throwball.jpg" class="throwball-img">
       </div>
 
       <div class="category-card">
         <h3>Climbing Styles</h3>
-
         <strong>Body Thrusting</strong>
-        <ul>
-          <li>Body Thrust Basics</li>
-          <li>Hip Thrust Efficiency</li>
-        </ul>
-
+        <ul><li>Body Thrust Basics</li><li>Hip Thrust Efficiency</li></ul>
         <strong>Footlocking</strong>
-        <ul>
-          <li>Footlock Fundamentals</li>
-          <li>Ascending Smoothly</li>
-        </ul>
-
+        <ul><li>Footlock Fundamentals</li><li>Ascending Smoothly</li></ul>
         <strong>Spiking</strong>
-        <ul>
-          <li>Spiking Basics</li>
-          <li>Safe Spike Ascending</li>
-        </ul>
+        <ul><li>Spiking Basics</li><li>Safe Spike Ascending</li></ul>
       </div>
 
       <div class="category-card">
@@ -465,10 +367,7 @@ function toggleSidebar() {
           <li>Rigging Knots</li>
           <li>Advanced Knot Scenarios</li>
         </ul>
-
-        <img src="/climbing-class/public/app/img/blakes-hitch.jpg"
-             class="blakes-hitch-img"
-             alt="Blake's Hitch Knot">
+        <img src="/climbing-class/public/app/img/blakes-hitch.jpg" class="blakes-hitch-img">
       </div>
 
       <div class="category-card">
@@ -479,10 +378,7 @@ function toggleSidebar() {
           <li>Advanced Cuts</li>
           <li>Scenario‑Based Cutting</li>
         </ul>
-
-        <img src="/climbing-class/public/app/img/climb-img-4.jpg"
-             class="cutting-img"
-             alt="Cutting Training">
+        <img src="/climbing-class/public/app/img/climb-img-4.jpg" class="cutting-img">
       </div>
 
       <div class="category-card">
@@ -493,18 +389,14 @@ function toggleSidebar() {
           <li>Crew Communication</li>
           <li>Customer Safety & Liability</li>
         </ul>
-
-        <img src="/climbing-class/public/app/img/business-img-1.jpg"
-             class="cutting-img"
-             alt="Business Training">
+        <img src="/climbing-class/public/app/img/business-img-1.jpg" class="cutting-img">
       </div>
 
     </div>
   </section>
 
   <footer class="site-footer">
-    <img id="treeLogoBottom" src="/img/tree-service-logo.png" alt="Chainsaw Clay's Tree Service Logo">
-
+    <img id="treeLogoBottom" src="/img/tree-service-logo.png">
     <p>Email: <a href="mailto:support@chainsawclay.com">support@chainsawclay.com</a></p>
     <p><a href="https://chainsawclay.com">← Back to Chainsaw Clay’s Tree Service</a></p>
   </footer>
@@ -515,14 +407,13 @@ function toggleSidebar() {
 <img src="/climbing-class/public/app/img/squirell-img.jpg" id="squirrelChatBtn">
 
 <div id="squirrelChatBox">
-  <div style="font-weight: bold; margin-bottom: 10px; font-size: 18px;">🐿️ Helper Squirrel</div>
+  <div style="font-weight:bold;margin-bottom:10px;font-size:18px;">🐿️ Helper Squirrel</div>
   <div id="squirrelMessages">
     <div>Hey! Ask me anything about classes, pricing, knots, climbing techniques, business skills, or the app.</div>
   </div>
   <input id="squirrelInput" type="text" placeholder="Ask me something…">
 </div>
 
-<!-- JS -->
 <script src="/climbing-class/public/js/squirrel.js"></script>
 
 </body>
