@@ -4,7 +4,54 @@
   <meta charset="UTF-8" />
   <title>Admin Dashboard</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
+
   <link rel="stylesheet" href="/climbing-class/admin/admin.css" />
+
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background: #000 url('/img/tree-service-logo.png') no-repeat center top;
+      background-size: 420px;
+      color: #fff;
+      font-family: 'Anton', sans-serif;
+    }
+
+    .card {
+      background: rgba(0,0,0,0.75);
+      border: 2px solid #ff7b00;
+      border-radius: 14px;
+      padding: 20px;
+      margin: 10px;
+      box-shadow: 0 0 18px #ff7b00;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 20px;
+      margin-top: 20px;
+    }
+
+    .list .card {
+      margin-bottom: 20px;
+    }
+
+    nav a {
+      color: #ff7b00;
+      border: 2px solid #ff7b00;
+      padding: 10px 16px;
+      border-radius: 999px;
+      background: rgba(20,20,20,0.9);
+      text-decoration: none;
+      margin-right: 10px;
+    }
+
+    nav a:hover {
+      background: #ff7b00;
+      color: #000;
+    }
+  </style>
 </head>
 
 <body>
@@ -63,5 +110,77 @@
 </main>
 
 <script src="/climbing-class/admin/admin.js"></script>
+<script>
+document.addEventListener('DOMContentLoaded', async () => {
+  try {
+    const dashboard = await loadAdminDashboard();
+
+    // ANALYTICS
+    const analyticsEl = document.querySelector('#admin-analytics');
+    analyticsEl.innerHTML = Object.entries(dashboard.analytics)
+      .map(([key, value]) => `
+        <div class="card">
+          <h3>${key.replace('-', ' ').toUpperCase()}</h3>
+          <p>${value}</p>
+        </div>
+      `)
+      .join('');
+
+    // STUDENTS
+    const studentsEl = document.querySelector('#admin-students');
+    studentsEl.innerHTML = dashboard.students
+      .map(s => `
+        <div class="card">
+          <h4>${s.name}</h4>
+          <p>Email: ${s.email}</p>
+          <p>Level: ${s.level}</p>
+        </div>
+      `)
+      .join('');
+
+    // CLIENTS
+    const clientsEl = document.querySelector('#admin-clients');
+    clientsEl.innerHTML = dashboard.clients
+      .map(c => `
+        <div class="card">
+          <h4>${c.name}</h4>
+          <p>${c.phone}</p>
+          <p>${c.address}</p>
+        </div>
+      `)
+      .join('');
+
+    // LESSONS
+    const lessonsEl = document.querySelector('#admin-lessons');
+    lessonsEl.innerHTML = dashboard.lessons
+      .map(l => `
+        <div class="card">
+          <h4>${l.title}</h4>
+          <p>Level: ${l.level}</p>
+        </div>
+      `)
+      .join('');
+
+    // RESERVATIONS
+    const reservationsEl = document.querySelector('#admin-reservations');
+    reservationsEl.innerHTML = dashboard.reservations
+      .map(r => `
+        <div class="card">
+          <h4>Reservation</h4>
+          <p>Student: ${r.studentId}</p>
+          <p>Class: ${r.classId}</p>
+          <p>Date: ${r.date}</p>
+          <p>Status: ${r.status}</p>
+        </div>
+      `)
+      .join('');
+
+  } catch (err) {
+    console.error(err);
+    alert("Dashboard failed to load.");
+  }
+});
+</script>
+
 </body>
 </html>
