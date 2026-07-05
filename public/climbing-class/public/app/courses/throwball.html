@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Throwball Course</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <link rel="stylesheet" href="/public/css/course.css" />
+
+  <style>
+    body {
+      background: #000;
+      color: #fff;
+      font-family: Arial, sans-serif;
+      padding: 20px;
+    }
+
+    h1, h2 {
+      color: #ff7b00;
+      text-shadow: 0 0 12px #ff7b00;
+    }
+
+    .card {
+      background: rgba(0,0,0,0.75);
+      border: 2px solid #ff7b00;
+      border-radius: 14px;
+      padding: 20px;
+      margin-bottom: 20px;
+      box-shadow: 0 0 18px #ff7b00;
+    }
+
+    button {
+      background: #ff7b00;
+      border: none;
+      padding: 12px 18px;
+      border-radius: 8px;
+      font-size: 1rem;
+      cursor: pointer;
+      margin-top: 10px;
+    }
+
+    button:hover {
+      background: #ffa64d;
+    }
+
+    video {
+      width: 100%;
+      border-radius: 12px;
+      margin-top: 12px;
+    }
+  </style>
+</head>
+
+<body>
+
+  <h1>Throwball Course</h1>
+  <p>Master the fundamentals of Throwball with cinematic breakdowns and step‑by‑step training.</p>
+
+  <!-- FULL COURSE PAYWALL -->
+  <div id="fullCourseLock" class="card"></div>
+
+  <!-- INTRO VIDEO -->
+  <div class="card">
+    <h2>Intro Lesson</h2>
+    <div id="introLock"></div>
+
+    <div id="introVideo" style="display:none;">
+      <video controls src="https://github.com/boardwalkclay1/throwball/releases/download/throawball/TRIAL____________throw-intro.mp4"></video>
+    </div>
+  </div>
+
+  <script src="/public/js/paywall.js"></script>
+
+  <script>
+    // ============================
+    // SET YOUR PAYPAL LINK ONCE
+    // ============================
+    Paywall.setPaypalLink("https://www.paypal.com/paypalme/YOURNAME");
+
+    // ============================
+    // RENDER FULL COURSE PAYWALL
+    // ============================
+    function renderFullCourse() {
+      const container = document.getElementById("fullCourseLock");
+
+      if (Paywall.hasFullAccess("throwball_full_unlock")) {
+        container.innerHTML = `
+          <h2>Full Course Unlocked</h2>
+          <p>You now have access to all Throwball videos.</p>
+        `;
+        return;
+      }
+
+      container.innerHTML = `
+        <h2>Full Course Locked</h2>
+        <p>Unlock all Throwball videos instantly.</p>
+        <button onclick="Paywall.purchase(80)">Unlock Full Course ($80)</button>
+      `;
+    }
+
+    // ============================
+    // RENDER INTRO VIDEO PAYWALL
+    // ============================
+    function renderIntro() {
+      const full = Paywall.hasFullAccess("throwball_full_unlock");
+      const unlocked = Paywall.isUnlocked("throwball_intro_unlock");
+
+      const lockBox = document.getElementById("introLock");
+      const videoBox = document.getElementById("introVideo");
+
+      if (full || unlocked) {
+        lockBox.style.display = "none";
+        videoBox.style.display = "block";
+        return;
+      }
+
+      lockBox.innerHTML = `
+        <p>This intro video is locked.</p>
+        <button onclick="Paywall.purchase(20)">Unlock Intro ($20)</button>
+        <button onclick="Paywall.purchase(80)">Unlock Full Course ($80)</button>
+      `;
+    }
+
+    // ============================
+    // INITIAL RENDER
+    // ============================
+    renderFullCourse();
+    renderIntro();
+  </script>
+
+</body>
+</html>
