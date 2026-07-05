@@ -15,7 +15,7 @@ database_id = "b836fa8d-4f53-49d4-93d2-70a7557d5f7c"
 # R2 BUCKET (Videos)
 # ============================
 [[r2_buckets]]
-binding = "VIDEOS_BUCKET"
+binding = "https://cd66209393471bee4b76a0f267205f55.r2.cloudflarestorage.com/chainsawclay-videos"
 bucket_name = "chainsawclay-videos"
 
 # ============================
