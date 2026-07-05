@@ -5,25 +5,105 @@
   <title>Admin Dashboard</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-  <link rel="stylesheet" href="/climbing-class/admin/admin.css" />
-
   <style>
     body {
       margin: 0;
       padding: 0;
       background: #000 url('/img/tree-service-logo.png') no-repeat center top;
-      background-size: 420px;
+      background-size: 380px;
       color: #fff;
       font-family: 'Anton', sans-serif;
     }
 
-    .card {
-      background: rgba(0,0,0,0.75);
-      border: 2px solid #ff7b00;
-      border-radius: 14px;
+    header {
+      background: rgba(0,0,0,0.85);
+      border-bottom: 2px solid #ff7b00;
       padding: 20px;
-      margin: 10px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: sticky;
+      top: 0;
+      z-index: 999;
+    }
+
+    header h1 {
+      margin: 0;
+      font-size: 1.8rem;
+      color: #ff7b00;
+      text-shadow: 0 0 12px #ff7b00;
+    }
+
+    /* MAIN NAV BUTTONS */
+    .main-nav {
+      display: flex;
+      gap: 12px;
+    }
+
+    .main-nav a {
+      color: #ff7b00;
+      text-decoration: none;
+      padding: 10px 16px;
+      border-radius: 999px;
+      border: 2px solid #ff7b00;
+      background: rgba(20,20,20,0.9);
+      font-size: 1rem;
+    }
+
+    /* BURGER MENU */
+    .burger {
+      width: 40px;
+      height: 40px;
+      border: 2px solid #ff7b00;
+      border-radius: 8px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      cursor: pointer;
+      background: rgba(20,20,20,0.9);
+    }
+
+    .burger span {
+      font-size: 1.6rem;
+      color: #ff7b00;
+    }
+
+    /* DROPDOWN MENU */
+    #dropdown {
+      display: none;
+      position: absolute;
+      right: 20px;
+      top: 80px;
+      background: rgba(0,0,0,0.95);
+      border: 2px solid #ff7b00;
+      border-radius: 12px;
+      padding: 20px;
+      width: 220px;
       box-shadow: 0 0 18px #ff7b00;
+    }
+
+    #dropdown a {
+      display: block;
+      color: #ff7b00;
+      padding: 10px 0;
+      text-decoration: none;
+      border-bottom: 1px solid #ff7b00;
+    }
+
+    #dropdown a:last-child {
+      border-bottom: none;
+    }
+
+    /* CONTENT */
+    main {
+      padding: 30px;
+      max-width: 1200px;
+      margin: auto;
+    }
+
+    h2, h3 {
+      color: #ff7b00;
+      text-shadow: 0 0 12px #ff7b00;
     }
 
     .grid {
@@ -33,46 +113,46 @@
       margin-top: 20px;
     }
 
+    .card {
+      background: rgba(0,0,0,0.75);
+      border: 2px solid #ff7b00;
+      border-radius: 14px;
+      padding: 20px;
+      box-shadow: 0 0 18px #ff7b00;
+    }
+
     .list .card {
       margin-bottom: 20px;
-    }
-
-    nav a {
-      color: #ff7b00;
-      border: 2px solid #ff7b00;
-      padding: 10px 16px;
-      border-radius: 999px;
-      background: rgba(20,20,20,0.9);
-      text-decoration: none;
-      margin-right: 10px;
-    }
-
-    nav a:hover {
-      background: #ff7b00;
-      color: #000;
     }
   </style>
 </head>
 
 <body>
 
-<header class="admin-header">
+<header>
   <h1>Admin Dashboard</h1>
 
-  <nav>
+  <div class="main-nav">
     <a href="/climbing-class/admin/pages/index.html">Dashboard</a>
+    <a href="/climbing-class/admin/pages/videos.html">Videos</a>
+    <a href="/climbing-class/admin/pages/clients.html">Clients</a>
+  </div>
+
+  <div class="burger" onclick="toggleMenu()">
+    <span>☰</span>
+  </div>
+
+  <div id="dropdown">
     <a href="/climbing-class/admin/pages/students.html">Students</a>
     <a href="/climbing-class/admin/pages/lessons.html">Lessons</a>
     <a href="/climbing-class/admin/pages/cities.html">Cities</a>
     <a href="/climbing-class/admin/pages/reservations.html">Reservations</a>
-    <a href="/climbing-class/admin/pages/videos.html">Videos</a>
     <a href="/climbing-class/admin/pages/messages.html">Messages</a>
-    <a href="/climbing-class/admin/pages/clients.html">Clients</a>
     <a href="/climbing-class/admin/pages/payments.html">Finances</a>
-  </nav>
+  </div>
 </header>
 
-<main class="section">
+<main>
 
   <h2>Admin Overview</h2>
   <p>This dashboard shows live analytics, students, clients, lessons, reservations, and finances.</p>
@@ -109,78 +189,14 @@
 
 </main>
 
-<script src="/climbing-class/admin/admin.js"></script>
 <script>
-document.addEventListener('DOMContentLoaded', async () => {
-  try {
-    const dashboard = await loadAdminDashboard();
-
-    // ANALYTICS
-    const analyticsEl = document.querySelector('#admin-analytics');
-    analyticsEl.innerHTML = Object.entries(dashboard.analytics)
-      .map(([key, value]) => `
-        <div class="card">
-          <h3>${key.replace('-', ' ').toUpperCase()}</h3>
-          <p>${value}</p>
-        </div>
-      `)
-      .join('');
-
-    // STUDENTS
-    const studentsEl = document.querySelector('#admin-students');
-    studentsEl.innerHTML = dashboard.students
-      .map(s => `
-        <div class="card">
-          <h4>${s.name}</h4>
-          <p>Email: ${s.email}</p>
-          <p>Level: ${s.level}</p>
-        </div>
-      `)
-      .join('');
-
-    // CLIENTS
-    const clientsEl = document.querySelector('#admin-clients');
-    clientsEl.innerHTML = dashboard.clients
-      .map(c => `
-        <div class="card">
-          <h4>${c.name}</h4>
-          <p>${c.phone}</p>
-          <p>${c.address}</p>
-        </div>
-      `)
-      .join('');
-
-    // LESSONS
-    const lessonsEl = document.querySelector('#admin-lessons');
-    lessonsEl.innerHTML = dashboard.lessons
-      .map(l => `
-        <div class="card">
-          <h4>${l.title}</h4>
-          <p>Level: ${l.level}</p>
-        </div>
-      `)
-      .join('');
-
-    // RESERVATIONS
-    const reservationsEl = document.querySelector('#admin-reservations');
-    reservationsEl.innerHTML = dashboard.reservations
-      .map(r => `
-        <div class="card">
-          <h4>Reservation</h4>
-          <p>Student: ${r.studentId}</p>
-          <p>Class: ${r.classId}</p>
-          <p>Date: ${r.date}</p>
-          <p>Status: ${r.status}</p>
-        </div>
-      `)
-      .join('');
-
-  } catch (err) {
-    console.error(err);
-    alert("Dashboard failed to load.");
-  }
-});
+function toggleMenu() {
+  const menu = document.getElementById('dropdown');
+  menu.style.display = menu.style.display === 'block' ? 'none' : 'block';
+}
 </script>
+
+<script src="/climbing-class/admin/admin.js"></script>
 
 </body>
 </html>
