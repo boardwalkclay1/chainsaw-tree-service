@@ -126,7 +126,7 @@
     .primary { background: #ff7b00; color: #000; }
     .secondary { background: #1a1a1a; color: #fff; border-color: #00c853; }
 
-    /* INTRO SECTION (NOW BELOW HEADER) */
+    /* INTRO SECTION */
     .intro-section {
       max-width: 900px;
       margin: 0 auto;
@@ -172,12 +172,21 @@
       grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
       gap: 20px;
     }
+
+    /* CLICKABLE CARDS */
     .category-card {
       background: rgba(0,0,0,0.6);
       padding: 20px;
       border-radius: 12px;
       border: 2px solid #ff7b00;
+      cursor: pointer;
+      transition: 0.25s ease;
     }
+    .category-card:hover {
+      transform: scale(1.03);
+      box-shadow: 0 0 18px #ff7b00;
+    }
+
     .category-card img {
       width: 100%;
       max-width: 420px;
@@ -195,6 +204,10 @@
       opacity: 0.8;
       font-size: 14px;
       border-top: 2px solid #ff7b00;
+    }
+    .site-footer a {
+      color: #00c853;
+      text-decoration: none;
     }
     #treeLogoBottom {
       display: block;
@@ -268,7 +281,7 @@ function toggleSidebar() {
     </div>
   </header>
 
-  <!-- ⭐ NEW INTRO SECTION (NOW IN THE RIGHT PLACE) -->
+  <!-- INTRO SECTION -->
   <section class="intro-section">
     <h2>Your Personal Tree‑Climbing Guide — Anywhere, Anytime</h2>
 
@@ -305,13 +318,14 @@ function toggleSidebar() {
     </p>
   </section>
 
-  <!-- TRAINING CARDS BELOW INTRO -->
+  <!-- TRAINING CARDS -->
   <section class="section">
     <h2>Training Categories</h2>
 
     <div class="category-grid">
 
-      <div class="category-card">
+      <!-- GEAR -->
+      <a href="/climbing-class/public/pages/gear-intro.html" class="category-card">
         <h3>Gear & Safety</h3>
         <ul>
           <li>Gear Overview</li>
@@ -320,11 +334,12 @@ function toggleSidebar() {
           <li>Two‑Point Safety Technique</li>
           <li>Basic Movement & Positioning</li>
         </ul>
-        <img src="/climbing-class/public/app/img/gear.jpg" class="gear-img">
-        <img src="/climbing-class/public/app/img/gear-climber.jpg" class="move-img">
-      </div>
+        <img src="/climbing-class/public/app/img/gear.jpg">
+        <img src="/climbing-class/public/app/img/gear-climber.jpg">
+      </a>
 
-      <div class="category-card">
+      <!-- THROWBALL -->
+      <a href="/climbing-class/public/pages/throwball-intro.html" class="category-card">
         <h3>Throwball Mastery</h3>
         <ul>
           <li>Throwball Basics</li>
@@ -333,10 +348,11 @@ function toggleSidebar() {
           <li>High‑Accuracy Throws</li>
           <li>Throwline Recovery</li>
         </ul>
-        <img src="/climbing-class/public/app/img/throwball.jpg" class="throwball-img">
-      </div>
+        <img src="/climbing-class/public/app/img/throwball.jpg">
+      </a>
 
-      <div class="category-card">
+      <!-- CLIMBING STYLES -->
+      <a href="/climbing-class/public/pages/styles-intro.html" class="category-card">
         <h3>Climbing Styles</h3>
         <strong>Body Thrusting</strong>
         <ul><li>Body Thrust Basics</li><li>Hip Thrust Efficiency</li></ul>
@@ -344,9 +360,13 @@ function toggleSidebar() {
         <ul><li>Footlock Fundamentals</li><li>Ascending Smoothly</li></ul>
         <strong>Spiking</strong>
         <ul><li>Spiking Basics</li><li>Safe Spike Ascending</li></ul>
-      </div>
 
-      <div class="category-card">
+        <!-- Placeholder photo slot -->
+        <img src="/climbing-class/public/app/img/placeholder.jpg" alt="Add climbing styles photo here">
+      </a>
+
+      <!-- RIGGING -->
+      <a href="/climbing-class/public/pages/rigging-intro.html" class="category-card">
         <h3>Rigging</h3>
         <ul>
           <li>Rigging Gear Overview</li>
@@ -357,9 +377,13 @@ function toggleSidebar() {
           <li>Negative Rigging</li>
           <li>Speedline Techniques</li>
         </ul>
-      </div>
 
-      <div class="category-card">
+        <!-- Placeholder photo slot -->
+        <img src="/climbing-class/public/app/img/placeholder.jpg" alt="Add rigging photo here">
+      </a>
+
+      <!-- KNOTS -->
+      <a href="/climbing-class/public/pages/knots-intro.html" class="category-card">
         <h3>Knots</h3>
         <ul>
           <li>Basic Arborist Knots</li>
@@ -367,10 +391,11 @@ function toggleSidebar() {
           <li>Rigging Knots</li>
           <li>Advanced Knot Scenarios</li>
         </ul>
-        <img src="/climbing-class/public/app/img/blakes-hitch.jpg" class="blakes-hitch-img">
-      </div>
+        <img src="/climbing-class/public/app/img/blakes-hitch.jpg">
+      </a>
 
-      <div class="category-card">
+      <!-- CUTTING -->
+      <a href="/climbing-class/public/pages/cutting-intro.html" class="category-card">
         <h3>Cutting Techniques</h3>
         <ul>
           <li>Chainsaw Safety</li>
@@ -378,10 +403,11 @@ function toggleSidebar() {
           <li>Advanced Cuts</li>
           <li>Scenario‑Based Cutting</li>
         </ul>
-        <img src="/climbing-class/public/app/img/climb-img-4.jpg" class="cutting-img">
-      </div>
+        <img src="/climbing-class/public/app/img/climb-img-4.jpg">
+      </a>
 
-      <div class="category-card">
+      <!-- BUSINESS -->
+      <a href="/climbing-class/public/pages/business-intro.html" class="category-card">
         <h3>Business & Jobsite Flow</h3>
         <ul>
           <li>How to Price Jobs</li>
@@ -389,8 +415,8 @@ function toggleSidebar() {
           <li>Crew Communication</li>
           <li>Customer Safety & Liability</li>
         </ul>
-        <img src="/climbing-class/public/app/img/business-img-1.jpg" class="cutting-img">
-      </div>
+        <img src="/climbing-class/public/app/img/business-img-1.jpg">
+      </a>
 
     </div>
   </section>
@@ -398,6 +424,7 @@ function toggleSidebar() {
   <footer class="site-footer">
     <img id="treeLogoBottom" src="/img/tree-service-logo.png">
     <p>Email: <a href="mailto:support@chainsawclay.com">support@chainsawclay.com</a></p>
+    <p>Phone: <a href="tel:6786830570">678‑683‑0570</a></p>
     <p><a href="https://chainsawclay.com">← Back to Chainsaw Clay’s Tree Service</a></p>
   </footer>
 
