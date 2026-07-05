@@ -2,7 +2,8 @@
 // Chainsaw Clay Admin — Unified Admin Controller
 // Talks directly to ONE Worker (public + admin routes)
 
-const API_BASE = '/api';
+// POINT THIS TO YOUR WORKER
+const API_BASE = 'https://api.chainsawclay.com/api';
 
 // =========================
 // UTIL
@@ -16,8 +17,13 @@ async function apiRequest(path, options = {}) {
     body: options.body ? JSON.stringify(options.body) : undefined,
   });
 
-  if (!res.ok) throw new Error(`API error: ${res.status}`);
-  return res.json();
+  const text = await res.text();
+  try {
+    return JSON.parse(text);
+  } catch (e) {
+    console.error('Non‑JSON response:', text);
+    throw new Error(`API error: ${res.status}`);
+  }
 }
 
 const qs = (sel) => document.querySelector(sel);
@@ -277,10 +283,10 @@ function renderStudents(students) {
 
   el.innerHTML = students
     .map(s => `
-      <div class="row">
-        <span>${s.name}</span>
-        <span>${s.level}</span>
-        <span>${s.email}</span>
+      <div class="card">
+        <h4>${s.name}</h4>
+        <p>Email: ${s.email}</p>
+        <p>Level: ${s.level}</p>
       </div>
     `)
     .join('');
@@ -292,10 +298,10 @@ function renderClients(clients) {
 
   el.innerHTML = clients
     .map(c => `
-      <div class="row">
-        <span>${c.name}</span>
-        <span>${c.phone}</span>
-        <span>${c.address}</span>
+      <div class="card">
+        <h4>${c.name}</h4>
+        <p>${c.phone}</p>
+        <p>${c.address}</p>
       </div>
     `)
     .join('');
@@ -307,9 +313,9 @@ function renderLessons(lessons) {
 
   el.innerHTML = lessons
     .map(l => `
-      <div class="row">
-        <span>${l.title}</span>
-        <span>${l.level}</span>
+      <div class="card">
+        <h4>${l.title}</h4>
+        <p>Level: ${l.level}</p>
       </div>
     `)
     .join('');
@@ -321,11 +327,12 @@ function renderReservations(reservations) {
 
   el.innerHTML = reservations
     .map(r => `
-      <div class="row">
-        <span>${r.studentId}</span>
-        <span>${r.classId}</span>
-        <span>${r.date}</span>
-        <span>${r.status}</span>
+      <div class="card">
+        <h4>Reservation</h4>
+        <p>Student: ${r.studentId}</p>
+        <p>Class: ${r.classId}</p>
+        <p>Date: ${r.date}</p>
+        <p>Status: ${r.status}</p>
       </div>
     `)
     .join('');
@@ -354,7 +361,7 @@ function wireEstimateForm() {
       await sendEstimate(payload);
       alert('Estimate sent.');
       form.reset();
-    } catch (err) {
+    } catch {
       alert('Error sending estimate.');
     }
   });
@@ -372,7 +379,7 @@ function wireReservationForm() {
       await createReservation(payload);
       alert('Reservation created.');
       form.reset();
-    } catch (err) {
+    } catch {
       alert('Error creating reservation.');
     }
   });
@@ -399,7 +406,7 @@ function wireVideoUploadForm() {
       await uploadVideoFile(file, meta);
       alert('Video uploaded.');
       form.reset();
-    } catch (err) {
+    } catch {
       alert('Error uploading video.');
     }
   });
@@ -417,7 +424,7 @@ function wireMessageForm() {
       await sendMessage(payload);
       alert('Message sent.');
       form.reset();
-    } catch (err) {
+    } catch {
       alert('Error sending message.');
     }
   });
