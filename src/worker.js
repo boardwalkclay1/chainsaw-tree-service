@@ -1,7 +1,7 @@
 import adminWorker from "./admin-worker.js";
 
 const CORS = {
-  "Access-Control-Allow-Origin": "https://chainsawclay.com/",
+  "Access-Control-Allow-Origin": "*",
   "Access-Control-Allow-Methods": "GET, POST, PUT, DELETE, OPTIONS",
   "Access-Control-Allow-Headers": "Content-Type, Authorization",
   "Access-Control-Max-Age": "86400"
@@ -24,8 +24,9 @@ export default {
     // ============================
     if (path.startsWith("/api/admin/")) {
       const res = await adminWorker.fetch(request, env, ctx);
+      const text = await res.text();
 
-      return new Response(res.body, {
+      return new Response(text, {
         status: res.status,
         headers: {
           ...Object.fromEntries(res.headers),
@@ -104,6 +105,12 @@ export default {
       if (path === "/api/messages/send") return json(await sendMessage(request, env));
       if (path === "/api/messages/list") return json(await listMessages(request, env));
 
+      // ============================
+      // PAYWALL ACCESS SYSTEM
+      // ============================
+      if (path === "/api/access/check") return json(await checkAccess(request, env));
+      if (path === "/api/access/unlock") return json(await unlockAccess(request, env));
+
       return json({ error: "Not found" }, 404);
 
     } catch (err) {
@@ -129,4 +136,37 @@ function json(data, status = 200) {
 async function body(request) {
   if (request.method === "GET") return {};
   return await request.json();
+}
+
+// ============================
+// PAYWALL ACCESS HANDLERS
+// ============================
+
+async function checkAccess(request, env) {
+  const { user_id, item_key } = await request.json();
+
+  const full = await env.DB_chainsaw
+    .prepare("SELECT * FROM access WHERE user_id = ? AND item_key = ?")
+    .bind(user_id, "throwball_full")
+    .first();
+
+  if (full) return { access: true };
+
+  const item = await env.DB_chainsaw
+    .prepare("SELECT * FROM access WHERE user_id = ? AND item_key = ?")
+    .bind(user_id, item_key)
+    .first();
+
+  return { access: !!item };
+}
+
+async function unlockAccess(request, env) {
+  const { user_id, item_key } = await request.json();
+
+  await env.DB_chainsaw
+    .prepare("INSERT INTO access (user_id, item_key) VALUES (?, ?)")
+    .bind(user_id, item_key)
+    .run();
+
+  return { success: true };
 }
