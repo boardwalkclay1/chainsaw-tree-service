@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Login – Chainsaw Clay</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background: black;
+      font-family: Arial, sans-serif;
+      color: white;
+      overflow-x: hidden;
+    }
+
+    /* Fullscreen background image from index */
+    .bg {
+      position: fixed;
+      inset: 0;
+      width: 100vw;
+      height: 100vh;
+      object-fit: cover;
+      object-position: center 88%;
+      z-index: 0;
+    }
+
+    /* Center container */
+    main {
+      position: relative;
+      z-index: 5;
+      display: flex;
+      justify-content: center;
+      padding: 120px 20px;
+    }
+
+    .box {
+      width: 100%;
+      max-width: 420px;
+      background: rgba(0,0,0,0.55);
+      padding: 40px;
+      border-radius: 12px;
+      backdrop-filter: blur(6px);
+      color: white;
+      text-align: center;
+    }
+
+    .logo {
+      width: 120px;
+      margin: 0 auto 20px auto;
+      display: block;
+    }
+
+    input {
+      width: 100%;
+      padding: 14px;
+      border-radius: 10px;
+      border: none;
+      margin-bottom: 15px;
+      font-size: 16px;
+    }
+
+    button {
+      width: 100%;
+      padding: 14px;
+      border-radius: 10px;
+      border: none;
+      background: #ff7b00;
+      color: black;
+      font-size: 18px;
+      font-weight: bold;
+      cursor: pointer;
+      margin-top: 10px;
+    }
+
+    button:hover {
+      background: #ffa64d;
+    }
+
+    .link {
+      margin-top: 20px;
+      display: block;
+      color: white;
+      text-decoration: underline;
+      font-size: 16px;
+    }
+
+    .back-btn {
+      margin-top: 10px;
+      display: block;
+      color: #ff7b00;
+      text-decoration: underline;
+      font-size: 16px;
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- Background image from index -->
+  <img src="/app/images/roll-index.jpg" class="bg" alt="Background">
+
+  <main>
+    <div class="box">
+
+      <!-- Your logo -->
+      <img src="/app/images/icons/icon-192.png" class="logo" alt="Logo">
+
+      <h1>Welcome Back</h1>
+
+      <form id="loginForm">
+        <input type="email" id="email" placeholder="Email" required>
+        <input type="password" id="password" placeholder="Password" required>
+        <button type="submit">Login</button>
+      </form>
+
+      <a href="/climbing-class/signup.html" class="link">Create an account</a>
+      <a href="/index.html" class="back-btn">← Back</a>
+
+    </div>
+  </main>
+
+  <script src="/public/js/auth.js"></script>
+
+  <script>
+    document.getElementById("loginForm").addEventListener("submit", async (e) => {
+      e.preventDefault();
+
+      const email = document.getElementById("email").value.trim();
+      const password = document.getElementById("password").value.trim();
+
+      try {
+        await Auth.login(email, password);
+        window.location.href = "/climbing-class/dashboard.html";
+      } catch (err) {
+        alert("Login failed");
+      }
+    });
+  </script>
+
+</body>
+</html>
