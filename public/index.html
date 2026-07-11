@@ -24,11 +24,21 @@
     body {
       margin: 0;
       padding: 0;
-      background: #000 url('/img/tree-service-logo.png') no-repeat center center fixed;
-      background-size: cover;
-      color: #fff;
+      background-color: #000;
       font-family: 'Anton', sans-serif;
       overflow-x: hidden;
+    }
+
+    /* MOBILE‑RESPONSIVE BACKGROUND */
+    .bg {
+      position: fixed;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+      z-index: -1;
+      opacity: 0.25; /* keeps text readable */
     }
 
     /* TOP CONTACT BAR */
@@ -188,6 +198,9 @@
 </head>
 
 <body>
+
+<!-- MOBILE‑RESPONSIVE BACKGROUND IMAGE -->
+<img src="/img/tree-service-logo.png" class="bg" alt="Background">
 
 <div id="top-contact">
   📞 <a href="tel:4706952055">(470)-695-2055</a> &nbsp; | &nbsp; ✉️ <a href="mailto:support@chainsawclay.com">support@chainsawclay.com</a>
