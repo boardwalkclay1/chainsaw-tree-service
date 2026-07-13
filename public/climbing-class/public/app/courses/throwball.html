@@ -40,13 +40,92 @@
   <h1>Throwball Course</h1>
   <p>Master the fundamentals of Throwball with cinematic breakdowns and step‑by‑step training.</p>
 
+  <!-- INTRO LESSON (two videos chained) -->
   <div class="card">
     <h2>Intro Lesson</h2>
-    <video controls src="https://github.com/boardwalkclay1/throwball/releases/download/throwball/TRIAL____________throwball-intro.mp4"></video>
+    <div id="introLock"></div>
+
+    <div id="introVideos" style="display:none;">
+      <video id="intro1" controls src="https://github.com/boardwalkclay1/throwball/releases/download/throwball/TRIAL____________throwball-intro.mp4"></video>
+
+      <video id="intro2" controls style="display:none;" src="https://github.com/boardwalkclay1/throwball/releases/download/throwball-2/Thrwball-part-3.mp4"></video>
+    </div>
   </div>
 
-  <!-- Your global paywall logic (reads D1, controls access) -->
+  <!-- SECOND LESSON -->
+  <div class="card">
+    <h2>Second Lesson</h2>
+    <div id="lesson2Lock"></div>
+
+    <div id="lesson2Video" style="display:none;">
+      <video controls src="https://github.com/boardwalkclay1/throwball/releases/download/throwball-2/Thrwball-part-3.mp4"></video>
+    </div>
+  </div>
+
   <script src="/js/paywall.js"></script>
+
+  <script>
+    // ============================
+    // PAYWALL CONFIG
+    // ============================
+    Paywall.setPaypalLink("https://www.paypal.com/paypalme/YOURNAME");
+
+    // INTRO LESSON PAYWALL
+    function renderIntro() {
+      const unlocked = Paywall.isUnlocked("throwball_intro_unlock");
+
+      const lockBox = document.getElementById("introLock");
+      const videoBox = document.getElementById("introVideos");
+
+      if (unlocked) {
+        lockBox.style.display = "none";
+        videoBox.style.display = "block";
+        return;
+      }
+
+      lockBox.innerHTML = `
+        <p>This intro lesson is locked.</p>
+        <button onclick="Paywall.purchase(20, 'throwball_intro_unlock')">Unlock Intro ($20)</button>
+      `;
+    }
+
+    // SECOND LESSON PAYWALL
+    function renderLesson2() {
+      const unlocked = Paywall.isUnlocked("throwball_lesson2_unlock");
+
+      const lockBox = document.getElementById("lesson2Lock");
+      const videoBox = document.getElementById("lesson2Video");
+
+      if (unlocked) {
+        lockBox.style.display = "none";
+        videoBox.style.display = "block";
+        return;
+      }
+
+      lockBox.innerHTML = `
+        <p>This second lesson is locked.</p>
+        <button onclick="Paywall.purchase(20, 'throwball_lesson2_unlock')">Unlock Lesson 2 ($20)</button>
+      `;
+    }
+
+    // ============================
+    // CHAINED VIDEO PLAYBACK
+    // ============================
+    const intro1 = document.getElementById("intro1");
+    const intro2 = document.getElementById("intro2");
+
+    intro1.addEventListener("ended", () => {
+      intro1.style.display = "none";
+      intro2.style.display = "block";
+      intro2.play();
+    });
+
+    // ============================
+    // INITIAL RENDER
+    // ============================
+    renderIntro();
+    renderLesson2();
+  </script>
 
 </body>
 </html>
