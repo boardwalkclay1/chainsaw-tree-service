@@ -80,17 +80,18 @@
       filter: drop-shadow(0 0 18px #ff7b00);
     }
 
-    /* VIDEO UNDER LOGOS */
+    /* INSTAGRAM REEL STYLE VIDEO */
     #video-hero {
       position: relative;
       width: 100%;
-      max-width: 900px;
-      height: 260px;
+      max-width: 420px; /* IG Reel width */
+      height: 740px; /* IG Reel height */
       margin: 20px auto 40px;
       overflow: hidden;
-      border-radius: 14px;
-      border: 2px solid #ff7b00;
+      border-radius: 20px;
+      border: 3px solid #ff7b00;
       background: #000;
+      box-shadow: 0 0 25px #ff7b00;
     }
 
     #video-hero video {
@@ -99,15 +100,32 @@
       object-fit: cover;
     }
 
-    #video-logo {
+    /* PLAY / PAUSE OVERLAY */
+    #video-controls {
       position: absolute;
-      bottom: 10px;
-      right: 10px;
-      height: 70px;
-      filter: drop-shadow(0 0 10px #ff7b00);
-      opacity: 0.9;
+      inset: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      pointer-events: none;
+      opacity: 1;
+      transition: opacity 0.4s ease;
     }
 
+    #video-controls img {
+      height: 90px;
+      width: 90px;
+      opacity: 0.85;
+      filter: drop-shadow(0 0 12px #ff7b00);
+      pointer-events: none;
+    }
+
+    /* FADE OUT WHEN PLAYING */
+    #video-hero.playing #video-controls {
+      opacity: 0;
+    }
+
+    /* HERO TEXT */
     .hero-title {
       font-size: 2.4rem;
       background: rgba(0,0,0,0.75);
@@ -179,18 +197,6 @@
       font-size: 0.95rem;
     }
 
-    /* CLIMBING CLASS */
-    #climb-promo {
-      padding: 60px 20px;
-      text-align: center;
-    }
-
-    .promo-logo {
-      height: 140px;
-      filter: drop-shadow(0 0 18px #ff7b00);
-      margin-bottom: 20px;
-    }
-
     /* CONTACT */
     #contact {
       padding: 40px 20px;
@@ -226,12 +232,16 @@
     <img src="img/climb-logo.jpg" class="hero-logo">
   </div>
 
-  <!-- VIDEO MOVED HERE -->
+  <!-- INSTAGRAM REEL STYLE VIDEO -->
   <div id="video-hero">
-    <video autoplay muted loop playsinline>
+    <video id="heroVideo" autoplay muted loop playsinline>
       <source src="https://github.com/boardwalkclay1/chainsaw-tree-service/releases/download/top/big-top-drop.mp4" type="video/mp4">
     </video>
-    <img src="img/tree-service-logo.png" id="video-logo" alt="Logo">
+
+    <!-- Transparent Play/Pause Overlay -->
+    <div id="video-controls">
+      <img id="controlIcon" src="img/play-icon.png" alt="Play">
+    </div>
   </div>
 
   <h1 class="hero-title">Chainsaw Clay's Tree Service</h1>
@@ -290,20 +300,6 @@
   </div>
 </section>
 
-<section id="climb-promo">
-  <img src="img/climb-logo.jpg" class="promo-logo">
-
-  <h2 style="color:#ff7b00;">Chainsaw Clay's Tree Climbing Class</h2>
-
-  <p style="background:rgba(0,0,0,0.75); padding:12px 20px; border-radius:12px; border:2px solid #ff7b00; display:inline-block;">
-    Learn real climbing from a real climber — knots, gear, movement, safety, and canopy flow.
-  </p>
-
-  <br><br>
-
-  <button class="btn" onclick="window.location.href='https://chainsawclay.com/climbing-class/public/'">Open Class Site</button>
-</section>
-
 <section id="contact">
   <h2 style="color:#ff7b00;">Contact Us</h2>
   <p>Email: <a href="mailto:support@chainsawclay.com">support@chainsawclay.com</a></p>
@@ -311,6 +307,24 @@
 </section>
 
 <script>
+/* PLAY / PAUSE VIDEO WITH FADE CONTROLS */
+const video = document.getElementById("heroVideo");
+const videoHero = document.getElementById("video-hero");
+const controlIcon = document.getElementById("controlIcon");
+
+videoHero.addEventListener("click", () => {
+  if (video.paused) {
+    video.play();
+    videoHero.classList.add("playing");
+    controlIcon.src = "img/pause-icon.png";
+  } else {
+    video.pause();
+    videoHero.classList.remove("playing");
+    controlIcon.src = "img/play-icon.png";
+  }
+});
+
+/* EMAIL FUNCTION */
 function sendEstimateEmail() {
   const name = document.getElementById("name").value;
   const phone = document.getElementById("phone").value;
