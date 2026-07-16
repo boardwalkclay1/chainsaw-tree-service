@@ -25,7 +25,7 @@
       background: #000;
       padding: 12px 20px;
       text-align: center;
-      font-size: 1.25rem;
+      font-size: 1.1rem;
       color: #ff7b00;
       border-bottom: 2px solid #ff7b00;
       text-shadow: 0 0 10px #ff7b00;
@@ -41,7 +41,8 @@
       width: 100%;
       padding: 10px 10px;
       display: flex;
-      justify-content: space-around;
+      justify-content: center;
+      gap: 16px;
       background: rgba(0,0,0,0.85);
       border-bottom: 2px solid #ff7b00;
       position: sticky;
@@ -52,7 +53,7 @@
     #header a {
       color: #ff7b00;
       text-decoration: none;
-      padding: 8px 12px;
+      padding: 8px 14px;
       border-radius: 999px;
       border: 2px solid #ff7b00;
       background: rgba(20,20,20,0.9);
@@ -61,7 +62,7 @@
 
     /* HERO */
     #hero {
-      padding: 120px 20px 60px;
+      padding: 80px 20px 40px;
       text-align: center;
     }
 
@@ -86,7 +87,7 @@
       width: 100%;
       max-width: 420px;
       height: 740px;
-      margin: 20px auto 40px;
+      margin: 20px auto 30px;
       overflow: hidden;
       border-radius: 20px;
       border: 3px solid #ff7b00;
@@ -100,18 +101,19 @@
       object-fit: cover;
     }
 
-    /* BOTTOM CONTROLS */
+    /* BOTTOM CONTROLS BAR */
     #video-controls {
       position: absolute;
       bottom: 0;
       width: 100%;
       height: 70px;
-      background: linear-gradient(to top, rgba(0,0,0,0.75), transparent);
+      background: linear-gradient(to top, rgba(0,0,0,0.85), transparent);
       display: flex;
       justify-content: center;
       align-items: center;
+      gap: 12px;
       opacity: 0;
-      transition: opacity 0.4s ease;
+      transition: opacity 0.3s ease;
       pointer-events: none;
     }
 
@@ -121,18 +123,16 @@
     }
 
     .control-btn {
-      padding: 10px 20px;
+      padding: 8px 16px;
       border-radius: 999px;
       border: 2px solid #ff7b00;
-      background: rgba(0,0,0,0.75);
+      background: rgba(0,0,0,0.8);
       color: #ff7b00;
-      font-size: 1rem;
+      font-size: 0.9rem;
       cursor: pointer;
-      text-align: center;
       user-select: none;
     }
 
-    /* HERO TEXT */
     .hero-title {
       font-size: 2.4rem;
       background: rgba(0,0,0,0.75);
@@ -155,7 +155,6 @@
       max-width: 90%;
     }
 
-    /* BUTTONS */
     .btn {
       padding: 10px 16px;
       border-radius: 999px;
@@ -167,12 +166,79 @@
       margin: 6px;
     }
 
-    /* ESTIMATE FORM */
-    #estimate {
-      padding: 60px 20px;
-      text-align: center;
+    /* SECTION WRAPPER */
+    section {
+      padding: 40px 20px;
     }
 
+    .section-inner {
+      max-width: 1000px;
+      margin: 0 auto;
+      background: rgba(0,0,0,0.78);
+      border-radius: 18px;
+      border: 2px solid #ff7b00;
+      padding: 24px 20px;
+    }
+
+    h2.section-title {
+      text-align: center;
+      margin-bottom: 16px;
+      font-size: 1.8rem;
+      color: #ff7b00;
+    }
+
+    .section-text {
+      font-family: 'Staatliches', sans-serif;
+      letter-spacing: 0.6px;
+      line-height: 1.5;
+      font-size: 1.02rem;
+    }
+
+    .section-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 18px;
+      margin-top: 20px;
+    }
+
+    .card {
+      background: rgba(10,10,10,0.9);
+      border-radius: 12px;
+      border: 2px solid #ff7b00;
+      padding: 14px 16px;
+    }
+
+    .card h3 {
+      margin-top: 0;
+      margin-bottom: 8px;
+      font-size: 1.2rem;
+      color: #ff7b00;
+    }
+
+    .card p {
+      font-family: 'Staatliches', sans-serif;
+      font-size: 0.98rem;
+      line-height: 1.5;
+    }
+
+    .link-btn {
+      display: inline-block;
+      margin-top: 10px;
+      padding: 8px 14px;
+      border-radius: 999px;
+      border: 2px solid #ff7b00;
+      color: #ff7b00;
+      text-decoration: none;
+      font-size: 0.9rem;
+      background: rgba(0,0,0,0.8);
+    }
+
+    .link-btn:hover {
+      background: #ff7b00;
+      color: #000;
+    }
+
+    /* ESTIMATE FORM */
     #estimate-box {
       max-width: 600px;
       margin: 0 auto;
@@ -206,8 +272,6 @@
 
     /* CONTACT */
     #contact {
-      padding: 40px 20px;
-      text-align: center;
       background: #000;
       border-top: 2px solid #ff7b00;
     }
@@ -216,38 +280,51 @@
       color: #ff7b00;
       text-decoration: none;
     }
+
+    footer {
+      text-align: center;
+      padding: 20px;
+      font-family: 'Staatliches', sans-serif;
+      font-size: 0.95rem;
+      color: #ccc;
+    }
   </style>
 </head>
 
 <body>
 
 <div id="top-contact">
-  📞 <a href="tel:4706952055">(470)-695-2055</a> | ✉️ <a href="mailto:support@chainsawclay.com">support@chainsawclay.com</a>
+  📞 <a href="tel:4706952055">(470)-695-2055</a> &nbsp;|&nbsp;
+  ✉️ <a href="mailto:support@chainsawclay.com">support@chainsawclay.com</a>
 </div>
 
 <header id="header">
   <a href="#hero">Home</a>
+  <a href="#services">Tree Services</a>
+  <a href="#climb-class">Climbing Class</a>
+  <a href="#training">Training & Courses</a>
   <a href="#estimate">Estimate</a>
-  <a href="#climb-promo">Class</a>
   <a href="#contact">Contact</a>
 </header>
 
 <section id="hero">
-
   <div class="logo-row">
-    <img src="img/tree-service-logo.png" class="hero-logo">
-    <img src="img/climb-logo.jpg" class="hero-logo">
+    <img src="img/tree-service-logo.png" class="hero-logo" alt="Chainsaw Clay Tree Service">
+    <img src="img/climb-logo.jpg" class="hero-logo" alt="Climbing Class Logo">
   </div>
 
-  <!-- INSTAGRAM REEL VIDEO -->
+  <!-- INSTAGRAM REEL STYLE VIDEO WITH SOUND + CONTROLS -->
   <div id="video-hero">
-    <video id="heroVideo" autoplay muted loop playsinline>
+    <video id="heroVideo" autoplay loop playsinline>
       <source src="https://github.com/boardwalkclay1/chainsaw-tree-service/releases/download/top/big-top-drop.mp4" type="video/mp4">
+      Your browser does not support the video tag.
     </video>
 
-    <!-- BOTTOM CONTROLS -->
     <div id="video-controls">
+      <div class="control-btn" id="backBtn">« Back 5s</div>
       <div class="control-btn" id="playPauseBtn">Pause</div>
+      <div class="control-btn" id="forwardBtn">Forward 5s »</div>
+      <div class="control-btn" id="muteBtn">Sound: On</div>
     </div>
   </div>
 
@@ -256,82 +333,265 @@
   <p class="hero-tagline">Professional Tree Care • Real Experience • Real Results</p>
 
   <p class="hero-description">
-    High‑level climbing, safe removals, precision pruning, storm cleanup, gardening, and
-    professional climbing classes taught by a real climber with 10+ years in the canopy.
+    High‑level climbing, safe removals, precision pruning, storm cleanup, and real climbing classes.
+    Built on years in the canopy, not just ground work.
   </p>
 
   <button class="btn" onclick="document.querySelector('#estimate').scrollIntoView({behavior:'smooth'})">Request Estimate</button>
-  <button class="btn" onclick="document.querySelector('#climb-promo').scrollIntoView({behavior:'smooth'})">Climbing Class Info</button>
+  <button class="btn" onclick="document.querySelector('#climb-class').scrollIntoView({behavior:'smooth'})">Climbing Class Info</button>
+</section>
 
+<section id="services">
+  <div class="section-inner">
+    <h2 class="section-title">Tree Services</h2>
+    <p class="section-text">
+      Chainsaw Clay's Tree Service focuses on safe, controlled, high‑level climbing and cutting.
+      Every job is planned around tree structure, movement, and client goals—not just “getting it down.”
+    </p>
+
+    <div class="section-grid">
+      <div class="card">
+        <h3>Tree Removal</h3>
+        <p>
+          Full removals with controlled rigging, balance cuts, and safe drop zones. We handle tight
+          backyards, near houses, fences, and power lines with canopy‑based cutting, not blind ground drops.
+        </p>
+        <a href="#estimate" class="link-btn">Book Removal</a>
+      </div>
+
+      <div class="card">
+        <h3>Precision Pruning</h3>
+        <p>
+          Structural pruning, weight reduction, and crown cleaning that respects tree health. We climb
+          with rope systems, not spikes, when the tree needs to live and stay strong.
+        </p>
+        <a href="#estimate" class="link-btn">Schedule Pruning</a>
+      </div>
+
+      <div class="card">
+        <h3>Storm Cleanup</h3>
+        <p>
+          Emergency response for fallen limbs, broken tops, and dangerous hangers. We use rigging,
+          redirects, and controlled cuts to remove hazards without creating new ones.
+        </p>
+        <a href="#estimate" class="link-btn">Storm Cleanup Request</a>
+      </div>
+
+      <div class="card">
+        <h3>Yard Planning</h3>
+        <p>
+          Layouts for trees, shrubs, flowers, and fruit trees. We plan shade, growth, and access so your
+          yard works long‑term, not just for one season.
+        </p>
+        <a href="#estimate" class="link-btn">Plan My Yard</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="climb-class">
+  <div class="section-inner">
+    <h2 class="section-title">Tree Climbing Class</h2>
+    <p class="section-text">
+      Learn real climbing from a real climber. We cover knots, gear, movement, safety, canopy flow,
+      and how to think like a climber instead of just a ground worker.
+    </p>
+
+    <div class="section-grid">
+      <div class="card">
+        <h3>Beginner Climbing</h3>
+        <p>
+          Rope basics, harness setup, simple ascents, and safe positioning. You learn how to get into
+          the tree, stay stable, and move without fighting the rope.
+        </p>
+        <a href="https://chainsawclay.com/climbing-class/public/" class="link-btn">Open Class Site</a>
+      </div>
+
+      <div class="card">
+        <h3>Throwball & Access</h3>
+        <p>
+          Throwball techniques, line management, and reading the canopy. Your tie‑in point decides your
+          entire climb—this class makes your access clean and intentional.
+        </p>
+        <a href="https://chainsawclay.com/courses/throwball" class="link-btn">Throwball Course</a>
+      </div>
+
+      <div class="card">
+        <h3>Movement & Canopy Flow</h3>
+        <p>
+          Redirects, midline anchors, and flowing through the crown without wasting energy. You learn
+          how to move with the tree, not against it.
+        </p>
+        <a href="https://chainsawclay.com/courses/canopy-flow" class="link-btn">Canopy Flow Course</a>
+      </div>
+
+      <div class="card">
+        <h3>Rescue & Safety</h3>
+        <p>
+          How to build systems that can handle emergencies, stuck climbers, and bad situations. Safety
+          is built into the climb, not added at the end.
+        </p>
+        <a href="https://chainsawclay.com/courses/safety-habits" class="link-btn">Safety & Rescue Course</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="training">
+  <div class="section-inner">
+    <h2 class="section-title">Training, Gear & Cutting Techniques</h2>
+    <p class="section-text">
+      I’ve been climbing longer than I can remember. The canopy came first, the ground came second.
+      These trainings are built from real work, real mistakes, and real solutions.
+    </p>
+
+    <div class="section-grid">
+      <div class="card">
+        <h3>Gear & System Building</h3>
+        <p>
+          Harnesses, ropes, friction devices, backups, and how to build a system that matches your body
+          and your work. Gear is only safe if the system makes sense.
+        </p>
+        <a href="https://chainsawclay.com/courses/gear-safety" class="link-btn">Gear & Safety Course</a>
+      </div>
+
+      <div class="card">
+        <h3>Climbing Techniques</h3>
+        <p>
+          “You can’t always spike a tree.” We cover when spikes are right, when they’re wrong, and how
+          to climb rope‑only for pruning, health, and long‑term work.
+        </p>
+        <a href="https://chainsawclay.com/courses/spikes-and-ethics" class="link-btn">Climbing Ethics & Techniques</a>
+      </div>
+
+      <div class="card">
+        <h3>Tree Climber Cutting</h3>
+        <p>
+          Tree climber cutting techniques are different from ground cutting. Learning to cut in the
+          canopy makes you faster, safer, and smarter on the ground.
+        </p>
+        <a href="https://chainsawclay.com/courses/climber-cutting" class="link-btn">Climber Cutting Course</a>
+      </div>
+
+      <div class="card">
+        <h3>Industry & Clients</h3>
+        <p>
+          How to navigate the tree industry, crews, companies, and clients. How to communicate, find
+          good clients, and keep a strong name in this business.
+        </p>
+        <a href="https://chainsawclay.com/courses/industry-survival" class="link-btn">Industry Survival Course</a>
+      </div>
+    </div>
+  </div>
 </section>
 
 <section id="estimate">
-  <div id="estimate-box">
+  <div class="section-inner">
+    <h2 class="section-title">Request an Estimate</h2>
+    <p class="section-text">
+      Fill this out and it will open an email with your details ready to send to
+      <strong>support@chainsawclay.com</strong>.
+    </p>
 
-    <h2 style="color:#ff7b00;">Request an Estimate</h2>
+    <div id="estimate-box">
+      <form id="estimateForm">
+        <label>Full Name</label>
+        <input type="text" id="name" required>
 
-    <form id="estimateForm">
+        <label>Phone Number</label>
+        <input type="tel" id="phone" required>
 
-      <label>Full Name</label>
-      <input type="text" id="name" required>
+        <label>Email</label>
+        <input type="email" id="email" required>
 
-      <label>Phone Number</label>
-      <input type="tel" id="phone" required>
+        <label>Address</label>
+        <input type="text" id="address" required>
 
-      <label>Email</label>
-      <input type="email" id="email" required>
+        <label>Service Type</label>
+        <select id="service" required>
+          <option value="">Select a service</option>
+          <option value="Tree Removal">Tree Removal</option>
+          <option value="Pruning">Pruning</option>
+          <option value="Storm Cleanup">Storm Cleanup</option>
+          <option value="General Cleanup">General Cleanup</option>
+          <option value="Planting / Layout">Planting / Layout</option>
+        </select>
 
-      <label>Address</label>
-      <input type="text" id="address" required>
+        <label>Project Description</label>
+        <textarea id="description" rows="4"></textarea>
 
-      <label>Service Type</label>
-      <select id="service" required>
-        <option value="">Select a service</option>
-        <option value="Tree Removal">Tree Removal</option>
-        <option value="Pruning">Pruning</option>
-        <option value="Storm Cleanup">Storm Cleanup</option>
-        <option value="General Cleanup">General Cleanup</option>
-        <option value="Planting / Layout">Planting / Layout</option>
-      </select>
-
-      <label>Project Description</label>
-      <textarea id="description" rows="4"></textarea>
-
-      <label>Upload Photos (optional)</label>
-      <input type="file" id="photos" multiple accept="image/*">
-
-      <button class="btn" type="button" onclick="sendEstimateEmail()">Submit Request</button>
-
-    </form>
-
+        <button class="btn" type="button" onclick="sendEstimateEmail()">Submit Request</button>
+      </form>
+    </div>
   </div>
 </section>
 
 <section id="contact">
-  <h2 style="color:#ff7b00;">Contact Us</h2>
-  <p>Email: <a href="mailto:support@chainsawclay.com">support@chainsawclay.com</a></p>
-  <p>Phone: <a href="tel:4706952055">(470)-695-2055</a></p>
+  <div class="section-inner">
+    <h2 class="section-title">Contact & Booking</h2>
+    <p class="section-text">
+      For tree work, climbing classes, or training, reach out directly. Clear communication, honest
+      pricing, and real skill—that’s the standard.
+    </p>
+
+    <p class="section-text">
+      📧 Email: <a href="mailto:support@chainsawclay.com">support@chainsawclay.com</a><br>
+      📞 Phone: <a href="tel:4706952055">(470)-695-2055</a><br>
+      🌐 Climbing Class Site: <a href="https://chainsawclay.com/climbing-class/public/">climb.chainsawclay.com</a>
+    </p>
+  </div>
 </section>
 
+<footer>
+  Chainsaw Clay — Climbing longer than I can remember.  
+  Tree service, climbing, training, and real canopy work.
+</footer>
+
 <script>
-/* PLAY / PAUSE VIDEO WITH BOTTOM CONTROLS */
+/* VIDEO CONTROLS: PLAY / PAUSE / BACK / FORWARD / MUTE */
 const video = document.getElementById("heroVideo");
 const videoHero = document.getElementById("video-hero");
 const playPauseBtn = document.getElementById("playPauseBtn");
+const backBtn = document.getElementById("backBtn");
+const forwardBtn = document.getElementById("forwardBtn");
+const muteBtn = document.getElementById("muteBtn");
 
+/* Start with sound ON */
+video.muted = false;
+
+/* Show controls when video area clicked */
 videoHero.addEventListener("click", () => {
   videoHero.classList.add("show-controls");
+  setTimeout(() => {
+    videoHero.classList.remove("show-controls");
+  }, 2500);
 });
 
-playPauseBtn.addEventListener("click", () => {
+playPauseBtn.addEventListener("click", (e) => {
+  e.stopPropagation();
   if (video.paused) {
     video.play();
     playPauseBtn.textContent = "Pause";
-    setTimeout(() => videoHero.classList.remove("show-controls"), 800);
   } else {
     video.pause();
     playPauseBtn.textContent = "Play";
   }
+});
+
+backBtn.addEventListener("click", (e) => {
+  e.stopPropagation();
+  video.currentTime = Math.max(0, video.currentTime - 5);
+});
+
+forwardBtn.addEventListener("click", (e) => {
+  e.stopPropagation();
+  video.currentTime = Math.min(video.duration, video.currentTime + 5);
+});
+
+muteBtn.addEventListener("click", (e) => {
+  e.stopPropagation();
+  video.muted = !video.muted;
+  muteBtn.textContent = video.muted ? "Sound: Off" : "Sound: On";
 });
 
 /* EMAIL FUNCTION */
