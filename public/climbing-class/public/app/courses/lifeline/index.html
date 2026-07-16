@@ -1,1 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Lifeline Course — Chainsaw’s Climbing Class</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
 
+  <!-- FAVICON -->
+  <link rel="icon" type="image/jpeg" href="/img/climb-logo.jpg" />
+
+  <!-- SOCIAL PREVIEW -->
+  <meta property="og:title" content="Lifeline Course — Chainsaw’s Climbing Class">
+  <meta property="og:description" content="Learn how to trust, manage, and move on your lifeline with real arborist techniques.">
+  <meta property="og:image" content="https://chainsawclay.com/climbing-class/public/app/img/gear-climber.jpg">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://chainsawclay.com/climbing-class/public/app/pages/lifeline/index.html">
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Lifeline Course — Chainsaw’s Climbing Class">
+  <meta name="twitter:description" content="Deep breakdowns on lifeline safety, positioning, and canopy flow.">
+  <meta name="twitter:image" content="https://chainsawclay.com/climbing-class/public/app/img/gear-climber.jpg">
+
+  <!-- EXTERNAL CSS -->
+  <link rel="stylesheet" href="./lifeline.css" />
+</head>
+
+<body>
+
+  <div class="overlay">
+
+    <!-- HEADER -->
+    <header class="course-header">
+      <div class="course-logo-row">
+        <img src="/img/climb-logo.jpg" class="course-logo" alt="Chainsaw’s Climbing Class Logo">
+      </div>
+
+      <h1 class="course-title">Lifeline Course</h1>
+      <p class="course-tagline">
+        Learn how to trust, manage, and move on your lifeline — the rope that keeps you alive in the canopy.
+      </p>
+
+      <div class="course-buttons">
+        <a href="/climbing-class/public/" class="btn secondary">← Back to Class Hub</a>
+        <a href="/climbing-class/public/pages/gear-intro.html" class="btn primary">Gear & Safety</a>
+      </div>
+    </header>
+
+    <!-- INTRO SECTION -->
+    <section class="course-intro">
+      <h2>What You’ll Learn</h2>
+      <p>
+        This Lifeline Course teaches you how to clip in, trust your system, move with confidence, and stay safe
+        while you climb. Real breakdowns, real canopy footage, real arborist techniques.
+      </p>
+    </section>
+
+    <!-- VIDEO LESSONS -->
+    <section class="course-section">
+      <h2>Video Lessons</h2>
+
+      <div id="lockedMessage" class="locked-message" style="display:none;">
+        <p>You must unlock this course to watch the videos.</p>
+        <a href="/climbing-class/public/app/pages/access.html" class="btn primary">Unlock Course</a>
+      </div>
+
+      <div id="lessonGrid" class="lesson-grid" style="display:none;">
+
+        <!-- LESSON 1 -->
+        <article class="lesson-card">
+          <h3>Lesson 1 — Lifeline Intro</h3>
+          <p>Learn what your lifeline does, how it works, and why every connection matters.</p>
+          <video id="lifelineVideo1" controls src="https://github.com/boardwalkclay1/lifeline/releases/download/lifeline/lifeline-intro.mp4"></video>
+        </article>
+
+        <!-- LESSON 2 -->
+        <article class="lesson-card">
+          <h3>Lesson 2 — Bowline Breakdown</h3>
+          <p>The bowline is your foundation knot. Learn how to tie it clean, fast, and safely.</p>
+          <video id="lifelineVideo2" controls src="https://github.com/boardwalkclay1/lifeline/releases/download/lifeline/bowline.mp4"></video>
+        </article>
+
+      </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="course-footer">
+      <p>Chainsaw’s Climbing Class • Lifeline Course</p>
+      <p>Email: <a href="mailto:support@chainsawclay.com">support@chainsawclay.com</a> • Phone: <a href="tel:6786830570">678‑683‑0570</a></p>
+      <p><a href="/climbing-class/public/">← Back to Climbing Class Home</a></p>
+    </footer>
+
+  </div>
+
+  <!-- PAYWALL -->
+  <script src="/js/paywall.js"></script>
+
+  <!-- EXTERNAL JS -->
+  <script src="./lifeline.js"></script>
+
+</body>
+</html>
