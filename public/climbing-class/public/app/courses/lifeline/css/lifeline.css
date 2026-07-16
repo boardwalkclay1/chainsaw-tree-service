@@ -1,0 +1,180 @@
+body {
+  margin: 0;
+  padding: 0;
+  background: #000 url('/climbing-class/public/img/climb-index.jpg') no-repeat center center fixed;
+  background-size: cover;
+  color: #fff;
+  font-family: system-ui, sans-serif;
+  overflow-x: hidden;
+}
+
+.overlay {
+  background: rgba(0,0,0,0.8);
+  min-height: 100vh;
+  padding: 40px 20px 60px;
+  border-left: 4px solid #ff7b00;
+  border-right: 4px solid #00c853;
+}
+
+/* HEADER */
+
+.course-header {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.course-logo-row {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.course-logo {
+  height: 120px;
+  filter: drop-shadow(0 0 18px #ff7b00);
+}
+
+.course-title {
+  font-size: 2.6rem;
+  margin: 0 0 10px;
+  color: #ff7b00;
+  text-shadow: 0 0 14px #ff7b00;
+}
+
+.course-tagline {
+  max-width: 700px;
+  margin: 0 auto 20px;
+  font-size: 1.1rem;
+  line-height: 1.6;
+  background: rgba(0,0,0,0.7);
+  padding: 12px 18px;
+  border-radius: 12px;
+  border: 2px solid #ff7b00;
+}
+
+.course-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+/* BUTTONS */
+
+.btn {
+  padding: 10px 18px;
+  border-radius: 999px;
+  border: 2px solid #ff7b00;
+  text-decoration: none;
+  font-weight: 700;
+  font-size: 0.95rem;
+  display: inline-block;
+  transition: 0.2s ease;
+}
+
+.btn:hover {
+  transform: scale(1.05);
+}
+
+.btn.primary {
+  background: #ff7b00;
+  color: #000;
+}
+
+.btn.secondary {
+  background: #1a1a1a;
+  color: #fff;
+  border-color: #00c853;
+}
+
+/* SECTIONS */
+
+.course-intro,
+.course-section {
+  max-width: 900px;
+  margin: 0 auto 40px;
+}
+
+.course-intro h2,
+.course-section h2 {
+  font-size: 1.8rem;
+  margin-bottom: 12px;
+  color: #00c853;
+  text-shadow: 0 0 10px #00c853;
+}
+
+.course-intro p,
+.course-section p {
+  font-size: 1rem;
+  line-height: 1.7;
+  opacity: 0.95;
+}
+
+/* LESSON GRID */
+
+.lesson-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 20px;
+}
+
+.lesson-card {
+  background: rgba(0,0,0,0.75);
+  border: 2px solid #ff7b00;
+  border-radius: 14px;
+  padding: 18px;
+  box-shadow: 0 0 18px #ff7b00;
+}
+
+.lesson-card h3 {
+  margin-top: 0;
+  margin-bottom: 10px;
+  font-size: 1.2rem;
+  color: #ff7b00;
+}
+
+.lesson-card p {
+  font-size: 0.95rem;
+  line-height: 1.6;
+}
+
+/* VIDEO */
+
+.lesson-card video {
+  width: 100%;
+  border-radius: 12px;
+  margin-top: 12px;
+  border: 2px solid #00c853;
+  box-shadow: 0 0 12px #ff7b00;
+}
+
+/* FOOTER */
+
+.course-footer {
+  text-align: center;
+  font-size: 0.9rem;
+  opacity: 0.85;
+  border-top: 2px solid #ff7b00;
+  padding-top: 20px;
+}
+
+.course-footer a {
+  color: #00c853;
+  text-decoration: none;
+}
+
+/* MOBILE */
+
+@media (max-width: 600px) {
+  .course-title {
+    font-size: 2.1rem;
+  }
+
+  .course-tagline {
+    font-size: 0.95rem;
+  }
+
+  .lesson-grid {
+    grid-template-columns: 1fr;
+  }
+}
