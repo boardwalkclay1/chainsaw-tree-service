@@ -1,0 +1,151 @@
+body {
+  margin: 0;
+  padding: 0;
+  background: #000 url('img/tree-service-bg.jpg') no-repeat center center fixed;
+  background-size: cover;
+  font-family: 'Anton', sans-serif;
+  color: #fff;
+  overflow-x: hidden;
+}
+
+/* CONTACT BAR */
+#top-contact {
+  width: 100%;
+  background: #000;
+  padding: 12px 20px;
+  text-align: center;
+  font-size: 1.1rem;
+  color: #ff7b00;
+  border-bottom: 2px solid #ff7b00;
+  text-shadow: 0 0 10px #ff7b00;
+}
+
+#top-contact a {
+  color: #ff7b00;
+  text-decoration: none;
+}
+
+/* NAVIGATION */
+#header {
+  width: 100%;
+  padding: 10px;
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+  background: rgba(0,0,0,0.85);
+  border-bottom: 2px solid #ff7b00;
+  position: sticky;
+  top: 0;
+  z-index: 999;
+}
+
+#header a {
+  color: #ff7b00;
+  text-decoration: none;
+  padding: 8px 14px;
+  border-radius: 999px;
+  border: 2px solid #ff7b00;
+  background: rgba(20,20,20,0.9);
+}
+
+/* HERO */
+#hero {
+  padding: 80px 20px 40px;
+  text-align: center;
+}
+
+.logo-row {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  flex-wrap: wrap;
+}
+
+.hero-logo {
+  height: 120px;
+  filter: drop-shadow(0 0 18px #ff7b00);
+}
+
+/* VIDEO HERO */
+#video-hero {
+  position: relative;
+  width: 100%;
+  max-width: 420px;
+  height: 740px;
+  margin: 20px auto 30px;
+  overflow: hidden;
+  border-radius: 20px;
+  border: 3px solid #ff7b00;
+  background: #000;
+  box-shadow: 0 0 25px #ff7b00;
+}
+
+#video-hero video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* VIDEO CONTROLS */
+#video-controls {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 70px;
+  background: linear-gradient(to top, rgba(0,0,0,0.85), transparent);
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  pointer-events: none;
+}
+
+#video-hero.show-controls #video-controls {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.control-btn {
+  padding: 8px 16px;
+  border-radius: 999px;
+  border: 2px solid #ff7b00;
+  background: rgba(0,0,0,0.8);
+  color: #ff7b00;
+  cursor: pointer;
+}
+
+/* DROPDOWNS */
+.cat {
+  max-width: 900px;
+  margin: 20px auto;
+  background: rgba(0,0,0,0.75);
+  border: 2px solid #ff7b00;
+  border-radius: 12px;
+  padding: 10px 16px;
+}
+
+.cat summary {
+  font-size: 1.3rem;
+  color: #ff7b00;
+  cursor: pointer;
+}
+
+.cat-content {
+  margin-top: 12px;
+  font-family: 'Staatliches', sans-serif;
+  font-size: 1rem;
+  line-height: 1.5;
+}
+
+/* FOOTER */
+footer {
+  text-align: center;
+  padding: 20px;
+  font-family: 'Staatliches', sans-serif;
+}
+
+footer a {
+  color: #ff7b00;
+  text-decoration: none;
+}
