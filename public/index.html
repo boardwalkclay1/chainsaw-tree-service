@@ -12,45 +12,11 @@
     body {
       margin: 0;
       padding: 0;
-      background-color: #000;
+      background: #000 url('img/tree-service-bg.jpg') no-repeat center center fixed;
+      background-size: cover;
       font-family: 'Anton', sans-serif;
+      color: #fff;
       overflow-x: hidden;
-    }
-
-    /* VIDEO HERO SECTION */
-    #video-hero {
-      position: relative;
-      width: 100%;
-      height: 260px;
-      overflow: hidden;
-      background: #000;
-    }
-
-    #video-hero video {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-    }
-
-    #video-logo {
-      position: absolute;
-      bottom: 10px;
-      right: 10px;
-      height: 70px;
-      filter: drop-shadow(0 0 10px #ff7b00);
-      opacity: 0.9;
-    }
-
-    /* MOBILE‑RESPONSIVE BACKGROUND */
-    .bg {
-      position: fixed;
-      inset: 0;
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      object-position: center;
-      z-index: -1;
-      opacity: 0.25;
     }
 
     /* TOP CONTACT BAR */
@@ -112,6 +78,34 @@
       height: 120px;
       width: auto;
       filter: drop-shadow(0 0 18px #ff7b00);
+    }
+
+    /* VIDEO UNDER LOGOS */
+    #video-hero {
+      position: relative;
+      width: 100%;
+      max-width: 900px;
+      height: 260px;
+      margin: 20px auto 40px;
+      overflow: hidden;
+      border-radius: 14px;
+      border: 2px solid #ff7b00;
+      background: #000;
+    }
+
+    #video-hero video {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    #video-logo {
+      position: absolute;
+      bottom: 10px;
+      right: 10px;
+      height: 70px;
+      filter: drop-shadow(0 0 10px #ff7b00);
+      opacity: 0.9;
     }
 
     .hero-title {
@@ -214,19 +208,6 @@
 
 <body>
 
-<!-- BACKGROUND -->
-<img src="/img/tree-service-logo.png" class="bg" alt="Background">
-
-<!-- NEW VIDEO HERO SECTION -->
-<section id="video-hero">
-  <video autoplay muted loop playsinline>
-    <source src="https://github.com/boardwalkclay1/chainsaw-tree-service/releases/download/top/big-top-drop.mp4" type="video/mp4">
-  </video>
-
-  <!-- LOGO OVERLAY -->
-  <img src="img/tree-service-logo.png" id="video-logo" alt="Logo">
-</section>
-
 <div id="top-contact">
   📞 <a href="tel:4706952055">(470)-695-2055</a> | ✉️ <a href="mailto:support@chainsawclay.com">support@chainsawclay.com</a>
 </div>
@@ -238,12 +219,19 @@
   <a href="#contact">Contact</a>
 </header>
 
-<!-- REST OF YOUR PAGE (UNCHANGED) -->
 <section id="hero">
 
   <div class="logo-row">
     <img src="img/tree-service-logo.png" class="hero-logo">
     <img src="img/climb-logo.jpg" class="hero-logo">
+  </div>
+
+  <!-- VIDEO MOVED HERE -->
+  <div id="video-hero">
+    <video autoplay muted loop playsinline>
+      <source src="https://github.com/boardwalkclay1/chainsaw-tree-service/releases/download/top/big-top-drop.mp4" type="video/mp4">
+    </video>
+    <img src="img/tree-service-logo.png" id="video-logo" alt="Logo">
   </div>
 
   <h1 class="hero-title">Chainsaw Clay's Tree Service</h1>
@@ -260,7 +248,6 @@
 
 </section>
 
-<!-- EVERYTHING BELOW REMAINS EXACTLY THE SAME -->
 <section id="estimate">
   <div id="estimate-box">
 
