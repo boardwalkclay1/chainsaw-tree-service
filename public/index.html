@@ -5,22 +5,7 @@
   <title>Chainsaw Clay's Tree Service</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-  <!-- FAVICON -->
   <link rel="icon" type="image/png" href="/img/favicon.png">
-
-  <!-- SOCIAL PREVIEW -->
-  <meta property="og:title" content="Chainsaw Clay's Tree Service">
-  <meta property="og:description" content="Georgia’s #1 climber. Professional tree removals, pruning, storm cleanup, and real climbing classes.">
-  <meta property="og:image" content="https://chainsawclay.com/img/social-preview.jpg">
-  <meta property="og:url" content="https://chainsawclay.com">
-  <meta property="og:type" content="website">
-
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Chainsaw Clay's Tree Service">
-  <meta name="twitter:description" content="Real climbing. Real removals. Real results.">
-  <meta name="twitter:image" content="https://chainsawclay.com/img/social-preview.jpg">
-
-  <!-- CSS -->
   <link rel="stylesheet" href="/css/index.css">
 </head>
 
@@ -33,10 +18,10 @@
 <div id="top-bar">
   <div id="top-left">
     <img src="/img/tree-service-logo.png" id="main-logo" alt="Tree Service Logo">
-    <span class="top-contact-text">
-      📞 <a href="tel:4706952055">(470)-695-2055</a> &nbsp;|&nbsp;
-      ✉️ <a href="mailto:support@chainsawclay.com">support@chainsawclay.com</a>
-    </span>
+    <div id="top-contact-stack">
+      <a href="tel:4706952055" class="stack-item">📞 (470)-695-2055</a>
+      <a href="mailto:support@chainsawclay.com" class="stack-item">✉️ support@chainsawclay.com</a>
+    </div>
   </div>
 
   <div id="top-right">
@@ -62,7 +47,7 @@
 <!-- HERO -->
 <section id="hero">
 
-  <!-- VIDEO -->
+  <!-- VIDEO HERO -->
   <div id="video-hero">
     <video id="heroVideo" autoplay loop playsinline>
       <source src="https://github.com/boardwalkclay1/chainsaw-tree-service/releases/download/top/big-top-drop.mp4" type="video/mp4">
@@ -164,9 +149,7 @@
   </div>
 
   <p class="section-body">
-    Learn real climbing from a climber who’s been in the trees longer than he can remember. This class
-    teaches throwball access, rope systems, movement, cutting techniques, and how to navigate the dangers
-    of the tree industry.
+    Learn real climbing from a climber who’s been in the trees longer than he can remember.
   </p>
 
   <div class="section-links">
@@ -191,6 +174,11 @@
     <div class="field-row">
       <label for="rev-name">Name</label>
       <input type="text" id="rev-name" name="name" required>
+    </div>
+
+    <div class="field-row">
+      <label for="rev-email">Email</label>
+      <input type="email" id="rev-email" name="email" required>
     </div>
 
     <div class="field-row">
@@ -232,7 +220,6 @@
 <!-- FLOATING CONTACT BUTTON -->
 <button id="contact-now-btn">Contact Now</button>
 
-<!-- JS -->
 <script src="/js/index.js"></script>
 
 </body>
