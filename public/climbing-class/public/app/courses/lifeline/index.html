@@ -58,11 +58,13 @@
     <section class="course-section">
       <h2>Video Lessons</h2>
 
+      <!-- LOCKED MESSAGE -->
       <div id="lockedMessage" class="locked-message" style="display:none;">
         <p>You must unlock this course to watch the videos.</p>
-        <a href="/climbing-class/public/app/pages/access.html" class="btn primary">Unlock Course</a>
+        <button class="btn primary" id="unlockBtn">Unlock Course ($20)</button>
       </div>
 
+      <!-- VIDEO GRID -->
       <div id="lessonGrid" class="lesson-grid" style="display:none;">
 
         <!-- LESSON 1 -->
@@ -91,8 +93,36 @@
 
   </div>
 
-  <!-- PAYWALL -->
+  <!-- AUTH + PAYWALL -->
+  <script src="/js/auth.js"></script>
   <script src="/js/paywall.js"></script>
+
+  <!-- PAGE LOGIC -->
+  <script>
+    (async () => {
+      const user = await Auth.requireAuth();
+      Paywall.setUser(user.id);
+
+      const unlocked = await Auth.hasAccess("lifeline_course_unlock");
+
+      const lockedMessage = document.getElementById("lockedMessage");
+      const lessonGrid = document.getElementById("lessonGrid");
+
+      if (unlocked) {
+        lockedMessage.style.display = "none";
+        lessonGrid.style.display = "grid";
+      } else {
+        lockedMessage.style.display = "block";
+        lessonGrid.style.display = "none";
+      }
+
+      document.getElementById("unlockBtn").onclick = async () => {
+        await Paywall.purchase(20);
+        await Paywall.unlock("lifeline_course_unlock");
+        window.location.reload();
+      };
+    })();
+  </script>
 
   <!-- EXTERNAL JS -->
   <script src="/climbing-class/public/app/courses/lifeline/js/lifeline.js"></script>
