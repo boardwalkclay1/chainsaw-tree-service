@@ -1,6 +1,5 @@
 /* ============================================================
    GLOBAL AUTH SYSTEM — D1-backed
-   Uses /api/auth/login and /api/auth/me
    ============================================================ */
 
 const Auth = {
@@ -29,6 +28,7 @@ const Auth = {
   getUser() {
     const raw = localStorage.getItem(this.userKey);
     if (!raw) return null;
+
     try {
       return JSON.parse(raw);
     } catch {
@@ -56,7 +56,6 @@ const Auth = {
 
     const data = await res.json();
 
-    // Expecting { token, user }
     if (data.token) this.setToken(data.token);
     if (data.user) this.setUser(data.user);
 
@@ -68,11 +67,11 @@ const Auth = {
      ============================ */
   logout() {
     this.clearToken();
-    window.location.href = "/climbing-class/login.html";
+    window.location.href = "/climbing-class/public/app/pages/login.html";
   },
 
   /* ============================
-     FETCH CURRENT USER (D1-backed)
+     FETCH CURRENT USER
      ============================ */
   async fetchMe() {
     const token = this.getToken();
@@ -99,13 +98,13 @@ const Auth = {
      ============================ */
   async requireAuth() {
     let user = this.getUser();
+
     if (!user) {
       user = await this.fetchMe();
     }
 
     if (!user) {
-      // Not logged in → send to login
-      window.location.href = "/climbing-class/login.html";
+      window.location.href = "/climbing-class/public/app/pages/login.html";
       return null;
     }
 
@@ -119,9 +118,12 @@ const Auth = {
     const token = this.getToken();
 
     const headers = {
-      ...(options.headers || {}),
-      "Content-Type": options.body ? "application/json" : (options.headers || {})["Content-Type"] || undefined
+      ...(options.headers || {})
     };
+
+    if (options.body && !headers["Content-Type"]) {
+      headers["Content-Type"] = "application/json";
+    }
 
     if (token) {
       headers["Authorization"] = `Bearer ${token}`;
