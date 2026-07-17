@@ -8,7 +8,7 @@ body {
   overflow-x: hidden;
 }
 
-/* LOCKED BACKGROUND IMAGE */
+/* LOCKED BACKGROUND */
 #bg-lock {
   position: fixed;
   inset: 0;
@@ -21,7 +21,7 @@ body {
 /* TOP BAR */
 #top-bar {
   width: 100%;
-  padding: 10px 20px;
+  padding: 15px 20px;
   background: rgba(0,0,0,0.85);
   border-bottom: 2px solid #ff7b00;
   display: flex;
@@ -29,27 +29,37 @@ body {
   align-items: center;
 }
 
+/* LEFT SIDE OF TOP BAR */
 #top-left {
   display: flex;
   align-items: center;
-  gap: 12px;
+  gap: 20px;
 }
 
 #main-logo {
-  height: 60px;
+  height: 95px;
   cursor: pointer;
-  filter: drop-shadow(0 0 10px #ff7b00);
+  filter: drop-shadow(0 0 12px #ff7b00);
 }
 
-.top-contact-text a {
+/* STACKED CONTACT INFO */
+#top-contact-stack {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+#top-contact-stack .stack-item {
   color: #ff7b00;
   text-decoration: none;
+  font-size: 1.05rem;
 }
 
-#top-right img {
-  height: 60px;
+/* RIGHT SIDE OF TOP BAR */
+#climb-logo-top {
+  height: 95px;
   cursor: pointer;
-  filter: drop-shadow(0 0 10px #ff7b00);
+  filter: drop-shadow(0 0 12px #ff7b00);
 }
 
 /* BURGER MENU */
@@ -73,7 +83,7 @@ body {
   background: none;
   border: none;
   color: #ff7b00;
-  font-size: 2rem;
+  font-size: 2.5rem;
   float: right;
   cursor: pointer;
 }
@@ -81,17 +91,17 @@ body {
 #burger-inner ul {
   list-style: none;
   padding: 0;
-  margin-top: 60px;
+  margin-top: 80px;
 }
 
 #burger-inner li {
-  margin: 20px 0;
+  margin: 25px 0;
 }
 
 #burger-inner a {
   color: #ff7b00;
   text-decoration: none;
-  font-size: 1.4rem;
+  font-size: 1.6rem;
 }
 
 /* HERO */
@@ -100,25 +110,13 @@ body {
   text-align: center;
 }
 
-.logo-row {
-  display: flex;
-  justify-content: center;
-  gap: 30px;
-  flex-wrap: wrap;
-}
-
-.hero-logo {
-  height: 120px;
-  filter: drop-shadow(0 0 18px #ff7b00);
-}
-
 /* VIDEO HERO */
 #video-hero {
   position: relative;
   width: 100%;
-  max-width: 420px;
-  height: 740px;
-  margin: 20px auto;
+  max-width: 450px;
+  height: 780px;
+  margin: 30px auto;
   border-radius: 20px;
   border: 3px solid #ff7b00;
   overflow: hidden;
@@ -136,11 +134,11 @@ body {
   position: absolute;
   bottom: 0;
   width: 100%;
-  height: 70px;
+  height: 80px;
   background: linear-gradient(to top, rgba(0,0,0,0.85), transparent);
   display: flex;
   justify-content: center;
-  gap: 12px;
+  gap: 14px;
   opacity: 0;
   pointer-events: none;
   transition: opacity 0.3s ease;
@@ -152,190 +150,217 @@ body {
 }
 
 .control-btn {
-  padding: 8px 16px;
+  padding: 10px 18px;
   border-radius: 999px;
   border: 2px solid #ff7b00;
-  background: rgba(0,0,0,0.8);
+  background: rgba(0,0,0,0.85);
   color: #ff7b00;
   cursor: pointer;
+  font-size: 1rem;
+}
+
+/* HERO TEXT */
+.hero-title {
+  font-size: 2.6rem;
+  margin-top: 20px;
+  text-shadow: 0 0 12px #ff7b00;
+}
+
+.hero-tagline {
+  font-size: 1.2rem;
+  opacity: 0.9;
 }
 
 /* ESTIMATE SECTION */
 #estimate-section {
-  padding: 40px 20px;
+  padding: 50px 20px;
   text-align: center;
 }
 
 #estimate-form {
-  max-width: 600px;
+  max-width: 650px;
   margin: 0 auto;
   background: rgba(0,0,0,0.75);
-  padding: 20px;
+  padding: 30px;
   border-radius: 18px;
   border: 2px solid #ff7b00;
 }
 
+/* EVEN FIELDS */
 .field-row {
-  margin-bottom: 16px;
+  margin-bottom: 22px;
   text-align: left;
 }
 
 .field-row label {
   color: #ff7b00;
+  font-size: 1.1rem;
+  margin-bottom: 6px;
+  display: block;
 }
 
 .field-row input,
 .field-row textarea,
 .field-row select {
   width: 100%;
-  padding: 12px;
-  border-radius: 10px;
+  padding: 14px;
+  border-radius: 12px;
   border: 2px solid #ff7b00;
   background: #000;
   color: #fff;
+  font-size: 1rem;
 }
 
+/* BUTTON */
 .primary-btn {
-  padding: 12px 20px;
+  padding: 14px 22px;
   border-radius: 999px;
   border: 2px solid #ff7b00;
   background: rgba(0,0,0,0.85);
   color: #ff7b00;
   cursor: pointer;
+  font-size: 1.1rem;
 }
 
 /* TREE SERVICE SECTION */
 #tree-service-section {
-  padding: 40px 20px;
+  padding: 50px 20px;
 }
 
 .section-header {
   display: flex;
   align-items: center;
-  gap: 20px;
+  gap: 25px;
   padding: 20px;
 }
 
 .section-logo {
-  height: 100px;
+  height: 140px;
   filter: drop-shadow(0 0 18px #ff7b00);
 }
 
 .section-tagline {
-  font-size: 1rem;
+  font-size: 1.1rem;
   opacity: 0.9;
 }
 
 .section-body {
   padding: 0 20px;
   font-family: 'Staatliches', sans-serif;
-  font-size: 1.1rem;
-  line-height: 1.5;
+  font-size: 1.2rem;
+  line-height: 1.6;
 }
 
 .section-links {
   display: flex;
   justify-content: center;
-  gap: 12px;
+  gap: 16px;
   padding: 20px;
 }
 
 .link-btn {
-  padding: 10px 16px;
+  padding: 12px 18px;
   border-radius: 999px;
   border: 2px solid #ff7b00;
   background: rgba(0,0,0,0.75);
   color: #ff7b00;
   text-decoration: none;
+  font-size: 1rem;
 }
 
 /* CLIMBING CLASS SECTION */
 #climb-class-section {
-  padding: 40px 20px;
+  padding: 50px 20px;
 }
 
 #climb-pricing {
   max-width: 900px;
-  margin: 20px auto;
+  margin: 25px auto;
   background: rgba(0,0,0,0.75);
   border: 2px solid #ff7b00;
   border-radius: 12px;
-  padding: 10px 16px;
+  padding: 14px 20px;
 }
 
 #climb-pricing summary {
-  font-size: 1.3rem;
+  font-size: 1.4rem;
   color: #ff7b00;
   cursor: pointer;
 }
 
 .pricing-content {
-  margin-top: 12px;
+  margin-top: 14px;
   font-family: 'Staatliches', sans-serif;
-  font-size: 1rem;
+  font-size: 1.1rem;
 }
 
 /* REVIEWS */
 #reviews {
-  padding: 40px 20px;
+  padding: 50px 20px;
   text-align: center;
 }
 
 #reviews-list {
   max-width: 900px;
-  margin: 20px auto;
+  margin: 25px auto;
 }
 
 .review-card {
   background: rgba(0,0,0,0.75);
   border: 2px solid #ff7b00;
   border-radius: 12px;
-  padding: 20px;
-  margin-bottom: 20px;
+  padding: 25px;
+  margin-bottom: 25px;
 }
 
 .review-photo {
   width: 100%;
   border-radius: 12px;
-  margin-bottom: 10px;
+  margin-bottom: 12px;
 }
 
 /* FLOATING CONTACT BUTTON */
 #contact-now-btn {
   position: fixed;
-  bottom: 20px;
-  right: 20px;
-  padding: 14px 20px;
+  bottom: 25px;
+  right: 25px;
+  padding: 16px 24px;
   border-radius: 999px;
   background: #ff7b00;
   color: #000;
   border: none;
-  font-size: 1rem;
+  font-size: 1.1rem;
   cursor: pointer;
-  box-shadow: 0 0 12px #ff7b00;
+  box-shadow: 0 0 14px #ff7b00;
   z-index: 9999;
 }
 
 /* FOOTER */
 footer {
   text-align: center;
-  padding: 20px;
+  padding: 25px;
 }
 
 footer a {
   color: #ff7b00;
   text-decoration: none;
+  font-size: 1rem;
 }
 
 /* MOBILE FIXES */
 @media (max-width: 600px) {
   #top-bar {
     flex-direction: column;
-    gap: 10px;
+    gap: 20px;
+  }
+
+  #main-logo,
+  #climb-logo-top {
+    height: 120px;
   }
 
   #video-hero {
-    height: 520px;
+    height: 580px;
   }
 
   .section-header {
@@ -344,7 +369,7 @@ footer a {
   }
 
   #contact-now-btn {
-    bottom: 10px;
-    right: 10px;
+    bottom: 15px;
+    right: 15px;
   }
 }
