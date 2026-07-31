@@ -10,42 +10,58 @@
 
   <!-- SOCIAL PREVIEW -->
   <meta property="og:title" content="Chainsaw Clay's Tree Service">
-  <meta property="og:description" content="Georgia’s #1 climber. Real removals. Real pruning. Real storm cleanup. Real climbing classes.">
-  <meta property="og:image" content="https://chainsawclay.com/img/social-preview.jpg">
+  <meta property="og:description" content="Georgia’s #1 climber. Same‑day estimates. Emergency tree removal.">
+  <meta property="og:image" content="/img/social-preview.jpg">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://chainsawclay.com">
 
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Chainsaw Clay's Tree Service">
   <meta name="twitter:description" content="Professional Tree Care • Real Experience • Real Results">
-  <meta name="twitter:image" content="https://chainsawclay.com/img/social-preview.jpg">
+  <meta name="twitter:image" content="/img/social-preview.jpg">
 
-  <!-- INLINE BACKGROUND CSS (AS YOU DEMANDED) -->
+  <!-- INLINE CSS -->
   <style>
-    /* REAL BACKGROUND — EXACT CODE YOU GAVE ME */
-    #rtgBackground {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: url("/img/tree-service-logo.png") center center / cover no-repeat;
-      z-index: -1;
-    }
-
     body {
       margin: 0;
       padding: 0;
+      background: #000;
       font-family: Arial, sans-serif;
       color: #fff;
       overflow-x: hidden;
+    }
+
+    /* BACKGROUND */
+    #rtgBackground {
+      position: fixed;
+      inset: 0;
+      background: url("/img/tree-service-bg.jpg") center center / cover no-repeat;
+      opacity: 0.25;
+      z-index: -1;
+    }
+
+    /* STICKY CALL BAR */
+    #sticky-call {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      background: #ff7b00;
+      color: #000;
+      text-align: center;
+      padding: 14px;
+      font-size: 1.3rem;
+      font-weight: bold;
+      text-decoration: none;
+      z-index: 99999;
+      box-shadow: 0 0 12px #ff7b00;
     }
 
     /* TOP BAR */
     #top-bar {
       display: flex;
       justify-content: space-between;
-      padding: 10px;
+      padding: 12px;
       background: rgba(0,0,0,0.85);
       border-bottom: 2px solid #ff7b00;
     }
@@ -53,17 +69,18 @@
     #top-left {
       display: flex;
       align-items: center;
-      gap: 10px;
+      gap: 12px;
     }
 
     #main-logo {
-      height: 60px;
+      height: 70px;
+      filter: drop-shadow(0 0 10px #ff7b00);
     }
 
     #top-contact-stack {
       display: flex;
       flex-direction: column;
-      font-size: 0.9rem;
+      font-size: 1rem;
     }
 
     #top-contact-stack a {
@@ -72,15 +89,17 @@
     }
 
     #climb-logo-top {
-      height: 60px;
+      height: 70px;
       border-radius: 6px;
+      cursor: pointer;
+      filter: drop-shadow(0 0 10px #ff7b00);
     }
 
-    /* VIDEO HERO */
+    /* HERO VIDEO */
     #video-hero {
       position: relative;
       width: 100%;
-      height: 260px;
+      height: 300px;
       overflow: hidden;
       border-bottom: 2px solid #ff7b00;
     }
@@ -91,23 +110,6 @@
       object-fit: cover;
     }
 
-    #video-controls {
-      position: absolute;
-      bottom: 10px;
-      left: 10px;
-      display: flex;
-      gap: 6px;
-    }
-
-    .control-btn {
-      padding: 6px 10px;
-      background: rgba(0,0,0,0.7);
-      border: 2px solid #ff7b00;
-      color: #ff7b00;
-      border-radius: 6px;
-      font-size: 0.8rem;
-    }
-
     /* HERO TEXT */
     #hero {
       text-align: center;
@@ -115,15 +117,47 @@
     }
 
     .hero-title {
-      font-size: 2.4rem;
+      font-size: 2.8rem;
       color: #ff7b00;
-      text-shadow: 0 0 10px #ff7b00;
+      text-shadow: 0 0 12px #ff7b00;
       margin-top: 20px;
     }
 
     .hero-tagline {
-      font-size: 1.2rem;
+      font-size: 1.3rem;
       margin-top: 10px;
+    }
+
+    .hero-call-btn {
+      display: inline-block;
+      margin-top: 20px;
+      padding: 14px 22px;
+      background: #ff7b00;
+      color: #000;
+      font-size: 1.3rem;
+      border-radius: 10px;
+      text-decoration: none;
+      font-weight: bold;
+      box-shadow: 0 0 12px #ff7b00;
+    }
+
+    /* EMERGENCY SECTION */
+    #emergency-section {
+      padding: 30px 20px;
+      background: rgba(0,0,0,0.85);
+      border-top: 2px solid #ff7b00;
+      border-bottom: 2px solid #ff7b00;
+      text-align: center;
+    }
+
+    #emergency-section h2 {
+      color: #ff7b00;
+      font-size: 2rem;
+    }
+
+    #emergency-section p {
+      font-size: 1.2rem;
+      margin: 10px 0 20px;
     }
 
     /* ESTIMATE FORM */
@@ -140,7 +174,7 @@
     }
 
     .field-row {
-      margin-bottom: 12px;
+      margin-bottom: 14px;
     }
 
     .field-row label {
@@ -167,9 +201,10 @@
       border: none;
       border-radius: 10px;
       color: #000;
-      font-size: 1.1rem;
+      font-size: 1.2rem;
       cursor: pointer;
       margin-top: 10px;
+      font-weight: bold;
     }
 
     /* FOOTER */
@@ -189,42 +224,50 @@
 
 <body>
 
-<!-- REAL BACKGROUND -->
 <div id="rtgBackground"></div>
+
+<!-- STICKY CALL BAR -->
+<a href="tel:4704692358" id="sticky-call">📞 Call Clay Direct — (470) 469‑2358</a>
 
 <!-- TOP BAR -->
 <div id="top-bar">
   <div id="top-left">
-    <img src="/img/tree-service-logo.png" id="main-logo">
+    <a href="/">
+      <img src="/img/tree-service-logo.png" id="main-logo">
+    </a>
     <div id="top-contact-stack">
-      <a href="tel:4704692358">📞 (470)469-2358</a>
+      <a href="tel:4704692358">📞 (470)469‑2358</a>
       <a href="mailto:support@chainsawclay.com">✉️ support@chainsawclay.com</a>
     </div>
   </div>
 
   <div id="top-right">
-    <img src="/img/climb-logo.jpg" id="climb-logo-top">
+    <a href="/climbing-class/public/index.html">
+      <img src="/img/climb-logo.jpg" id="climb-logo-top">
+    </a>
   </div>
 </div>
 
-<!-- VIDEO HERO -->
+<!-- HERO VIDEO -->
 <div id="video-hero">
-  <video id="heroVideo" autoplay loop playsinline muted>
+  <video autoplay loop playsinline muted>
     <source src="/videos/big-top-drop.mp4" type="video/mp4">
   </video>
-
-  <div id="video-controls">
-    <button class="control-btn" id="backBtn">« Back 5s</button>
-    <button class="control-btn" id="playPauseBtn">Pause</button>
-    <button class="control-btn" id="forwardBtn">Forward 5s »</button>
-    <button class="control-btn" id="muteBtn">Sound: Off</button>
-  </div>
 </div>
 
 <!-- HERO TEXT -->
 <section id="hero">
   <h1 class="hero-title">Chainsaw Clay's Tree Service</h1>
-  <p class="hero-tagline">Georgia’s #1 Climber • Real Experience • Real Results</p>
+  <p class="hero-tagline">Georgia’s #1 Climber • Same‑Day Estimates • Emergency Tree Removal</p>
+
+  <a href="tel:4704692358" class="hero-call-btn">📞 Call Now For Fast Tree Removal</a>
+</section>
+
+<!-- EMERGENCY SECTION -->
+<section id="emergency-section">
+  <h2>Emergency Tree Removal</h2>
+  <p>Storm damage? Leaning tree? Branch over your house? Clay can be on‑site fast.</p>
+  <a href="tel:4704692358" class="hero-call-btn">📞 Call For Emergency Service</a>
 </section>
 
 <!-- ESTIMATE SECTION -->
@@ -276,8 +319,8 @@
 <!-- FOOTER -->
 <footer id="contact-footer">
   <p>
-    <a href="privacy.html">Privacy Policy</a> |
-    <a href="terms.html">Terms & Conditions</a>
+    <a href="/privacy.html">Privacy Policy</a> |
+    <a href="/terms.html">Terms & Conditions</a>
   </p>
 </footer>
 
