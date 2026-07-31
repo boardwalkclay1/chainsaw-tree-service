@@ -1,131 +1,287 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
+  <meta charset="UTF-8" />
   <title>Chainsaw Clay's Tree Service</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-  <!-- Styles -->
-  <link rel="stylesheet" href="../css/main.css">
-  <link rel="stylesheet" href="../css/seasonal.css">
+  <!-- FAVICON -->
+  <link rel="icon" type="image/png" href="/img/favicon.png">
+
+  <!-- SOCIAL PREVIEW -->
+  <meta property="og:title" content="Chainsaw Clay's Tree Service">
+  <meta property="og:description" content="Georgia’s #1 climber. Real removals. Real pruning. Real storm cleanup. Real climbing classes.">
+  <meta property="og:image" content="https://chainsawclay.com/img/social-preview.jpg">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://chainsawclay.com">
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Chainsaw Clay's Tree Service">
+  <meta name="twitter:description" content="Professional Tree Care • Real Experience • Real Results">
+  <meta name="twitter:image" content="https://chainsawclay.com/img/social-preview.jpg">
+
+  <!-- INLINE BACKGROUND CSS (AS YOU DEMANDED) -->
+  <style>
+    /* REAL BACKGROUND — EXACT CODE YOU GAVE ME */
+    #rtgBackground {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: url("/img/tree-service-logo.png") center center / cover no-repeat;
+      z-index: -1;
+    }
+
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: Arial, sans-serif;
+      color: #fff;
+      overflow-x: hidden;
+    }
+
+    /* TOP BAR */
+    #top-bar {
+      display: flex;
+      justify-content: space-between;
+      padding: 10px;
+      background: rgba(0,0,0,0.85);
+      border-bottom: 2px solid #ff7b00;
+    }
+
+    #top-left {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    #main-logo {
+      height: 60px;
+    }
+
+    #top-contact-stack {
+      display: flex;
+      flex-direction: column;
+      font-size: 0.9rem;
+    }
+
+    #top-contact-stack a {
+      color: #ff7b00;
+      text-decoration: none;
+    }
+
+    #climb-logo-top {
+      height: 60px;
+      border-radius: 6px;
+    }
+
+    /* VIDEO HERO */
+    #video-hero {
+      position: relative;
+      width: 100%;
+      height: 260px;
+      overflow: hidden;
+      border-bottom: 2px solid #ff7b00;
+    }
+
+    #video-hero video {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    #video-controls {
+      position: absolute;
+      bottom: 10px;
+      left: 10px;
+      display: flex;
+      gap: 6px;
+    }
+
+    .control-btn {
+      padding: 6px 10px;
+      background: rgba(0,0,0,0.7);
+      border: 2px solid #ff7b00;
+      color: #ff7b00;
+      border-radius: 6px;
+      font-size: 0.8rem;
+    }
+
+    /* HERO TEXT */
+    #hero {
+      text-align: center;
+      padding: 20px;
+    }
+
+    .hero-title {
+      font-size: 2.4rem;
+      color: #ff7b00;
+      text-shadow: 0 0 10px #ff7b00;
+      margin-top: 20px;
+    }
+
+    .hero-tagline {
+      font-size: 1.2rem;
+      margin-top: 10px;
+    }
+
+    /* ESTIMATE FORM */
+    #estimate-section {
+      padding: 40px 20px;
+      background: rgba(0,0,0,0.7);
+      border-top: 2px solid #ff7b00;
+      border-bottom: 2px solid #ff7b00;
+    }
+
+    #estimate-section h2 {
+      text-align: center;
+      color: #ff7b00;
+    }
+
+    .field-row {
+      margin-bottom: 12px;
+    }
+
+    .field-row label {
+      display: block;
+      margin-bottom: 4px;
+      color: #ff7b00;
+    }
+
+    .field-row input,
+    .field-row textarea,
+    .field-row select {
+      width: 100%;
+      padding: 12px;
+      border: 2px solid #ff7b00;
+      background: #000;
+      color: #fff;
+      border-radius: 10px;
+    }
+
+    .primary-btn {
+      width: 100%;
+      padding: 12px;
+      background: #ff7b00;
+      border: none;
+      border-radius: 10px;
+      color: #000;
+      font-size: 1.1rem;
+      cursor: pointer;
+      margin-top: 10px;
+    }
+
+    /* FOOTER */
+    #contact-footer {
+      text-align: center;
+      padding: 20px;
+      background: rgba(0,0,0,0.85);
+      border-top: 2px solid #ff7b00;
+    }
+
+    #contact-footer a {
+      color: #ff7b00;
+      text-decoration: none;
+    }
+  </style>
 </head>
 
 <body>
 
-  <!-- ========================= -->
-  <!-- FIXED HEADER WITH LOGO    -->
-  <!-- ========================= -->
-  <header id="header">
-    <img src="../assets/logo.png" alt="Chainsaw Clay Logo" class="header-logo">
-    <nav class="header-nav">
-      <a data-scroll="#features">Features</a>
-      <a data-scroll="#media">Photos & Videos</a>
-      <a data-scroll="#services">Services</a>
-      <a data-scroll="#estimate">Estimate</a>
-      <a data-scroll="#contact">Contact</a>
-    </nav>
-  </header>
+<!-- REAL BACKGROUND -->
+<div id="rtgBackground"></div>
 
-  <!-- ========================= -->
-  <!-- HERO SECTION              -->
-  <!-- ========================= -->
-  <section id="hero" style="background-image: url('../assets/backgrounds/rtg-192.png');">
-    <div class="hero-overlay"></div>
-
-    <div class="hero-content">
-      <img src="../assets/logo.png" class="hero-logo">
-
-      <h1>Chainsaw Clay's Tree Service</h1>
-      <p class="hero-tagline">Professional Tree Care • Real Experience • Real Results</p>
-
-      <p class="hero-description">
-        High‑level climbing, safe removals, precision pruning, tree health evaluations, storm cleanup,
-        debris removal, gardening, fruit trees, vegetable beds, and full yard planning — powered by
-        advanced tools, tech, and real‑world experience.
-      </p>
-
-      <div class="hero-buttons">
-        <button class="btn primary" data-scroll="#estimate">Request Estimate</button>
-        <button class="btn secondary" data-scroll="#media">See Our Work</button>
-      </div>
+<!-- TOP BAR -->
+<div id="top-bar">
+  <div id="top-left">
+    <img src="/img/tree-service-logo.png" id="main-logo">
+    <div id="top-contact-stack">
+      <a href="tel:4704692358">📞 (470)469-2358</a>
+      <a href="mailto:support@chainsawclay.com">✉️ support@chainsawclay.com</a>
     </div>
-  </section>
+  </div>
 
-  <!-- ========================= -->
-  <!-- ADVANCED FEATURES SECTION -->
-  <!-- ========================= -->
-  <section id="features">
-    <h2>What Makes Us Different</h2>
+  <div id="top-right">
+    <img src="/img/climb-logo.jpg" id="climb-logo-top">
+  </div>
+</div>
 
-    <div class="features-grid">
+<!-- VIDEO HERO -->
+<div id="video-hero">
+  <video id="heroVideo" autoplay loop playsinline muted>
+    <source src="/videos/big-top-drop.mp4" type="video/mp4">
+  </video>
 
-      <div class="feature-card">
-        <h3>High‑Level Climbing</h3>
-        <p>Advanced rigging, tight‑space removals, and canopy navigation.</p>
-      </div>
+  <div id="video-controls">
+    <button class="control-btn" id="backBtn">« Back 5s</button>
+    <button class="control-btn" id="playPauseBtn">Pause</button>
+    <button class="control-btn" id="forwardBtn">Forward 5s »</button>
+    <button class="control-btn" id="muteBtn">Sound: Off</button>
+  </div>
+</div>
 
-      <div class="feature-card">
-        <h3>Tree Health Tech</h3>
-        <p>Movement analysis, structure evaluation, and disease detection.</p>
-      </div>
+<!-- HERO TEXT -->
+<section id="hero">
+  <h1 class="hero-title">Chainsaw Clay's Tree Service</h1>
+  <p class="hero-tagline">Georgia’s #1 Climber • Real Experience • Real Results</p>
+</section>
 
-      <div class="feature-card">
-        <h3>Storm Cleanup</h3>
-        <p>Fast, safe, and precise cleanup after storms and emergencies.</p>
-      </div>
+<!-- ESTIMATE SECTION -->
+<section id="estimate-section">
+  <h2>Request a Tree Service Estimate</h2>
 
-      <div class="feature-card">
-        <h3>Full Yard Planning</h3>
-        <p>Flowers, shrubs, fruit trees, vegetable beds, and seasonal layouts.</p>
-      </div>
-
-      <div class="feature-card">
-        <h3>Advanced Tools</h3>
-        <p>Tree measurement tools, photo analyzers, and yard designer modules.</p>
-      </div>
-
-      <div class="feature-card">
-        <h3>Tech‑Powered Service</h3>
-        <p>Custom CRM, automated reminders, digital estimates, and more.</p>
-      </div>
-
+  <form id="estimate-form">
+    <div class="field-row">
+      <label>Full Name</label>
+      <input type="text" id="est-name" required>
     </div>
-  </section>
 
-  <!-- ========================= -->
-  <!-- SCROLLING MEDIA SECTION   -->
-  <!-- ========================= -->
-  <section id="media">
-    <h2>Photos & Videos of Our Work</h2>
-
-    <div class="media-scroller">
-      <img src="../assets/photos/photo1.jpg">
-      <img src="../assets/photos/photo2.jpg">
-      <img src="../assets/photos/photo3.jpg">
-      <video src="../assets/videos/video1.mp4" autoplay muted loop></video>
-      <img src="../assets/photos/photo4.jpg">
-      <video src="../assets/videos/video2.mp4" autoplay muted loop></video>
+    <div class="field-row">
+      <label>Phone Number</label>
+      <input type="tel" id="est-phone" required>
     </div>
-  </section>
 
-  <!-- ========================= -->
-  <!-- MODULES INJECTION POINT   -->
-  <!-- ========================= -->
-  <div id="app"></div>
+    <div class="field-row">
+      <label>Email</label>
+      <input type="email" id="est-email" required>
+    </div>
 
-  <!-- ========================= -->
-  <!-- CONTACT SECTION           -->
-  <!-- ========================= -->
-  <section id="contact">
-    <h2>Contact Us</h2>
-    <p>Email: boardwalkclay1@gmail.com</p>
-    <p>Phone: 678‑683‑0570</p>
-  </section>
+    <div class="field-row">
+      <label>Address</label>
+      <input type="text" id="est-address" required>
+    </div>
 
-  <!-- ========================= -->
-  <!-- MAIN JS ENTRY             -->
-  <!-- ========================= -->
-  <script type="module" src="../js/index.js"></script>
+    <div class="field-row">
+      <label>Service Type</label>
+      <select id="est-service" required>
+        <option value="">Select a service</option>
+        <option>Tree Removal</option>
+        <option>Pruning</option>
+        <option>Storm Cleanup</option>
+        <option>General Cleanup</option>
+        <option>Planting / Layout</option>
+      </select>
+    </div>
+
+    <div class="field-row">
+      <label>Description</label>
+      <textarea id="est-description" rows="4"></textarea>
+    </div>
+
+    <button type="submit" class="primary-btn">Send Estimate Request</button>
+  </form>
+</section>
+
+<!-- FOOTER -->
+<footer id="contact-footer">
+  <p>
+    <a href="privacy.html">Privacy Policy</a> |
+    <a href="terms.html">Terms & Conditions</a>
+  </p>
+</footer>
+
+<script src="/js/index.js"></script>
 
 </body>
 </html>
