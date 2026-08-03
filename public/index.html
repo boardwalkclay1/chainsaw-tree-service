@@ -5,7 +5,21 @@
   <title>Chainsaw Clay's Tree Service</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-  <link rel="icon" type="image/png" href="/img/favicon.png">
+  <!-- FAVICON (TREE SERVICE LOGO) -->
+  <link rel="icon" type="image/png" href="/img/tree-service-logo.png">
+
+  <!-- SOCIAL PREVIEW (TREE SERVICE LOGO) -->
+  <meta property="og:title" content="Chainsaw Clay's Tree Service">
+  <meta property="og:description" content="Georgia’s #1 climber. Real removals. Real pruning. Real storm cleanup. Real climbing classes.">
+  <meta property="og:image" content="/img/tree-service-logo.png">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://chainsawclay.com">
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Chainsaw Clay's Tree Service">
+  <meta name="twitter:description" content="Professional Tree Care • Real Experience • Real Results">
+  <meta name="twitter:image" content="/img/tree-service-logo.png">
+
   <link rel="stylesheet" href="/css/index.css">
 </head>
 
@@ -31,17 +45,18 @@
   </div>
 </div>
 
-<!-- BURGER MENU -->
+<!-- BURGER / LOGO NAV MENU -->
 <nav id="burger-nav">
   <div id="burger-inner">
     <button id="burger-close">✕</button>
     <ul>
       <li><a href="#hero" data-scroll="#hero">Home</a></li>
-      <li><a href="services.html">Services</a></li>
+      <li><a href="/pages/services.html">Services</a></li>
+      <li><a href="/pages/service-area.html">Service Area</a></li>
+      <li><a href="/pages/gallery.html">Gallery</a></li>
+      <li><a href="/pages/faq.html">FAQ</a></li>
+      <li><a href="/pages/privacy.html">Privacy Policy</a></li>
       <li><a href="/climbing-class/public/index.html">Climbing Class</a></li>
-      <li><a href="gallery.html">Gallery</a></li>
-      <li><a href="#reviews" data-scroll="#reviews">Reviews</a></li>
-      <li><a href="#contact-footer" data-scroll="#contact-footer">Contact</a></li>
     </ul>
   </div>
 </nav>
@@ -120,12 +135,15 @@
 <!-- TREE SERVICE SECTION -->
 <section id="tree-service-section">
   <div class="section-header">
-    <img src="/img/tree-service-logo.png" class="section-logo">
+    <img src="/img/tree-service-logo.png" class="section-logo" alt="Tree Service Logo">
     <div>
       <h2>Chainsaw Clay — Georgia’s Best Climber</h2>
       <p class="section-tagline">Real canopy work. Real removals. Real skill.</p>
     </div>
   </div>
+
+  <!-- TREE SERVICE PHOTO -->
+  <img src="/img/done-climb.jpg" alt="Clay Tree Service Work" class="section-photo">
 
   <p class="section-body">
     Clay is a climber first. Every removal, pruning job, and storm cleanup is done with controlled rigging,
@@ -133,8 +151,8 @@
   </p>
 
   <div class="section-links">
-    <a href="services.html" class="link-btn">Services</a>
-    <a href="gallery.html" class="link-btn">Gallery</a>
+    <a href="/pages/services.html" class="link-btn">Services</a>
+    <a href="/pages/gallery.html" class="link-btn">Gallery</a>
     <a href="#reviews" data-scroll="#reviews" class="link-btn">Reviews</a>
     <a href="#contact-footer" data-scroll="#contact-footer" class="link-btn">Contact</a>
   </div>
@@ -144,13 +162,16 @@
 <section id="climb-class-section">
   <div class="section-header">
     <a href="/climbing-class/public/index.html">
-      <img src="/img/climb-logo.jpg" class="section-logo">
+      <img src="/img/climb-logo.jpg" class="section-logo" alt="Climbing Class Logo">
     </a>
     <div>
       <h2>Chainsaw Clay’s Climbing Class</h2>
       <p class="section-tagline">Throwball • Gear • Safety • Movement • Canopy Flow</p>
     </div>
   </div>
+
+  <!-- CLIMBING CLASS PHOTO -->
+  <img src="/img/climbing-photo-red.jpg" alt="Climbing Class" class="section-photo">
 
   <p class="section-body">
     Learn real climbing from a climber who’s been in the trees longer than he can remember.
@@ -216,13 +237,19 @@
 <!-- FOOTER -->
 <footer id="contact-footer">
   <p>
-    <a href="privacy.html">Privacy Policy</a> |
-    <a href="terms.html">Terms & Conditions</a>
+    <a href="/pages/privacy.html">Privacy Policy</a> |
+    <a href="/pages/terms.html">Terms & Conditions</a>
   </p>
 </footer>
 
-<!-- FLOATING CONTACT BUTTON -->
-<button id="contact-now-btn">Contact Now</button>
+<!-- CONTACT NOW BUTTON -->
+<button id="contact-now-btn" onclick="openContactOptions()">Contact Now</button>
+
+<script>
+function openContactOptions() {
+  alert("Call Clay: 470-469-2358\nEmail Clay: support@chainsawclay.com");
+}
+</script>
 
 <script src="/js/index.js"></script>
 
