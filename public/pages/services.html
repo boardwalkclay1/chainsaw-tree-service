@@ -13,20 +13,133 @@
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://chainsawclay.com/pages/services.html">
 
-  <link rel="stylesheet" href="/css/index.css">
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      color: #fff;
+      background: #000;
+      overflow-x: hidden;
+    }
+
+    /* Floating leaves animation */
+    .leaf {
+      position: fixed;
+      width: 40px;
+      height: 40px;
+      background: url('/img/leaf.png') no-repeat center/contain;
+      animation: fall 10s linear infinite;
+      opacity: 0.7;
+    }
+
+    @keyframes fall {
+      0% { transform: translateY(-100px) rotate(0deg); }
+      100% { transform: translateY(100vh) rotate(360deg); }
+    }
+
+    /* Background slideshow */
+    #bg-slideshow {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      z-index: -1;
+      overflow: hidden;
+    }
+
+    #bg-slideshow video, #bg-slideshow img {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      opacity: 0;
+      transition: opacity 2s ease-in-out;
+    }
+
+    /* Top bar */
+    #top-bar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 10px 20px;
+      background: rgba(0,0,0,0.7);
+      border-bottom: 2px solid #ff7b00;
+    }
+
+    #main-logo {
+      height: 60px;
+    }
+
+    #top-contact-stack a {
+      display: block;
+      color: #ff7b00;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    #climb-logo-top {
+      height: 60px;
+      border-radius: 8px;
+    }
+
+    /* Section styling */
+    section {
+      padding: 60px 20px;
+      background: rgba(0,0,0,0.6);
+      margin: 20px auto;
+      max-width: 900px;
+      border-radius: 12px;
+      box-shadow: 0 0 20px #ff7b00;
+    }
+
+    h2 {
+      color: #ff7b00;
+      text-shadow: 0 0 10px #ff7b00;
+      text-align: center;
+    }
+
+    p {
+      line-height: 1.6;
+      font-size: 1.1em;
+    }
+
+    #contact-now-btn {
+      display: block;
+      margin: 40px auto;
+      padding: 15px 30px;
+      background: #ff7b00;
+      color: #000;
+      font-weight: bold;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      box-shadow: 0 0 15px #ff7b00;
+    }
+  </style>
 </head>
 
 <body>
 
-<div id="bg-lock"></div>
+<!-- Floating leaves -->
+<div class="leaf" style="left:10%; animation-delay:0s;"></div>
+<div class="leaf" style="left:30%; animation-delay:2s;"></div>
+<div class="leaf" style="left:50%; animation-delay:4s;"></div>
+<div class="leaf" style="left:70%; animation-delay:6s;"></div>
+<div class="leaf" style="left:90%; animation-delay:8s;"></div>
+
+<!-- Background slideshow -->
+<div id="bg-slideshow">
+  <img src="/img/insta-climb.jpg" id="bg1">
+  <video id="bg2" autoplay muted loop src="https://github.com/boardwalkclay1/chainsaw-tree-service/releases/download/chainsaw/look-climb.mov"></video>
+  <video id="bg3" autoplay muted loop src="https://github.com/boardwalkclay1/chainsaw-tree-service/releases/download/chainsaw/limb-down.MOV"></video>
+</div>
 
 <!-- TOP BAR -->
 <div id="top-bar">
   <div id="top-left">
     <img src="/img/tree-service-logo.png" id="main-logo">
     <div id="top-contact-stack">
-      <a href="tel:4704692358" class="stack-item">📞 (470)469‑2358</a>
-      <a href="mailto:support@chainsawclay.com" class="stack-item">✉️ support@chainsawclay.com</a>
+      <a href="tel:4704692358">📞 (470)469‑2358</a>
+      <a href="mailto:support@chainsawclay.com">✉️ support@chainsawclay.com</a>
     </div>
   </div>
 
@@ -37,123 +150,52 @@
   </div>
 </div>
 
-<!-- NAV MENU -->
-<nav id="burger-nav">
-  <div id="burger-inner">
-    <button id="burger-close">✕</button>
-    <ul>
-      <li><a href="/">Home</a></li>
-      <li><a href="/pages/services.html">Services</a></li>
-      <li><a href="/pages/service-area.html">Service Area</a></li>
-      <li><a href="/pages/gallery.html">Gallery</a></li>
-      <li><a href="/pages/faq.html">FAQ</a></li>
-      <li><a href="/pages/privacy.html">Privacy Policy</a></li>
-      <li><a href="/climbing-class/public/index.html">Climbing Class</a></li>
-    </ul>
-  </div>
-</nav>
-
-<section id="tree-service-section">
-  <div class="section-header">
-    <img src="/img/tree-service-logo.png" class="section-logo">
-    <div>
-      <h2>Professional Tree Services</h2>
-      <p class="section-tagline">Elite climbing • Safe removals • Real precision</p>
-    </div>
-  </div>
-
-  <div class="section-body">
-    <p>Chainsaw Clay delivers top‑tier tree services backed by real climbing skill. Every job is performed with controlled rigging, safe movement, and canopy‑level precision. No bucket trucks unless absolutely required — Clay climbs.</p>
-  </div>
+<section>
+  <h2>Professional Tree Services</h2>
+  <p>Chainsaw Clay delivers top‑tier tree services backed by real climbing skill. Every job is performed with controlled rigging, safe movement, and canopy‑level precision. No bucket trucks unless absolutely required — Clay climbs.</p>
 </section>
 
-<!-- CATEGORY: TREE REMOVAL -->
-<section id="tree-removal" style="padding:40px 20px;">
-  <h2 style="text-align:center;">Tree Removal</h2>
-
-  <img src="/img/insta-climb.jpg" class="section-photo">
-
-  <video class="section-photo" controls>
-    <source src="https://github.com/boardwalkclay1/chainsaw-tree-service/releases/download/chainsaw/look-climb.mov" type="video/mp4">
-  </video>
-
-  <div class="section-body">
-    <p>Clay specializes in technical removals, hazardous trees, storm‑damaged structures, and tight‑space drops. Every removal is done safely from the top down using ropes, friction devices, controlled lowering, and advanced climbing technique.</p>
-
-    <p>Whether the tree is leaning over your home, split from a storm, or growing dangerously close to power lines, Clay handles it with precision and safety. No shortcuts. No unsafe drops.</p>
-  </div>
+<section>
+  <h2>Tree Removal</h2>
+  <p>Clay specializes in technical removals, hazardous trees, storm‑damaged structures, and tight‑space drops. Every removal is done safely from the top down using ropes, friction devices, controlled lowering, and advanced climbing technique.</p>
 </section>
 
-<!-- CATEGORY: PRUNING -->
-<section id="pruning" style="padding:40px 20px;">
-  <h2 style="text-align:center;">Tree Pruning</h2>
-
-  <video class="section-photo" controls>
-    <source src="https://github.com/boardwalkclay1/chainsaw-tree-service/releases/download/chainsaw/limb-down.MOV" type="video/mp4">
-  </video>
-
-  <div class="section-body">
-    <p>Clay prunes trees with proper climbing technique — no spikes unless the tree is being removed. Your trees stay healthy, balanced, and shaped correctly. Clay removes deadwood, improves structure, reduces weight, and enhances canopy flow.</p>
-
-    <p>Proper pruning prevents future breakage, improves sunlight penetration, and increases the long‑term health of your trees.</p>
-  </div>
+<section>
+  <h2>Tree Pruning</h2>
+  <p>Clay prunes trees with proper climbing technique — no spikes unless the tree is being removed. Your trees stay healthy, balanced, and shaped correctly. Clay removes deadwood, improves structure, reduces weight, and enhances canopy flow.</p>
 </section>
 
-<!-- CATEGORY: STORM CLEANUP -->
-<section id="storm-cleanup" style="padding:40px 20px;">
-  <h2 style="text-align:center;">Storm Cleanup</h2>
-
-  <img src="/img/storm-1.jpg" class="section-photo">
-  <img src="/img/storm-2.jpg" class="section-photo">
-
-  <video class="section-photo" controls>
-    <source src="/videos/storm.mp4" type="video/mp4">
-  </video>
-
-  <div class="section-body">
-    <p>Storms can cause dangerous leaners, roof impacts, broken limbs, and uprooted trees. Clay responds fast and handles storm damage with controlled rigging and safe removal techniques.</p>
-
-    <p>Emergency service is available for trees threatening homes, vehicles, or property structures.</p>
-  </div>
+<section>
+  <h2>Storm Cleanup</h2>
+  <p>Storms can cause dangerous leaners, roof impacts, broken limbs, and uprooted trees. Clay responds fast and handles storm damage with controlled rigging and safe removal techniques.</p>
 </section>
 
-<!-- CATEGORY: GENERAL CLEANUP -->
-<section id="general-cleanup" style="padding:40px 20px;">
-  <h2 style="text-align:center;">General Cleanup</h2>
-
-  <img src="/img/cleanup-1.jpg" class="section-photo">
-  <img src="/img/cleanup-2.jpg" class="section-photo">
-
-  <video class="section-photo" controls>
-    <source src="/videos/cleanup.mp4" type="video/mp4">
-  </video>
-
-  <div class="section-body">
-    <p>Clay provides brush removal, debris clearing, yard cleanup, and property restoration after storms or overgrowth. Whether your yard needs a full reset or just a cleanup, Clay handles it quickly and professionally.</p>
-  </div>
+<section>
+  <h2>General Cleanup</h2>
+  <p>Clay provides brush removal, debris clearing, yard cleanup, and property restoration after storms or overgrowth. Whether your yard needs a full reset or just a cleanup, Clay handles it quickly and professionally.</p>
 </section>
 
-<!-- CATEGORY: PLANTING -->
-<section id="planting" style="padding:40px 20px;">
-  <h2 style="text-align:center;">Planting & Layout</h2>
-
-  <img src="/img/planting-1.jpg" class="section-photo">
-  <img src="/img/planting-2.jpg" class="section-photo">
-
-  <video class="section-photo" controls>
-    <source src="/videos/planting.mp4" type="video/mp4">
-  </video>
-
-  <div class="section-body">
-    <p>Clay helps design and plant new trees with proper spacing, soil preparation, and long‑term growth planning. Planting trees correctly ensures healthy development and prevents future structural issues.</p>
-  </div>
+<section>
+  <h2>Planting & Layout</h2>
+  <p>Clay helps design and plant new trees with proper spacing, soil preparation, and long‑term growth planning. Planting trees correctly ensures healthy development and prevents future structural issues.</p>
 </section>
 
 <button id="contact-now-btn" onclick="openContactOptions()">Contact Now</button>
+
 <script>
 function openContactOptions() {
   alert("Call Clay: 470-469-2358\nEmail Clay: support@chainsawclay.com");
 }
+
+// Background fade logic
+const slides = [document.getElementById('bg1'), document.getElementById('bg2'), document.getElementById('bg3')];
+let current = 0;
+function cycleBackground() {
+  slides.forEach((s, i) => s.style.opacity = i === current ? '1' : '0');
+  current = (current + 1) % slides.length;
+}
+setInterval(cycleBackground, 8000);
+cycleBackground();
 </script>
 
 </body>
