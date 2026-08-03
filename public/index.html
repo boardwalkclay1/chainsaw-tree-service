@@ -35,7 +35,7 @@
       display: block;
     }
 
-    /* PHOTO RIP + BEAR CLAW EFFECT */
+    /* PHOTO RIP EFFECT */
     .section-photo {
       position: relative;
       width: 100%;
@@ -44,13 +44,10 @@
       border-radius: 18px;
       border: 3px solid #ff7b00;
       object-fit: cover;
-
-      /* Ripping out of background */
       box-shadow:
         0 0 25px #ff7b00,
         0 0 60px rgba(255, 123, 0, 0.4),
         inset 0 0 40px rgba(0,0,0,0.9);
-
       transform: rotate(-2deg);
       transition: transform 0.25s ease, box-shadow 0.25s ease;
     }
@@ -61,40 +58,6 @@
         0 0 35px #ff7b00,
         0 0 90px rgba(255, 123, 0, 0.6),
         inset 0 0 60px rgba(0,0,0,0.9);
-    }
-
-    /* BEAR CLAW SCRATCHES */
-    .section-photo::before,
-    .section-photo::after {
-      content: "";
-      position: absolute;
-      width: 100%;
-      height: 100%;
-      pointer-events: none;
-      background-repeat: no-repeat;
-      background-size: contain;
-      opacity: 0.55;
-      mix-blend-mode: screen;
-    }
-
-    /* Top-left claw marks */
-    .section-photo::before {
-      background-image: url('/img/claw-marks.png');
-      top: -20px;
-      left: -20px;
-      width: 180px;
-      height: 180px;
-      transform: rotate(-15deg);
-    }
-
-    /* Bottom-right claw marks */
-    .section-photo::after {
-      background-image: url('/img/claw-marks.png');
-      bottom: -20px;
-      right: -20px;
-      width: 180px;
-      height: 180px;
-      transform: rotate(20deg);
     }
 
     /* CONTACT POPUP */
@@ -359,8 +322,10 @@
   </p>
 </footer>
 
+<!-- CONTACT NOW BUTTON -->
 <button id="contact-now-btn" onclick="openContactPopup()">Contact Now</button>
 
+<!-- CONTACT POPUP -->
 <div id="contact-popup">
   <div id="contact-box">
     <h3>Contact Clay</h3>
