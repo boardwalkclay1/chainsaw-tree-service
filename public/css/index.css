@@ -37,8 +37,9 @@ body {
 }
 
 /* FIXED LOGO SIZE */
-#main-logo {
-  height: 95px;
+#main-logo,
+#climb-logo-top {
+  height: 85px;
   width: auto;
   cursor: pointer;
   filter: drop-shadow(0 0 12px #ff7b00);
@@ -55,14 +56,6 @@ body {
   color: #ff7b00;
   text-decoration: none;
   font-size: 1.05rem;
-}
-
-/* RIGHT SIDE OF TOP BAR */
-#climb-logo-top {
-  height: 95px;
-  width: auto;
-  cursor: pointer;
-  filter: drop-shadow(0 0 12px #ff7b00);
 }
 
 /* BURGER MENU */
@@ -118,7 +111,8 @@ body {
   position: relative;
   width: 100%;
   max-width: 450px;
-  height: 780px;
+  height: auto;
+  max-height: 80vh;
   margin: 30px auto;
   border-radius: 20px;
   border: 3px solid #ff7b00;
@@ -238,9 +232,34 @@ body {
 }
 
 .section-logo {
-  height: 140px;
+  height: 130px;
   width: auto;
   filter: drop-shadow(0 0 18px #ff7b00);
+}
+
+/* RIPPING OUT OF BACKGROUND EFFECT */
+.section-photo {
+  position: relative;
+  width: 100%;
+  max-width: 900px;
+  margin: 40px auto;
+  border-radius: 18px;
+  border: 3px solid #ff7b00;
+  box-shadow:
+    0 0 25px #ff7b00,
+    0 0 60px rgba(255, 123, 0, 0.4),
+    inset 0 0 40px rgba(0,0,0,0.9);
+  transform: rotate(-1.5deg);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  object-fit: cover;
+}
+
+.section-photo:hover {
+  transform: rotate(0deg) scale(1.03);
+  box-shadow:
+    0 0 35px #ff7b00,
+    0 0 80px rgba(255, 123, 0, 0.6),
+    inset 0 0 60px rgba(0,0,0,0.9);
 }
 
 .section-tagline {
@@ -270,18 +289,6 @@ body {
   color: #ff7b00;
   text-decoration: none;
   font-size: 1rem;
-}
-
-/* PERFECT PHOTO SIZING */
-.section-photo {
-  width: 100%;
-  max-width: 900px;
-  display: block;
-  margin: 25px auto;
-  border-radius: 18px;
-  border: 3px solid #ff7b00;
-  box-shadow: 0 0 25px #ff7b00;
-  object-fit: cover;
 }
 
 /* CLIMBING CLASS SECTION */
@@ -372,12 +379,12 @@ footer a {
 
   #main-logo,
   #climb-logo-top {
-    height: 120px;
+    height: 100px;
     width: auto;
   }
 
   #video-hero {
-    height: 580px;
+    max-height: 60vh;
   }
 
   .section-header {
