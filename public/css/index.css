@@ -36,8 +36,10 @@ body {
   gap: 20px;
 }
 
+/* FIXED LOGO SIZE */
 #main-logo {
   height: 95px;
+  width: auto;
   cursor: pointer;
   filter: drop-shadow(0 0 12px #ff7b00);
 }
@@ -58,6 +60,7 @@ body {
 /* RIGHT SIDE OF TOP BAR */
 #climb-logo-top {
   height: 95px;
+  width: auto;
   cursor: pointer;
   filter: drop-shadow(0 0 12px #ff7b00);
 }
@@ -236,6 +239,7 @@ body {
 
 .section-logo {
   height: 140px;
+  width: auto;
   filter: drop-shadow(0 0 18px #ff7b00);
 }
 
@@ -369,6 +373,7 @@ footer a {
   #main-logo,
   #climb-logo-top {
     height: 120px;
+    width: auto;
   }
 
   #video-hero {
