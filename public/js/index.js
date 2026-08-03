@@ -1,4 +1,31 @@
 /* ============================
+   FORCE VIDEO AUTOPLAY
+============================ */
+function forceAutoplay() {
+  const video = document.getElementById("heroVideo");
+  if (!video) return;
+
+  // Required for autoplay on all browsers
+  video.muted = true;
+
+  // Try to autoplay immediately
+  const playPromise = video.play();
+  if (playPromise !== undefined) {
+    playPromise.catch(() => {
+      // If browser blocks it, try again after a tiny delay
+      setTimeout(() => {
+        video.play().catch(() => {});
+      }, 150);
+    });
+  }
+
+  // Turn sound ON only after user interacts
+  document.addEventListener("click", () => {
+    video.muted = false;
+  });
+}
+
+/* ============================
    SMOOTH SCROLL
 ============================ */
 function initScroll() {
@@ -25,7 +52,8 @@ function initVideoControls() {
 
   if (!video) return;
 
-  video.muted = false;
+  // DO NOT UNMUTE HERE — autoplay will break
+  // video.muted = false;  <-- REMOVED
 
   // Show controls when clicking video area
   videoHero.addEventListener("click", () => {
@@ -82,7 +110,7 @@ function loadDropdownContent() {
         <li>Yard planning</li>
       </ul>
       <p>All work is done with canopy‑based cutting, controlled rigging, and real climbing skill.</p>
-      <a href="services.html" class="link-btn">Open Services Page</a>
+      <a href="/pages/services.html" class="link-btn">Open Services Page</a>
     `;
   }
 
@@ -96,7 +124,7 @@ function loadDropdownContent() {
         <li>Safety & rescue</li>
       </ul>
       <p>Classes built from real canopy experience, not ground theory.</p>
-      <a href="climbing-class.html" class="link-btn">Open Climbing Class Page</a>
+      <a href="/climbing-class/public/index.html" class="link-btn">Open Climbing Class Page</a>
     `;
   }
 
@@ -109,7 +137,7 @@ function loadDropdownContent() {
         <li>Storm cleanup</li>
         <li>Climbing class sessions</li>
       </ul>
-      <a href="gallery.html" class="link-btn">Open Gallery</a>
+      <a href="/pages/gallery.html" class="link-btn">Open Gallery</a>
     `;
   }
 }
@@ -149,6 +177,7 @@ function initEstimateForm() {
    INIT EVERYTHING
 ============================ */
 document.addEventListener("DOMContentLoaded", () => {
+  forceAutoplay();       // <-- FIXED AUTOPLAY
   initScroll();
   initVideoControls();
   loadDropdownContent();
