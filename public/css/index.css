@@ -8,14 +8,74 @@ body {
   overflow-x: hidden;
 }
 
-/* LOCKED BACKGROUND */
+/* BACKGROUND ROTATION */
 #bg-lock {
   position: fixed;
   inset: 0;
-  background: url('/img/clay-bg.jpg') no-repeat center center fixed;
+  z-index: -2;
+  overflow: hidden;
+  background: none !important;
+}
+
+.bg-frame {
+  position: absolute;
+  inset: 0;
   background-size: cover;
-  opacity: 0.25;
+  background-position: center;
+  opacity: 0;
+  transform: scale(1.05);
+  transition: opacity 2.5s ease, transform 12s ease;
+}
+
+.bg-frame.active {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.bg-video {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0;
+  transform: scale(1.05);
+  transition: opacity 2.5s ease, transform 12s ease;
+}
+
+.bg-video.active {
+  opacity: 1;
+  transform: scale(1);
+}
+
+/* LEAVES */
+#leaves-layer {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
   z-index: -1;
+  overflow: hidden;
+}
+
+.leaf {
+  position: absolute;
+  width: 40px;
+  height: 40px;
+  background-image: url('/img/leaf.png');
+  background-size: cover;
+  opacity: 0.8;
+  animation: fall linear infinite;
+}
+
+@keyframes fall {
+  0% {
+    transform: translateY(-10vh) rotate(0deg);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(110vh) rotate(360deg);
+    opacity: 0;
+  }
 }
 
 /* TOP BAR */
@@ -29,75 +89,29 @@ body {
   align-items: center;
 }
 
-/* LEFT SIDE OF TOP BAR */
 #top-left {
   display: flex;
   align-items: center;
   gap: 20px;
 }
 
-/* FIXED LOGO SIZE */
 #main-logo,
 #climb-logo-top {
   height: 85px;
   width: auto;
-  cursor: pointer;
   filter: drop-shadow(0 0 12px #ff7b00);
 }
 
-/* STACKED CONTACT INFO */
+/* CONTACT STACK */
 #top-contact-stack {
   display: flex;
   flex-direction: column;
   gap: 6px;
 }
 
-#top-contact-stack .stack-item {
+.stack-item {
   color: #ff7b00;
   text-decoration: none;
-  font-size: 1.05rem;
-}
-
-/* BURGER MENU */
-#burger-nav {
-  position: fixed;
-  inset: 0;
-  background: rgba(0,0,0,0.95);
-  display: none;
-  z-index: 9999;
-}
-
-#burger-nav.open {
-  display: block;
-}
-
-#burger-inner {
-  padding: 40px;
-}
-
-#burger-close {
-  background: none;
-  border: none;
-  color: #ff7b00;
-  font-size: 2.5rem;
-  float: right;
-  cursor: pointer;
-}
-
-#burger-inner ul {
-  list-style: none;
-  padding: 0;
-  margin-top: 80px;
-}
-
-#burger-inner li {
-  margin: 25px 0;
-}
-
-#burger-inner a {
-  color: #ff7b00;
-  text-decoration: none;
-  font-size: 1.6rem;
 }
 
 /* HERO */
@@ -106,13 +120,10 @@ body {
   text-align: center;
 }
 
-/* VIDEO HERO */
 #video-hero {
   position: relative;
   width: 100%;
   max-width: 450px;
-  height: auto;
-  max-height: 80vh;
   margin: 30px auto;
   border-radius: 20px;
   border: 3px solid #ff7b00;
@@ -126,7 +137,6 @@ body {
   object-fit: cover;
 }
 
-/* VIDEO CONTROLS */
 #video-controls {
   position: absolute;
   bottom: 0;
@@ -152,23 +162,19 @@ body {
   border: 2px solid #ff7b00;
   background: rgba(0,0,0,0.85);
   color: #ff7b00;
-  cursor: pointer;
-  font-size: 1rem;
 }
 
 /* HERO TEXT */
 .hero-title {
   font-size: 2.6rem;
-  margin-top: 20px;
   text-shadow: 0 0 12px #ff7b00;
 }
 
 .hero-tagline {
   font-size: 1.2rem;
-  opacity: 0.9;
 }
 
-/* ESTIMATE SECTION */
+/* FORM */
 #estimate-section {
   padding: 50px 20px;
   text-align: center;
@@ -183,7 +189,6 @@ body {
   border: 2px solid #ff7b00;
 }
 
-/* FORM FIELDS */
 .field-row {
   margin-bottom: 22px;
   text-align: left;
@@ -191,9 +196,6 @@ body {
 
 .field-row label {
   color: #ff7b00;
-  font-size: 1.1rem;
-  margin-bottom: 6px;
-  display: block;
 }
 
 .field-row input,
@@ -205,25 +207,17 @@ body {
   border: 2px solid #ff7b00;
   background: #000;
   color: #fff;
-  font-size: 1rem;
 }
 
-/* BUTTON */
 .primary-btn {
   padding: 14px 22px;
   border-radius: 999px;
   border: 2px solid #ff7b00;
   background: rgba(0,0,0,0.85);
   color: #ff7b00;
-  cursor: pointer;
-  font-size: 1.1rem;
 }
 
-/* TREE SERVICE SECTION */
-#tree-service-section {
-  padding: 50px 20px;
-}
-
+/* SECTIONS */
 .section-header {
   display: flex;
   align-items: center;
@@ -233,52 +227,34 @@ body {
 
 .section-logo {
   height: 130px;
-  width: auto;
   filter: drop-shadow(0 0 18px #ff7b00);
 }
 
-/* RIPPING OUT OF BACKGROUND EFFECT */
 .section-photo {
-  position: relative;
   width: 100%;
   max-width: 900px;
   margin: 40px auto;
   border-radius: 18px;
   border: 3px solid #ff7b00;
-  box-shadow:
-    0 0 25px #ff7b00,
-    0 0 60px rgba(255, 123, 0, 0.4),
-    inset 0 0 40px rgba(0,0,0,0.9);
+  box-shadow: 0 0 25px #ff7b00;
   transform: rotate(-1.5deg);
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
-  object-fit: cover;
+  transition: 0.2s ease;
 }
 
 .section-photo:hover {
   transform: rotate(0deg) scale(1.03);
-  box-shadow:
-    0 0 35px #ff7b00,
-    0 0 80px rgba(255, 123, 0, 0.6),
-    inset 0 0 60px rgba(0,0,0,0.9);
-}
-
-.section-tagline {
-  font-size: 1.1rem;
-  opacity: 0.9;
 }
 
 .section-body {
   padding: 0 20px;
   font-family: 'Staatliches', sans-serif;
   font-size: 1.2rem;
-  line-height: 1.6;
 }
 
 .section-links {
   display: flex;
   justify-content: center;
   gap: 16px;
-  padding: 20px;
 }
 
 .link-btn {
@@ -287,34 +263,6 @@ body {
   border: 2px solid #ff7b00;
   background: rgba(0,0,0,0.75);
   color: #ff7b00;
-  text-decoration: none;
-  font-size: 1rem;
-}
-
-/* CLIMBING CLASS SECTION */
-#climb-class-section {
-  padding: 50px 20px;
-}
-
-#climb-pricing {
-  max-width: 900px;
-  margin: 25px auto;
-  background: rgba(0,0,0,0.75);
-  border: 2px solid #ff7b00;
-  border-radius: 12px;
-  padding: 14px 20px;
-}
-
-#climb-pricing summary {
-  font-size: 1.4rem;
-  color: #ff7b00;
-  cursor: pointer;
-}
-
-.pricing-content {
-  margin-top: 14px;
-  font-family: 'Staatliches', sans-serif;
-  font-size: 1.1rem;
 }
 
 /* REVIEWS */
@@ -323,26 +271,14 @@ body {
   text-align: center;
 }
 
-#reviews-list {
-  max-width: 900px;
-  margin: 25px auto;
-}
-
 .review-card {
   background: rgba(0,0,0,0.75);
   border: 2px solid #ff7b00;
   border-radius: 12px;
   padding: 25px;
-  margin-bottom: 25px;
 }
 
-.review-photo {
-  width: 100%;
-  border-radius: 12px;
-  margin-bottom: 12px;
-}
-
-/* FLOATING CONTACT BUTTON */
+/* CONTACT BUTTON */
 #contact-now-btn {
   position: fixed;
   bottom: 25px;
@@ -353,7 +289,6 @@ body {
   color: #000;
   border: none;
   font-size: 1.1rem;
-  cursor: pointer;
   box-shadow: 0 0 14px #ff7b00;
   z-index: 9999;
 }
@@ -379,15 +314,6 @@ body {
   border-radius: 18px;
   border: 2px solid #ff7b00;
   text-align: center;
-  width: 90%;
-  max-width: 400px;
-  box-shadow: 0 0 25px #ff7b00;
-}
-
-#contact-box h3 {
-  color: #ff7b00;
-  margin-bottom: 20px;
-  font-size: 1.6rem;
 }
 
 .contact-link {
@@ -396,65 +322,7 @@ body {
   margin: 10px 0;
   background: #ff7b00;
   color: #000;
-  font-weight: bold;
   border-radius: 12px;
-  text-decoration: none;
-  font-size: 1.2rem;
 }
 
-#close-contact {
-  margin-top: 20px;
-  padding: 10px 18px;
-  background: #222;
-  color: #ff7b00;
-  border: 2px solid #ff7b00;
-  border-radius: 12px;
-  cursor: pointer;
-  font-size: 1rem;
-}
-
-/* FOOTER */
-footer {
-  text-align: center;
-  padding: 25px;
-}
-
-footer a {
-  color: #ff7b00;
-  text-decoration: none;
-  font-size: 1rem;
-}
-
-/* MOBILE FIXES */
-@media (max-width: 600px) {
-  #top-bar {
-    flex-direction: column;
-    gap: 20px;
-  }
-
-  #main-logo,
-  #climb-logo-top {
-    height: 100px;
-    width: auto;
-  }
-
-  #video-hero {
-    max-height: 60vh;
-  }
-
-  .section-header {
-    flex-direction: column;
-    text-align: center;
-  }
-
-  #contact-now-btn {
-    bottom: 15px;
-    right: 15px;
-  }
-
-  .section-photo {
-    max-width: 100%;
-    border-radius: 14px;
-    margin: 20px auto;
-  }
-}
+/
