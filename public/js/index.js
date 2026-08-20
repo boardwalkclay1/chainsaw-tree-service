@@ -5,24 +5,87 @@ function forceAutoplay() {
   const video = document.getElementById("heroVideo");
   if (!video) return;
 
-  // Required for autoplay on all browsers
   video.muted = true;
 
-  // Try to autoplay immediately
   const playPromise = video.play();
   if (playPromise !== undefined) {
     playPromise.catch(() => {
-      // If browser blocks it, try again after a tiny delay
       setTimeout(() => {
         video.play().catch(() => {});
       }, 150);
     });
   }
 
-  // Turn sound ON only after user interacts
   document.addEventListener("click", () => {
     video.muted = false;
   });
+}
+
+/* ============================
+   BACKGROUND ROTATION ENGINE
+============================ */
+function initBackgroundRotation() {
+  const frames = [
+    { type: "photo", src: "/img/climb-logo.jpg" },
+    { type: "photo", src: "/img/tree-service-logo.png" },
+    { type: "photo", src: "/img/your-photo-here.jpg" }, // <-- CHANGE THIS
+    { type: "video", src: "/videos/your-video-1.mp4" },
+    { type: "video", src: "/videos/your-video-2.mp4" }
+  ];
+
+  const bgLock = document.getElementById("bg-lock");
+  if (!bgLock) return;
+
+  const elements = [];
+  let index = 0;
+
+  frames.forEach(frame => {
+    if (frame.type === "photo") {
+      const div = document.createElement("div");
+      div.className = "bg-frame";
+      div.style.backgroundImage = `url('${frame.src}')`;
+      bgLock.appendChild(div);
+      elements.push(div);
+    } else {
+      const video = document.createElement("video");
+      video.className = "bg-video";
+      video.src = frame.src;
+      video.autoplay = true;
+      video.loop = true;
+      video.muted = true;
+      bgLock.appendChild(video);
+      elements.push(video);
+    }
+  });
+
+  if (!elements.length) return;
+
+  elements[0].classList.add("active");
+
+  setInterval(() => {
+    elements[index].classList.remove("active");
+    index = (index + 1) % elements.length;
+    elements[index].classList.add("active");
+  }, 9000);
+}
+
+/* ============================
+   LEAVES FALLING
+============================ */
+function initLeaves() {
+  const layer = document.getElementById("leaves-layer");
+  if (!layer) return;
+
+  function spawnLeaf() {
+    const leaf = document.createElement("div");
+    leaf.className = "leaf";
+    leaf.style.left = Math.random() * 100 + "vw";
+    leaf.style.animationDuration = 4 + Math.random() * 6 + "s";
+    layer.appendChild(leaf);
+    setTimeout(() => leaf.remove(), 12000);
+  }
+
+  setInterval(spawnLeaf, 350);
 }
 
 /* ============================
@@ -52,10 +115,6 @@ function initVideoControls() {
 
   if (!video) return;
 
-  // DO NOT UNMUTE HERE — autoplay will break
-  // video.muted = false;  <-- REMOVED
-
-  // Show controls when clicking video area
   videoHero.addEventListener("click", () => {
     videoHero.classList.add("show-controls");
     setTimeout(() => {
@@ -92,58 +151,7 @@ function initVideoControls() {
 }
 
 /* ============================
-   DROPDOWN CONTENT
-============================ */
-function loadDropdownContent() {
-  const treeService = document.getElementById("tree-service-content");
-  const climbClass = document.getElementById("climb-class-content");
-  const gallery = document.getElementById("gallery-content");
-
-  if (treeService) {
-    treeService.innerHTML = `
-      <p>Chainsaw Clay's Tree Service provides:</p>
-      <ul>
-        <li>High‑level climbing</li>
-        <li>Safe removals</li>
-        <li>Precision pruning</li>
-        <li>Storm cleanup</li>
-        <li>Yard planning</li>
-      </ul>
-      <p>All work is done with canopy‑based cutting, controlled rigging, and real climbing skill.</p>
-      <a href="/pages/services.html" class="link-btn">Open Services Page</a>
-    `;
-  }
-
-  if (climbClass) {
-    climbClass.innerHTML = `
-      <p>Learn real climbing from a real climber:</p>
-      <ul>
-        <li>Knots & gear</li>
-        <li>Throwball & access</li>
-        <li>Movement & canopy flow</li>
-        <li>Safety & rescue</li>
-      </ul>
-      <p>Classes built from real canopy experience, not ground theory.</p>
-      <a href="/climbing-class/public/index.html" class="link-btn">Open Climbing Class Page</a>
-    `;
-  }
-
-  if (gallery) {
-    gallery.innerHTML = `
-      <p>Preview photos and videos from real jobs:</p>
-      <ul>
-        <li>Removals</li>
-        <li>Pruning</li>
-        <li>Storm cleanup</li>
-        <li>Climbing class sessions</li>
-      </ul>
-      <a href="/pages/gallery.html" class="link-btn">Open Gallery</a>
-    `;
-  }
-}
-
-/* ============================
-   ESTIMATE FORM → WORKER
+   ESTIMATE FORM
 ============================ */
 function initEstimateForm() {
   const form = document.getElementById("estimate-form");
@@ -177,7 +185,9 @@ function initEstimateForm() {
    INIT EVERYTHING
 ============================ */
 document.addEventListener("DOMContentLoaded", () => {
-  forceAutoplay();       // <-- FIXED AUTOPLAY
+  forceAutoplay();
+  initBackgroundRotation();   // <-- THIS WAS MISSING
+  initLeaves();               // <-- THIS WAS MISSING
   initScroll();
   initVideoControls();
   loadDropdownContent();
