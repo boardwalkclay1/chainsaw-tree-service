@@ -19,10 +19,13 @@ body {
   background: none !important;
 }
 
-/* Photo background frames */
-.bg-frame {
+.bg-frame,
+.bg-video {
   position: absolute;
   inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
   background-size: cover;
   background-position: center;
   opacity: 0;
@@ -30,23 +33,7 @@ body {
   transition: opacity 2.5s ease, transform 12s ease;
 }
 
-.bg-frame.active {
-  opacity: 1;
-  transform: scale(1);
-}
-
-/* Video background frames */
-.bg-video {
-  position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  opacity: 0;
-  transform: scale(1.05);
-  transition: opacity 2.5s ease, transform 12s ease;
-}
-
+.bg-frame.active,
 .bg-video.active {
   opacity: 1;
   transform: scale(1);
