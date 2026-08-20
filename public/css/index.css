@@ -8,7 +8,9 @@ body {
   overflow-x: hidden;
 }
 
-/* BACKGROUND ROTATION */
+/* ============================
+   BACKGROUND ROTATION SYSTEM
+============================ */
 #bg-lock {
   position: fixed;
   inset: 0;
@@ -17,6 +19,7 @@ body {
   background: none !important;
 }
 
+/* Photo background frames */
 .bg-frame {
   position: absolute;
   inset: 0;
@@ -32,6 +35,7 @@ body {
   transform: scale(1);
 }
 
+/* Video background frames */
 .bg-video {
   position: absolute;
   inset: 0;
@@ -48,7 +52,9 @@ body {
   transform: scale(1);
 }
 
-/* LEAVES */
+/* ============================
+   LEAVES FALLING ANIMATION
+============================ */
 #leaves-layer {
   position: fixed;
   inset: 0;
@@ -78,7 +84,9 @@ body {
   }
 }
 
-/* TOP BAR */
+/* ============================
+   TOP BAR
+============================ */
 #top-bar {
   width: 100%;
   padding: 15px 20px;
@@ -114,7 +122,9 @@ body {
   text-decoration: none;
 }
 
-/* HERO */
+/* ============================
+   HERO SECTION
+============================ */
 #hero {
   padding: 40px 20px;
   text-align: center;
@@ -174,7 +184,9 @@ body {
   font-size: 1.2rem;
 }
 
-/* FORM */
+/* ============================
+   ESTIMATE FORM
+============================ */
 #estimate-section {
   padding: 50px 20px;
   text-align: center;
@@ -217,7 +229,9 @@ body {
   color: #ff7b00;
 }
 
-/* SECTIONS */
+/* ============================
+   SECTIONS
+============================ */
 .section-header {
   display: flex;
   align-items: center;
@@ -265,7 +279,9 @@ body {
   color: #ff7b00;
 }
 
-/* REVIEWS */
+/* ============================
+   REVIEWS
+============================ */
 #reviews {
   padding: 50px 20px;
   text-align: center;
@@ -278,7 +294,9 @@ body {
   padding: 25px;
 }
 
-/* CONTACT BUTTON */
+/* ============================
+   CONTACT BUTTON
+============================ */
 #contact-now-btn {
   position: fixed;
   bottom: 25px;
@@ -293,7 +311,9 @@ body {
   z-index: 9999;
 }
 
-/* CONTACT POPUP */
+/* ============================
+   CONTACT POPUP
+============================ */
 #contact-popup {
   position: fixed;
   inset: 0;
@@ -324,5 +344,3 @@ body {
   color: #000;
   border-radius: 12px;
 }
-
-/
