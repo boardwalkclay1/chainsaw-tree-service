@@ -22,73 +22,6 @@ function forceAutoplay() {
 }
 
 /* ============================
-   BACKGROUND ROTATION ENGINE
-============================ */
-function initBackgroundRotation() {
-  const frames = [
-    { type: "photo", src: "/img/climb-logo.jpg" },
-    { type: "photo", src: "/img/tree-service-logo.png" },
-    { type: "photo", src: "/img/your-photo-here.jpg" }, // <-- CHANGE THIS
-    { type: "video", src: "/videos/your-video-1.mp4" },
-    { type: "video", src: "/videos/your-video-2.mp4" }
-  ];
-
-  const bgLock = document.getElementById("bg-lock");
-  if (!bgLock) return;
-
-  const elements = [];
-  let index = 0;
-
-  frames.forEach(frame => {
-    if (frame.type === "photo") {
-      const div = document.createElement("div");
-      div.className = "bg-frame";
-      div.style.backgroundImage = `url('${frame.src}')`;
-      bgLock.appendChild(div);
-      elements.push(div);
-    } else {
-      const video = document.createElement("video");
-      video.className = "bg-video";
-      video.src = frame.src;
-      video.autoplay = true;
-      video.loop = true;
-      video.muted = true;
-      bgLock.appendChild(video);
-      elements.push(video);
-    }
-  });
-
-  if (!elements.length) return;
-
-  elements[0].classList.add("active");
-
-  setInterval(() => {
-    elements[index].classList.remove("active");
-    index = (index + 1) % elements.length;
-    elements[index].classList.add("active");
-  }, 9000);
-}
-
-/* ============================
-   LEAVES FALLING
-============================ */
-function initLeaves() {
-  const layer = document.getElementById("leaves-layer");
-  if (!layer) return;
-
-  function spawnLeaf() {
-    const leaf = document.createElement("div");
-    leaf.className = "leaf";
-    leaf.style.left = Math.random() * 100 + "vw";
-    leaf.style.animationDuration = 4 + Math.random() * 6 + "s";
-    layer.appendChild(leaf);
-    setTimeout(() => leaf.remove(), 12000);
-  }
-
-  setInterval(spawnLeaf, 350);
-}
-
-/* ============================
    SMOOTH SCROLL
 ============================ */
 function initScroll() {
@@ -186,10 +119,7 @@ function initEstimateForm() {
 ============================ */
 document.addEventListener("DOMContentLoaded", () => {
   forceAutoplay();
-  initBackgroundRotation();   // <-- THIS WAS MISSING
-  initLeaves();               // <-- THIS WAS MISSING
   initScroll();
   initVideoControls();
-  loadDropdownContent();
   initEstimateForm();
 });
