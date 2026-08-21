@@ -1,23 +1,30 @@
+/* GLOBAL */
+body {
+  margin: 0;
+  padding: 0;
+  /* FALLBACK BACKGROUND (ALWAYS VISIBLE) */
+  background: url('/img/clay-bg.jpg') no-repeat center center fixed;
+  background-size: cover;
+  font-family: 'Anton', sans-serif;
+  color: #fff;
+  overflow-x: hidden;
+}
 
-
-/* ============================
-   BACKGROUND ROTATION SYSTEM
-============================ */
+/* BACKGROUND ROTATION */
 #bg-lock {
   position: fixed;
   inset: 0;
   z-index: -2;
   overflow: hidden;
-  background: none !important;
+  /* REMOVE THE BLACK / NONE OVERRIDE */
+  /* background: none !important; */
+  /* OPTIONAL: BASE LAYER SO IT'S NEVER BLACK */
+  background: rgba(0,0,0,0.6);
 }
 
-.bg-frame,
-.bg-video {
+.bg-frame {
   position: absolute;
   inset: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
   background-size: cover;
   background-position: center;
   opacity: 0;
@@ -25,15 +32,28 @@
   transition: opacity 2.5s ease, transform 12s ease;
 }
 
-.bg-frame.active,
+.bg-frame.active {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.bg-video {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0;
+  transform: scale(1.05);
+  transition: opacity 2.5s ease, transform 12s ease;
+}
+
 .bg-video.active {
   opacity: 1;
   transform: scale(1);
 }
 
-/* ============================
-   LEAVES FALLING ANIMATION
-============================ */
+/* LEAVES */
 #leaves-layer {
   position: fixed;
   inset: 0;
@@ -63,9 +83,7 @@
   }
 }
 
-/* ============================
-   TOP BAR
-============================ */
+/* TOP BAR */
 #top-bar {
   width: 100%;
   padding: 15px 20px;
@@ -101,9 +119,7 @@
   text-decoration: none;
 }
 
-/* ============================
-   HERO SECTION
-============================ */
+/* HERO */
 #hero {
   padding: 40px 20px;
   text-align: center;
@@ -163,9 +179,7 @@
   font-size: 1.2rem;
 }
 
-/* ============================
-   ESTIMATE FORM
-============================ */
+/* FORM */
 #estimate-section {
   padding: 50px 20px;
   text-align: center;
@@ -208,9 +222,7 @@
   color: #ff7b00;
 }
 
-/* ============================
-   SECTIONS
-============================ */
+/* SECTIONS */
 .section-header {
   display: flex;
   align-items: center;
@@ -258,9 +270,7 @@
   color: #ff7b00;
 }
 
-/* ============================
-   REVIEWS
-============================ */
+/* REVIEWS */
 #reviews {
   padding: 50px 20px;
   text-align: center;
@@ -273,9 +283,7 @@
   padding: 25px;
 }
 
-/* ============================
-   CONTACT BUTTON
-============================ */
+/* CONTACT BUTTON */
 #contact-now-btn {
   position: fixed;
   bottom: 25px;
@@ -290,9 +298,7 @@
   z-index: 9999;
 }
 
-/* ============================
-   CONTACT POPUP
-============================ */
+/* CONTACT POPUP */
 #contact-popup {
   position: fixed;
   inset: 0;
