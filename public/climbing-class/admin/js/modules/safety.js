@@ -1,20 +1,19 @@
-window.SAFETY = {
-  title: "Gear & Safety",
+export const SAFETY = {
+  title: "Safety & Risk Management",
+
   subcategories: {
-    harness: {
-      title: "Harness Setup",
-      videos: []
-    },
-    lifeline: {
-      title: "Lifeline",
-      videos: []
-    },
     ppe: {
-      title: "PPE",
+      title: "PPE & Gear Safety",
       videos: []
     },
-    movement: {
-      title: "Movement Basics",
+
+    climbingSafety: {
+      title: "Climbing Safety",
+      videos: []
+    },
+
+    riggingSafety: {
+      title: "Rigging Safety",
       videos: []
     }
   }
