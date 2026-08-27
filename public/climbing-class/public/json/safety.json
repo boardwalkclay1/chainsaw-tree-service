@@ -1,0 +1,72 @@
+{
+  "safety": {
+    "overview": "Safety is the foundation of all climbing, rigging, and cutting. Professional arborists follow strict safety rules to prevent injury, avoid accidents, and manage risk in dangerous environments.",
+
+    "ppe": {
+      "helmet": "Arborist-rated helmet with chin strap. Protects from falling limbs and impacts.",
+      "gloves": "Protect hands from rope burn, cuts, and abrasion.",
+      "eyeProtection": "Safety glasses or mesh visor to block chips and debris.",
+      "hearingProtection": "Ear muffs or plugs to reduce chainsaw noise.",
+      "chaps": "Chainsaw chaps prevent leg injuries during ground cutting.",
+      "boots": "Steel-toe or climbing boots with strong grip."
+    },
+
+    "climbingSafety": {
+      "twoPoint": "Always maintain two points of attachment when cutting.",
+      "anchorSelection": "Choose strong, healthy limbs for anchors.",
+      "ropeInspection": "Inspect rope for glazing, cuts, or core shots.",
+      "gearCheck": "Check harness, carabiners, lanyards, and ascenders before climbing.",
+      "communication": "Use clear signals with ground crew."
+    },
+
+    "riggingSafety": {
+      "loadControl": "Understand load weight, rope angles, and friction.",
+      "anchorStrength": "Rig only from strong limbs or trunks.",
+      "frictionDevices": "Use devices to control speed and prevent shock-loading.",
+      "dropZone": "Clear drop zone and keep people out of danger."
+    },
+
+    "cuttingSafety": {
+      "sawHandling": "Keep two hands on saw, avoid kickback zone, and maintain stable stance.",
+      "cutPlanning": "Plan cuts before making them. Identify compression and tension.",
+      "escapeRoute": "Always have a clear escape route.",
+      "chainSharpness": "Sharp chains reduce kickback and improve control."
+    },
+
+    "stormSafety": {
+      "unstableWood": "Storm-damaged wood is unpredictable. Use extra caution.",
+      "leaners": "Leaning trees may fail suddenly.",
+      "cracks": "Cracks indicate internal failure.",
+      "rootLift": "Uprooted trees can roll or collapse."
+    },
+
+    "jobsiteSafety": {
+      "setup": "Stage gear, set boundaries, and identify hazards.",
+      "crewRoles": "Assign climber, ground sawyer, rope handler, and spotter.",
+      "trafficControl": "Use cones, tape, and signs to block off work area.",
+      "customerSafety": "Keep customers away from drop zone."
+    },
+
+    "emergencyProtocol": {
+      "call911": "If someone is hurt, bleeding, unconscious, or in danger, call 911 immediately.",
+      "aerialRescue": "Know basic aerial rescue techniques.",
+      "bleedingControl": "Apply pressure and stabilize victim.",
+      "fallResponse": "Do not move victim unless necessary.",
+      "chainsawInjury": "Stop bleeding, call emergency services, and stabilize."
+    },
+
+    "weatherSafety": {
+      "wind": "High winds increase breakage risk.",
+      "rain": "Wet bark reduces grip and increases slip risk.",
+      "heat": "Heat causes dehydration and fatigue.",
+      "cold": "Cold stiffens ropes and reduces flexibility."
+    },
+
+    "riskManagement": {
+      "hazardAssessment": "Identify dead limbs, cracks, rot, and weak attachments.",
+      "treeInspection": "Check bark, roots, canopy, and trunk.",
+      "toolPlacement": "Keep tools organized and away from ropes.",
+      "fatigue": "Fatigue increases mistakes — take breaks."
+    }
+  }
+}
