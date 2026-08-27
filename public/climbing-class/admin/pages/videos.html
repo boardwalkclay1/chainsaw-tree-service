@@ -5,6 +5,20 @@
   <title>Admin Video Library</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
 
+  <!-- FAVICON -->
+  <link rel="icon" type="image/png" href="/favicon.png">
+
+  <!-- SOCIAL PREVIEW -->
+  <meta property="og:title" content="Admin Video Library">
+  <meta property="og:description" content="Full access to all climbing class videos.">
+  <meta property="og:image" content="/favicon.png">
+  <meta property="og:type" content="website">
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Admin Video Library">
+  <meta name="twitter:image" content="/favicon.png">
+
+  <!-- ADMIN CSS -->
   <link rel="stylesheet" href="/climbing-class/admin/admin.css">
 </head>
 
@@ -16,18 +30,10 @@
   <!-- SEARCH BAR -->
   <input id="videoSearch" type="text" placeholder="Search videos..." />
 
-  <!-- REQUIRED: THIS FIXES YOUR ERROR -->
+  <!-- VIDEO LIBRARY CONTAINER -->
   <div id="videoContainer"></div>
 
-  <!-- LOAD ALL MODULES FIRST -->
-  <script src="/climbing-class/admin/js/modules/knots.js"></script>
-  <script src="/climbing-class/admin/js/modules/climbing.js"></script>
-  <script src="/climbing-class/admin/js/modules/throwball.js"></script>
-  <script src="/climbing-class/admin/js/modules/cutting.js"></script>
-  <script src="/climbing-class/admin/js/modules/business.js"></script>
-  <script src="/climbing-class/admin/js/modules/safety.js"></script>
-
-  <!-- THEN LOAD THE ADMIN VIDEO BUILDER -->
+  <!-- ONLY THIS: ADMIN VIDEO JS HANDLES MODULES -->
   <script src="/climbing-class/admin/js/admin-videos.js"></script>
 
 </body>
