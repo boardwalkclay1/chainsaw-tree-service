@@ -1,0 +1,140 @@
+{
+  "advancedTraining": {
+    "overview": "Advanced arborist training covers professional-level climbing, rigging, cutting, jobsite flow, emergency response, and canopy strategy. This is the knowledge used by working arborists who climb daily and handle dangerous, complex trees.",
+
+    "advancedClimbing": {
+      "description": "Advanced climbing includes SRS movement, redirects, canopy transitions, limb walking, balance control, and efficient ascent systems.",
+      "skills": [
+        "SRS ascent with mechanical devices",
+        "MRS movement with friction hitches",
+        "Efficient rope-walking systems",
+        "Controlled descent and micro-adjustments"
+      ]
+    },
+
+    "workPositioning": {
+      "description": "Work positioning stabilizes you while cutting or rigging.",
+      "techniques": [
+        "Double lanyard movement",
+        "Flipline control",
+        "Body alignment for safe cuts",
+        "Maintaining three points of contact"
+      ]
+    },
+
+    "canopyTransitions": {
+      "description": "Transitions involve moving from one limb to another safely.",
+      "skills": [
+        "Rope management",
+        "Redirect awareness",
+        "Balance and weight shifting",
+        "Safe limb walking"
+      ]
+    },
+
+    "redirects": {
+      "description": "Redirects change rope angle to reduce friction and improve movement.",
+      "types": [
+        "Natural redirects",
+        "Pulley redirects",
+        "Friction-managed redirects"
+      ]
+    },
+
+    "riggingTheory": {
+      "description": "Rigging theory covers load control, friction management, anchor strength, rope angles, and safe lowering.",
+      "concepts": [
+        "Load distribution",
+        "Friction devices",
+        "Anchor point selection",
+        "Safe lowering paths"
+      ]
+    },
+
+    "negativeRigging": {
+      "description": "Negative rigging is used when cutting below your anchor point.",
+      "rules": [
+        "Use strong anchors",
+        "Control friction",
+        "Monitor rope angles",
+        "Avoid shock-loading"
+      ]
+    },
+
+    "speedlines": {
+      "description": "Speedlines move branches quickly to a landing zone.",
+      "uses": [
+        "Steep yards",
+        "Long carries",
+        "Storm cleanup"
+      ]
+    },
+
+    "cuttingTheory": {
+      "description": "Cutting theory includes compression/tension awareness, hinge control, bore cuts, snap cuts, bypass cuts, and safe chainsaw handling.",
+      "skills": [
+        "Identify compression/tension",
+        "Control hinge thickness",
+        "Use bore cuts safely",
+        "Avoid kickback zones"
+      ]
+    },
+
+    "stormResponse": {
+      "description": "Storm response requires identifying dangerous wood, tension, compression, leaners, uprooted trees, and unpredictable failures.",
+      "warnings": [
+        "Storm wood is unstable",
+        "Hidden tension can cause sudden breaks",
+        "Always use extra caution"
+      ]
+    },
+
+    "jobsiteFlow": {
+      "description": "Jobsite flow includes setup, communication, staging gear, crew roles, and efficient movement.",
+      "steps": [
+        "Assess tree and hazards",
+        "Stage gear properly",
+        "Assign crew roles",
+        "Maintain communication"
+      ]
+    },
+
+    "customerManagement": {
+      "description": "Customer management includes explaining the job, setting expectations, safety zones, and professional communication.",
+      "skills": [
+        "Clear explanations",
+        "Safety zone setup",
+        "Professional interaction"
+      ]
+    },
+
+    "emergencyResponse": {
+      "description": "Emergency response includes aerial rescue basics, calling 911, stabilizing injuries, and preventing further harm.",
+      "steps": [
+        "Call 911 immediately",
+        "Stabilize victim",
+        "Prevent further injury",
+        "Guide responders to location"
+      ]
+    },
+
+    "efficiency": {
+      "description": "Efficiency minimizes wasted movement, plans cuts, stages gear, and uses proper climbing systems.",
+      "tips": [
+        "Plan your climb",
+        "Use efficient systems",
+        "Stage gear before ascent"
+      ]
+    },
+
+    "professionalGrowth": {
+      "description": "Professional growth includes certifications, continued training, gear upgrades, and building a reputation.",
+      "paths": [
+        "ISA certifications",
+        "Advanced climbing courses",
+        "Rigging mastery",
+        "Business development"
+      ]
+    }
+  }
+}
