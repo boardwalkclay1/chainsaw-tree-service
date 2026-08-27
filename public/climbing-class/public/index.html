@@ -11,176 +11,176 @@
 
 <body>
 
-<!-- HEADER -->
-<header id="compact-header">
-  <img src="/img/climb-logo.jpg" id="header-logo" onclick="toggleSidebar()">
-  <div id="header-text">
-    <h1>Chainsaw’s Climbing Class</h1>
-    <p>Elite climbing • Real arborist training • Full video courses</p>
+  <!-- HEADER -->
+  <header id="compact-header">
+    <img src="/img/climb-logo.jpg" id="header-logo">
+    <div id="header-text">
+      <h1>Chainsaw’s Climbing Class</h1>
+      <p>Elite climbing • Real arborist training • Full video courses</p>
+    </div>
+  </header>
+
+  <!-- SIDEBAR (HIDDEN BY DEFAULT — CSS WILL HANDLE) -->
+  <nav id="sidebar">
+    <a href="/climbing-class/public/pages/index.html">Home</a>
+    <a href="/climbing-class/public/pages/classes.html">Classes</a>
+    <a href="/climbing-class/public/pages/pricing.html">Pricing</a>
+    <a href="/climbing-class/public/pages/app-info.html">About the App</a>
+    <a href="/climbing-class/public/pages/contact.html">Contact</a>
+    <a href="/climbing-class/public/pages/privacy.html">Privacy Agreement</a>
+    <a href="mailto:support@chainsawclay.com">Email Support</a>
+  </nav>
+
+  <!-- FLOATING LEAVES -->
+  <div id="leaf-container"></div>
+
+  <div class="overlay">
+
+    <!-- HEADER BUTTONS -->
+    <section class="site-header">
+      <div class="header-buttons">
+        <a href="/climbing-class/public/pages/pricing.html" class="btn primary">View Class Pricing</a>
+        <a href="/climbing-class/public/pages/classes.html" class="btn secondary">Class Schedule</a>
+        <a href="/climbing-class/public/pages/app-info.html" class="btn secondary">About the App</a>
+        <a href="/climbing-class/public/app/pages/index.html" class="btn secondary">Open Training App</a>
+      </div>
+    </section>
+
+    <!-- INTRO SECTION -->
+    <section class="intro-section">
+      <h2>Your Personal Tree‑Climbing Guide — Anywhere, Anytime</h2>
+
+      <p>
+        Chainsaw Clay’s Climbing Class is a complete climbing system built for both beginners and working arborists.
+        Every lesson is designed to be used <strong>in the tree</strong>, <strong>on the jobsite</strong>, or <strong>during practice climbs</strong>.
+      </p>
+
+      <p>
+        You’ll learn <strong>gear setup</strong>, <strong>lifeline control</strong>, <strong>movement technique</strong>, 
+        <strong>throwball mastery</strong>, <strong>rigging</strong>, <strong>cutting</strong>, and <strong>jobsite flow</strong>.
+      </p>
+
+      <p>
+        The training app includes <strong>interactive video quizzes</strong>, <strong>step‑by‑step breakdowns</strong>, 
+        <strong>slow‑motion climbing footage</strong>, and <strong>real canopy examples</strong>.
+      </p>
+
+      <div class="path-buttons">
+        <a href="/climbing-class/public/pages/leisure.html" class="btn primary">Leisure Climbing</a>
+        <a href="/climbing-class/public/pages/professional.html" class="btn secondary">Professional Arborist Training</a>
+      </div>
+
+      <p>
+        Whether you climb for fun or for work, this system grows with you — from your first knot to your first 
+        100‑foot ascent.
+      </p>
+    </section>
+
+    <!-- TRAINING CATEGORIES -->
+    <section class="section">
+      <h2>Training Categories</h2>
+
+      <div class="category-grid">
+
+        <a href="/climbing-class/public/pages/gear-intro.html" class="category-card" data-cat="gear">
+          <h3>Gear & Safety</h3>
+          <ul>
+            <li>Gear Overview</li>
+            <li>Harness Setup</li>
+            <li>Lifeline Control</li>
+            <li>Two‑Point Safety</li>
+            <li>Basic Movement</li>
+          </ul>
+          <img src="/climbing-class/public/app/img/gear.jpg">
+        </a>
+
+        <a href="/climbing-class/public/pages/throwball-intro.html" class="category-card" data-cat="throwball">
+          <h3>Throwball Mastery</h3>
+          <ul>
+            <li>Throwball Basics</li>
+            <li>Perfect Anchors</li>
+            <li>Advanced Techniques</li>
+            <li>High‑Accuracy Throws</li>
+          </ul>
+          <img src="/climbing-class/public/app/img/throwball.jpg">
+        </a>
+
+        <a href="/climbing-class/public/pages/styles-intro.html" class="category-card" data-cat="styles">
+          <h3>Climbing Styles</h3>
+          <ul>
+            <li>Body Thrusting</li>
+            <li>Footlocking</li>
+            <li>Spiking</li>
+          </ul>
+          <img src="/img/insta-climb.jpg">
+        </a>
+
+        <a href="/climbing-class/public/pages/rigging-intro.html" class="category-card" data-cat="rigging">
+          <h3>Rigging</h3>
+          <ul>
+            <li>Rigging Gear</li>
+            <li>Basic Setup</li>
+            <li>Rigging Knots</li>
+            <li>Negative Rigging</li>
+            <li>Speedlines</li>
+          </ul>
+          <img src="/climbing-class/public/app/img/rig.jpg">
+        </a>
+
+        <a href="/climbing-class/public/pages/knots-intro.html" class="category-card" data-cat="knots">
+          <h3>Knots</h3>
+          <ul>
+            <li>Arborist Knots</li>
+            <li>Friction Hitches</li>
+            <li>Rigging Knots</li>
+          </ul>
+          <img src="/climbing-class/public/app/img/blakes-hitch.jpg">
+        </a>
+
+        <a href="/climbing-class/public/pages/cutting-intro.html" class="category-card" data-cat="cutting">
+          <h3>Cutting Techniques</h3>
+          <ul>
+            <li>Chainsaw Safety</li>
+            <li>Basic Cuts</li>
+            <li>Advanced Cuts</li>
+          </ul>
+          <img src="/climbing-class/public/app/img/climb-img-4.jpg">
+        </a>
+
+        <a href="/climbing-class/public/pages/business-intro.html" class="category-card" data-cat="business">
+          <h3>Business & Jobsite Flow</h3>
+          <ul>
+            <li>Pricing Jobs</li>
+            <li>Jobsite Setup</li>
+            <li>Crew Communication</li>
+          </ul>
+          <img src="/climbing-class/public/app/img/business-img-1.jpg">
+        </a>
+
+      </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="site-footer">
+      <img id="treeLogoBottom" src="/img/tree-service-logo.png">
+      <p>Email: <a href="mailto:support@chainsawclay.com">support@chainsawclay.com</a></p>
+      <p>Phone: <a href="tel:4706952055">(470)695‑2055</a></p>
+      <p><a href="https://chainsawclay.com">← Back to Chainsaw Clay’s Tree Service</a></p>
+    </footer>
+
   </div>
-</header>
 
-<!-- SIDEBAR -->
-<nav id="sidebar">
-  <a href="/climbing-class/public/pages/index.html">Home</a>
-  <a href="/climbing-class/public/pages/classes.html">Classes</a>
-  <a href="/climbing-class/public/pages/pricing.html">Pricing</a>
-  <a href="/climbing-class/public/pages/app-info.html">About the App</a>
-  <a href="/climbing-class/public/pages/contact.html">Contact</a>
-  <a href="/climbing-class/public/pages/privacy.html">Privacy Agreement</a>
-  <a href="mailto:support@chainsawclay.com">Email Support</a>
-</nav>
-
-<!-- FLOATING LEAVES -->
-<div id="leaf-container"></div>
-
-<div class="overlay">
-
-  <!-- HEADER BUTTONS -->
-  <section class="site-header">
-    <div class="header-buttons">
-      <a href="/climbing-class/public/pages/pricing.html" class="btn primary">View Class Pricing</a>
-      <a href="/climbing-class/public/pages/classes.html" class="btn secondary">Class Schedule</a>
-      <a href="/climbing-class/public/pages/app-info.html" class="btn secondary">About the App</a>
-      <a href="/climbing-class/public/app/pages/index.html" class="btn secondary">Open Training App</a>
+  <!-- FLOATING SQUIRREL CHAT -->
+  <div id="squirrelChat">
+    <img src="/climbing-class/public/app/img/squirell-img.jpg" id="squirrelChatBtn">
+    <div id="squirrelBubble">
+      <div id="squirrelMessages"></div>
+      <input id="squirrelInput" type="text" placeholder="Ask me something…">
     </div>
-  </section>
-
-  <!-- INTRO SECTION -->
-  <section class="intro-section">
-    <h2>Your Personal Tree‑Climbing Guide — Anywhere, Anytime</h2>
-
-    <p>
-      Chainsaw Clay’s Climbing Class is a complete climbing system built for both beginners and working arborists.
-      Every lesson is designed to be used <strong>in the tree</strong>, <strong>on the jobsite</strong>, or <strong>during practice climbs</strong>.
-    </p>
-
-    <p>
-      You’ll learn <strong>gear setup</strong>, <strong>lifeline control</strong>, <strong>movement technique</strong>, 
-      <strong>throwball mastery</strong>, <strong>rigging</strong>, <strong>cutting</strong>, and <strong>jobsite flow</strong>.
-    </p>
-
-    <p>
-      The training app includes <strong>interactive video quizzes</strong>, <strong>step‑by‑step breakdowns</strong>, 
-      <strong>slow‑motion climbing footage</strong>, and <strong>real canopy examples</strong>.
-    </p>
-
-    <div class="path-buttons">
-      <a href="/climbing-class/public/pages/leisure.html" class="btn primary">Leisure Climbing</a>
-      <a href="/climbing-class/public/pages/professional.html" class="btn secondary">Professional Arborist Training</a>
-    </div>
-
-    <p>
-      Whether you climb for fun or for work, this system grows with you — from your first knot to your first 
-      100‑foot ascent.
-    </p>
-  </section>
-
-  <!-- TRAINING CATEGORIES -->
-  <section class="section">
-    <h2>Training Categories</h2>
-
-    <div class="category-grid">
-
-      <a href="/climbing-class/public/pages/gear-intro.html" class="category-card">
-        <h3>Gear & Safety</h3>
-        <ul>
-          <li>Gear Overview</li>
-          <li>Harness Setup</li>
-          <li>Lifeline Control</li>
-          <li>Two‑Point Safety</li>
-          <li>Basic Movement</li>
-        </ul>
-        <img src="/climbing-class/public/app/img/gear.jpg">
-      </a>
-
-      <a href="/climbing-class/public/pages/throwball-intro.html" class="category-card">
-        <h3>Throwball Mastery</h3>
-        <ul>
-          <li>Throwball Basics</li>
-          <li>Perfect Anchors</li>
-          <li>Advanced Techniques</li>
-          <li>High‑Accuracy Throws</li>
-        </ul>
-        <img src="/climbing-class/public/app/img/throwball.jpg">
-      </a>
-
-      <a href="/climbing-class/public/pages/styles-intro.html" class="category-card">
-        <h3>Climbing Styles</h3>
-        <ul>
-          <li>Body Thrusting</li>
-          <li>Footlocking</li>
-          <li>Spiking</li>
-        </ul>
-        <img src="/img/insta-climb.jpg">
-      </a>
-
-      <a href="/climbing-class/public/pages/rigging-intro.html" class="category-card">
-        <h3>Rigging</h3>
-        <ul>
-          <li>Rigging Gear</li>
-          <li>Basic Setup</li>
-          <li>Rigging Knots</li>
-          <li>Negative Rigging</li>
-          <li>Speedlines</li>
-        </ul>
-        <img src="/climbing-class/public/app/img/rig.jpg">
-      </a>
-
-      <a href="/climbing-class/public/pages/knots-intro.html" class="category-card">
-        <h3>Knots</h3>
-        <ul>
-          <li>Arborist Knots</li>
-          <li>Friction Hitches</li>
-          <li>Rigging Knots</li>
-        </ul>
-        <img src="/climbing-class/public/app/img/blakes-hitch.jpg">
-      </a>
-
-      <a href="/climbing-class/public/pages/cutting-intro.html" class="category-card">
-        <h3>Cutting Techniques</h3>
-        <ul>
-          <li>Chainsaw Safety</li>
-          <li>Basic Cuts</li>
-          <li>Advanced Cuts</li>
-        </ul>
-        <img src="/climbing-class/public/app/img/climb-img-4.jpg">
-      </a>
-
-      <a href="/climbing-class/public/pages/business-intro.html" class="category-card">
-        <h3>Business & Jobsite Flow</h3>
-        <ul>
-          <li>Pricing Jobs</li>
-          <li>Jobsite Setup</li>
-          <li>Crew Communication</li>
-        </ul>
-        <img src="/climbing-class/public/app/img/business-img-1.jpg">
-      </a>
-
-    </div>
-  </section>
-
-  <!-- FOOTER -->
-  <footer class="site-footer">
-    <img id="treeLogoBottom" src="/img/tree-service-logo.png">
-    <p>Email: <a href="mailto:support@chainsawclay.com">support@chainsawclay.com</a></p>
-    <p>Phone: <a href="tel:4706952055">(470)695‑2055</a></p>
-    <p><a href="https://chainsawclay.com">← Back to Chainsaw Clay’s Tree Service</a></p>
-  </footer>
-
-</div>
-
-<!-- FLOATING SQUIRREL CHAT -->
-<div id="squirrelChat">
-  <img src="/climbing-class/public/app/img/squirell-img.jpg" id="squirrelChatBtn">
-  <div id="squirrelBubble">
-    <div id="squirrelMessages"></div>
-    <input id="squirrelInput" type="text" placeholder="Ask me something…">
   </div>
-</div>
 
-<script src="/climbing-class/public/js/climb-index.js"></script>
-<script src="/climbing-class/public/js/squirrel.js"></script>
+  <script src="/climbing-class/public/js/climb-index.js"></script>
+  <script src="/climbing-class/public/js/squirrel.js"></script>
 
 </body>
 </html>
