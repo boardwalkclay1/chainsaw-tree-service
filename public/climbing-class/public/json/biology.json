@@ -1,0 +1,59 @@
+{
+  "biology": {
+    "overview": "Tree biology is the science behind how trees grow, respond to stress, heal, and interact with their environment. Understanding biology makes you a smarter climber, a safer arborist, and a better decision-maker in the canopy.",
+
+    "structure": {
+      "roots": "Roots anchor the tree and absorb water and nutrients. They spread wide, not deep. Damaging roots affects stability and health.",
+      "trunk": "The trunk transports water and nutrients through xylem and phloem. It also stores energy and provides structural support.",
+      "branches": "Branches distribute weight, support leaves, and create the canopy. Their angles and attachments determine strength.",
+      "canopy": "The canopy is the tree’s engine — it captures sunlight, produces energy, and regulates growth."
+    },
+
+    "growth": {
+      "photosynthesis": "Trees convert sunlight into energy. More canopy = more power.",
+      "respiration": "Trees breathe through leaves and roots. Healthy airflow prevents disease.",
+      "cellGrowth": "Trees grow through cell division in the cambium layer. Damage here slows healing.",
+      "seasonalCycles": "Trees grow in spring, store energy in summer, slow down in fall, and rest in winter."
+    },
+
+    "stressResponse": {
+      "wounds": "Trees compartmentalize wounds using CODIT (Compartmentalization of Decay in Trees). Proper cuts help healing.",
+      "leaning": "Leaning trees grow reaction wood to stabilize themselves. Arborists must understand tension and compression.",
+      "stormDamage": "Storms cause unpredictable stress. Trees respond with emergency growth, cracks, and internal fractures.",
+      "rootDamage": "Root damage affects stability and nutrient flow. Heavy machinery, digging, or soil compaction can kill trees."
+    },
+
+    "treeTypes": {
+      "hardwoods": "Hardwoods like oak, maple, and hickory are strong, dense, and slow-growing.",
+      "softwoods": "Softwoods like pine and cedar grow fast but have weaker wood fibers.",
+      "evergreens": "Evergreens keep needles year-round and handle cold well.",
+      "deciduous": "Deciduous trees drop leaves in fall to conserve energy."
+    },
+
+    "diseases": {
+      "fungal": "Fungal diseases include rot, blight, and mildew. They weaken wood and spread through moisture.",
+      "bacterial": "Bacterial infections cause ooze, wilt, and dieback.",
+      "insect": "Insects like borers, beetles, and caterpillars damage bark, leaves, and internal wood.",
+      "environmental": "Environmental stress includes drought, flooding, pollution, and soil imbalance."
+    },
+
+    "pruningScience": {
+      "branchCollar": "Proper cuts respect the branch collar to help healing.",
+      "energyFlow": "Removing too much canopy reduces the tree’s ability to produce energy.",
+      "structuralBalance": "Pruning improves weight distribution and reduces breakage risk.",
+      "deadwood": "Removing deadwood prevents rot and improves safety."
+    },
+
+    "rootScience": {
+      "rootSpread": "Roots spread 2–3 times wider than the canopy.",
+      "rootHealth": "Healthy roots need oxygen, water, and uncompacted soil.",
+      "rootProtection": "Avoid trenching, heavy equipment, and chemical spills near roots."
+    },
+
+    "canopyPhysics": {
+      "windLoad": "Trees distribute wind load through branches and leaves.",
+      "weightDistribution": "Proper pruning reduces stress on weak attachments.",
+      "movement": "Trees sway to dissipate energy. Arborists must understand movement patterns."
+    }
+  }
+}
