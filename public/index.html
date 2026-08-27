@@ -17,10 +17,13 @@
 
 <body>
 
-<!-- TOP BAR -->
+<!-- ============================
+     TOP BAR (Compact Navigation)
+============================ -->
 <div id="top-bar">
   <div id="top-left">
-    <img src="/img/tree-service-logo.png" id="main-logo">
+    <img src="/img/tree-service-logo.png" id="main-logo" onclick="openMainMenu()">
+
     <div id="top-contact-stack">
       <a href="tel:4704692358" class="stack-item">📞 (470)469-2358</a>
       <a href="mailto:support@chainsawclay.com" class="stack-item">✉️ support@chainsawclay.com</a>
@@ -34,7 +37,43 @@
   </div>
 </div>
 
-<!-- HERO -->
+<!-- ============================
+     FULL LOGO MENU
+============================ -->
+<nav id="main-menu">
+  <div id="main-menu-inner">
+    <button id="main-menu-close" onclick="closeMainMenu()">✕</button>
+
+    <h3 class="menu-category">Main Pages</h3>
+    <ul>
+      <li><a href="/">Home</a></li>
+      <li><a href="/pages/services.html">Services</a></li>
+      <li><a href="/pages/gallery.html">Gallery</a></li>
+      <li><a href="/pages/faq.html">FAQ</a></li>
+      <li><a href="/pages/privacy.html">Privacy Policy</a></li>
+      <li><a href="/pages/terms.html">Terms & Conditions</a></li>
+    </ul>
+
+    <h3 class="menu-category">Service Area</h3>
+    <ul>
+      <li><a href="/pages/service-area.html">Full Service Area</a></li>
+      <li><a href="/pages/atlanta.html">Atlanta</a></li>
+      <li><a href="/pages/decatur.html">Decatur</a></li>
+      <li><a href="/pages/marietta.html">Marietta</a></li>
+      <li><a href="/pages/smyrna.html">Smyrna</a></li>
+    </ul>
+
+    <h3 class="menu-category">Climbing Class</h3>
+    <ul>
+      <li><a href="/climbing-class/public/index.html">Class Home</a></li>
+      <li><a href="/climbing-class/public/pages/app-info.html">App Info</a></li>
+    </ul>
+  </div>
+</nav>
+
+<!-- ============================
+     HERO
+============================ -->
 <section id="hero">
   <div id="video-hero">
     <video id="heroVideo" autoplay muted playsinline loop>
@@ -53,7 +92,9 @@
   <p class="hero-tagline">Georgia’s #1 Climber • Real Experience • Real Results</p>
 </section>
 
-<!-- ESTIMATE FORM -->
+<!-- ============================
+     ESTIMATE FORM
+============================ -->
 <section id="estimate-section">
   <h2>Request a Tree Service Estimate</h2>
   <p class="section-note">Your estimate goes straight to Clay’s phone + admin dashboard.</p>
@@ -102,7 +143,9 @@
   </form>
 </section>
 
-<!-- TREE SERVICE SECTION -->
+<!-- ============================
+     TREE SERVICE SECTION
+============================ -->
 <section id="tree-service-section">
   <div class="section-header">
     <img src="/img/tree-service-logo.png" class="section-logo">
@@ -127,7 +170,48 @@
   </div>
 </section>
 
-<!-- CLIMBING CLASS SECTION -->
+<!-- ============================
+     NEW: CITY SERVICE SECTIONS
+============================ -->
+<section class="city-section">
+  <h2>Service Areas</h2>
+
+  <div class="city-grid">
+
+    <div class="city-card">
+      <img src="/img/city-atlanta.jpg" class="city-photo">
+      <h3>Atlanta</h3>
+      <p>Full removals, pruning, storm cleanup, and climbing classes available.</p>
+      <a href="/pages/atlanta.html" class="city-link">View Atlanta Services</a>
+    </div>
+
+    <div class="city-card">
+      <img src="/img/city-decatur.jpg" class="city-photo">
+      <h3>Decatur</h3>
+      <p>Precision canopy work and expert pruning throughout Decatur.</p>
+      <a href="/pages/decatur.html" class="city-link">View Decatur Services</a>
+    </div>
+
+    <div class="city-card">
+      <img src="/img/city-marietta.jpg" class="city-photo">
+      <h3>Marietta</h3>
+      <p>Storm cleanup, removals, and full climbing instruction.</p>
+      <a href="/pages/marietta.html" class="city-link">View Marietta Services</a>
+    </div>
+
+    <div class="city-card">
+      <img src="/img/city-smyrna.jpg" class="city-photo">
+      <h3>Smyrna</h3>
+      <p>Tree care and climbing classes available in Smyrna.</p>
+      <a href="/pages/smyrna.html" class="city-link">View Smyrna Services</a>
+    </div>
+
+  </div>
+</section>
+
+<!-- ============================
+     CLIMBING CLASS SECTION
+============================ -->
 <section id="climb-class-section">
   <div class="section-header">
     <a href="/climbing-class/public/index.html">
@@ -156,7 +240,9 @@
   </details>
 </section>
 
-<!-- REVIEWS -->
+<!-- ============================
+     REVIEWS
+============================ -->
 <section id="reviews">
   <h2>Client Reviews</h2>
   <p class="section-note">Real reviews from real clients.</p>
@@ -202,7 +288,9 @@
   </form>
 </section>
 
-<!-- FOOTER -->
+<!-- ============================
+     FOOTER
+============================ -->
 <footer id="contact-footer">
   <p>
     <a href="/pages/privacy.html">Privacy Policy</a> |
@@ -210,10 +298,14 @@
   </p>
 </footer>
 
-<!-- CONTACT NOW BUTTON -->
+<!-- ============================
+     CONTACT NOW BUTTON
+============================ -->
 <button id="contact-now-btn" onclick="openContactPopup()">Contact Now</button>
 
-<!-- CONTACT POPUP -->
+<!-- ============================
+     CONTACT POPUP
+============================ -->
 <div id="contact-popup">
   <div id="contact-box">
     <h3>Contact Clay</h3>
