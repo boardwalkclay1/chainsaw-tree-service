@@ -1,0 +1,135 @@
+{
+  "equipment": {
+    "overview": "Arborist equipment is the backbone of safe climbing, rigging, and cutting. Every piece of gear has a specific purpose, a weight rating, and a correct method of use. Professional climbers rely on gear discipline — inspecting, maintaining, and understanding every component before leaving the ground.",
+
+    "harness": {
+      "description": "Your harness is your foundation. It supports your hips, distributes weight, and anchors your lifeline, lanyard, and gear loops. Arborist harnesses include side D-rings, a central bridge, and multiple attachment points.",
+      "types": [
+        "Work-positioning harness",
+        "Bridge-style harness",
+        "Competition harness"
+      ],
+      "safety": "Always inspect stitching, bridge wear, D-ring integrity, and buckles before climbing."
+    },
+
+    "lifeline": {
+      "description": "Your lifeline rope is your main climbing system. It must be static or semi-static, 11–13mm, and rated for arborist use.",
+      "rules": [
+        "Never climb on hardware-store rope.",
+        "Retire ropes with glazing, cuts, or core shots.",
+        "Keep ropes clean and dry."
+      ]
+    },
+
+    "carabiners": {
+      "description": "Carabiners must be triple-lock, auto-lock, and rated for climbing.",
+      "shapes": [
+        "Oval",
+        "HMS",
+        "Pear-shaped"
+      ],
+      "warnings": "Never use cheap aluminum carabiners for climbing or rigging."
+    },
+
+    "lanyards": {
+      "description": "Your lanyard is your second point of safety. Used for positioning, flips, and stability.",
+      "types": [
+        "Steel-core flipline",
+        "Rope lanyard",
+        "Adjustable mechanical lanyard"
+      ]
+    },
+
+    "ascenders": {
+      "description": "Ascenders help you climb rope efficiently.",
+      "systems": [
+        "Foot ascenders",
+        "Knee ascenders",
+        "Hand ascenders",
+        "Rope-walking systems"
+      ]
+    },
+
+    "frictionDevices": {
+      "description": "Friction devices control descent, movement, and rigging friction.",
+      "examples": [
+        "Rope Wrench",
+        "Hitch Climber",
+        "Mechanical devices (Akimbo, Rope Runner)"
+      ]
+    },
+
+    "spikes": {
+      "description": "Spikes are ONLY for removals. They damage live trees.",
+      "rules": [
+        "Never spike a tree you are pruning.",
+        "Strap spikes tight to avoid rotation.",
+        "Use proper foot placement to avoid gaff-out."
+      ]
+    },
+
+    "helmets": {
+      "description": "Helmets must be arborist-rated with chin straps.",
+      "protection": "Protects from falling limbs, saw kickback, slips, and impacts."
+    },
+
+    "gloves": {
+      "description": "Gloves protect your hands from rope burn, cuts, and abrasion.",
+      "types": [
+        "Leather climbing gloves",
+        "Synthetic grip gloves",
+        "Cut-resistant gloves"
+      ]
+    },
+
+    "saws": {
+      "description": "Chainsaws must be sharp, well-maintained, and used with PPE.",
+      "types": [
+        "Top-handle saw (climbing)",
+        "Rear-handle saw (ground work)"
+      ],
+      "care": [
+        "Sharpen chain regularly",
+        "Maintain bar rails",
+        "Clean air filter",
+        "Use correct fuel mix"
+      ]
+    },
+
+    "pulleys": {
+      "description": "Pulleys reduce friction and redirect loads.",
+      "uses": [
+        "Rigging",
+        "Redirects",
+        "Mechanical advantage systems"
+      ]
+    },
+
+    "slings": {
+      "description": "Slings attach hardware to trees safely.",
+      "types": [
+        "Dead-eye slings",
+        "Loop slings",
+        "Whoopie slings"
+      ]
+    },
+
+    "ropeCare": {
+      "description": "Rope must be kept clean, dry, and away from chemicals.",
+      "rules": [
+        "Inspect rope before every climb",
+        "Avoid stepping on rope",
+        "Store rope properly"
+      ]
+    },
+
+    "ratings": {
+      "description": "Every piece of gear must be rated for climbing.",
+      "details": [
+        "Look for kN ratings",
+        "Check arborist certifications",
+        "Avoid uncertified hardware"
+      ]
+    }
+  }
+}
