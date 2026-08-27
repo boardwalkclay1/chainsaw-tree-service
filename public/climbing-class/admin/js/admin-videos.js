@@ -1,10 +1,17 @@
+import { KNOTS } from "./modules/knots.js";
+import { CLIMBING } from "./modules/climbing.js";
+import { THROWBALL } from "./modules/throwball.js";
+import { CUTTING } from "./modules/cutting.js";
+import { BUSINESS } from "./modules/business.js";
+import { SAFETY } from "./modules/safety.js";
+
 const ALL_CATEGORIES = [
-  window.KNOTS,
-  window.CLIMBING,
-  window.THROWBALL,
-  window.CUTTING,
-  window.BUSINESS,
-  window.SAFETY
+  KNOTS,
+  CLIMBING,
+  THROWBALL,
+  CUTTING,
+  BUSINESS,
+  SAFETY
 ];
 
 function buildVideoLibrary() {
@@ -60,13 +67,15 @@ function buildVideoLibrary() {
   });
 }
 
-buildVideoLibrary();
+document.addEventListener("DOMContentLoaded", () => {
+  buildVideoLibrary();
 
-document.getElementById("videoSearch").addEventListener("input", function () {
-  const term = this.value.toLowerCase();
-  document.querySelectorAll(".video-card").forEach(card => {
-    const text = card.innerText.toLowerCase();
-    const tags = card.dataset.tags.toLowerCase();
-    card.style.display = (text.includes(term) || tags.includes(term)) ? "" : "none";
+  document.getElementById("videoSearch").addEventListener("input", function () {
+    const term = this.value.toLowerCase();
+    document.querySelectorAll(".video-card").forEach(card => {
+      const text = card.innerText.toLowerCase();
+      const tags = card.dataset.tags.toLowerCase();
+      card.style.display = (text.includes(term) || tags.includes(term)) ? "" : "none";
+    });
   });
 });
