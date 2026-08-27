@@ -42,7 +42,7 @@ function buildVideoLibrary() {
       sub.videos.forEach(video => {
         const card = document.createElement("div");
         card.className = "video-card";
-        card.dataset.tags = video.tags;
+        card.dataset.tags = video.tags || "";
 
         card.innerHTML = `
           <h4>${video.title}</h4>
