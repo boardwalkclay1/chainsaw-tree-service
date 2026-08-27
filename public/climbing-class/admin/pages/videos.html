@@ -5,25 +5,7 @@
   <title>Admin Video Library</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-  <link rel="icon" type="image/png" href="/favicon.png">
-
-  <meta property="og:title" content="Admin Video Library">
-  <meta property="og:description" content="Full access to all climbing class videos.">
-  <meta property="og:image" content="/favicon.png">
-  <meta property="og:type" content="website">
-
   <link rel="stylesheet" href="/climbing-class/admin/admin.css">
-
-  <!-- LOAD ALL MODULES -->
-  <script src="/climbing-class/admin/js/modules/knots.js"></script>
-  <script src="/climbing-class/admin/js/modules/climbing.js"></script>
-  <script src="/climbing-class/admin/js/modules/throwball.js"></script>
-  <script src="/climbing-class/admin/js/modules/cutting.js"></script>
-  <script src="/climbing-class/admin/js/modules/business.js"></script>
-  <script src="/climbing-class/admin/js/modules/safety.js"></script>
-
-  <!-- MAIN ADMIN VIDEO JS -->
-  <script src="/climbing-class/admin/js/admin-videos.js"></script>
 </head>
 
 <body>
@@ -32,10 +14,21 @@
   <p>Search all categories, subcategories, and videos.</p>
 
   <!-- SEARCH BAR -->
-  <input id="videoSearch" type="text" placeholder="Search videos...">
+  <input id="videoSearch" type="text" placeholder="Search videos..." />
 
-  <!-- VIDEO LIBRARY CONTAINER -->
+  <!-- REQUIRED: THIS FIXES YOUR ERROR -->
   <div id="videoContainer"></div>
+
+  <!-- LOAD ALL MODULES FIRST -->
+  <script src="/climbing-class/admin/js/modules/knots.js"></script>
+  <script src="/climbing-class/admin/js/modules/climbing.js"></script>
+  <script src="/climbing-class/admin/js/modules/throwball.js"></script>
+  <script src="/climbing-class/admin/js/modules/cutting.js"></script>
+  <script src="/climbing-class/admin/js/modules/business.js"></script>
+  <script src="/climbing-class/admin/js/modules/safety.js"></script>
+
+  <!-- THEN LOAD THE ADMIN VIDEO BUILDER -->
+  <script src="/climbing-class/admin/js/admin-videos.js"></script>
 
 </body>
 </html>
