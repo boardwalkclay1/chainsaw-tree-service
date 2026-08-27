@@ -1,0 +1,145 @@
+/* ============================================================
+   RTG ADMIN — CONTRACTS SUITE
+   Clean • Professional • Cinematic
+============================================================ */
+
+body.rtg-admin-contracts {
+  margin: 0;
+  font-family: system-ui, sans-serif;
+  background:
+    linear-gradient(rgba(0,0,0,0.55), rgba(0,0,0,0.85)),
+    url("/assets/img/backgrounds/rtg-admin-dash.jpg");
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  color: #f5f5f5;
+}
+
+/* HEADER */
+.rtg-admin-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 14px 20px;
+  background: rgba(0,0,0,0.85);
+  border-bottom: 1px solid #333;
+  backdrop-filter: blur(4px);
+}
+
+.rtg-admin-logo {
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: #ff7a1a;
+}
+
+.rtg-admin-title {
+  font-size: 1.1rem;
+  opacity: 0.9;
+}
+
+/* MAIN GRID */
+.rtg-admin-main {
+  display: grid;
+  grid-template-columns: 1fr 1.4fr;
+  gap: 20px;
+  padding: 20px;
+}
+
+/* PANELS */
+.rtg-admin-panel {
+  background: rgba(15,20,25,0.92);
+  border-radius: 12px;
+  padding: 16px;
+  border: 1px solid #333;
+  backdrop-filter: blur(4px);
+}
+
+.rtg-admin-panel h2 {
+  margin-top: 0;
+  margin-bottom: 12px;
+  font-weight: 700;
+}
+
+/* BUTTONS */
+.rtg-btn {
+  border: none;
+  border-radius: 6px;
+  padding: 8px 14px;
+  cursor: pointer;
+  font-size: 0.95rem;
+  transition: 0.2s ease;
+  margin-bottom: 8px;
+}
+
+.rtg-btn--primary {
+  background: #ff7a1a;
+  color: #000;
+}
+
+.rtg-btn--primary:hover {
+  background: #ff9a42;
+}
+
+.rtg-btn--outline {
+  background: transparent;
+  color: #ff7a1a;
+  border: 1px solid #ff7a1a;
+}
+
+.rtg-btn--outline:hover {
+  background: rgba(255,122,26,0.15);
+}
+
+/* DOCUMENT LIST */
+.contracts-list {
+  margin-top: 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.admin-contract-card {
+  background: rgba(17,22,27,0.92);
+  border: 1px solid #333;
+  border-radius: 10px;
+  padding: 12px;
+  backdrop-filter: blur(3px);
+}
+
+/* FORM GRID */
+.form-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 12px;
+}
+
+.form-grid label {
+  display: flex;
+  flex-direction: column;
+  font-size: 0.9rem;
+}
+
+.form-grid input,
+.form-grid textarea,
+.form-grid select {
+  margin-top: 4px;
+  padding: 6px 8px;
+  border-radius: 6px;
+  border: 1px solid #333;
+  background: #0f1419;
+  color: #f5f5f5;
+}
+
+/* META */
+.contract-meta {
+  margin-top: 16px;
+  font-size: 0.9rem;
+  opacity: 0.9;
+}
+
+/* ACTIONS */
+.contract-actions {
+  margin-top: 16px;
+  display: flex;
+  gap: 10px;
+}
