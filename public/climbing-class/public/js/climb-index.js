@@ -1,10 +1,20 @@
 /* ============================
-   SIDEBAR TOGGLE
+   SIDEBAR OPEN/CLOSE
    ============================ */
 function toggleSidebar() {
   const bar = document.getElementById("sidebar");
-  bar.classList.toggle("open");
+  bar.classList.add("open");
 }
+
+document.addEventListener("DOMContentLoaded", () => {
+  const closeBtn = document.createElement("div");
+  closeBtn.id = "sidebar-close";
+  closeBtn.textContent = "✕";
+  closeBtn.onclick = () => {
+    document.getElementById("sidebar").classList.remove("open");
+  };
+  document.getElementById("sidebar").appendChild(closeBtn);
+});
 
 /* ============================
    FLOATING LEAVES
@@ -21,51 +31,41 @@ function toggleSidebar() {
 })();
 
 /* ============================
-   FLOATING SQUIRREL CHAT BRAIN
+   SQUIRREL CHAT TOGGLE ONLY
    ============================ */
 const squirrelBtn = document.getElementById("squirrelChatBtn");
 const squirrelBubble = document.getElementById("squirrelBubble");
-const squirrelMessages = document.getElementById("squirrelMessages");
-const squirrelInput = document.getElementById("squirrelInput");
 
 squirrelBtn.onclick = () => {
   squirrelBubble.classList.toggle("open");
 };
+
+/* ============================
+   INPUT HANDOFF TO SQUIRREL.JS
+   ============================ */
+const squirrelInput = document.getElementById("squirrelInput");
+const squirrelMessages = document.getElementById("squirrelMessages");
 
 squirrelInput.addEventListener("keydown", (e) => {
   if (e.key === "Enter") {
     const msg = squirrelInput.value.trim();
     if (!msg) return;
 
-    addSquirrelMessage("You: " + msg);
-    squirrelInput.value = "";
+    // Display user message
+    const div = document.createElement("div");
+    div.textContent = "You: " + msg;
+    squirrelMessages.appendChild(div);
+    squirrelMessages.scrollTop = squirrelMessages.scrollHeight;
 
-    // SQUIRREL BRAIN RESPONSE
-    setTimeout(() => {
-      addSquirrelMessage(squirrelBrain(msg));
-    }, 300);
+    // Hand off to squirrel.js brain
+    if (typeof squirrelBrain === "function") {
+      const reply = squirrelBrain(msg);
+      const r = document.createElement("div");
+      r.textContent = reply;
+      squirrelMessages.appendChild(r);
+      squirrelMessages.scrollTop = squirrelMessages.scrollHeight;
+    }
+
+    squirrelInput.value = "";
   }
 });
-
-function addSquirrelMessage(text) {
-  const div = document.createElement("div");
-  div.textContent = text;
-  squirrelMessages.appendChild(div);
-  squirrelMessages.scrollTop = squirrelMessages.scrollHeight;
-}
-
-/* ============================
-   SQUIRREL AI BRAIN
-   ============================ */
-function squirrelBrain(input) {
-  input = input.toLowerCase();
-
-  if (input.includes("price")) return "Pricing depends on class type — check the pricing page!";
-  if (input.includes("gear")) return "Gear starts with harness, lifeline, carabiners, and friction hitch.";
-  if (input.includes("throwball")) return "Throwball mastery is all about anchor selection and clean throws.";
-  if (input.includes("class")) return "Classes run weekly — check the schedule!";
-  if (input.includes("app")) return "The app has videos, quizzes, and breakdowns for every climbing skill.";
-  if (input.includes("help")) return "I can help with classes, knots, gear, rigging, or app info.";
-
-  return "Got it! Ask me anything about climbing, gear, knots, rigging, or classes.";
-}
