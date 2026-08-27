@@ -1,4 +1,4 @@
-window.THROWBALL = {
+export const THROWBALL = {
   title: "Throwball",
 
   subcategories: {
@@ -7,11 +7,13 @@ window.THROWBALL = {
       videos: [
         {
           title: "Intro Lesson (Part 2)",
-          src: "https://github.com/boardwalkclay1/throwball/releases/download/throwball/TRIAL____________throwball-intro.mp4"
+          src: "https://github.com/boardwalkclay1/throwball/releases/download/throwball/TRIAL____________throwball-intro.mp4",
+          tags: "intro basics throwball"
         },
         {
           title: "Intro Lesson (Part 1)",
-          src: "https://github.com/boardwalkclay1/throwball/releases/download/throwball-2/throwball-intro.mp4"
+          src: "https://github.com/boardwalkclay1/throwball/releases/download/throwball-2/throwball-intro.mp4",
+          tags: "intro basics throwball"
         }
       ]
     },
@@ -21,7 +23,8 @@ window.THROWBALL = {
       videos: [
         {
           title: "Second Lesson",
-          src: "https://github.com/boardwalkclay1/throwball/releases/download/throwball-2/Thrwball-part-3.mp4"
+          src: "https://github.com/boardwalkclay1/throwball/releases/download/throwball-2/Thrwball-part-3.mp4",
+          tags: "anchors setup throwball"
         }
       ]
     },
