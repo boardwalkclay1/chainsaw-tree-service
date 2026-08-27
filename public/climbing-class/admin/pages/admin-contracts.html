@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>RTG Admin — Contracts Suite</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <link rel="stylesheet" href="/rtg-online/admin/assets/css/admin-contracts.css">
+  <script src="/rtg-online/admin/assets/js/admin-contracts.js" defer></script>
+</head>
+
+<body class="rtg-admin-contracts" data-page="admin-contracts">
+
+  <!-- HEADER -->
+  <header class="rtg-admin-header">
+    <div class="rtg-admin-logo">RTG Admin</div>
+    <div class="rtg-admin-title">Contracts & Documents Suite</div>
+  </header>
+
+  <!-- MAIN GRID -->
+  <main class="rtg-admin-main">
+
+    <!-- LEFT: DOCUMENT LIST -->
+    <section class="rtg-admin-panel">
+      <h2>Documents</h2>
+
+      <button class="rtg-btn rtg-btn--primary" onclick="newAdminContract('contract')">
+        + New Contract
+      </button>
+
+      <button class="rtg-btn rtg-btn--outline" onclick="newAdminContract('estimate')">
+        + New Estimate
+      </button>
+
+      <button class="rtg-btn rtg-btn--outline" onclick="newAdminContract('proposal')">
+        + New Proposal
+      </button>
+
+      <button class="rtg-btn rtg-btn--outline" onclick="newAdminContract('receipt')">
+        + New Receipt
+      </button>
+
+      <div id="adminContractsList" class="contracts-list"></div>
+    </section>
+
+    <!-- RIGHT: DOCUMENT EDITOR -->
+    <section class="rtg-admin-panel">
+      <h2>Document Editor</h2>
+
+      <div class="form-grid">
+
+        <!-- TYPE -->
+        <label>
+          Document Type
+          <select id="contractType">
+            <option value="contract">Contract</option>
+            <option value="estimate">Estimate</option>
+            <option value="proposal">Proposal</option>
+            <option value="receipt">Receipt</option>
+          </select>
+        </label>
+
+        <!-- CLIENT INFO -->
+        <label>
+          Client Name
+          <input id="contractClientName" type="text">
+        </label>
+
+        <label>
+          Client Email
+          <input id="contractClientEmail" type="email">
+        </label>
+
+        <label>
+          Client Phone
+          <input id="contractClientPhone" type="text">
+        </label>
+
+        <label>
+          Client Address
+          <input id="contractClientAddress" type="text">
+        </label>
+
+        <!-- JOB INFO -->
+        <label>
+          Job Address
+          <input id="contractJobAddress" type="text">
+        </label>
+
+        <label>
+          Scope of Work
+          <textarea id="contractScope"></textarea>
+        </label>
+
+        <label>
+          Work Plan
+          <textarea id="contractWorkPlan"></textarea>
+        </label>
+
+        <label>
+          Special Clauses
+          <textarea id="contractSpecialClauses"></textarea>
+        </label>
+
+        <!-- MONEY -->
+        <label>
+          Total Price ($)
+          <input id="contractTotalPrice" type="number">
+        </label>
+
+        <label>
+          Deposit Required ($)
+          <input id="contractDeposit" type="number">
+        </label>
+
+        <label>
+          Payment Schedule
+          <textarea id="contractPaymentSchedule"></textarea>
+        </label>
+
+        <label>
+          Notes
+          <textarea id="contractNotes"></textarea>
+        </label>
+
+      </div>
+
+      <!-- STATUS + DATES -->
+      <div class="contract-meta">
+        <p><strong>Created:</strong> <span id="contractCreatedAt">N/A</span></p>
+        <p><strong>Client Signed:</strong> <span id="contractClientSignedAt">Not signed</span></p>
+        <p><strong>Admin Signed:</strong> <span id="contractAdminSignedAt">Not signed</span></p>
+        <p><strong>Status:</strong> <span id="contractStatus">Draft</span></p>
+      </div>
+
+      <!-- ACTION BUTTONS -->
+      <div class="contract-actions">
+        <button class="rtg-btn rtg-btn--primary" onclick="saveAdminContract()">Save</button>
+        <button class="rtg-btn rtg-btn--outline" onclick="adminSignContract()">Sign</button>
+        <button class="rtg-btn rtg-btn--primary" onclick="sendContractToClient()">Send to Client</button>
+      </div>
+
+    </section>
+
+  </main>
+
+</body>
+</html>
