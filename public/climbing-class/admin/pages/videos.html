@@ -2,50 +2,40 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>Admin Videos</title>
+  <title>Admin Video Library</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-  <!-- FAVICON -->
   <link rel="icon" type="image/png" href="/favicon.png">
 
-  <!-- SOCIAL PREVIEW -->
-  <meta property="og:title" content="Admin Videos">
-  <meta property="og:description" content="Full access to all Throwball course videos.">
+  <meta property="og:title" content="Admin Video Library">
+  <meta property="og:description" content="Full access to all climbing class videos.">
   <meta property="og:image" content="/favicon.png">
   <meta property="og:type" content="website">
 
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Admin Videos">
-  <meta name="twitter:image" content="/favicon.png">
-
-  <!-- CALL YOUR CSS -->
   <link rel="stylesheet" href="/climbing-class/admin/admin.css">
+
+  <!-- LOAD ALL MODULES -->
+  <script src="/climbing-class/admin/js/modules/knots.js"></script>
+  <script src="/climbing-class/admin/js/modules/climbing.js"></script>
+  <script src="/climbing-class/admin/js/modules/throwball.js"></script>
+  <script src="/climbing-class/admin/js/modules/cutting.js"></script>
+  <script src="/climbing-class/admin/js/modules/business.js"></script>
+  <script src="/climbing-class/admin/js/modules/safety.js"></script>
+
+  <!-- MAIN ADMIN VIDEO JS -->
+  <script src="/climbing-class/admin/js/admin-videos.js"></script>
 </head>
 
 <body>
 
   <h1>Admin Video Library</h1>
-  <p>You have full access to ALL Throwball videos.</p>
+  <p>Search all categories, subcategories, and videos.</p>
 
-  <h2>Throwball Course</h2>
-  <div class="grid">
+  <!-- SEARCH BAR -->
+  <input id="videoSearch" type="text" placeholder="Search videos...">
 
-    <div class="card">
-      <h3>Intro Lesson (Part 1)</h3>
-      <video controls src="https://github.com/boardwalkclay1/throwball/releases/download/throwball-2/throwball-intro.mp4"></video>
-    </div>
-
-    <div class="card">
-      <h3>Intro Lesson (Part 2)</h3>
-      <video controls src="https://github.com/boardwalkclay1/throwball/releases/download/throwball/TRIAL____________throwball-intro.mp4"></video>
-    </div>
-
-    <div class="card">
-      <h3>Second Lesson</h3>
-      <video controls src="https://github.com/boardwalkclay1/throwball/releases/download/throwball-2/Thrwball-part-3.mp4"></video>
-    </div>
-
-  </div>
+  <!-- VIDEO LIBRARY CONTAINER -->
+  <div id="videoContainer"></div>
 
 </body>
 </html>
