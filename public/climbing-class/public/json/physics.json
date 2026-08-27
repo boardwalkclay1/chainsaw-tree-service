@@ -1,0 +1,55 @@
+{
+  "physics": {
+    "overview": "Tree climbing and rigging rely heavily on physics. Understanding rope angles, friction, load distribution, and mechanical advantage makes you a safer and more efficient arborist.",
+
+    "ropePhysics": {
+      "tension": "Rope tension increases with load weight and rope angle.",
+      "friction": "Friction reduces force but increases heat. Devices manage friction safely.",
+      "bendRadius": "Sharp bends weaken rope. Use pulleys to maintain proper radius.",
+      "stretch": "Static ropes stretch less, providing predictable movement."
+    },
+
+    "loadDistribution": {
+      "anchorPoints": "Strong anchors distribute load safely.",
+      "weakPoints": "Weak attachments can fail under stress.",
+      "triangulation": "Multiple anchors reduce load on any single point.",
+      "compressionTension": "Wood reacts differently depending on compression and tension."
+    },
+
+    "mechanicalAdvantage": {
+      "2to1": "A 2:1 system doubles pulling power.",
+      "3to1": "A 3:1 system triples pulling power.",
+      "pulleys": "Pulleys reduce friction and increase efficiency.",
+      "redirects": "Redirects change direction without changing mechanical advantage."
+    },
+
+    "climbingMechanics": {
+      "bodyThrust": "Uses hips and legs to move upward efficiently.",
+      "footlocking": "Locks rope between feet for controlled ascent.",
+      "ropeWalking": "Uses ascenders to walk up rope smoothly.",
+      "SRS": "Single rope systems provide efficient vertical movement.",
+      "MRS": "Moving rope systems provide dynamic movement and control."
+    },
+
+    "canopyPhysics": {
+      "limbWalking": "Balance and weight distribution are key.",
+      "sway": "Trees sway to dissipate energy. Climbers must anticipate movement.",
+      "windLoad": "Wind increases stress on limbs and anchors.",
+      "branchAngles": "Branch angles determine strength and breakage risk."
+    },
+
+    "riggingPhysics": {
+      "negativeRigging": "Loads move downward, increasing force on anchor.",
+      "speedlines": "Speedlines use gravity to move wood quickly.",
+      "frictionDevices": "Devices manage speed and prevent shock-loading.",
+      "shockLoad": "Sudden force can break anchors or ropes."
+    },
+
+    "cuttingPhysics": {
+      "hingeControl": "Hinge thickness determines fall direction.",
+      "compression": "Compression closes cuts.",
+      "tension": "Tension opens cuts.",
+      "kickback": "Kickback occurs when bar tip contacts wood."
+    }
+  }
+}
