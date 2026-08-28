@@ -1,35 +1,116 @@
 /* ============================================================
-   RTG ADMIN — CONTRACTS SUITE
-   Clean • Professional • Cinematic
+   RTG ADMIN — CONTRACTS SUITE (FULL REBUILD)
+   Neon Green • Cinematic • Professional • Clean
 ============================================================ */
 
 body.rtg-admin-contracts {
   margin: 0;
   font-family: system-ui, sans-serif;
+
+  /* Cinematic background */
   background:
-    linear-gradient(rgba(0,0,0,0.55), rgba(0,0,0,0.85)),
+    linear-gradient(rgba(0,0,0,0.65), rgba(0,0,0,0.85)),
     url("/assets/img/backgrounds/rtg-admin-dash.jpg");
   background-size: cover;
   background-position: center;
   background-attachment: fixed;
-  color: #f5f5f5;
+
+  color: #00c853; /* NEON GREEN */
 }
 
-/* HEADER */
+/* ============================================================
+   BURGER MENU
+============================================================ */
+.rtg-burger {
+  position: fixed;
+  top: 14px;
+  left: 14px;
+  font-size: 2rem;
+  cursor: pointer;
+  color: #00c853;
+  z-index: 9999;
+  text-shadow: 0 0 10px #00c853;
+}
+
+/* ============================================================
+   FULL ADMIN NAV
+============================================================ */
+.rtg-admin-nav {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.92);
+  backdrop-filter: blur(6px);
+  display: none;
+  flex-direction: column;
+  z-index: 99999;
+}
+
+.rtg-admin-nav.open {
+  display: flex;
+}
+
+.rtg-nav-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 18px;
+  border-bottom: 1px solid #00c853;
+}
+
+.rtg-nav-logo {
+  height: 60px;
+  filter: drop-shadow(0 0 10px #00c853);
+}
+
+#rtgNavClose {
+  background: none;
+  border: none;
+  font-size: 2rem;
+  color: #00c853;
+  cursor: pointer;
+}
+
+.rtg-nav-links {
+  list-style: none;
+  padding: 20px;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.rtg-nav-links a {
+  color: #00c853;
+  font-size: 1.2rem;
+  text-decoration: none;
+  font-weight: 600;
+  transition: 0.2s ease;
+}
+
+.rtg-nav-links a:hover {
+  color: #fff;
+  text-shadow: 0 0 10px #00c853;
+}
+
+/* ============================================================
+   HEADER
+============================================================ */
 .rtg-admin-header {
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 14px 20px;
+
   background: rgba(0,0,0,0.85);
-  border-bottom: 1px solid #333;
-  backdrop-filter: blur(4px);
+  border-bottom: 1px solid #00c853;
+  backdrop-filter: blur(6px);
 }
 
 .rtg-admin-logo {
-  font-size: 1.3rem;
+  font-size: 1.4rem;
   font-weight: 700;
-  color: #ff7a1a;
+  color: #00c853;
+  text-shadow: 0 0 10px #00c853;
 }
 
 .rtg-admin-title {
@@ -37,34 +118,43 @@ body.rtg-admin-contracts {
   opacity: 0.9;
 }
 
-/* MAIN GRID */
+/* ============================================================
+   MAIN GRID
+============================================================ */
 .rtg-admin-main {
   display: grid;
-  grid-template-columns: 1fr 1.4fr;
+  grid-template-columns: 1fr 1fr 1fr;
   gap: 20px;
   padding: 20px;
 }
 
-/* PANELS */
+/* ============================================================
+   PANELS
+============================================================ */
 .rtg-admin-panel {
-  background: rgba(15,20,25,0.92);
+  background: rgba(10,15,20,0.92);
   border-radius: 12px;
   padding: 16px;
-  border: 1px solid #333;
-  backdrop-filter: blur(4px);
+  border: 1px solid #00c853;
+  backdrop-filter: blur(6px);
+  box-shadow: 0 0 20px rgba(0,200,83,0.25);
 }
 
 .rtg-admin-panel h2 {
   margin-top: 0;
   margin-bottom: 12px;
   font-weight: 700;
+  color: #00c853;
+  text-shadow: 0 0 8px #00c853;
 }
 
-/* BUTTONS */
+/* ============================================================
+   BUTTONS
+============================================================ */
 .rtg-btn {
   border: none;
   border-radius: 6px;
-  padding: 8px 14px;
+  padding: 10px 16px;
   cursor: pointer;
   font-size: 0.95rem;
   transition: 0.2s ease;
@@ -72,25 +162,29 @@ body.rtg-admin-contracts {
 }
 
 .rtg-btn--primary {
-  background: #ff7a1a;
+  background: #00c853;
   color: #000;
+  font-weight: 700;
+  box-shadow: 0 0 10px #00c853;
 }
 
 .rtg-btn--primary:hover {
-  background: #ff9a42;
+  background: #00e676;
 }
 
 .rtg-btn--outline {
   background: transparent;
-  color: #ff7a1a;
-  border: 1px solid #ff7a1a;
+  color: #00c853;
+  border: 1px solid #00c853;
 }
 
 .rtg-btn--outline:hover {
-  background: rgba(255,122,26,0.15);
+  background: rgba(0,200,83,0.15);
 }
 
-/* DOCUMENT LIST */
+/* ============================================================
+   DOCUMENT LIST
+============================================================ */
 .contracts-list {
   margin-top: 12px;
   display: flex;
@@ -100,13 +194,39 @@ body.rtg-admin-contracts {
 
 .admin-contract-card {
   background: rgba(17,22,27,0.92);
-  border: 1px solid #333;
+  border: 1px solid #00c853;
   border-radius: 10px;
   padding: 12px;
   backdrop-filter: blur(3px);
+  box-shadow: 0 0 12px rgba(0,200,83,0.25);
 }
 
-/* FORM GRID */
+.admin-contract-card h3 {
+  margin: 0 0 6px 0;
+  color: #00e676;
+}
+
+.admin-contract-card p {
+  margin: 4px 0;
+  font-size: 0.9rem;
+}
+
+/* ============================================================
+   LIVE PREVIEW
+============================================================ */
+.contract-preview {
+  background: rgba(0,0,0,0.65);
+  border: 1px solid #00c853;
+  border-radius: 10px;
+  padding: 16px;
+  min-height: 200px;
+  box-shadow: inset 0 0 20px rgba(0,200,83,0.25);
+  color: #00e676;
+}
+
+/* ============================================================
+   DOCUMENT EDITOR
+============================================================ */
 .form-grid {
   display: grid;
   grid-template-columns: 1fr;
@@ -117,29 +237,52 @@ body.rtg-admin-contracts {
   display: flex;
   flex-direction: column;
   font-size: 0.9rem;
+  color: #00c853;
 }
 
 .form-grid input,
 .form-grid textarea,
 .form-grid select {
   margin-top: 4px;
-  padding: 6px 8px;
+  padding: 8px 10px;
   border-radius: 6px;
-  border: 1px solid #333;
+  border: 1px solid #00c853;
   background: #0f1419;
-  color: #f5f5f5;
+  color: #00e676;
+  font-size: 0.95rem;
 }
 
-/* META */
+.form-grid textarea {
+  min-height: 70px;
+}
+
+/* ============================================================
+   META
+============================================================ */
 .contract-meta {
   margin-top: 16px;
   font-size: 0.9rem;
   opacity: 0.9;
 }
 
-/* ACTIONS */
+.contract-meta strong {
+  color: #00e676;
+}
+
+/* ============================================================
+   ACTION BUTTONS
+============================================================ */
 .contract-actions {
   margin-top: 16px;
   display: flex;
   gap: 10px;
+}
+
+/* ============================================================
+   MOBILE
+============================================================ */
+@media (max-width: 900px) {
+  .rtg-admin-main {
+    grid-template-columns: 1fr;
+  }
 }
