@@ -17,308 +17,310 @@
 
 <body>
 
-<!-- ============================
-     TOP BAR (Compact Navigation)
-============================ -->
-<div id="top-bar">
-  <div id="top-left">
-    <img src="/img/tree-service-logo.png" id="main-logo" onclick="openMainMenu()">
+  <!-- BACKGROUND -->
+  <div id="bg-lock"></div>
 
-    <div id="top-contact-stack">
-      <a href="tel:4704692358" class="stack-item">📞 (470)469-2358</a>
-      <a href="mailto:support@chainsawclay.com" class="stack-item">✉️ support@chainsawclay.com</a>
+  <!-- ============================
+       TOP BAR
+  ============================ -->
+  <header id="top-bar">
+    <div id="top-left">
+      <img src="/img/tree-service-logo.png" id="main-logo">
+      <div id="top-contact-stack">
+        <a href="tel:4704692358" class="stack-item green-text">📞 (470)469‑2358</a>
+        <a href="mailto:support@chainsawclay.com" class="stack-item green-text">✉️ support@chainsawclay.com</a>
+      </div>
+    </div>
+
+    <div id="top-right">
+      <a href="/climbing-class/public/index.html">
+        <img src="/img/climb-logo.jpg" id="climb-logo-top">
+      </a>
+    </div>
+  </header>
+
+  <!-- ============================
+       FULL LOGO MENU
+  ============================ -->
+  <nav id="main-menu">
+    <div id="main-menu-inner">
+      <button id="main-menu-close" class="green-text">✕</button>
+
+      <h3 class="menu-category green-text">Main Pages</h3>
+      <ul>
+        <li><a href="/" class="green-text">Home</a></li>
+        <li><a href="/pages/services.html" class="green-text">Services</a></li>
+        <li><a href="/pages/gallery.html" class="green-text">Gallery</a></li>
+        <li><a href="/pages/faq.html" class="green-text">FAQ</a></li>
+        <li><a href="/pages/privacy.html" class="green-text">Privacy Policy</a></li>
+        <li><a href="/pages/terms.html" class="green-text">Terms & Conditions</a></li>
+      </ul>
+
+      <h3 class="menu-category green-text">Service Area</h3>
+      <ul>
+        <li><a href="/pages/service-area.html" class="green-text">Full Service Area</a></li>
+        <li><a href="/pages/atlanta.html" class="green-text">Atlanta</a></li>
+        <li><a href="/pages/decatur.html" class="green-text">Decatur</a></li>
+        <li><a href="/pages/marietta.html" class="green-text">Marietta</a></li>
+        <li><a href="/pages/smyrna.html" class="green-text">Smyrna</a></li>
+      </ul>
+
+      <h3 class="menu-category green-text">Climbing Class</h3>
+      <ul>
+        <li><a href="/climbing-class/public/index.html" class="green-text">Class Home</a></li>
+        <li><a href="/climbing-class/public/pages/app-info.html" class="green-text">App Info</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- ============================
+       HERO SECTION
+  ============================ -->
+  <section id="hero">
+    <div id="video-hero">
+      <video id="heroVideo" autoplay muted playsinline loop>
+        <source src="https://github.com/boardwalkclay1/chainsaw-tree-service/releases/download/top/big-top-drop.mp4" type="video/mp4">
+      </video>
+
+      <div id="video-controls">
+        <button class="control-btn green-text" id="backBtn">« Back 5s</button>
+        <button class="control-btn green-text" id="playPauseBtn">Pause</button>
+        <button class="control-btn green-text" id="forwardBtn">Forward 5s »</button>
+        <button class="control-btn green-text" id="muteBtn">Sound: On</button>
+      </div>
+    </div>
+
+    <h1 class="hero-title green-text">Chainsaw Clay's Tree Service</h1>
+    <p class="hero-tagline green-text">Georgia’s #1 Climber • Real Experience • Real Results</p>
+  </section>
+
+  <!-- ============================
+       ESTIMATE FORM
+  ============================ -->
+  <section id="estimate-section">
+    <h2 class="green-text">Request a Tree Service Estimate</h2>
+    <p class="section-note green-text">Your estimate goes straight to Clay’s phone + admin dashboard.</p>
+
+    <form id="estimate-form">
+      <div class="field-row">
+        <label for="est-name" class="green-text">Full Name</label>
+        <input type="text" id="est-name" name="name" required>
+      </div>
+
+      <div class="field-row">
+        <label for="est-phone" class="green-text">Phone Number</label>
+        <input type="tel" id="est-phone" name="phone" required>
+      </div>
+
+      <div class="field-row">
+        <label for="est-email" class="green-text">Email</label>
+        <input type="email" id="est-email" name="email" required>
+      </div>
+
+      <div class="field-row">
+        <label for="est-address" class="green-text">Address</label>
+        <input type="text" id="est-address" name="address" required>
+      </div>
+
+      <div class="field-row">
+        <label for="est-service" class="green-text">Service Type</label>
+        <select id="est-service" name="service" required>
+          <option value="">Select a service</option>
+          <option value="Tree Removal">Tree Removal</option>
+          <option value="Pruning">Pruning</option>
+          <option value="Storm Cleanup">Storm Cleanup</option>
+          <option value="General Cleanup">General Cleanup</option>
+          <option value="Planting / Layout">Planting / Layout</option>
+        </select>
+      </div>
+
+      <div class="field-row">
+        <label for="est-description" class="green-text">Project Description</label>
+        <textarea id="est-description" name="description" rows="4"></textarea>
+      </div>
+
+      <button type="submit" id="estimate-submit" class="primary-btn green-text">
+        Send Estimate Request
+      </button>
+    </form>
+  </section>
+
+  <!-- ============================
+       TREE SERVICE SECTION
+  ============================ -->
+  <section id="tree-service-section">
+    <div class="section-header">
+      <img src="/img/tree-service-logo.png" class="section-logo">
+      <div>
+        <h2 class="green-text">Chainsaw Clay — Georgia’s Best Climber</h2>
+        <p class="section-tagline green-text">Real canopy work. Real removals. Real skill.</p>
+      </div>
+    </div>
+
+    <img src="/img/done-climb.jpg" class="section-photo">
+
+    <p class="section-body green-text">
+      Clay is a climber first. Every removal, pruning job, and storm cleanup is done with controlled rigging,
+      safe climbing, and top‑down precision.
+    </p>
+
+    <div class="section-links">
+      <a href="/pages/services.html" class="link-btn green-text">Services</a>
+      <a href="/pages/gallery.html" class="link-btn green-text">Gallery</a>
+      <a href="#reviews" class="link-btn green-text">Reviews</a>
+      <a href="#contact-footer" class="link-btn green-text">Contact</a>
+    </div>
+  </section>
+
+  <!-- ============================
+       CITY SERVICE SECTIONS
+  ============================ -->
+  <section class="city-section">
+    <h2 class="green-text">Service Areas</h2>
+
+    <div class="city-grid">
+
+      <div class="city-card">
+        <img src="/img/city-atlanta.jpg" class="city-photo">
+        <h3 class="green-text">Atlanta</h3>
+        <p class="green-text">Full removals, pruning, storm cleanup, and climbing classes available.</p>
+        <a href="/pages/atlanta.html" class="city-link green-text">View Atlanta Services</a>
+      </div>
+
+      <div class="city-card">
+        <img src="/img/city-decatur.jpg" class="city-photo">
+        <h3 class="green-text">Decatur</h3>
+        <p class="green-text">Precision canopy work and expert pruning throughout Decatur.</p>
+        <a href="/pages/decatur.html" class="city-link green-text">View Decatur Services</a>
+      </div>
+
+      <div class="city-card">
+        <img src="/img/city-marietta.jpg" class="city-photo">
+        <h3 class="green-text">Marietta</h3>
+        <p class="green-text">Storm cleanup, removals, and full climbing instruction.</p>
+        <a href="/pages/marietta.html" class="city-link green-text">View Marietta Services</a>
+      </div>
+
+      <div class="city-card">
+        <img src="/img/city-smyrna.jpg" class="city-photo">
+        <h3 class="green-text">Smyrna</h3>
+        <p class="green-text">Tree care and climbing classes available in Smyrna.</p>
+        <a href="/pages/smyrna.html" class="city-link green-text">View Smyrna Services</a>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ============================
+       CLIMBING CLASS SECTION
+  ============================ -->
+  <section id="climb-class-section">
+    <div class="section-header">
+      <a href="/climbing-class/public/index.html">
+        <img src="/img/climb-logo.jpg" class="section-logo">
+      </a>
+      <div>
+        <h2 class="green-text">Chainsaw Clay’s Climbing Class</h2>
+        <p class="section-tagline green-text">Throwball • Gear • Safety • Movement • Canopy Flow</p>
+      </div>
+    </div>
+
+    <img src="/img/climbing-photo-red.jpg" class="section-photo">
+
+    <p class="section-body green-text">
+      Learn real climbing from a climber who’s been in the trees longer than he can remember.
+    </p>
+
+    <div class="section-links">
+      <a href="/climbing-class/public/pages/app-info.html" class="link-btn green-text">Climbing Class App Info</a>
+      <a href="/climbing-class/public/index.html" class="link-btn green-text">Climbing Class Index</a>
+    </div>
+
+    <details id="climb-pricing">
+      <summary class="green-text">View Climbing Class Pricing</summary>
+      <div class="pricing-content" id="climb-pricing-content"></div>
+    </details>
+  </section>
+
+  <!-- ============================
+       REVIEWS
+  ============================ -->
+  <section id="reviews">
+    <h2 class="green-text">Client Reviews</h2>
+    <p class="section-note green-text">Real reviews from real clients.</p>
+
+    <div id="reviews-list"></div>
+
+    <form id="review-form">
+      <div class="field-row">
+        <label for="rev-name" class="green-text">Name</label>
+        <input type="text" id="rev-name" name="name" required>
+      </div>
+
+      <div class="field-row">
+        <label for="rev-email" class="green-text">Email</label>
+        <input type="email" id="rev-email" name="email" required>
+      </div>
+
+      <div class="field-row">
+        <label for="rev-stars" class="green-text">Star Rating</label>
+        <select id="rev-stars" name="stars" required>
+          <option value="">Select rating</option>
+          <option value="5">★★★★★</option>
+          <option value="4">★★★★☆</option>
+          <option value="3">★★★☆☆</option>
+          <option value="2">★★☆☆☆</option>
+          <option value="1">★☆☆☆☆</option>
+        </select>
+      </div>
+
+      <div class="field-row">
+        <label for="rev-photo" class="green-text">Photo</label>
+        <input type="file" id="rev-photo" name="photo" accept="image/*">
+      </div>
+
+      <div class="field-row">
+        <label for="rev-text" class="green-text">Review</label>
+        <textarea id="rev-text" name="text" rows="4" required></textarea>
+      </div>
+
+      <button type="submit" id="review-submit" class="primary-btn green-text">
+        Submit Review
+      </button>
+    </form>
+  </section>
+
+  <!-- ============================
+       FOOTER
+  ============================ -->
+  <footer id="contact-footer">
+    <p class="green-text">
+      <a href="/pages/privacy.html" class="green-text">Privacy Policy</a> |
+      <a href="/pages/terms.html" class="green-text">Terms & Conditions</a>
+    </p>
+  </footer>
+
+  <!-- ============================
+       CONTACT NOW BUTTON
+  ============================ -->
+  <button id="contact-now-btn" class="green-text">Contact Now</button>
+
+  <!-- ============================
+       CONTACT POPUP
+  ============================ -->
+  <div id="contact-popup">
+    <div id="contact-box">
+      <h3 class="green-text">Contact Clay</h3>
+
+      <a href="tel:4704692358" class="contact-link green-text">📞 Call Clay</a>
+      <a href="sms:4704692358" class="contact-link green-text">💬 Text Clay</a>
+      <a href="mailto:support@chainsawclay.com" class="contact-link green-text">✉️ Email Clay</a>
+
+      <button id="close-contact" class="green-text">Close</button>
     </div>
   </div>
 
-  <div id="top-right">
-    <a href="/climbing-class/public/index.html">
-      <img src="/img/climb-logo.jpg" id="climb-logo-top">
-    </a>
-  </div>
-</div>
-
-<!-- ============================
-     FULL LOGO MENU
-============================ -->
-<nav id="main-menu">
-  <div id="main-menu-inner">
-    <button id="main-menu-close" onclick="closeMainMenu()">✕</button>
-
-    <h3 class="menu-category">Main Pages</h3>
-    <ul>
-      <li><a href="/">Home</a></li>
-      <li><a href="/pages/services.html">Services</a></li>
-      <li><a href="/pages/gallery.html">Gallery</a></li>
-      <li><a href="/pages/faq.html">FAQ</a></li>
-      <li><a href="/pages/privacy.html">Privacy Policy</a></li>
-      <li><a href="/pages/terms.html">Terms & Conditions</a></li>
-    </ul>
-
-    <h3 class="menu-category">Service Area</h3>
-    <ul>
-      <li><a href="/pages/service-area.html">Full Service Area</a></li>
-      <li><a href="/pages/atlanta.html">Atlanta</a></li>
-      <li><a href="/pages/decatur.html">Decatur</a></li>
-      <li><a href="/pages/marietta.html">Marietta</a></li>
-      <li><a href="/pages/smyrna.html">Smyrna</a></li>
-    </ul>
-
-    <h3 class="menu-category">Climbing Class</h3>
-    <ul>
-      <li><a href="/climbing-class/public/index.html">Class Home</a></li>
-      <li><a href="/climbing-class/public/pages/app-info.html">App Info</a></li>
-    </ul>
-  </div>
-</nav>
-
-<!-- ============================
-     HERO
-============================ -->
-<section id="hero">
-  <div id="video-hero">
-    <video id="heroVideo" autoplay muted playsinline loop>
-      <source src="https://github.com/boardwalkclay1/chainsaw-tree-service/releases/download/top/big-top-drop.mp4" type="video/mp4">
-    </video>
-
-    <div id="video-controls">
-      <button class="control-btn" id="backBtn">« Back 5s</button>
-      <button class="control-btn" id="playPauseBtn">Pause</button>
-      <button class="control-btn" id="forwardBtn">Forward 5s »</button>
-      <button class="control-btn" id="muteBtn">Sound: On</button>
-    </div>
-  </div>
-
-  <h1 class="hero-title">Chainsaw Clay's Tree Service</h1>
-  <p class="hero-tagline">Georgia’s #1 Climber • Real Experience • Real Results</p>
-</section>
-
-<!-- ============================
-     ESTIMATE FORM
-============================ -->
-<section id="estimate-section">
-  <h2>Request a Tree Service Estimate</h2>
-  <p class="section-note">Your estimate goes straight to Clay’s phone + admin dashboard.</p>
-
-  <form id="estimate-form">
-    <div class="field-row">
-      <label for="est-name">Full Name</label>
-      <input type="text" id="est-name" name="name" required>
-    </div>
-
-    <div class="field-row">
-      <label for="est-phone">Phone Number</label>
-      <input type="tel" id="est-phone" name="phone" required>
-    </div>
-
-    <div class="field-row">
-      <label for="est-email">Email</label>
-      <input type="email" id="est-email" name="email" required>
-    </div>
-
-    <div class="field-row">
-      <label for="est-address">Address</label>
-      <input type="text" id="est-address" name="address" required>
-    </div>
-
-    <div class="field-row">
-      <label for="est-service">Service Type</label>
-      <select id="est-service" name="service" required>
-        <option value="">Select a service</option>
-        <option value="Tree Removal">Tree Removal</option>
-        <option value="Pruning">Pruning</option>
-        <option value="Storm Cleanup">Storm Cleanup</option>
-        <option value="General Cleanup">General Cleanup</option>
-        <option value="Planting / Layout">Planting / Layout</option>
-      </select>
-    </div>
-
-    <div class="field-row">
-      <label for="est-description">Project Description</label>
-      <textarea id="est-description" name="description" rows="4"></textarea>
-    </div>
-
-    <button type="submit" id="estimate-submit" class="primary-btn">
-      Send Estimate Request
-    </button>
-  </form>
-</section>
-
-<!-- ============================
-     TREE SERVICE SECTION
-============================ -->
-<section id="tree-service-section">
-  <div class="section-header">
-    <img src="/img/tree-service-logo.png" class="section-logo">
-    <div>
-      <h2>Chainsaw Clay — Georgia’s Best Climber</h2>
-      <p class="section-tagline">Real canopy work. Real removals. Real skill.</p>
-    </div>
-  </div>
-
-  <img src="/img/done-climb.jpg" class="section-photo">
-
-  <p class="section-body">
-    Clay is a climber first. Every removal, pruning job, and storm cleanup is done with controlled rigging,
-    safe climbing, and top‑down precision.
-  </p>
-
-  <div class="section-links">
-    <a href="/pages/services.html" class="link-btn">Services</a>
-    <a href="/pages/gallery.html" class="link-btn">Gallery</a>
-    <a href="#reviews" class="link-btn">Reviews</a>
-    <a href="#contact-footer" class="link-btn">Contact</a>
-  </div>
-</section>
-
-<!-- ============================
-     NEW: CITY SERVICE SECTIONS
-============================ -->
-<section class="city-section">
-  <h2>Service Areas</h2>
-
-  <div class="city-grid">
-
-    <div class="city-card">
-      <img src="/img/city-atlanta.jpg" class="city-photo">
-      <h3>Atlanta</h3>
-      <p>Full removals, pruning, storm cleanup, and climbing classes available.</p>
-      <a href="/pages/atlanta.html" class="city-link">View Atlanta Services</a>
-    </div>
-
-    <div class="city-card">
-      <img src="/img/city-decatur.jpg" class="city-photo">
-      <h3>Decatur</h3>
-      <p>Precision canopy work and expert pruning throughout Decatur.</p>
-      <a href="/pages/decatur.html" class="city-link">View Decatur Services</a>
-    </div>
-
-    <div class="city-card">
-      <img src="/img/city-marietta.jpg" class="city-photo">
-      <h3>Marietta</h3>
-      <p>Storm cleanup, removals, and full climbing instruction.</p>
-      <a href="/pages/marietta.html" class="city-link">View Marietta Services</a>
-    </div>
-
-    <div class="city-card">
-      <img src="/img/city-smyrna.jpg" class="city-photo">
-      <h3>Smyrna</h3>
-      <p>Tree care and climbing classes available in Smyrna.</p>
-      <a href="/pages/smyrna.html" class="city-link">View Smyrna Services</a>
-    </div>
-
-  </div>
-</section>
-
-<!-- ============================
-     CLIMBING CLASS SECTION
-============================ -->
-<section id="climb-class-section">
-  <div class="section-header">
-    <a href="/climbing-class/public/index.html">
-      <img src="/img/climb-logo.jpg" class="section-logo">
-    </a>
-    <div>
-      <h2>Chainsaw Clay’s Climbing Class</h2>
-      <p class="section-tagline">Throwball • Gear • Safety • Movement • Canopy Flow</p>
-    </div>
-  </div>
-
-  <img src="/img/climbing-photo-red.jpg" class="section-photo">
-
-  <p class="section-body">
-    Learn real climbing from a climber who’s been in the trees longer than he can remember.
-  </p>
-
-  <div class="section-links">
-    <a href="/climbing-class/public/pages/app-info.html" class="link-btn">Climbing Class App Info</a>
-    <a href="/climbing-class/public/index.html" class="link-btn">Climbing Class Index</a>
-  </div>
-
-  <details id="climb-pricing">
-    <summary>View Climbing Class Pricing</summary>
-    <div class="pricing-content" id="climb-pricing-content"></div>
-  </details>
-</section>
-
-<!-- ============================
-     REVIEWS
-============================ -->
-<section id="reviews">
-  <h2>Client Reviews</h2>
-  <p class="section-note">Real reviews from real clients.</p>
-
-  <div id="reviews-list"></div>
-
-  <form id="review-form">
-    <div class="field-row">
-      <label for="rev-name">Name</label>
-      <input type="text" id="rev-name" name="name" required>
-    </div>
-
-    <div class="field-row">
-      <label for="rev-email">Email</label>
-      <input type="email" id="rev-email" name="email" required>
-    </div>
-
-    <div class="field-row">
-      <label for="rev-stars">Star Rating</label>
-      <select id="rev-stars" name="stars" required>
-        <option value="">Select rating</option>
-        <option value="5">★★★★★</option>
-        <option value="4">★★★★☆</option>
-        <option value="3">★★★☆☆</option>
-        <option value="2">★★☆☆☆</option>
-        <option value="1">★☆☆☆☆</option>
-      </select>
-    </div>
-
-    <div class="field-row">
-      <label for="rev-photo">Photo</label>
-      <input type="file" id="rev-photo" name="photo" accept="image/*">
-    </div>
-
-    <div class="field-row">
-      <label for="rev-text">Review</label>
-      <textarea id="rev-text" name="text" rows="4" required></textarea>
-    </div>
-
-    <button type="submit" id="review-submit" class="primary-btn">
-      Submit Review
-    </button>
-  </form>
-</section>
-
-<!-- ============================
-     FOOTER
-============================ -->
-<footer id="contact-footer">
-  <p>
-    <a href="/pages/privacy.html">Privacy Policy</a> |
-    <a href="/pages/terms.html">Terms & Conditions</a>
-  </p>
-</footer>
-
-<!-- ============================
-     CONTACT NOW BUTTON
-============================ -->
-<button id="contact-now-btn" onclick="openContactPopup()">Contact Now</button>
-
-<!-- ============================
-     CONTACT POPUP
-============================ -->
-<div id="contact-popup">
-  <div id="contact-box">
-    <h3>Contact Clay</h3>
-
-    <a href="tel:4704692358" class="contact-link">📞 Call Clay</a>
-    <a href="sms:4704692358" class="contact-link">💬 Text Clay</a>
-    <a href="mailto:support@chainsawclay.com" class="contact-link">✉️ Email Clay</a>
-
-    <button id="close-contact" onclick="closeContactPopup()">Close</button>
-  </div>
-</div>
-
-<script src="/js/index.js"></script>
+  <script src="/js/index.js"></script>
 
 </body>
 </html>
