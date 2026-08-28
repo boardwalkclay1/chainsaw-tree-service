@@ -10,25 +10,43 @@ html, body {
 body {
   background: #000;
   font-family: 'Anton', sans-serif;
-  color: #fff;
+  color: #00c853; /* GREEN TEXT */
   overflow-x: hidden;
   overflow-y: auto;
   position: relative;
 }
 
+/* Universal green text class */
+.green-text {
+  color: #00c853 !important;
+}
+
 /* ============================
-   MOBILE-SAFE BACKGROUND
+   FULL-SCREEN BACKGROUND (LOGO)
 ============================ */
 #bg-lock {
   position: fixed;
   inset: 0;
   z-index: -2;
-  background: url('/img/tree-service-logo.png') no-repeat center top;
+
+  /* Your logo as the background */
+  background-image: url('/img/tree-service-logo.png');
+  background-repeat: no-repeat;
+  background-position: center center;
+
+  /* MOBILE SAFE */
   background-size: contain;
+
+  /* DARK TINT OVERLAY */
+  background-color: rgba(0,0,0,0.65);
+  background-blend-mode: darken;
+
+  /* Prevent scrolling issues */
   background-attachment: scroll;
-  opacity: 0.25;
+  opacity: 1;
 }
 
+/* DESKTOP MODE — FULL COVER */
 @media (min-width: 700px) {
   #bg-lock {
     background-size: cover;
@@ -38,10 +56,10 @@ body {
 }
 
 /* ============================
-   UNIVERSAL LINK STYLE (SUPER UPGRADE)
+   UNIVERSAL LINK STYLE
 ============================ */
 a {
-  color: #ff7b00;
+  color: #00c853;
   text-decoration: none;
   font-weight: bold;
   transition: 0.2s ease;
@@ -49,20 +67,20 @@ a {
 
 a:hover {
   color: #fff;
-  text-shadow: 0 0 10px #ff7b00;
+  text-shadow: 0 0 10px #00c853;
 }
 
-/* BUTTON STYLE FOR ALL LINK BUTTONS */
+/* BUTTON STYLE */
 .link-btn,
 .city-link,
-#menu-inner a,
+#main-menu-inner a,
 footer a {
   display: inline-block;
   padding: 10px 16px;
   border-radius: 999px;
-  border: 2px solid #ff7b00;
+  border: 2px solid #00c853;
   background: rgba(0,0,0,0.75);
-  color: #ff7b00;
+  color: #00c853;
   font-size: 1rem;
   text-decoration: none;
   transition: 0.2s ease;
@@ -70,11 +88,11 @@ footer a {
 
 .link-btn:hover,
 .city-link:hover,
-#menu-inner a:hover,
+#main-menu-inner a:hover,
 footer a:hover {
-  background: #ff7b00;
+  background: #00c853;
   color: #000;
-  box-shadow: 0 0 14px #ff7b00;
+  box-shadow: 0 0 14px #00c853;
 }
 
 /* ============================
@@ -84,7 +102,7 @@ footer a:hover {
   width: 100%;
   padding: 12px 16px;
   background: rgba(0,0,0,0.85);
-  border-bottom: 2px solid #ff7b00;
+  border-bottom: 2px solid #00c853;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -100,7 +118,7 @@ footer a:hover {
 #climb-logo-top {
   height: 65px;
   width: auto;
-  filter: drop-shadow(0 0 12px #ff7b00);
+  filter: drop-shadow(0 0 12px #00c853);
   cursor: pointer;
 }
 
@@ -115,9 +133,9 @@ footer a:hover {
 }
 
 /* ============================
-   FULL LOGO MENU
+   FULL LOGO MENU (FIXED)
 ============================ */
-#logo-menu {
+#main-menu {
   position: fixed;
   inset: 0;
   background: rgba(0,0,0,0.95);
@@ -125,38 +143,38 @@ footer a:hover {
   z-index: 99999;
 }
 
-#logo-menu.open {
+#main-menu.open {
   display: flex;
 }
 
-#menu-inner {
+#main-menu-inner {
   width: 100%;
   max-width: 450px;
   margin: auto;
   padding: 30px;
 }
 
-#menu-close {
+#main-menu-close {
   background: none;
   border: none;
-  color: #ff7b00;
+  color: #00c853;
   font-size: 2rem;
   float: right;
   cursor: pointer;
 }
 
 .menu-category {
-  color: #ff7b00;
+  color: #00c853;
   font-size: 1.4rem;
   margin-top: 30px;
 }
 
-#menu-inner ul {
+#main-menu-inner ul {
   list-style: none;
   padding: 0;
 }
 
-#menu-inner li {
+#main-menu-inner li {
   margin: 12px 0;
 }
 
@@ -174,9 +192,9 @@ footer a:hover {
   max-width: 350px;
   margin: 20px auto;
   border-radius: 16px;
-  border: 3px solid #ff7b00;
+  border: 3px solid #00c853;
   overflow: hidden;
-  box-shadow: 0 0 20px #ff7b00;
+  box-shadow: 0 0 20px #00c853;
 }
 
 #video-hero video {
@@ -207,15 +225,15 @@ footer a:hover {
 .control-btn {
   padding: 8px 14px;
   border-radius: 999px;
-  border: 2px solid #ff7b00;
+  border: 2px solid #00c853;
   background: rgba(0,0,0,0.85);
-  color: #ff7b00;
+  color: #00c853;
   font-size: 0.9rem;
 }
 
 .hero-title {
   font-size: 2rem;
-  text-shadow: 0 0 12px #ff7b00;
+  text-shadow: 0 0 12px #00c853;
 }
 
 .hero-tagline {
@@ -236,7 +254,7 @@ footer a:hover {
   background: rgba(0,0,0,0.75);
   padding: 20px;
   border-radius: 16px;
-  border: 2px solid #ff7b00;
+  border: 2px solid #00c853;
 }
 
 .field-row {
@@ -245,7 +263,7 @@ footer a:hover {
 }
 
 .field-row label {
-  color: #ff7b00;
+  color: #00c853;
   font-size: 1rem;
 }
 
@@ -255,18 +273,18 @@ footer a:hover {
   width: 100%;
   padding: 12px;
   border-radius: 12px;
-  border: 2px solid #ff7b00;
+  border: 2px solid #00c853;
   background: #000;
-  color: #fff;
+  color: #00c853;
   font-size: 1rem;
 }
 
 .primary-btn {
   padding: 12px 20px;
   border-radius: 999px;
-  border: 2px solid #ff7b00;
+  border: 2px solid #00c853;
   background: rgba(0,0,0,0.85);
-  color: #ff7b00;
+  color: #00c853;
   font-size: 1rem;
 }
 
@@ -282,7 +300,7 @@ footer a:hover {
 
 .section-logo {
   height: 100px;
-  filter: drop-shadow(0 0 18px #ff7b00);
+  filter: drop-shadow(0 0 18px #00c853);
 }
 
 .section-photo {
@@ -290,8 +308,8 @@ footer a:hover {
   max-width: 600px;
   margin: 25px auto;
   border-radius: 16px;
-  border: 3px solid #ff7b00;
-  box-shadow: 0 0 20px #ff7b00;
+  border: 3px solid #00c853;
+  box-shadow: 0 0 20px #00c853;
   transform: rotate(-1.5deg);
   transition: 0.2s ease;
 }
@@ -304,6 +322,7 @@ footer a:hover {
   padding: 0 15px;
   font-family: 'Staatliches', sans-serif;
   font-size: 1rem;
+  color: #00c853;
 }
 
 .section-links {
@@ -315,7 +334,7 @@ footer a:hover {
 /* ============================
    CITY SECTION
 ============================ */
-#city-section {
+.city-section {
   padding: 40px 15px;
   text-align: center;
 }
@@ -329,10 +348,11 @@ footer a:hover {
 
 .city-card {
   background: rgba(0,0,0,0.75);
-  border: 2px solid #ff7b00;
+  border: 2px solid #00c853;
   border-radius: 16px;
   padding: 20px;
   text-align: center;
+  color: #00c853;
 }
 
 .city-photo {
@@ -351,10 +371,11 @@ footer a:hover {
 
 .review-card {
   background: rgba(0,0,0,0.75);
-  border: 2px solid #ff7b00;
+  border: 2px solid #00c853;
   border-radius: 12px;
   padding: 20px;
   font-size: 1rem;
+  color: #00c853;
 }
 
 /* ============================
@@ -366,11 +387,11 @@ footer a:hover {
   right: 20px;
   padding: 14px 20px;
   border-radius: 999px;
-  background: #ff7b00;
+  background: #00c853;
   color: #000;
   border: none;
   font-size: 1rem;
-  box-shadow: 0 0 14px #ff7b00;
+  box-shadow: 0 0 14px #00c853;
   z-index: 9999;
 }
 
@@ -395,15 +416,16 @@ footer a:hover {
   background: #111;
   padding: 25px;
   border-radius: 16px;
-  border: 2px solid #ff7b00;
+  border: 2px solid #00c853;
   text-align: center;
+  color: #00c853;
 }
 
 .contact-link {
   display: block;
   padding: 12px;
   margin: 8px 0;
-  background: #ff7b00;
+  background: #00c853;
   color: #000;
   border-radius: 12px;
   font-size: 1rem;
