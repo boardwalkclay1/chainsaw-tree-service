@@ -1,8 +1,8 @@
 // ============================================================
-// REAL TREE GUY — ADMIN CONTRACTS CORE
+// REAL TREE GUY — ADMIN CONTRACTS CORE (FULLY REBUILT)
 // ============================================================
 
-// API BASE (adjust if needed)
+// API BASE
 const ADMIN_API = "https://api.realtreeguy.com/admin/contracts";
 
 // ============================================================
@@ -10,6 +10,7 @@ const ADMIN_API = "https://api.realtreeguy.com/admin/contracts";
 // ============================================================
 
 const ADMIN_USER_ID = localStorage.getItem("rtgAdminId") || "admin-dev";
+
 const BUSINESS_INFO = {
   name: "Chainsaw Clay’s Tree Service LLC",
   phone: "(470) 469-2358",
@@ -20,24 +21,40 @@ const BUSINESS_INFO = {
 };
 
 // ============================================================
-// API WRAPPER
+// API WRAPPER (UPGRADED)
 // ============================================================
 
 async function contractsApi(path, method = "GET", body = null) {
   const url = `${ADMIN_API}${path}`;
-  const res = await fetch(url, {
-    method,
-    headers: {
-      "Content-Type": "application/json",
-      "X-RTG-Admin": ADMIN_USER_ID
-    },
-    body: body ? JSON.stringify(body) : null
-  });
+
+  let res;
+  try {
+    res = await fetch(url, {
+      method,
+      headers: {
+        "Content-Type": "application/json",
+        "X-RTG-Admin": ADMIN_USER_ID
+      },
+      body: body ? JSON.stringify(body) : null
+    });
+  } catch (err) {
+    console.error("NETWORK ERROR:", err);
+    return { ok: false, error: "network" };
+  }
+
+  // Handle CORS block
+  if (!res.ok && res.status === 0) {
+    return {
+      ok: false,
+      error: "cors_blocked",
+      message: "CORS blocked: server must allow X-RTG-Admin header."
+    };
+  }
 
   try {
     return await res.json();
   } catch {
-    return { ok: false };
+    return { ok: false, error: "invalid_json" };
   }
 }
 
@@ -48,7 +65,7 @@ async function contractsApi(path, method = "GET", body = null) {
 const CONTRACT_TYPES = ["estimate", "proposal", "contract", "receipt"];
 
 // ============================================================
-// TEMPLATE GENERATOR
+// TEMPLATE GENERATOR (UPGRADED)
 // ============================================================
 
 function createEmptyDocument(type = "contract") {
@@ -56,7 +73,7 @@ function createEmptyDocument(type = "contract") {
 
   return {
     id: null,
-    type, // "estimate" | "proposal" | "contract" | "receipt"
+    type,
     admin_id: ADMIN_USER_ID,
 
     // Client info
@@ -85,9 +102,9 @@ function createEmptyDocument(type = "contract") {
     admin_signed_at: null,
 
     // Status
-    status: "draft", // "draft" | "sent" | "client_signed" | "admin_signed" | "completed"
+    status: "draft",
 
-    // Business info snapshot
+    // Business snapshot
     business: { ...BUSINESS_INFO }
   };
 }
@@ -102,22 +119,17 @@ const CONTRACTS_STATE = {
 };
 
 // ============================================================
-// INIT ADMIN CONTRACTS PAGE
+// INIT PAGE
 // ============================================================
 
 document.addEventListener("DOMContentLoaded", () => {
-  const page = document.body.dataset.page;
-  if (page === "admin-contracts") {
+  if (document.body.dataset.page === "admin-contracts") {
     initAdminContracts();
   }
 });
 
 async function initAdminContracts() {
   await loadContractsList();
-  // You’ll wire these to buttons in HTML:
-  // - new document
-  // - save document
-  // - send document
 }
 
 // ============================================================
@@ -126,7 +138,8 @@ async function initAdminContracts() {
 
 async function loadContractsList() {
   const data = await contractsApi("/list");
-  if (!data || !Array.isArray(data.documents)) {
+
+  if (!data.ok || !Array.isArray(data.documents)) {
     CONTRACTS_STATE.list = [];
     renderContractsList([]);
     return;
@@ -137,7 +150,7 @@ async function loadContractsList() {
 }
 
 // ============================================================
-// RENDER LIST (HOOK TO HTML LATER)
+// RENDER LIST
 // ============================================================
 
 function renderContractsList(documents) {
@@ -154,15 +167,22 @@ function renderContractsList(documents) {
   documents.forEach(doc => {
     const div = document.createElement("div");
     div.className = "admin-contract-card";
+
     div.innerHTML = `
       <h3>${doc.type.toUpperCase()} — ${doc.client_name || "Unknown Client"}</h3>
       <p><strong>Job:</strong> ${doc.job_address || "N/A"}</p>
       <p><strong>Total:</strong> $${doc.total_price || 0}</p>
       <p><strong>Status:</strong> ${doc.status}</p>
       <p><strong>Created:</strong> ${doc.created_at ? new Date(doc.created_at).toLocaleDateString() : "N/A"}</p>
-      <button class="rtg-btn rtg-btn--primary" onclick="openAdminContract('${doc.id}')">Open</button>
+      <button class="rtg-btn rtg-btn--primary" data-open="${doc.id}">Open</button>
     `;
+
     listEl.appendChild(div);
+  });
+
+  // Attach open handlers
+  listEl.querySelectorAll("[data-open]").forEach(btn => {
+    btn.addEventListener("click", () => openAdminContract(btn.dataset.open));
   });
 }
 
@@ -172,7 +192,11 @@ function renderContractsList(documents) {
 
 async function openAdminContract(id) {
   const data = await contractsApi(`/document/${id}`);
-  if (!data || !data.document) return;
+
+  if (!data.ok || !data.document) {
+    alert("Failed to load document.");
+    return;
+  }
 
   CONTRACTS_STATE.active = data.document;
   renderActiveContract(CONTRACTS_STATE.active);
@@ -189,12 +213,12 @@ function newAdminContract(type = "contract") {
 }
 
 // ============================================================
-// RENDER ACTIVE DOCUMENT (HOOK TO FORM FIELDS)
+// RENDER ACTIVE DOCUMENT
 // ============================================================
 
 function renderActiveContract(doc) {
-  // These IDs will exist in your HTML form
   setValue("contractType", doc.type);
+
   setValue("contractClientName", doc.client_name);
   setValue("contractClientEmail", doc.client_email);
   setValue("contractClientPhone", doc.client_phone);
@@ -231,7 +255,7 @@ function setText(id, value) {
 // ============================================================
 
 function collectActiveContractFromForm() {
-  if (!CONTRACTS_STATE.active) return;
+  if (!CONTRACTS_STATE.active) return null;
 
   const doc = CONTRACTS_STATE.active;
 
@@ -271,41 +295,46 @@ async function saveAdminContract() {
   const path = doc.id ? `/update/${doc.id}` : "/create";
   const res = await contractsApi(path, "POST", doc);
 
-  if (res && res.ok && res.id) {
-    doc.id = res.id;
-    doc.status = res.status || doc.status;
-    alert("Document saved.");
-    await loadContractsList();
-  } else {
+  if (!res.ok) {
     alert("Failed to save document.");
+    return;
   }
+
+  doc.id = res.id || doc.id;
+  doc.status = res.status || doc.status;
+
+  alert("Document saved.");
+  await loadContractsList();
 }
 
 // ============================================================
-// MARK ADMIN SIGNED
+// ADMIN SIGN DOCUMENT
 // ============================================================
 
 async function adminSignContract() {
-  if (!CONTRACTS_STATE.active || !CONTRACTS_STATE.active.id) return;
+  const doc = CONTRACTS_STATE.active;
+  if (!doc || !doc.id) return;
 
-  const res = await contractsApi(`/admin-sign/${CONTRACTS_STATE.active.id}`, "POST", {
+  const res = await contractsApi(`/admin-sign/${doc.id}`, "POST", {
     admin_id: ADMIN_USER_ID,
     signed_at: Date.now()
   });
 
-  if (res && res.ok) {
-    CONTRACTS_STATE.active.admin_signed_at = res.admin_signed_at;
-    CONTRACTS_STATE.active.status = res.status || "admin_signed";
-    renderActiveContract(CONTRACTS_STATE.active);
-    alert("You have signed this document.");
-    await loadContractsList();
-  } else {
+  if (!res.ok) {
     alert("Failed to sign document.");
+    return;
   }
+
+  doc.admin_signed_at = res.admin_signed_at;
+  doc.status = res.status || "admin_signed";
+
+  renderActiveContract(doc);
+  alert("You have signed this document.");
+  await loadContractsList();
 }
 
 // ============================================================
-// SEND TO CLIENT (EMAIL + SIGN LINK)
+// SEND TO CLIENT
 // ============================================================
 
 async function sendContractToClient() {
@@ -320,18 +349,20 @@ async function sendContractToClient() {
     client_name: doc.client_name
   });
 
-  if (res && res.ok) {
-    CONTRACTS_STATE.active.status = res.status || "sent";
-    renderActiveContract(CONTRACTS_STATE.active);
-    alert("Document sent to client.");
-    await loadContractsList();
-  } else {
+  if (!res.ok) {
     alert("Failed to send document.");
+    return;
   }
+
+  doc.status = res.status || "sent";
+
+  renderActiveContract(doc);
+  alert("Document sent to client.");
+  await loadContractsList();
 }
 
 // ============================================================
-// EXPOSED FUNCTIONS FOR HTML BUTTONS
+// EXPOSE FUNCTIONS
 // ============================================================
 
 window.newAdminContract = newAdminContract;
