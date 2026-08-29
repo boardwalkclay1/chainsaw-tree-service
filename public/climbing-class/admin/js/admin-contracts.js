@@ -4,7 +4,7 @@
 
 // MODULE IMPORTS
 import CONTRACT_INDEX from "./contract-modules/contract-index.js";
-import { buildChainsawEmail } from "./email.js";
+import { buildChainsawEmail } from "./contract-modules/email.js";
 
 // API BASE
 const ADMIN_API = "https://api.realtreeguy.com/admin/contracts";
