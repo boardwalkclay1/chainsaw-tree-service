@@ -1,14 +1,15 @@
 // ============================================================
-// REAL TREE GUY — ADMIN CONTRACTS CORE (FULLY REBUILT)
+// CHAINSWAW CLAY — ADMIN CONTRACTS CORE (FULLY REBUILT)
 // ============================================================
+
+// MODULE IMPORTS
+import CONTRACT_INDEX from "./contract-modules/contract-index.js";
+import { buildChainsawEmail } from "./email.js";
 
 // API BASE
 const ADMIN_API = "https://api.realtreeguy.com/admin/contracts";
 
-// ============================================================
 // AUTH / CONTEXT
-// ============================================================
-
 const ADMIN_USER_ID = localStorage.getItem("rtgAdminId") || "admin-dev";
 
 const BUSINESS_INFO = {
@@ -21,15 +22,14 @@ const BUSINESS_INFO = {
 };
 
 // ============================================================
-// API WRAPPER (UPGRADED)
+// API WRAPPER
 // ============================================================
 
 async function contractsApi(path, method = "GET", body = null) {
   const url = `${ADMIN_API}${path}`;
 
-  let res;
   try {
-    res = await fetch(url, {
+    const res = await fetch(url, {
       method,
       headers: {
         "Content-Type": "application/json",
@@ -37,76 +37,12 @@ async function contractsApi(path, method = "GET", body = null) {
       },
       body: body ? JSON.stringify(body) : null
     });
+
+    return await res.json();
   } catch (err) {
     console.error("NETWORK ERROR:", err);
     return { ok: false, error: "network" };
   }
-
-  // Handle CORS block
-  if (!res.ok && res.status === 0) {
-    return {
-      ok: false,
-      error: "cors_blocked",
-      message: "CORS blocked: server must allow X-RTG-Admin header."
-    };
-  }
-
-  try {
-    return await res.json();
-  } catch {
-    return { ok: false, error: "invalid_json" };
-  }
-}
-
-// ============================================================
-// DOCUMENT TYPES
-// ============================================================
-
-const CONTRACT_TYPES = ["estimate", "proposal", "contract", "receipt"];
-
-// ============================================================
-// TEMPLATE GENERATOR (UPGRADED)
-// ============================================================
-
-function createEmptyDocument(type = "contract") {
-  const now = Date.now();
-
-  return {
-    id: null,
-    type,
-    admin_id: ADMIN_USER_ID,
-
-    // Client info
-    client_id: null,
-    client_name: "",
-    client_email: "",
-    client_phone: "",
-    client_address: "",
-
-    // Job info
-    job_id: null,
-    job_address: "",
-    scope_of_work: "",
-    work_plan: "",
-    special_clauses: "",
-
-    // Money
-    total_price: 0,
-    deposit_required: 0,
-    payment_schedule: "",
-    notes: "",
-
-    // Dates
-    created_at: now,
-    client_signed_at: null,
-    admin_signed_at: null,
-
-    // Status
-    status: "draft",
-
-    // Business snapshot
-    business: { ...BUSINESS_INFO }
-  };
 }
 
 // ============================================================
@@ -130,6 +66,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
 async function initAdminContracts() {
   await loadContractsList();
+  attachGlobalButtons();
 }
 
 // ============================================================
@@ -139,13 +76,7 @@ async function initAdminContracts() {
 async function loadContractsList() {
   const data = await contractsApi("/list");
 
-  if (!data.ok || !Array.isArray(data.documents)) {
-    CONTRACTS_STATE.list = [];
-    renderContractsList([]);
-    return;
-  }
-
-  CONTRACTS_STATE.list = data.documents;
+  CONTRACTS_STATE.list = Array.isArray(data.documents) ? data.documents : [];
   renderContractsList(CONTRACTS_STATE.list);
 }
 
@@ -173,14 +104,13 @@ function renderContractsList(documents) {
       <p><strong>Job:</strong> ${doc.job_address || "N/A"}</p>
       <p><strong>Total:</strong> $${doc.total_price || 0}</p>
       <p><strong>Status:</strong> ${doc.status}</p>
-      <p><strong>Created:</strong> ${doc.created_at ? new Date(doc.created_at).toLocaleDateString() : "N/A"}</p>
+      <p><strong>Created:</strong> ${new Date(doc.created_at).toLocaleDateString()}</p>
       <button class="rtg-btn rtg-btn--primary" data-open="${doc.id}">Open</button>
     `;
 
     listEl.appendChild(div);
   });
 
-  // Attach open handlers
   listEl.querySelectorAll("[data-open]").forEach(btn => {
     btn.addEventListener("click", () => openAdminContract(btn.dataset.open));
   });
@@ -200,6 +130,7 @@ async function openAdminContract(id) {
 
   CONTRACTS_STATE.active = data.document;
   renderActiveContract(CONTRACTS_STATE.active);
+  renderPreview(CONTRACTS_STATE.active);
 }
 
 // ============================================================
@@ -207,13 +138,37 @@ async function openAdminContract(id) {
 // ============================================================
 
 function newAdminContract(type = "contract") {
-  if (!CONTRACT_TYPES.includes(type)) type = "contract";
-  CONTRACTS_STATE.active = createEmptyDocument(type);
+  const now = Date.now();
+
+  CONTRACTS_STATE.active = {
+    id: null,
+    type,
+    admin_id: ADMIN_USER_ID,
+    client_name: "",
+    client_email: "",
+    client_phone: "",
+    client_address: "",
+    job_address: "",
+    scope_of_work: "",
+    work_plan: "",
+    special_clauses: "",
+    total_price: 0,
+    deposit_required: 0,
+    payment_schedule: "",
+    notes: "",
+    created_at: now,
+    client_signed_at: null,
+    admin_signed_at: null,
+    status: "draft",
+    business: { ...BUSINESS_INFO }
+  };
+
   renderActiveContract(CONTRACTS_STATE.active);
+  renderPreview(CONTRACTS_STATE.active);
 }
 
 // ============================================================
-// RENDER ACTIVE DOCUMENT
+// RENDER ACTIVE DOCUMENT (FORM)
 // ============================================================
 
 function renderActiveContract(doc) {
@@ -234,7 +189,7 @@ function renderActiveContract(doc) {
   setValue("contractPaymentSchedule", doc.payment_schedule);
   setValue("contractNotes", doc.notes);
 
-  setText("contractCreatedAt", doc.created_at ? new Date(doc.created_at).toLocaleString() : "N/A");
+  setText("contractCreatedAt", new Date(doc.created_at).toLocaleString());
   setText("contractClientSignedAt", doc.client_signed_at ? new Date(doc.client_signed_at).toLocaleString() : "Not signed");
   setText("contractAdminSignedAt", doc.admin_signed_at ? new Date(doc.admin_signed_at).toLocaleString() : "Not signed");
   setText("contractStatus", doc.status);
@@ -251,15 +206,46 @@ function setText(id, value) {
 }
 
 // ============================================================
+// PREVIEW (BOTTOM PANEL)
+// ============================================================
+
+function renderPreview(doc) {
+  const previewEl = document.getElementById("contractPreview");
+  if (!previewEl) return;
+
+  const html = `
+    <h2>${doc.type.toUpperCase()}</h2>
+    <p><strong>Client:</strong> ${doc.client_name}</p>
+    <p><strong>Email:</strong> ${doc.client_email}</p>
+    <p><strong>Phone:</strong> ${doc.client_phone}</p>
+    <p><strong>Address:</strong> ${doc.client_address}</p>
+
+    <hr>
+
+    <p><strong>Job Address:</strong> ${doc.job_address}</p>
+    <p><strong>Scope of Work:</strong><br>${doc.scope_of_work}</p>
+    <p><strong>Work Plan:</strong><br>${doc.work_plan}</p>
+    <p><strong>Special Clauses:</strong><br>${doc.special_clauses}</p>
+
+    <hr>
+
+    <p><strong>Total Price:</strong> $${doc.total_price}</p>
+    <p><strong>Deposit Required:</strong> $${doc.deposit_required}</p>
+    <p><strong>Payment Schedule:</strong><br>${doc.payment_schedule}</p>
+    <p><strong>Notes:</strong><br>${doc.notes}</p>
+  `;
+
+  previewEl.innerHTML = html;
+}
+
+// ============================================================
 // COLLECT FORM BACK INTO STATE
 // ============================================================
 
 function collectActiveContractFromForm() {
-  if (!CONTRACTS_STATE.active) return null;
-
   const doc = CONTRACTS_STATE.active;
 
-  doc.type = getValue("contractType") || doc.type;
+  doc.type = getValue("contractType");
 
   doc.client_name = getValue("contractClientName");
   doc.client_email = getValue("contractClientEmail");
@@ -271,8 +257,8 @@ function collectActiveContractFromForm() {
   doc.work_plan = getValue("contractWorkPlan");
   doc.special_clauses = getValue("contractSpecialClauses");
 
-  doc.total_price = Number(getValue("contractTotalPrice") || 0);
-  doc.deposit_required = Number(getValue("contractDeposit") || 0);
+  doc.total_price = Number(getValue("contractTotalPrice"));
+  doc.deposit_required = Number(getValue("contractDeposit"));
   doc.payment_schedule = getValue("contractPaymentSchedule");
   doc.notes = getValue("contractNotes");
 
@@ -290,7 +276,6 @@ function getValue(id) {
 
 async function saveAdminContract() {
   const doc = collectActiveContractFromForm();
-  if (!doc) return;
 
   const path = doc.id ? `/update/${doc.id}` : "/create";
   const res = await contractsApi(path, "POST", doc);
@@ -303,6 +288,7 @@ async function saveAdminContract() {
   doc.id = res.id || doc.id;
   doc.status = res.status || doc.status;
 
+  renderPreview(doc);
   alert("Document saved.");
   await loadContractsList();
 }
@@ -328,25 +314,30 @@ async function adminSignContract() {
   doc.admin_signed_at = res.admin_signed_at;
   doc.status = res.status || "admin_signed";
 
-  renderActiveContract(doc);
+  renderPreview(doc);
   alert("You have signed this document.");
   await loadContractsList();
 }
 
 // ============================================================
-// SEND TO CLIENT
+// SEND TO CLIENT (WITH EMAIL TEMPLATE)
 // ============================================================
 
 async function sendContractToClient() {
   const doc = collectActiveContractFromForm();
-  if (!doc || !doc.id) {
+
+  if (!doc.id) {
     alert("Save the document before sending.");
     return;
   }
 
+  // Build branded email HTML
+  const emailHtml = buildChainsawEmail(document.getElementById("contractPreview").innerHTML);
+
   const res = await contractsApi(`/send/${doc.id}`, "POST", {
     client_email: doc.client_email,
-    client_name: doc.client_name
+    client_name: doc.client_name,
+    email_html: emailHtml
   });
 
   if (!res.ok) {
@@ -356,9 +347,19 @@ async function sendContractToClient() {
 
   doc.status = res.status || "sent";
 
-  renderActiveContract(doc);
+  renderPreview(doc);
   alert("Document sent to client.");
   await loadContractsList();
+}
+
+// ============================================================
+// BUTTON HOOKS
+// ============================================================
+
+function attachGlobalButtons() {
+  document.getElementById("saveContractBtn").onclick = saveAdminContract;
+  document.getElementById("signContractBtn").onclick = adminSignContract;
+  document.getElementById("sendContractBtn").onclick = sendContractToClient;
 }
 
 // ============================================================
