@@ -3,7 +3,7 @@ export const CONTRACTS_MODULE = {
   title: "Tree Service Contract",
 
   // ============================================================
-  // FULL DATA MODEL
+  // FULL DATA MODEL (STATIC, LOCAL, COMPLETE)
   // ============================================================
   fields: {
     // ------------------------------------------------------------
@@ -24,18 +24,9 @@ export const CONTRACTS_MODULE = {
     propertyNotes: "",
 
     // ------------------------------------------------------------
-    // TREE DETAILS (inherited from estimate)
+    // TREE DETAILS
     // ------------------------------------------------------------
-    trees: [
-      // {
-      //   id: crypto.randomUUID(),
-      //   species: "Oak",
-      //   location: "Front yard near driveway",
-      //   serviceType: "Full Removal",
-      //   details: "Remove dead limbs, reduce weight over roof",
-      //   price: 0
-      // }
-    ],
+    trees: [],
 
     // ------------------------------------------------------------
     // SCOPE + WORK PLAN
@@ -68,7 +59,7 @@ export const CONTRACTS_MODULE = {
     utilityLinesClause: "",
     weatherDelayClause: "",
     accessRequirements: "",
-    preDepositWorkClause: "", // your “cut before deposit” rule
+    preDepositWorkClause: "",
 
     // ------------------------------------------------------------
     // SIGNATURES + META
@@ -77,17 +68,26 @@ export const CONTRACTS_MODULE = {
     clientSignedAt: "",
     adminSignedAt: "",
     status: "Draft",
-    internalNotes: ""
+    internalNotes: "",
+
+    // ------------------------------------------------------------
+    // BUSINESS INFO (STATIC SNAPSHOT)
+    // ------------------------------------------------------------
+    business: {
+      name: "Chainsaw Clay’s Tree Service LLC",
+      phone: "(470) 469‑2358",
+      email: "support@chainsawclay.com",
+      address: "Sylacauga, AL",
+      license: "Tree Service License #CLAY‑001",
+      insurance: "Fully insured for residential and commercial tree work."
+    }
   },
 
   // ============================================================
-  // PROFESSIONAL CONTRACT PREVIEW (FULLY FORMATTED)
+  // CONTRACT PREVIEW (STATIC, EPIC, FULLY FORMATTED)
   // ============================================================
   templatePreview(contract) {
 
-    // ------------------------------------------------------------
-    // TREE LIST HTML
-    // ------------------------------------------------------------
     const treesHtml = (contract.trees || [])
       .map(tree => `
         <div class="tree-item">
@@ -99,34 +99,32 @@ export const CONTRACTS_MODULE = {
       `)
       .join("");
 
-    // ------------------------------------------------------------
-    // FINAL PREVIEW OUTPUT
-    // ------------------------------------------------------------
     return `
-      <h2>Tree Service Contract</h2>
+      <h2>${contract.title || "Tree Service Contract"}</h2>
 
-      <!-- CLIENT & JOB -->
+      <!-- CLIENT -->
       <h3>Client Information</h3>
       <p><strong>Name:</strong> ${contract.clientName}</p>
       <p><strong>Phone:</strong> ${contract.clientPhone}</p>
       <p><strong>Email:</strong> ${contract.clientEmail}</p>
       <p><strong>Address:</strong> ${contract.clientAddress}</p>
 
+      <!-- JOB -->
       <h3>Job Location</h3>
       <p>${contract.jobAddress}, ${contract.jobCity}, ${contract.jobState} ${contract.jobZip}</p>
       <p><strong>Property Notes:</strong> ${contract.propertyNotes || "None"}</p>
 
-      <!-- TREE DETAILS -->
+      <!-- TREES -->
       <h3>Tree Details & Services</h3>
-      ${treesHtml || "<p>No trees added yet.</p>"}
+      ${treesHtml || "<p>No trees added.</p>"}
 
       <!-- SCOPE -->
       <h3>Scope of Work</h3>
-      <p>${contract.scope || "Scope of work not yet defined."}</p>
+      <p>${contract.scope || "Not specified."}</p>
 
       <!-- WORK PLAN -->
       <h3>Work Plan</h3>
-      <p>${contract.workPlan || "Work plan not yet defined."}</p>
+      <p>${contract.workPlan || "Not specified."}</p>
 
       <!-- TIMEFRAME -->
       <h3>Timeframe</h3>
@@ -134,41 +132,44 @@ export const CONTRACTS_MODULE = {
 
       <!-- SPECIAL CLAUSES -->
       <h3>Special Clauses</h3>
-      <p>${contract.specialClauses || "No special clauses added."}</p>
+      <p>${contract.specialClauses || "None."}</p>
 
-      <!-- PRE-DEPOSIT WORK -->
+      <!-- PRE-DEPOSIT -->
       <h3>Pre‑Deposit Work Clause</h3>
-      <p>${contract.preDepositWorkClause || "No pre‑deposit clause added."}</p>
+      <p>${contract.preDepositWorkClause || "None."}</p>
 
-      <!-- EXCLUSIONS + CLEANUP -->
-      <h3>Exclusions & Cleanup</h3>
-      <p><strong>Exclusions:</strong> ${contract.exclusions || "None listed."}</p>
-      <p><strong>Cleanup:</strong> ${contract.cleanupDetails || "Standard cleanup included."}</p>
+      <!-- EXCLUSIONS -->
+      <h3>Exclusions</h3>
+      <p>${contract.exclusions || "None."}</p>
+
+      <!-- CLEANUP -->
+      <h3>Cleanup Details</h3>
+      <p>${contract.cleanupDetails || "Standard cleanup included."}</p>
 
       <!-- EQUIPMENT -->
       <h3>Equipment Notes</h3>
-      <p>${contract.equipmentNotes || "No equipment notes provided."}</p>
+      <p>${contract.equipmentNotes || "None."}</p>
 
       <!-- ASSUMPTIONS -->
       <h3>Assumptions</h3>
-      <p>${contract.assumptions || "None listed."}</p>
+      <p>${contract.assumptions || "None."}</p>
 
       <!-- MONEY -->
       <h3>Pricing & Payments</h3>
-      <p><strong>Total Price:</strong> $${contract.totalPrice || 0}</p>
-      <p><strong>Deposit:</strong> $${contract.deposit || 0} ${contract.depositDueDate ? `(Due: ${contract.depositDueDate})` : ""}</p>
+      <p><strong>Total Price:</strong> $${contract.totalPrice}</p>
+      <p><strong>Deposit:</strong> $${contract.deposit} ${contract.depositDueDate ? `(Due: ${contract.depositDueDate})` : ""}</p>
       <p><strong>Payment Schedule:</strong> ${contract.paymentSchedule || "Not specified."}</p>
-      <p><strong>Late Fees:</strong> ${contract.lateFeePolicy || "Not specified."}</p>
-      <p><strong>Refunds:</strong> ${contract.refundPolicy || "Not specified."}</p>
-      <p><strong>Change Orders:</strong> ${contract.changeOrderPolicy || "Not specified."}</p>
+      <p><strong>Late Fees:</strong> ${contract.lateFeePolicy || "None."}</p>
+      <p><strong>Refund Policy:</strong> ${contract.refundPolicy || "None."}</p>
+      <p><strong>Change Orders:</strong> ${contract.changeOrderPolicy || "None."}</p>
 
       <!-- LIABILITY -->
       <h3>Liability & Risk</h3>
-      <p>${contract.liabilityWaiver || "Liability waiver not yet defined."}</p>
-      <p><strong>Property Damage:</strong> ${contract.propertyDamageClause || "Not specified."}</p>
-      <p><strong>Utility Lines:</strong> ${contract.utilityLinesClause || "Not specified."}</p>
-      <p><strong>Weather Delays:</strong> ${contract.weatherDelayClause || "Not specified."}</p>
-      <p><strong>Access Requirements:</strong> ${contract.accessRequirements || "Not specified."}</p>
+      <p>${contract.liabilityWaiver || "No liability waiver provided."}</p>
+      <p><strong>Property Damage:</strong> ${contract.propertyDamageClause || "None."}</p>
+      <p><strong>Utility Lines:</strong> ${contract.utilityLinesClause || "None."}</p>
+      <p><strong>Weather Delays:</strong> ${contract.weatherDelayClause || "None."}</p>
+      <p><strong>Access Requirements:</strong> ${contract.accessRequirements || "None."}</p>
 
       <!-- STATUS -->
       <h3>Status</h3>
@@ -179,11 +180,12 @@ export const CONTRACTS_MODULE = {
 
       <!-- BUSINESS INFO -->
       <h3>Prepared By</h3>
-      <p><strong>Chainsaw Clay’s Tree Service LLC</strong></p>
-      <p>Phone: (470) 469‑2358</p>
-      <p>Email: support@chainsawclay.com</p>
-      <p>Address: Sylacauga, AL</p>
-      <p>Fully insured for residential and commercial tree work.</p>
+      <p><strong>${contract.business.name}</strong></p>
+      <p>Phone: ${contract.business.phone}</p>
+      <p>Email: ${contract.business.email}</p>
+      <p>Address: ${contract.business.address}</p>
+      <p>License: ${contract.business.license}</p>
+      <p>${contract.business.insurance}</p>
     `;
   }
 };
