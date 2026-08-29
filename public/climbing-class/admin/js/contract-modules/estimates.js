@@ -3,7 +3,7 @@ export const ESTIMATES_MODULE = {
   title: "Tree Service Estimate",
 
   // ============================================================
-  // FULL DATA MODEL
+  // FULL DATA MODEL (STATIC, COMPLETE)
   // ============================================================
   fields: {
     // ------------------------------------------------------------
@@ -21,28 +21,17 @@ export const ESTIMATES_MODULE = {
     jobCity: "",
     jobState: "",
     jobZip: "",
-    propertyNotes: "", // gate codes, hazards, pets, access issues
+    propertyNotes: "",
 
     // ------------------------------------------------------------
-    // TREE DETAILS (each tree has its own service + price)
+    // TREE DETAILS
     // ------------------------------------------------------------
-    trees: [
-      // {
-      //   id: crypto.randomUUID(),
-      //   species: "Oak",
-      //   location: "Front yard near driveway",
-      //   serviceType: "Full Removal",
-      //   details: "Remove dead limbs, reduce weight over roof",
-      //   price: 0
-      // }
-    ],
+    trees: [],
 
     // ------------------------------------------------------------
-    // SERVICE LINE ITEMS (optional)
+    // LINE ITEMS
     // ------------------------------------------------------------
-    lineItems: [
-      // { description, qty, unitPrice, total }
-    ],
+    lineItems: [],
 
     // ------------------------------------------------------------
     // SCOPE + NOTES
@@ -51,7 +40,7 @@ export const ESTIMATES_MODULE = {
     assumptions: "",
     exclusions: "",
     notes: "",
-    timeframe: "", // "Job will be completed between ___ and ___"
+    timeframe: "",
 
     // ------------------------------------------------------------
     // MONEY
@@ -67,17 +56,27 @@ export const ESTIMATES_MODULE = {
     // ------------------------------------------------------------
     createdAt: "",
     status: "Draft",
-    internalNotes: ""
+    internalNotes: "",
+
+    // ------------------------------------------------------------
+    // BUSINESS INFO (STATIC SNAPSHOT)
+    // ------------------------------------------------------------
+    business: {
+      name: "Chainsaw Clay’s Tree Service LLC",
+      phone: "(470) 469‑2358",
+      email: "support@chainsawclay.com",
+      address: "Sylacauga, AL",
+      license: "Tree Service License #CLAY‑001",
+      insurance: "Fully insured for residential and commercial tree work."
+    }
   },
 
   // ============================================================
-  // PROFESSIONAL ESTIMATE PREVIEW (FULLY FORMATTED)
+  // ESTIMATE PREVIEW (STATIC, EPIC, FULLY FORMATTED)
   // ============================================================
   templatePreview(estimate) {
 
-    // ------------------------------------------------------------
-    // TREE LIST HTML
-    // ------------------------------------------------------------
+    // TREE LIST
     const treesHtml = (estimate.trees || [])
       .map(tree => `
         <div class="tree-item">
@@ -89,9 +88,7 @@ export const ESTIMATES_MODULE = {
       `)
       .join("");
 
-    // ------------------------------------------------------------
-    // LINE ITEMS HTML
-    // ------------------------------------------------------------
+    // LINE ITEMS
     const itemsHtml = (estimate.lineItems || [])
       .map(item => `
         <tr>
@@ -103,30 +100,29 @@ export const ESTIMATES_MODULE = {
       `)
       .join("");
 
-    // ------------------------------------------------------------
-    // FINAL PREVIEW OUTPUT
-    // ------------------------------------------------------------
+    // FINAL PREVIEW
     return `
-      <h2>Tree Service Estimate</h2>
+      <h2>${estimate.title || "Tree Service Estimate"}</h2>
 
-      <!-- CLIENT & JOB -->
+      <!-- CLIENT -->
       <h3>Client Information</h3>
       <p><strong>Name:</strong> ${estimate.clientName}</p>
       <p><strong>Phone:</strong> ${estimate.clientPhone}</p>
       <p><strong>Email:</strong> ${estimate.clientEmail}</p>
       <p><strong>Address:</strong> ${estimate.clientAddress}</p>
 
+      <!-- JOB -->
       <h3>Job Location</h3>
       <p>${estimate.jobAddress}, ${estimate.jobCity}, ${estimate.jobState} ${estimate.jobZip}</p>
       <p><strong>Property Notes:</strong> ${estimate.propertyNotes || "None"}</p>
 
-      <!-- TREE DETAILS -->
+      <!-- TREES -->
       <h3>Tree Details & Services</h3>
-      ${treesHtml || "<p>No trees added yet.</p>"}
+      ${treesHtml || "<p>No trees added.</p>"}
 
       <!-- SCOPE -->
       <h3>Scope of Work</h3>
-      <p>${estimate.scope || "Scope of work not yet defined."}</p>
+      <p>${estimate.scope || "Not specified."}</p>
 
       <!-- LINE ITEMS -->
       <h3>Line Items</h3>
@@ -146,25 +142,26 @@ export const ESTIMATES_MODULE = {
 
       <!-- MONEY -->
       <h3>Totals</h3>
-      <p><strong>Subtotal:</strong> $${estimate.subtotal || 0}</p>
-      <p><strong>Tax (${estimate.taxRate || 0}%):</strong> $${estimate.taxAmount || 0}</p>
-      <p><strong>Grand Total:</strong> $${estimate.grandTotal || estimate.subtotal || 0}</p>
-      <p><strong>Deposit Required:</strong> $${estimate.depositRequired || 0}</p>
+      <p><strong>Subtotal:</strong> $${estimate.subtotal}</p>
+      <p><strong>Tax (${estimate.taxRate}%):</strong> $${estimate.taxAmount}</p>
+      <p><strong>Grand Total:</strong> $${estimate.grandTotal}</p>
+      <p><strong>Deposit Required:</strong> $${estimate.depositRequired}</p>
 
       <!-- TIMEFRAME -->
       <h3>Timeframe</h3>
       <p>${estimate.timeframe || "Not specified."}</p>
 
-      <!-- ASSUMPTIONS & EXCLUSIONS -->
+      <!-- ASSUMPTIONS -->
       <h3>Assumptions</h3>
-      <p>${estimate.assumptions || "None listed."}</p>
+      <p>${estimate.assumptions || "None."}</p>
 
+      <!-- EXCLUSIONS -->
       <h3>Exclusions</h3>
-      <p>${estimate.exclusions || "None listed."}</p>
+      <p>${estimate.exclusions || "None."}</p>
 
       <!-- NOTES -->
       <h3>Additional Notes</h3>
-      <p>${estimate.notes || "No additional notes."}</p>
+      <p>${estimate.notes || "None."}</p>
 
       <!-- META -->
       <h3>Document Status</h3>
@@ -173,11 +170,12 @@ export const ESTIMATES_MODULE = {
 
       <!-- BUSINESS INFO -->
       <h3>Prepared By</h3>
-      <p><strong>Chainsaw Clay’s Tree Service LLC</strong></p>
-      <p>Phone: (470) 469‑2358</p>
-      <p>Email: support@chainsawclay.com</p>
-      <p>Address: Sylacauga, AL</p>
-      <p>Fully insured for residential and commercial tree work.</p>
+      <p><strong>${estimate.business.name}</strong></p>
+      <p>Phone: ${estimate.business.phone}</p>
+      <p>Email: ${estimate.business.email}</p>
+      <p>Address: ${estimate.business.address}</p>
+      <p>License: ${estimate.business.license}</p>
+      <p>${estimate.business.insurance}</p>
     `;
   }
 };
