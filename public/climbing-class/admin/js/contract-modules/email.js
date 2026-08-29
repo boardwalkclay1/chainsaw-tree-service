@@ -1,5 +1,7 @@
-// chainsaw-email-template.js
-// Auto-applied to ALL outgoing emails (contracts, estimates, proposals, receipts)
+// ============================================================
+// Chainsaw Clay — Universal Email Template (Static + Clean)
+// Applies to ALL outgoing emails: estimates, proposals, contracts, receipts
+// ============================================================
 
 export function buildChainsawEmail(contentHtml) {
   return `
@@ -18,7 +20,7 @@ export function buildChainsawEmail(contentHtml) {
       inset:0;
       background:url('https://chainsawclay.com/img/tree-service-logo.png')
         no-repeat center center;
-      background-size:70%;
+      background-size:65%;
       opacity:0.12;
       filter:grayscale(100%);
       z-index:0;
@@ -37,7 +39,7 @@ export function buildChainsawEmail(contentHtml) {
       ${contentHtml}
     </div>
 
-    <!-- OFFICIAL FOOTER -->
+    <!-- FOOTER -->
     <div style="
       position:relative;
       z-index:2;
@@ -46,8 +48,8 @@ export function buildChainsawEmail(contentHtml) {
       border-top:1px solid #333;
       text-align:center;
       font-size:12px;
-      opacity:0.8;
-      line-height:1.4;
+      opacity:0.85;
+      line-height:1.5;
     ">
       <strong>Chainsaw Clay’s Tree Service LLC</strong><br>
       Official Communication — Estimate / Proposal / Contract / Receipt<br>
