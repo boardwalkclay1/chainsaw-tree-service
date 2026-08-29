@@ -1,49 +1,9 @@
 // ============================================================
-// CHAINSWAW CLAY — ADMIN CONTRACTS CORE (FULLY REBUILT)
+// REAL TREE GUY — ADMIN CONTRACTS (STATIC FINAL VERSION)
 // ============================================================
 
-// MODULE IMPORTS
-import CONTRACT_INDEX from "./contract-modules/contract-index.js";
-import { buildChainsawEmail } from "./contract-modules/email.js";
-
-// API BASE
-const ADMIN_API = "https://api.realtreeguy.com/admin/contracts";
-
-// AUTH / CONTEXT
-const ADMIN_USER_ID = localStorage.getItem("rtgAdminId") || "admin-dev";
-
-const BUSINESS_INFO = {
-  name: "Chainsaw Clay’s Tree Service LLC",
-  phone: "(470) 469-2358",
-  email: "support@chainsawclay.com",
-  address: "Sylacauga, AL",
-  license: "Tree Service License #CLAY-001",
-  insurance: "Fully insured for residential and commercial tree work."
-};
-
-// ============================================================
-// API WRAPPER
-// ============================================================
-
-async function contractsApi(path, method = "GET", body = null) {
-  const url = `${ADMIN_API}${path}`;
-
-  try {
-    const res = await fetch(url, {
-      method,
-      headers: {
-        "Content-Type": "application/json",
-        "X-RTG-Admin": ADMIN_USER_ID
-      },
-      body: body ? JSON.stringify(body) : null
-    });
-
-    return await res.json();
-  } catch (err) {
-    console.error("NETWORK ERROR:", err);
-    return { ok: false, error: "network" };
-  }
-}
+// This is the ONLY import you need.
+import CONTRACT_INDEX from "./modules/contract-index.js";
 
 // ============================================================
 // STATE
@@ -55,56 +15,114 @@ const CONTRACTS_STATE = {
 };
 
 // ============================================================
-// INIT PAGE
+// STORAGE
+// ============================================================
+
+const STORAGE_KEY = "rtgContracts";
+
+function loadContracts() {
+  try {
+    const raw = localStorage.getItem(STORAGE_KEY);
+    CONTRACTS_STATE.list = raw ? JSON.parse(raw) : [];
+  } catch {
+    CONTRACTS_STATE.list = [];
+  }
+}
+
+function saveContracts() {
+  localStorage.setItem(STORAGE_KEY, JSON.stringify(CONTRACTS_STATE.list));
+}
+
+// ============================================================
+// INIT
 // ============================================================
 
 document.addEventListener("DOMContentLoaded", () => {
   if (document.body.dataset.page === "admin-contracts") {
-    initAdminContracts();
+    loadContracts();
+    renderContractsList();
+    setupLivePreviewListeners();
   }
 });
 
-async function initAdminContracts() {
-  await loadContractsList();
-  attachGlobalButtons();
+// ============================================================
+// MODULE SELECTOR
+// ============================================================
+
+function getModule(type) {
+  return CONTRACT_INDEX.CONTRACT_CATEGORY_MAP[type].module;
 }
 
 // ============================================================
-// LOAD LIST
+// CREATE NEW DOCUMENT
 // ============================================================
 
-async function loadContractsList() {
-  const data = await contractsApi("/list");
+window.newAdminContract = function (type = "contract") {
+  const module = getModule(type);
+  const now = new Date().toLocaleString();
 
-  CONTRACTS_STATE.list = Array.isArray(data.documents) ? data.documents : [];
-  renderContractsList(CONTRACTS_STATE.list);
-}
+  const doc = {
+    id: `doc_${Date.now()}_${Math.random().toString(16).slice(2)}`,
+    type,
+    ...JSON.parse(JSON.stringify(module.fields)),
+    createdAt: now,
+    status: "Draft"
+  };
+
+  CONTRACTS_STATE.list.push(doc);
+  CONTRACTS_STATE.active = doc;
+
+  saveContracts();
+  renderContractsList();
+  renderActiveContract(doc);
+  renderPreview(doc);
+};
+
+// ============================================================
+// OPEN DOCUMENT
+// ============================================================
+
+window.openAdminContract = function (id) {
+  const doc = CONTRACTS_STATE.list.find(d => d.id === id);
+  if (!doc) return alert("Document not found.");
+
+  CONTRACTS_STATE.active = doc;
+
+  renderActiveContract(doc);
+  renderPreview(doc);
+};
 
 // ============================================================
 // RENDER LIST
 // ============================================================
 
-function renderContractsList(documents) {
+function renderContractsList() {
   const listEl = document.getElementById("adminContractsList");
   if (!listEl) return;
 
-  if (!documents.length) {
+  listEl.innerHTML = "";
+
+  if (!CONTRACTS_STATE.list.length) {
     listEl.innerHTML = "<p>No documents yet.</p>";
     return;
   }
 
-  listEl.innerHTML = "";
-
-  documents.forEach(doc => {
+  CONTRACTS_STATE.list.forEach(doc => {
     const div = document.createElement("div");
     div.className = "admin-contract-card";
 
+    const total =
+      doc.totalPrice ||
+      doc.grandTotal ||
+      doc.deposit ||
+      0;
+
     div.innerHTML = `
-      <h3>${doc.type.toUpperCase()} — ${doc.client_name || "Unknown Client"}</h3>
-      <p><strong>Job:</strong> ${doc.job_address || "N/A"}</p>
-      <p><strong>Total:</strong> $${doc.total_price || 0}</p>
+      <h3>${doc.type.toUpperCase()} — ${doc.clientName || "Unknown Client"}</h3>
+      <p><strong>Job:</strong> ${doc.jobAddress || "N/A"}</p>
+      <p><strong>Total:</strong> $${total}</p>
       <p><strong>Status:</strong> ${doc.status}</p>
-      <p><strong>Created:</strong> ${new Date(doc.created_at).toLocaleDateString()}</p>
+      <p><strong>Created:</strong> ${doc.createdAt}</p>
       <button class="rtg-btn rtg-btn--primary" data-open="${doc.id}">Open</button>
     `;
 
@@ -112,262 +130,110 @@ function renderContractsList(documents) {
   });
 
   listEl.querySelectorAll("[data-open]").forEach(btn => {
-    btn.addEventListener("click", () => openAdminContract(btn.dataset.open));
+    btn.onclick = () => openAdminContract(btn.dataset.open);
   });
 }
 
 // ============================================================
-// OPEN DOCUMENT
-// ============================================================
-
-async function openAdminContract(id) {
-  const data = await contractsApi(`/document/${id}`);
-
-  if (!data.ok || !data.document) {
-    alert("Failed to load document.");
-    return;
-  }
-
-  CONTRACTS_STATE.active = data.document;
-  renderActiveContract(CONTRACTS_STATE.active);
-  renderPreview(CONTRACTS_STATE.active);
-}
-
-// ============================================================
-// NEW DOCUMENT
-// ============================================================
-
-function newAdminContract(type = "contract") {
-  const now = Date.now();
-
-  CONTRACTS_STATE.active = {
-    id: null,
-    type,
-    admin_id: ADMIN_USER_ID,
-    client_name: "",
-    client_email: "",
-    client_phone: "",
-    client_address: "",
-    job_address: "",
-    scope_of_work: "",
-    work_plan: "",
-    special_clauses: "",
-    total_price: 0,
-    deposit_required: 0,
-    payment_schedule: "",
-    notes: "",
-    created_at: now,
-    client_signed_at: null,
-    admin_signed_at: null,
-    status: "draft",
-    business: { ...BUSINESS_INFO }
-  };
-
-  renderActiveContract(CONTRACTS_STATE.active);
-  renderPreview(CONTRACTS_STATE.active);
-}
-
-// ============================================================
-// RENDER ACTIVE DOCUMENT (FORM)
+// RENDER ACTIVE DOCUMENT INTO FORM
 // ============================================================
 
 function renderActiveContract(doc) {
-  setValue("contractType", doc.type);
-
-  setValue("contractClientName", doc.client_name);
-  setValue("contractClientEmail", doc.client_email);
-  setValue("contractClientPhone", doc.client_phone);
-  setValue("contractClientAddress", doc.client_address);
-
-  setValue("contractJobAddress", doc.job_address);
-  setValue("contractScope", doc.scope_of_work);
-  setValue("contractWorkPlan", doc.work_plan);
-  setValue("contractSpecialClauses", doc.special_clauses);
-
-  setValue("contractTotalPrice", doc.total_price);
-  setValue("contractDeposit", doc.deposit_required);
-  setValue("contractPaymentSchedule", doc.payment_schedule);
-  setValue("contractNotes", doc.notes);
-
-  setText("contractCreatedAt", new Date(doc.created_at).toLocaleString());
-  setText("contractClientSignedAt", doc.client_signed_at ? new Date(doc.client_signed_at).toLocaleString() : "Not signed");
-  setText("contractAdminSignedAt", doc.admin_signed_at ? new Date(doc.admin_signed_at).toLocaleString() : "Not signed");
-  setText("contractStatus", doc.status);
-}
-
-function setValue(id, value) {
-  const el = document.getElementById(id);
-  if (el) el.value = value ?? "";
-}
-
-function setText(id, value) {
-  const el = document.getElementById(id);
-  if (el) el.textContent = value ?? "";
+  for (const key in doc) {
+    const el = document.getElementById(key);
+    if (el) el.value = doc[key];
+  }
 }
 
 // ============================================================
-// PREVIEW (BOTTOM PANEL)
+// UPDATE DOCUMENT FROM FORM
+// ============================================================
+
+function updateDocumentFromForm() {
+  const doc = CONTRACTS_STATE.active;
+  if (!doc) return;
+
+  for (const key in doc) {
+    const el = document.getElementById(key);
+    if (el) doc[key] = el.value;
+  }
+
+  saveContracts();
+}
+
+// ============================================================
+// LIVE PREVIEW
 // ============================================================
 
 function renderPreview(doc) {
   const previewEl = document.getElementById("contractPreview");
   if (!previewEl) return;
 
-  const html = `
-    <h2>${doc.type.toUpperCase()}</h2>
-    <p><strong>Client:</strong> ${doc.client_name}</p>
-    <p><strong>Email:</strong> ${doc.client_email}</p>
-    <p><strong>Phone:</strong> ${doc.client_phone}</p>
-    <p><strong>Address:</strong> ${doc.client_address}</p>
-
-    <hr>
-
-    <p><strong>Job Address:</strong> ${doc.job_address}</p>
-    <p><strong>Scope of Work:</strong><br>${doc.scope_of_work}</p>
-    <p><strong>Work Plan:</strong><br>${doc.work_plan}</p>
-    <p><strong>Special Clauses:</strong><br>${doc.special_clauses}</p>
-
-    <hr>
-
-    <p><strong>Total Price:</strong> $${doc.total_price}</p>
-    <p><strong>Deposit Required:</strong> $${doc.deposit_required}</p>
-    <p><strong>Payment Schedule:</strong><br>${doc.payment_schedule}</p>
-    <p><strong>Notes:</strong><br>${doc.notes}</p>
-  `;
-
-  previewEl.innerHTML = html;
+  const module = getModule(doc.type);
+  previewEl.innerHTML = module.templatePreview(doc);
 }
 
-// ============================================================
-// COLLECT FORM BACK INTO STATE
-// ============================================================
-
-function collectActiveContractFromForm() {
-  const doc = CONTRACTS_STATE.active;
-
-  doc.type = getValue("contractType");
-
-  doc.client_name = getValue("contractClientName");
-  doc.client_email = getValue("contractClientEmail");
-  doc.client_phone = getValue("contractClientPhone");
-  doc.client_address = getValue("contractClientAddress");
-
-  doc.job_address = getValue("contractJobAddress");
-  doc.scope_of_work = getValue("contractScope");
-  doc.work_plan = getValue("contractWorkPlan");
-  doc.special_clauses = getValue("contractSpecialClauses");
-
-  doc.total_price = Number(getValue("contractTotalPrice"));
-  doc.deposit_required = Number(getValue("contractDeposit"));
-  doc.payment_schedule = getValue("contractPaymentSchedule");
-  doc.notes = getValue("contractNotes");
-
-  return doc;
-}
-
-function getValue(id) {
-  const el = document.getElementById(id);
-  return el ? el.value : "";
+function setupLivePreviewListeners() {
+  document.querySelectorAll("input, textarea, select").forEach(el => {
+    el.addEventListener("input", () => {
+      updateDocumentFromForm();
+      renderPreview(CONTRACTS_STATE.active);
+    });
+  });
 }
 
 // ============================================================
 // SAVE DOCUMENT
 // ============================================================
 
-async function saveAdminContract() {
-  const doc = collectActiveContractFromForm();
-
-  const path = doc.id ? `/update/${doc.id}` : "/create";
-  const res = await contractsApi(path, "POST", doc);
-
-  if (!res.ok) {
-    alert("Failed to save document.");
-    return;
-  }
-
-  doc.id = res.id || doc.id;
-  doc.status = res.status || doc.status;
-
-  renderPreview(doc);
+window.saveAdminContract = function () {
+  updateDocumentFromForm();
+  saveContracts();
+  renderContractsList();
+  renderPreview(CONTRACTS_STATE.active);
   alert("Document saved.");
-  await loadContractsList();
-}
+};
 
 // ============================================================
-// ADMIN SIGN DOCUMENT
+// SIGNATURES
 // ============================================================
 
-async function adminSignContract() {
+window.adminSignContract = function () {
   const doc = CONTRACTS_STATE.active;
-  if (!doc || !doc.id) return;
+  if (!doc) return;
 
-  const res = await contractsApi(`/admin-sign/${doc.id}`, "POST", {
-    admin_id: ADMIN_USER_ID,
-    signed_at: Date.now()
-  });
+  doc.adminSignedAt = new Date().toLocaleString();
+  doc.status = "Admin Signed";
 
-  if (!res.ok) {
-    alert("Failed to sign document.");
-    return;
-  }
-
-  doc.admin_signed_at = res.admin_signed_at;
-  doc.status = res.status || "admin_signed";
-
+  saveContracts();
+  renderActiveContract(doc);
   renderPreview(doc);
-  alert("You have signed this document.");
-  await loadContractsList();
-}
+};
 
-// ============================================================
-// SEND TO CLIENT (WITH EMAIL TEMPLATE)
-// ============================================================
+window.clientSignContract = function () {
+  const doc = CONTRACTS_STATE.active;
+  if (!doc) return;
 
-async function sendContractToClient() {
-  const doc = collectActiveContractFromForm();
+  doc.clientSignedAt = new Date().toLocaleString();
+  doc.status = "Client Signed";
 
-  if (!doc.id) {
-    alert("Save the document before sending.");
-    return;
-  }
-
-  // Build branded email HTML
-  const emailHtml = buildChainsawEmail(document.getElementById("contractPreview").innerHTML);
-
-  const res = await contractsApi(`/send/${doc.id}`, "POST", {
-    client_email: doc.client_email,
-    client_name: doc.client_name,
-    email_html: emailHtml
-  });
-
-  if (!res.ok) {
-    alert("Failed to send document.");
-    return;
-  }
-
-  doc.status = res.status || "sent";
-
+  saveContracts();
+  renderActiveContract(doc);
   renderPreview(doc);
-  alert("Document sent to client.");
-  await loadContractsList();
-}
+};
 
 // ============================================================
-// BUTTON HOOKS
+// SEND TO CLIENT (STATIC MAILTO)
 // ============================================================
 
-function attachGlobalButtons() {
-  document.getElementById("saveContractBtn").onclick = saveAdminContract;
-  document.getElementById("signContractBtn").onclick = adminSignContract;
-  document.getElementById("sendContractBtn").onclick = sendContractToClient;
-}
+window.sendContractToClient = function () {
+  const doc = CONTRACTS_STATE.active;
+  if (!doc) return alert("No active document.");
 
-// ============================================================
-// EXPOSE FUNCTIONS
-// ============================================================
+  if (!doc.clientEmail) return alert("Client email required.");
 
-window.newAdminContract = newAdminContract;
-window.openAdminContract = openAdminContract;
-window.saveAdminContract = saveAdminContract;
-window.adminSignContract = adminSignContract;
-window.sendContractToClient = sendContractToClient;
+  const subject = encodeURIComponent(`${doc.type.toUpperCase()} from Chainsaw Clay`);
+  const body = encodeURIComponent(`Hello ${doc.clientName},\n\nHere is your ${doc.type}.\n\nThank you,\nChainsaw Clay`);
+
+  window.location.href = `mailto:${doc.clientEmail}?subject=${subject}&body=${body}`;
+};
