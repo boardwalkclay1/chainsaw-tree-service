@@ -14,20 +14,21 @@ export { PROPOSALS_MODULE } from "./proposals.js";
 // Full Receipts Module
 export { RECEIPTS_MODULE } from "./receipts.js";
 
+// Full Email Module (your official Chainsaw Clay email template)
+export { EMAIL_MODULE } from "./email.js";
+
 
 // ===============================
 // CATEGORY MAP (for admin-contracts.js)
 // ===============================
 //
-// This gives your admin-contracts.js a clean,
-// organized structure to loop through.
 // Each category has:
 // - type
 // - title
 // - module reference
 // - description
-// - icon (optional)
-// - color (for UI themes)
+// - icon
+// - color
 // ===============================
 
 export const CONTRACT_CATEGORY_MAP = {
@@ -72,10 +73,6 @@ export const CONTRACT_CATEGORY_MAP = {
 // ===============================
 // CATEGORY ORDER (UI sorting)
 // ===============================
-//
-// This ensures your admin-contracts.js displays
-// categories in the correct order every time.
-// ===============================
 
 export const CONTRACT_CATEGORY_ORDER = [
   "contract",
@@ -94,6 +91,7 @@ export default {
   ESTIMATES_MODULE,
   PROPOSALS_MODULE,
   RECEIPTS_MODULE,
+  EMAIL_MODULE,
   CONTRACT_CATEGORY_MAP,
   CONTRACT_CATEGORY_ORDER
 };
