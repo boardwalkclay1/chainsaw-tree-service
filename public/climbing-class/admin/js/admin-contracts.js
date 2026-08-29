@@ -3,7 +3,7 @@
 // ============================================================
 
 // This is the ONLY import you need.
-import CONTRACT_INDEX from "./modules/contract-index.js";
+import CONTRACT_INDEX from "/climbing-class/admin/js/contract-modules/contract-index.js";
 
 // ============================================================
 // STATE
