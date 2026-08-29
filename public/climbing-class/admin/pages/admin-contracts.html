@@ -2,14 +2,14 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>RTG Admin — Contracts Suite</title>
+  <title>Chainsaw Clay — Admin Contracts Suite</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <!-- FAVICON + SOCIAL -->
-  <link rel="icon" type="image/png" href="/img/rtg-admin.png">
-  <meta property="og:title" content="RTG Admin — Contracts Suite">
+  <link rel="icon" type="image/png" href="/img/tree-service-logo.png">
+  <meta property="og:title" content="Chainsaw Clay — Admin Contracts Suite">
   <meta property="og:description" content="Manage contracts, estimates, proposals, and receipts.">
-  <meta property="og:image" content="/img/rtg-admin.png">
+  <meta property="og:image" content="/img/tree-service-logo.png">
   <meta property="og:type" content="website">
 
   <link rel="stylesheet" href="/climbing-class/admin/css/admin-contracts.css">
@@ -18,13 +18,20 @@
 
 <body class="rtg-admin-contracts" data-page="admin-contracts">
 
-  <!-- BURGER MENU -->
-  <div id="rtgBurger" class="rtg-burger">☰</div>
+  <!-- HEADER WITH LOGO + MENU -->
+  <header class="rtg-admin-header">
+    <div class="rtg-admin-left">
+      <img src="/img/tree-service-logo.png" id="adminLogo" class="rtg-admin-logo-img">
+      <div class="rtg-admin-logo-text">Chainsaw Clay’s Tree Service — Admin</div>
+    </div>
 
-  <!-- FULL ADMIN NAV -->
+    <div class="rtg-admin-title">Contracts & Documents Suite</div>
+  </header>
+
+  <!-- FULL ADMIN NAV (LOGO MENU) -->
   <nav id="rtgAdminNav" class="rtg-admin-nav">
     <div class="rtg-nav-header">
-      <img src="/img/rtg-admin.png" class="rtg-nav-logo">
+      <img src="/img/tree-service-logo.png" class="rtg-nav-logo">
       <button id="rtgNavClose">✕</button>
     </div>
 
@@ -36,12 +43,6 @@
       <li><a href="/admin/settings.html">Settings</a></li>
     </ul>
   </nav>
-
-  <!-- HEADER -->
-  <header class="rtg-admin-header">
-    <div class="rtg-admin-logo">RTG Admin</div>
-    <div class="rtg-admin-title">Contracts & Documents Suite</div>
-  </header>
 
   <!-- MAIN GRID -->
   <main class="rtg-admin-main">
@@ -57,23 +58,7 @@
         <button class="rtg-btn rtg-btn--outline" data-new="receipt">+ New Receipt</button>
       </div>
 
-      <!-- CATEGORIZED CONTRACTS -->
-      <div id="adminContractsList" class="contracts-list">
-        <!-- JS will insert categories:
-             - Contracts
-             - Estimates
-             - Proposals
-             - Receipts
-        -->
-      </div>
-    </section>
-
-    <!-- MIDDLE: LIVE PREVIEW -->
-    <section class="rtg-admin-panel rtg-doc-preview">
-      <h2>Preview</h2>
-      <div id="contractPreview" class="contract-preview">
-        <p>Select a document to preview.</p>
-      </div>
+      <div id="adminContractsList" class="contracts-list"></div>
     </section>
 
     <!-- RIGHT: DOCUMENT EDITOR -->
@@ -82,7 +67,6 @@
 
       <div class="form-grid">
 
-        <!-- TYPE -->
         <label>
           Document Type
           <select id="contractType">
@@ -93,19 +77,16 @@
           </select>
         </label>
 
-        <!-- CLIENT INFO -->
         <label>Client Name <input id="contractClientName" type="text"></label>
         <label>Client Email <input id="contractClientEmail" type="email"></label>
         <label>Client Phone <input id="contractClientPhone" type="text"></label>
         <label>Client Address <input id="contractClientAddress" type="text"></label>
 
-        <!-- JOB INFO -->
         <label>Job Address <input id="contractJobAddress" type="text"></label>
         <label>Scope of Work <textarea id="contractScope"></textarea></label>
         <label>Work Plan <textarea id="contractWorkPlan"></textarea></label>
         <label>Special Clauses <textarea id="contractSpecialClauses"></textarea></label>
 
-        <!-- MONEY -->
         <label>Total Price ($) <input id="contractTotalPrice" type="number"></label>
         <label>Deposit Required ($) <input id="contractDeposit" type="number"></label>
         <label>Payment Schedule <textarea id="contractPaymentSchedule"></textarea></label>
@@ -113,7 +94,6 @@
 
       </div>
 
-      <!-- STATUS + DATES -->
       <div class="contract-meta">
         <p><strong>Created:</strong> <span id="contractCreatedAt">N/A</span></p>
         <p><strong>Client Signed:</strong> <span id="contractClientSignedAt">Not signed</span></p>
@@ -121,13 +101,21 @@
         <p><strong>Status:</strong> <span id="contractStatus">Draft</span></p>
       </div>
 
-      <!-- ACTION BUTTONS -->
+    </section>
+
+    <!-- BOTTOM: LIVE PREVIEW -->
+    <section class="rtg-admin-panel rtg-doc-preview">
+      <h2>Preview</h2>
+      <div id="contractPreview" class="contract-preview">
+        <p>Select a document to preview.</p>
+      </div>
+
+      <!-- ACTION BUTTONS UNDER PREVIEW -->
       <div class="contract-actions">
         <button class="rtg-btn rtg-btn--primary" id="saveContractBtn">Save</button>
         <button class="rtg-btn rtg-btn--outline" id="signContractBtn">Sign</button>
         <button class="rtg-btn rtg-btn--primary" id="sendContractBtn">Send to Client</button>
       </div>
-
     </section>
 
   </main>
