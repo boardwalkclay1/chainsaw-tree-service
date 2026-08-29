@@ -5,12 +5,34 @@
 <title>Tasha Axem – Chainsaw Clay’s Tree Service Contract</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
+<!-- FAVICON -->
+<link rel="icon" type="image/png" href="https://chainsawclay.com/img/tree-service-logo.png">
+
+<!-- SOCIAL PREVIEW -->
+<meta property="og:title" content="Chainsaw Clay’s Tree Service – Contract for Tasha Axem">
+<meta property="og:description" content="Official tree removal estimate and contract for Tasha Axem.">
+<meta property="og:image" content="https://chainsawclay.com/img/tree-service-logo.png">
+<meta property="og:type" content="website">
+
 <style>
   body {
     background:#111;
     color:#fff;
     font-family:Arial, sans-serif;
     padding:20px;
+    position:relative;
+  }
+
+  /* FADED BACKGROUND LOGO */
+  body::before {
+    content:"";
+    position:absolute;
+    inset:0;
+    background:url('https://chainsawclay.com/img/tree-service-logo.png') no-repeat center;
+    background-size:70%;
+    opacity:0.08;
+    filter:grayscale(100%);
+    z-index:-1;
   }
 
   .logo {
@@ -116,7 +138,7 @@
   <h3>Job Description</h3>
   <p>
     Removal of five (5) trees:<br>
-    • Four Water Oaks (three in backyard, one in front yard)<br>
+    • Four Water Oaks (three backyard, one front yard)<br>
     • One dead Pine (backyard)
   </p>
 
@@ -210,7 +232,7 @@
 </p>
 
 <script>
-  // Simple signature drawing on canvas (mouse + touch)
+  // Signature pad setup
   function setupCanvas(id) {
     const canvas = document.getElementById(id);
     const ctx = canvas.getContext('2d');
@@ -289,8 +311,6 @@
       'Job: Removal of 4 Water Oaks and 1 dead Pine.',
       'Total Contract Amount: $11,000',
       '',
-      'Signatures have been drawn in the signature boxes on the contract page.',
-      '',
       'Client Signature (image data):',
       clientData,
       '',
@@ -302,7 +322,6 @@
 
     const body = encodeURIComponent(bodyLines.join('\n'));
 
-    // To: you, CC: her
     const mailto = `mailto:support@chainsawclay.com?cc=Tmaxam@gmail.com&subject=${subject}&body=${body}`;
     window.location.href = mailto;
   }
