@@ -20,6 +20,23 @@ import { listCities, createCity } from "./modules/cities.js";
 
 import { listMessages, sendMessage } from "./modules/messages.js";
 
+import { json, body } from "./utils.js";
+
+
+// ============================================================
+// GLOBAL CORS — FIXES ALL ADMIN ERRORS
+// ============================================================
+
+function corsHeaders() {
+  return {
+    "Access-Control-Allow-Origin": "*",
+    "Access-Control-Allow-Methods": "GET, POST, OPTIONS",
+    "Access-Control-Allow-Headers":
+      "Content-Type, x-rtg-admin, x-client-id, x-treeguy-id, X-RTG-User, X-RTG-Email, X-RTG-Type",
+    "Access-Control-Max-Age": "86400"
+  };
+}
+
 
 // ============================================================
 // MAIN WORKER
@@ -29,6 +46,16 @@ export default {
   async fetch(request, env) {
     const url = new URL(request.url);
     const path = url.pathname;
+
+    // ------------------------------------------------------------
+    // HANDLE PRE-FLIGHT OPTIONS REQUESTS
+    // ------------------------------------------------------------
+    if (request.method === "OPTIONS") {
+      return new Response(null, {
+        status: 204,
+        headers: corsHeaders()
+      });
+    }
 
     try {
 
@@ -118,32 +145,20 @@ export default {
 
 async function safe(fn, request, env) {
   try {
-    return await fn(request, env);
+    const result = await fn(request, env);
+
+    // Inject CORS into every JSON response
+    const res = new Response(result.body, {
+      status: result.status,
+      headers: {
+        ...result.headers,
+        ...corsHeaders()
+      }
+    });
+
+    return res;
+
   } catch (err) {
-    if (err.message?.includes("no such table")) {
-      return json({
-        error: "Missing D1 table",
-        detail: err.message,
-        fix: "Run your D1 schema to create all required tables."
-      }, 500);
-    }
     return json({ error: err.message }, 500);
   }
-}
-
-
-// ============================================================
-// HELPERS
-// ============================================================
-
-function json(data, status = 200) {
-  return new Response(JSON.stringify(data), {
-    status,
-    headers: { "Content-Type": "application/json" }
-  });
-}
-
-async function body(request) {
-  if (request.method === "GET") return {};
-  return await request.json();
 }
