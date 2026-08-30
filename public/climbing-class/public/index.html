@@ -13,15 +13,17 @@
 
   <!-- HEADER -->
   <header id="compact-header">
-    <img src="/img/climb-logo.jpg" id="header-logo">
+    <img src="/img/climb-logo.jpg" id="header-logo" onclick="toggleSidebar()">
     <div id="header-text">
       <h1>Chainsaw’s Climbing Class</h1>
       <p>Elite climbing • Real arborist training • Full video courses</p>
     </div>
   </header>
 
-  <!-- SIDEBAR (HIDDEN BY DEFAULT — CSS WILL HANDLE) -->
+  <!-- SIDEBAR -->
   <nav id="sidebar">
+    <div id="sidebar-close" onclick="document.getElementById('sidebar').classList.remove('open')">✕</div>
+
     <a href="/climbing-class/public/pages/index.html">Home</a>
     <a href="/climbing-class/public/pages/classes.html">Classes</a>
     <a href="/climbing-class/public/pages/pricing.html">Pricing</a>
