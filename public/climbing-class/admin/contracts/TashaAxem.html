@@ -150,7 +150,10 @@
     • Preparing debris for grapple truck pickup<br>
     • <strong>Grinding all stumps flush or below grade</strong><br>
     • <strong>Full removal of all debris from property</strong><br>
-    • Cleanup of work areas
+    • Cleanup of work areas<br><br>
+
+    <strong>All work will be performed under KND Tree and Landscape Services LLC.</strong><br>
+    <strong>Work will begin on: <span id="startDate"></span></strong>
   </p>
 
   <h3>Estimate Breakdown</h3>
@@ -178,7 +181,10 @@
     • One dead Pine<br><br>
     <strong>All five stumps will be ground.</strong><br>
     <strong>All debris will be fully removed from the property.</strong><br><br>
-    Fence may be removed if needed for debris transport.
+    Fence may be removed if needed for debris transport.<br><br>
+
+    <strong>All work will be performed under KND Tree and Landscape Services LLC.</strong><br>
+    <strong>Work will begin on: <span id="startDate2"></span></strong>
   </p>
 
   <h3>Payment Schedule</h3>
@@ -236,6 +242,14 @@
 </p>
 
 <script>
+  // AUTO‑GENERATE TOMORROW'S DATE
+  const tomorrow = new Date();
+  tomorrow.setDate(tomorrow.getDate() + 1);
+  const formatted = tomorrow.toLocaleDateString();
+
+  document.getElementById("startDate").textContent = formatted;
+  document.getElementById("startDate2").textContent = formatted;
+
   function setupCanvas(id) {
     const canvas = document.getElementById(id);
     const ctx = canvas.getContext('2d');
@@ -315,6 +329,9 @@
       'Includes stump grinding for all 5 trees.',
       'Includes complete debris removal off property.',
       'Total Contract Amount: $11,000',
+      '',
+      'Work performed under KND Tree and Landscape Services LLC.',
+      `Work begins on: ${formatted}`,
       '',
       'Final payment is due AFTER all debris is removed and all stumps are fully ground.',
       '',
