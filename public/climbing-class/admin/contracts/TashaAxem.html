@@ -12,6 +12,8 @@
 <meta property="og:image" content="https://chainsawclay.com/img/tree-service-logo.png">
 <meta property="og:type" content="website">
 
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+
 <style>
   body {
     background:#111;
@@ -226,13 +228,14 @@
     Use your finger (on phone) or mouse (on computer) to sign in the boxes above.
   </p>
 
-  <button class="main-button" type="button" onclick="sendEmail()">
-    Send Contract by Email
+  <button class="main-button" type="button" onclick="downloadPDF()">
+    Download Signed PDF
   </button>
 
-  <p class="note">
-    When you tap the button, your email app will open with a pre‑filled message.
-  </p>
+  <button class="main-button" type="button" onclick="sendPDFEmail()">
+    Send PDF by Email
+  </button>
+
 </div>
 
 <p style="text-align:center; font-size:12px; opacity:0.8; margin-top:30px;">
@@ -250,6 +253,7 @@
   document.getElementById("startDate").textContent = formatted;
   document.getElementById("startDate2").textContent = formatted;
 
+  // SIGNATURE CANVAS SETUP
   function setupCanvas(id) {
     const canvas = document.getElementById(id);
     const ctx = canvas.getContext('2d');
@@ -313,41 +317,39 @@
   setupCanvas('clientCanvas');
   setupCanvas('adminCanvas');
 
-  function sendEmail() {
-    const clientData = document.getElementById('clientCanvas').toDataURL('image/png');
-    const adminData = document.getElementById('adminCanvas').toDataURL('image/png');
+  // PDF GENERATION
+  async function downloadPDF() {
+    const { jsPDF } = window.jspdf;
+    const pdf = new jsPDF();
 
-    const subject = encodeURIComponent('Signed Tree Service Contract – Tasha Axem');
-    const bodyLines = [
-      'Chainsaw Clay’s Tree Service LLC',
-      '',
-      'Client: Tasha Axem',
-      'Email: Tmaxam@gmail.com',
-      'Address: 1080 N Carter Rd, Decatur, GA, United States',
-      '',
-      'Job: Removal of 4 Water Oaks and 1 dead Pine.',
-      'Includes stump grinding for all 5 trees.',
-      'Includes complete debris removal off property.',
-      'Total Contract Amount: $11,000',
-      '',
-      'Work performed under KND Tree and Landscape Services LLC.',
-      `Work begins on: ${formatted}`,
-      '',
-      'Final payment is due AFTER all debris is removed and all stumps are fully ground.',
-      '',
-      'Client Signature (image data):',
-      clientData,
-      '',
-      'Admin Signature (image data):',
-      adminData,
-      '',
-      'Sent from the Tasha contract page.'
-    ];
+    const clientSig = document.getElementById('clientCanvas').toDataURL('image/png');
+    const adminSig = document.getElementById('adminCanvas').toDataURL('image/png');
 
-    const body = encodeURIComponent(bodyLines.join('\n'));
+    pdf.setFontSize(18);
+    pdf.text("Chainsaw Clay’s Tree Service LLC", 10, 20);
 
-    const mailto = `mailto:support@chainsawclay.com?cc=Tmaxam@gmail.com&subject=${subject}&body=${body}`;
-    window.location.href = mailto;
+    pdf.setFontSize(12);
+    pdf.text(`Client: Tasha Axem`, 10, 35);
+    pdf.text(`Email: Tmaxam@gmail.com`, 10, 42);
+    pdf.text(`Address: 1080 N Carter Rd, Decatur, GA`, 10, 49);
+
+    pdf.text(`Work performed under KND Tree and Landscape Services LLC.`, 10, 63);
+    pdf.text(`Work begins on: ${formatted}`, 10, 70);
+
+    pdf.text(`Total Contract Amount: $11,000`, 10, 84);
+
+    pdf.text(`Client Signature:`, 10, 100);
+    pdf.addImage(clientSig, 'PNG', 10, 105, 80, 32);
+
+    pdf.text(`Admin Signature:`, 10, 150);
+    pdf.addImage(adminSig, 'PNG', 10, 155, 80, 32);
+
+    pdf.save("Tasha_Axem_Contract.pdf");
+  }
+
+  // EMAIL PDF (mailto link)
+  function sendPDFEmail() {
+    alert("PDF downloaded. Attach it manually in your email app.");
   }
 </script>
 
