@@ -38,6 +38,7 @@ body {
   box-shadow: 0 0 12px #ff7b00;
 }
 
+/* HEADER TEXT */
 #header-text h1 {
   margin: 0;
   font-size: 26px;
@@ -52,31 +53,23 @@ body {
   opacity: 0.9;
 }
 
-/* SIDEBAR */
+/* SIDEBAR — FULLY HIDDEN UNTIL CLICKED */
 #sidebar {
   position: fixed;
   top: 0;
-  left: -320px; /* fully hidden */
-  width: 320px;
+  left: -350px; /* fully hidden */
+  width: 350px;
   height: 100%;
   background: rgba(0,0,0,0.97);
   padding: 30px 20px;
   transition: left 0.35s ease;
   z-index: 999999;
   border-right: 3px solid #00c853;
+  box-shadow: 0 0 20px #00c85355;
 }
 
 #sidebar.open {
   left: 0;
-}
-
-#sidebar a {
-  display: block;
-  color: #fff;
-  padding: 16px 0;
-  font-size: 20px;
-  border-bottom: 1px solid #333;
-  text-decoration: none;
 }
 
 /* SIDEBAR CLOSE BUTTON */
@@ -84,10 +77,28 @@ body {
   position: absolute;
   top: 12px;
   right: 12px;
-  font-size: 28px;
+  font-size: 32px;
   color: #ff7b00;
   cursor: pointer;
   font-weight: bold;
+  text-shadow: 0 0 10px #ff7b00;
+}
+
+/* SIDEBAR LINKS — RESTYLED */
+#sidebar a {
+  display: block;
+  padding: 16px 0;
+  font-size: 20px;
+  text-decoration: none;
+  font-family: "Trebuchet MS", sans-serif;
+  color: #00e676; /* neon green */
+  border-bottom: 1px solid #333;
+  transition: 0.2s ease;
+}
+
+#sidebar a:hover {
+  color: #ff7b00;
+  text-shadow: 0 0 10px #ff7b00;
 }
 
 /* HEADER BUTTONS */
@@ -151,13 +162,6 @@ body {
   opacity: 0.95;
 }
 
-.path-buttons {
-  display: flex;
-  justify-content: center;
-  gap: 20px;
-  margin: 25px 0;
-}
-
 /* TRAINING SECTION */
 .section {
   padding: 40px 20px;
@@ -172,13 +176,14 @@ body {
   text-shadow: 0 0 10px #00c853;
 }
 
+/* CATEGORY GRID */
 .category-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
   gap: 20px;
 }
 
-/* CATEGORY CARDS — BASE */
+/* CATEGORY CARDS */
 .category-card {
   background: rgba(0,0,0,0.6);
   padding: 20px;
