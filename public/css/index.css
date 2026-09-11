@@ -10,7 +10,7 @@ html, body {
 body {
   background: #000;
   font-family: 'Anton', sans-serif;
-  color: #00c853; /* GREEN TEXT */
+  color: #00c853; /* DEFAULT GREEN TEXT */
   overflow-x: hidden;
   overflow-y: auto;
   position: relative;
@@ -21,6 +21,13 @@ body {
   color: #00c853 !important;
 }
 
+/* Orange emphasis class */
+.orange-text {
+  color: #ff7b00 !important;
+  text-shadow: 0 0 12px #ff7b00;
+  font-family: 'Staatliches', sans-serif;
+}
+
 /* ============================
    FULL-SCREEN BACKGROUND (LOGO)
 ============================ */
@@ -28,25 +35,16 @@ body {
   position: fixed;
   inset: 0;
   z-index: -2;
-
-  /* Your logo as the background */
   background-image: url('/img/tree-service-logo.png');
   background-repeat: no-repeat;
   background-position: center center;
-
-  /* MOBILE SAFE */
   background-size: contain;
-
-  /* DARK TINT OVERLAY */
   background-color: rgba(0,0,0,0.65);
   background-blend-mode: darken;
-
-  /* Prevent scrolling issues */
   background-attachment: scroll;
   opacity: 1;
 }
 
-/* DESKTOP MODE — FULL COVER */
 @media (min-width: 700px) {
   #bg-lock {
     background-size: cover;
@@ -66,8 +64,8 @@ a {
 }
 
 a:hover {
-  color: #fff;
-  text-shadow: 0 0 10px #00c853;
+  color: #ff7b00;
+  text-shadow: 0 0 10px #ff7b00;
 }
 
 /* BUTTON STYLE */
@@ -90,9 +88,9 @@ footer a {
 .city-link:hover,
 #main-menu-inner a:hover,
 footer a:hover {
-  background: #00c853;
+  background: #ff7b00;
   color: #000;
-  box-shadow: 0 0 14px #00c853;
+  box-shadow: 0 0 14px #ff7b00;
 }
 
 /* ============================
@@ -122,16 +120,6 @@ footer a:hover {
   cursor: pointer;
 }
 
-#top-contact-stack {
-  display: flex;
-  flex-direction: column;
-  gap: 4px;
-}
-
-.stack-item {
-  font-size: 0.9rem;
-}
-
 /* ============================
    FULL LOGO MENU (FIXED)
 ============================ */
@@ -157,25 +145,18 @@ footer a:hover {
 #main-menu-close {
   background: none;
   border: none;
-  color: #00c853;
+  color: #ff7b00;
   font-size: 2rem;
   float: right;
   cursor: pointer;
+  text-shadow: 0 0 10px #ff7b00;
 }
 
 .menu-category {
   color: #00c853;
   font-size: 1.4rem;
   margin-top: 30px;
-}
-
-#main-menu-inner ul {
-  list-style: none;
-  padding: 0;
-}
-
-#main-menu-inner li {
-  margin: 12px 0;
+  font-family: 'Staatliches', sans-serif;
 }
 
 /* ============================
@@ -263,8 +244,9 @@ footer a:hover {
 }
 
 .field-row label {
-  color: #00c853;
+  color: #ff7b00; /* EMPHASIZED LABELS */
   font-size: 1rem;
+  text-shadow: 0 0 10px #ff7b00;
 }
 
 .field-row input,
@@ -301,6 +283,13 @@ footer a:hover {
 .section-logo {
   height: 100px;
   filter: drop-shadow(0 0 18px #00c853);
+}
+
+/* CLIMBING CLASS — ORANGE GLOW */
+.section-photo.climbing {
+  border-color: #ff7b00 !important;
+  box-shadow: 0 0 25px #ff7b00 !important;
+  transform: rotate(-1.5deg);
 }
 
 .section-photo {
@@ -387,11 +376,11 @@ footer a:hover {
   right: 20px;
   padding: 14px 20px;
   border-radius: 999px;
-  background: #00c853;
+  background: #ff7b00;
   color: #000;
   border: none;
   font-size: 1rem;
-  box-shadow: 0 0 14px #00c853;
+  box-shadow: 0 0 14px #ff7b00;
   z-index: 9999;
 }
 
