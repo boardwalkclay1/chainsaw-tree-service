@@ -4,6 +4,11 @@ compatibility_date = "2024-12-01"
 
 # ENABLE workers.dev fallback
 workers_dev = true
+node_compat = true
+
+routes = [
+  { pattern = "api.chainsawclay.com/*", zone_name = "chainsawclay.com" }
+]
 
 [[d1_databases]]
 binding = "DB_chainsaw"
@@ -18,8 +23,7 @@ bucket_name = "chainsawclay-videos"
 ADMIN_EMAIL = "support@chainsawclay.com"
 MAIL_FROM = "support@chainsawclay.com"
 
-routes = [
-  { pattern = "api.chainsawclay.com/*", zone_name = "chainsawclay.com" }
-]
-
-node_compat = true
+[[send_email]]
+name = "EMAIL"
+destination_address = "support@chainsawclay.com"
+allowed_sender_addresses = ["support@chainsawclay.com"]

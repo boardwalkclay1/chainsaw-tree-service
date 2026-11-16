@@ -90,26 +90,37 @@ function initEstimateForm() {
   const form = document.getElementById("estimate-form");
   if (!form) return;
 
+  const submitButton = document.getElementById("estimate-submit");
+  const status = document.getElementById("estimate-status");
+
   form.addEventListener("submit", async e => {
     e.preventDefault();
+
+    if (submitButton) submitButton.disabled = true;
+    if (status) status.textContent = "Sending your message…";
 
     const formData = new FormData(form);
 
     try {
-      const res = await fetch("/api/estimate", {
+      const res = await fetch("https://api.chainsawclay.com/api/estimate", {
         method: "POST",
         body: formData
       });
 
       if (!res.ok) {
-        alert("There was an issue submitting your request. Please try again.");
+        const result = await res.json().catch(() => ({}));
+        if (status) {
+          status.textContent = result.error || "There was an issue sending your message. Please try again.";
+        }
         return;
       }
 
-      alert("Your estimate request has been submitted. Clay will review it in the admin dash.");
+      if (status) status.textContent = "Your message was sent. Clay will get back to you soon.";
       form.reset();
     } catch (err) {
-      alert("Network error. Please try again.");
+      if (status) status.textContent = "Unable to send your message right now. Please try again or email support@chainsawclay.com.";
+    } finally {
+      if (submitButton) submitButton.disabled = false;
     }
   });
 }

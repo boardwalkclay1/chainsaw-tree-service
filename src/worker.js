@@ -1,6 +1,53 @@
+const CONTACT_ORIGINS = new Set([
+  "https://chainsawclay.com",
+  "https://www.chainsawclay.com"
+]);
+
+function contactHeaders(origin) {
+  const headers = {
+    "Content-Type": "application/json",
+    "Vary": "Origin"
+  };
+
+  if (origin && CONTACT_ORIGINS.has(origin)) {
+    headers["Access-Control-Allow-Origin"] = origin;
+    headers["Access-Control-Allow-Methods"] = "POST, OPTIONS";
+    headers["Access-Control-Allow-Headers"] = "Content-Type";
+    headers["Access-Control-Max-Age"] = "86400";
+  }
+
+  return headers;
+}
+
+function contactResponse(data, status, origin) {
+  return new Response(JSON.stringify(data), {
+    status,
+    headers: contactHeaders(origin)
+  });
+}
+
 export default {
   async fetch(request, env) {
     const url = new URL(request.url);
+
+    if (url.pathname === "/api/estimate") {
+      const origin = request.headers.get("Origin");
+
+      if (origin && !CONTACT_ORIGINS.has(origin)) {
+        return contactResponse({ error: "Origin not allowed." }, 403, origin);
+      }
+
+      if (request.method === "OPTIONS") {
+        return new Response(null, {
+          status: 204,
+          headers: contactHeaders(origin)
+        });
+      }
+
+      if (request.method !== "POST") {
+        return contactResponse({ error: "Method not allowed." }, 405, origin);
+      }
+    }
 
     /* ============================================================
        GET REVIEWS (Tree Service)
@@ -53,13 +100,46 @@ export default {
     if (url.pathname === "/api/estimate" && request.method === "POST") {
       const form = await request.formData();
 
-      const name = form.get("name");
-      const phone = form.get("phone");
-      const email = form.get("email");
-      const address = form.get("address");
-      const service = form.get("service");
-      const description = form.get("description");
+      const readField = (field, maxLength) => {
+        const value = form.get(field);
+        if (typeof value !== "string") return null;
+
+        const trimmedValue = value.trim();
+        return trimmedValue.length <= maxLength ? trimmedValue : null;
+      };
+
+      const name = readField("name", 120);
+      const phone = readField("phone", 40);
+      const email = readField("email", 254);
+      const address = readField("address", 300);
+      const service = readField("service", 80);
+      const description = readField("description", 3000);
       const photoFile = form.get("photo");
+
+      const validServices = new Set([
+        "Tree Removal",
+        "Pruning",
+        "Storm Cleanup",
+        "General Cleanup",
+        "Planting / Layout"
+      ]);
+
+      if (
+        !name ||
+        !phone ||
+        !email ||
+        !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email) ||
+        !address ||
+        !service ||
+        !validServices.has(service) ||
+        description === null
+      ) {
+        return contactResponse(
+          { error: "Please provide valid contact details and service information." },
+          400,
+          request.headers.get("Origin")
+        );
+      }
 
       let photoUrl = null;
 
@@ -90,15 +170,14 @@ ${photoUrl ? photoUrl : "No photo uploaded"}
       `.trim();
 
       await env.EMAIL.send({
-        from: "noreply@chainsawclay.com",
+        from: env.MAIL_FROM,
         to: "support@chainsawclay.com",
-        subject: `New Estimate Request from ${name}`,
+        replyTo: email,
+        subject: "New Tree Service Estimate Request",
         text: emailBody
       });
 
-      return new Response(JSON.stringify({ success: true }), {
-        headers: { "Content-Type": "application/json" }
-      });
+      return contactResponse({ success: true }, 200, request.headers.get("Origin"));
     }
 
     /* ============================================================
