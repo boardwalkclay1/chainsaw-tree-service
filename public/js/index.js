@@ -125,6 +125,50 @@ function initEstimateForm() {
   });
 }
 
+function initContactPopup() {
+  const button = document.getElementById("contact-now-btn");
+  const popup = document.getElementById("contact-popup");
+  const closeButton = document.getElementById("close-contact");
+  const estimateLink = document.getElementById("contact-estimate-link");
+  if (!button || !popup || !closeButton || !estimateLink) return;
+
+  function closePopup(restoreFocus = true) {
+    popup.classList.remove("open");
+    popup.hidden = true;
+    button.setAttribute("aria-expanded", "false");
+    if (restoreFocus) button.focus();
+  }
+
+  button.addEventListener("click", () => {
+    popup.hidden = false;
+    popup.classList.add("open");
+    button.setAttribute("aria-expanded", "true");
+    closeButton.focus();
+  });
+  closeButton.addEventListener("click", () => closePopup());
+  estimateLink.addEventListener("click", () => closePopup(false));
+  popup.addEventListener("click", e => {
+    if (e.target === popup) closePopup();
+  });
+  document.addEventListener("keydown", e => {
+    if (popup.hidden) return;
+    if (e.key === "Escape") {
+      closePopup();
+    } else if (e.key === "Tab") {
+      const focusable = popup.querySelectorAll("a[href], button:not([disabled])");
+      const first = focusable[0];
+      const last = focusable[focusable.length - 1];
+      if (e.shiftKey && document.activeElement === first) {
+        e.preventDefault();
+        last.focus();
+      } else if (!e.shiftKey && document.activeElement === last) {
+        e.preventDefault();
+        first.focus();
+      }
+    }
+  });
+}
+
 /* ============================
    INIT EVERYTHING
 ============================ */
@@ -133,4 +177,5 @@ document.addEventListener("DOMContentLoaded", () => {
   initScroll();
   initVideoControls();
   initEstimateForm();
+  initContactPopup();
 });

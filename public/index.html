@@ -304,20 +304,21 @@
   <!-- ============================
        CONTACT NOW BUTTON
   ============================ -->
-  <button id="contact-now-btn" class="green-text">Contact Now</button>
+  <button id="contact-now-btn" class="green-text" type="button" aria-haspopup="dialog" aria-controls="contact-popup" aria-expanded="false">Contact Now</button>
 
   <!-- ============================
        CONTACT POPUP
   ============================ -->
-  <div id="contact-popup">
-    <div id="contact-box">
-      <h3 class="green-text">Contact Clay</h3>
+  <div id="contact-popup" hidden>
+    <div id="contact-box" role="dialog" aria-modal="true" aria-labelledby="contact-title">
+      <h3 id="contact-title" class="green-text">Contact Clay</h3>
 
       <a href="tel:4704692358" class="contact-link green-text">📞 Call Clay</a>
       <a href="sms:4704692358" class="contact-link green-text">💬 Text Clay</a>
       <a href="mailto:support@chainsawclay.com" class="contact-link green-text">✉️ Email Clay</a>
+      <a href="#estimate-section" id="contact-estimate-link" class="contact-link green-text">Send a Message</a>
 
-      <button id="close-contact" class="green-text">Close</button>
+      <button id="close-contact" class="green-text" type="button">Close</button>
     </div>
   </div>
 
