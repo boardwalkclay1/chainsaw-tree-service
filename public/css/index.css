@@ -10,18 +10,16 @@ html, body {
 body {
   background: #000;
   font-family: 'Anton', sans-serif;
-  color: #00c853; /* DEFAULT GREEN TEXT */
+  color: #00c853;
   overflow-x: hidden;
   overflow-y: auto;
   position: relative;
 }
 
-/* Universal green text class */
 .green-text {
   color: #00c853 !important;
 }
 
-/* Orange emphasis class */
 .orange-text {
   color: #ff7b00 !important;
   text-shadow: 0 0 12px #ff7b00;
@@ -29,7 +27,7 @@ body {
 }
 
 /* ============================
-   FULL-SCREEN BACKGROUND (LOGO)
+   FULL-SCREEN BACKGROUND
 ============================ */
 #bg-lock {
   position: fixed;
@@ -54,7 +52,7 @@ body {
 }
 
 /* ============================
-   UNIVERSAL LINK STYLE
+   LINKS AND BUTTONS
 ============================ */
 a {
   color: #00c853;
@@ -68,7 +66,6 @@ a:hover {
   text-shadow: 0 0 10px #ff7b00;
 }
 
-/* BUTTON STYLE */
 .link-btn,
 .city-link,
 #main-menu-inner a,
@@ -121,7 +118,7 @@ footer a:hover {
 }
 
 /* ============================
-   FULL LOGO MENU (FIXED)
+   FULL LOGO MENU
 ============================ */
 #main-menu {
   position: fixed;
@@ -167,7 +164,6 @@ footer a:hover {
   text-align: center;
 }
 
-/* ORANGE GLOW FOR ALL VIDEOS */
 #video-hero {
   position: relative;
   width: 100%;
@@ -245,7 +241,7 @@ footer a:hover {
 }
 
 .field-row label {
-  color: #ff7b00; /* EMPHASIZED LABELS */
+  color: #ff7b00;
   font-size: 1rem;
   text-shadow: 0 0 10px #ff7b00;
 }
@@ -286,7 +282,6 @@ footer a:hover {
   filter: drop-shadow(0 0 18px #00c853);
 }
 
-/* ORANGE GLOW FOR ALL PHOTOS */
 .section-photo {
   width: 100%;
   max-width: 600px;
@@ -302,7 +297,6 @@ footer a:hover {
   transform: rotate(0deg) scale(1.03);
 }
 
-/* EXTRA ORANGE GLOW FOR CLIMBING CLASS */
 .section-photo.climbing {
   box-shadow: 0 0 35px #ff7b00 !important;
   border-color: #ff7b00 !important;
@@ -319,6 +313,25 @@ footer a:hover {
   display: flex;
   justify-content: center;
   gap: 12px;
+}
+
+/* ============================
+   EQUIPMENT PHOTOS
+============================ */
+.equipment-photo {
+  box-sizing: border-box;
+  width: 100%;
+  max-width: 600px;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  border-radius: 16px;
+  border: 3px solid #ff7b00;
+  box-shadow: 0 0 25px #ff7b00;
+}
+
+/* The grapple truck is the second equipment card. */
+.equipment-card:nth-child(2) .equipment-photo {
+  object-position: right center;
 }
 
 /* ============================
