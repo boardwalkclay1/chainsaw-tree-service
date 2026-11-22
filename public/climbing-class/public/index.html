@@ -1,49 +1,37 @@
+<head>
+  <meta charset="UTF-8" />
+  <title>Chainsaw Clay Climbing Academy</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <link rel="icon" type="image/jpeg" href="/img/climb-logo.jpg" />
+
+  <!-- ORIGINAL CSS PATH -->
+  <link rel="stylesheet" href="/climbing-class/public/css/climb-index.css" />
+</head>
+
 <body>
 
-<header class="hero-header">
+<header id="compact-header">
+  <img src="/img/climb-logo.jpg"
+       id="header-logo"
+       onclick="toggleSidebar()">
 
-  <div class="hero-overlay">
-
-    <img
-      src="/img/climb-logo.jpg"
-      class="hero-logo"
-      onclick="toggleSidebar()"
-    >
-
+  <div id="header-text">
     <h1>Chainsaw Clay Climbing Academy</h1>
-
     <p>
-      Tree Climbing • Rappelling • Arborist Skills • Rigging • Business Training
+      Climbing • Rappelling • Rigging • Arborist Training
     </p>
-
-    <div class="hero-buttons">
-
-      <a href="/climbing-class/public/pages/classes.html"
-         class="btn-orange">
-        Schedule Classes
-      </a>
-
-      <a href="/climbing-class/public/pages/videos.html"
-         class="btn-green">
-        Watch Training Videos
-      </a>
-
-      <a href="/climbing-class/public/app/pages/index.html"
-         class="btn-dark">
-        Open Training App
-      </a>
-
-    </div>
-
   </div>
-
 </header>
-
-
 
 <nav id="sidebar">
 
-  <a href="/">Home</a>
+  <div id="sidebar-close"
+       onclick="document.getElementById('sidebar').classList.remove('open')">
+    ✕
+  </div>
+
+  <a href="/climbing-class/public/pages/index.html">Home</a>
 
   <a href="/climbing-class/public/pages/classes.html">
     Class Schedule
@@ -67,350 +55,286 @@
 
 </nav>
 
+<div id="leaf-container"></div>
 
+<div class="overlay">
 
-<section class="academy-intro">
-
-  <h2>
-    Train Like a Professional Arborist
-  </h2>
-
-  <p>
-
-    Learn every step of professional climbing,
-    from your first rope setup to advanced
-    canopy movement, removals, rigging,
-    rappelling, and business operation.
-
-  </p>
-
-</section>
-
-
-
-<section class="featured-rappelling">
-
-  <div class="section-title">
+  <section class="intro-section">
 
     <h2>
-      Professional Rappelling Academy
+      Professional Tree Climbing Training
     </h2>
 
-    <span class="featured-badge">
-      Featured Course
-    </span>
+    <p>
+      Learn real arborist skills from beginner
+      climbing through advanced canopy movement,
+      rigging, rappelling, chainsaw work, and
+      business operations.
+    </p>
 
-  </div>
+    <div class="path-buttons">
 
-  <div class="course-panel">
+      <a href="/climbing-class/public/pages/classes.html"
+         class="btn primary">
+        Book Classes
+      </a>
 
-    <div class="course-left">
+      <a href="/climbing-class/public/pages/videos.html"
+         class="btn secondary">
+        Training Videos
+      </a>
 
-      <img
-        src="/img/rappelling-course.jpg"
-        alt="Rappelling Course"
-      >
+      <a href="/climbing-class/public/app/pages/index.html"
+         class="btn secondary">
+        Open Training App
+      </a>
 
     </div>
 
-    <div class="course-right">
+  </section>
 
-      <h3>
-        Learn Controlled Aerial Descent
-      </h3>
+  <section class="section">
 
-      <ul>
+    <h2>Featured Programs</h2>
 
-        <li>Figure 8 Descenders</li>
+    <div class="category-grid">
 
-        <li>Mechanical Descenders</li>
+      <a href="/climbing-class/public/pages/fundamentals.html"
+         class="category-card featured-green">
 
-        <li>Backup Systems</li>
+        <h3>Tree Climbing Fundamentals</h3>
 
-        <li>Emergency Procedures</li>
+        <p>
+          Knots, safety, anchors,
+          gear setup and movement.
+        </p>
 
-        <li>Work Positioning</li>
+      </a>
 
-        <li>Tree To Tree Movement</li>
+      <a href="/climbing-class/public/pages/rappelling.html"
+         class="category-card featured-orange">
 
-        <li>Advanced Rope Management</li>
+        <h3>Rappelling Academy</h3>
 
-      </ul>
+        <p>
+          Professional descent systems,
+          emergency procedures and
+          rope control.
+        </p>
 
-      <a
-        href="/climbing-class/public/pages/rappelling.html"
-        class="btn-orange">
+      </a>
 
-        Enter Rappelling Academy
+      <a href="/climbing-class/public/pages/professional.html"
+         class="category-card featured-blue">
+
+        <h3>Professional Arborist Path</h3>
+
+        <p>
+          Full climbing, rigging,
+          removals and jobsite training.
+        </p>
 
       </a>
 
     </div>
 
-  </div>
+  </section>
 
-</section>
+  <section class="section rappel-section">
 
+    <h2>Professional Rappelling Academy</h2>
 
+    <div class="category-grid">
 
-<section>
+      <div class="category-card">
+        <h3>Module 1</h3>
+        <p>Gear & Safety</p>
+      </div>
 
-<h2>Training Paths</h2>
+      <div class="category-card">
+        <h3>Module 2</h3>
+        <p>Figure 8 Descenders</p>
+      </div>
 
-<div class="category-grid">
+      <div class="category-card">
+        <h3>Module 3</h3>
+        <p>Mechanical Devices</p>
+      </div>
 
-<a class="training-card green"
-href="/climbing-class/public/pages/gear-intro.html">
+      <div class="category-card">
+        <h3>Module 4</h3>
+        <p>Emergency Descents</p>
+      </div>
 
-<h3>Gear & Safety</h3>
+      <div class="category-card">
+        <h3>Module 5</h3>
+        <p>Work Positioning</p>
+      </div>
 
-<p>
-Learn equipment inspection,
-harness setup and climbing safety.
-</p>
+      <div class="category-card">
+        <h3>Module 6</h3>
+        <p>Advanced Rope Systems</p>
+      </div>
 
-</a>
+    </div>
 
-<a class="training-card orange"
-href="/climbing-class/public/pages/throwball-intro.html">
+    <div class="path-buttons">
 
-<h3>Throwball Mastery</h3>
+      <a href="/climbing-class/public/pages/rappelling.html"
+         class="btn primary">
+        Enter Academy
+      </a>
 
-<p>
-Master high anchors and placement.
-</p>
+    </div>
 
-</a>
+  </section>
 
-<a class="training-card blue"
-href="/climbing-class/public/pages/styles-intro.html">
+  <section class="section">
 
-<h3>Climbing Styles</h3>
+    <h2>Training Categories</h2>
 
-<p>
-Body Thrusting, Footlocking,
-Spiking and Rope Walking.
-</p>
+    <div class="category-grid">
 
-</a>
+      <a href="/climbing-class/public/pages/gear-intro.html"
+         class="category-card green">
 
-<a class="training-card forest"
-href="/climbing-class/public/pages/rigging-intro.html">
+        <h3>Gear & Safety</h3>
 
-<h3>Rigging Academy</h3>
+      </a>
 
-<p>
-Professional rigging systems,
-speedlines and advanced lowering.
-</p>
+      <a href="/climbing-class/public/pages/throwball-intro.html"
+         class="category-card orange">
 
-</a>
+        <h3>Throwball Mastery</h3>
 
-<a class="training-card gold"
-href="/climbing-class/public/pages/knots-intro.html">
+      </a>
 
-<h3>Knot School</h3>
+      <a href="/climbing-class/public/pages/styles-intro.html"
+         class="category-card blue">
 
-<p>
-Every knot and hitch you'll use in a tree.
-</p>
+        <h3>Climbing Styles</h3>
 
-</a>
+      </a>
 
-<a class="training-card red"
-href="/climbing-class/public/pages/cutting-intro.html">
+      <a href="/climbing-class/public/pages/rappelling.html"
+         class="category-card orange">
 
-<h3>Chainsaw Training</h3>
+        <h3>Rappelling Academy</h3>
 
-<p>
-Safe cutting from the ground
-and in the canopy.
-</p>
+      </a>
 
-</a>
+      <a href="/climbing-class/public/pages/rigging-intro.html"
+         class="category-card forest">
 
-<a class="training-card emerald"
-href="/climbing-class/public/pages/business-intro.html">
+        <h3>Rigging</h3>
 
-<h3>Business Academy</h3>
+      </a>
 
-<p>
-Job pricing, sales, marketing
-and customer acquisition.
-</p>
+      <a href="/climbing-class/public/pages/knots-intro.html"
+         class="category-card gold">
 
-</a>
+        <h3>Knots</h3>
+
+      </a>
+
+      <a href="/climbing-class/public/pages/cutting-intro.html"
+         class="category-card red">
+
+        <h3>Chainsaw Training</h3>
+
+      </a>
+
+      <a href="/climbing-class/public/pages/business-intro.html"
+         class="category-card emerald">
+
+        <h3>Business Training</h3>
+
+      </a>
+
+    </div>
+
+  </section>
+
+  <section class="section">
+
+    <h2>Video Library</h2>
+
+    <div class="category-grid">
+
+      <a href="/climbing-class/public/pages/videos.html"
+         class="category-card">
+
+        <h3>Climbing Videos</h3>
+
+      </a>
+
+      <a href="/climbing-class/public/pages/videos.html"
+         class="category-card">
+
+        <h3>Rappelling Videos</h3>
+
+      </a>
+
+      <a href="/climbing-class/public/pages/videos.html"
+         class="category-card">
+
+        <h3>Rigging Videos</h3>
+
+      </a>
+
+    </div>
+
+  </section>
+
+  <section class="section">
+
+    <h2>Get Started</h2>
+
+    <div class="path-buttons">
+
+      <a href="/climbing-class/public/pages/classes.html"
+         class="btn primary">
+        Reserve A Spot
+      </a>
+
+      <a href="/climbing-class/public/pages/pricing.html"
+         class="btn secondary">
+        View Pricing
+      </a>
+
+    </div>
+
+  </section>
+
+  <footer class="site-footer">
+
+    <img
+      id="treeLogoBottom"
+      src="/img/tree-service-logo.png">
+
+    <p>
+      <a href="mailto:support@chainsawclay.com">
+        support@chainsawclay.com
+      </a>
+    </p>
+
+    <p>
+      <a href="tel:4706952055">
+        (470) 695-2055
+      </a>
+    </p>
+
+    <p>
+      <a href="https://chainsawclay.com">
+        Chainsaw Clay Tree Service
+      </a>
+    </p>
+
+  </footer>
 
 </div>
 
-</section>
-
-
-
-<section class="course-levels">
-
-<h2>Certification Paths</h2>
-
-<div class="level-grid">
-
-<div class="level-card">
-
-<h3>Level 1</h3>
-
-<p>
-Recreational Climber
-</p>
-
-</div>
-
-<div class="level-card">
-
-<h3>Level 2</h3>
-
-<p>
-Working Climber
-</p>
-
-</div>
-
-<div class="level-card">
-
-<h3>Level 3</h3>
-
-<p>
-Professional Arborist
-</p>
-
-</div>
-
-<div class="level-card">
-
-<h3>Level 4</h3>
-
-<p>
-Crew Leader
-</p>
-
-</div>
-
-</div>
-
-</section>
-
-
-
-<section class="video-library">
-
-<h2>Video Training Library</h2>
-
-<div class="video-grid">
-
-<div class="video-card">
-
-<h3>Rappelling Basics</h3>
-
-<a href="/videos/rappelling-basics.mp4"
-class="btn-green">
-
-Watch Video
-
-</a>
-
-</div>
-
-<div class="video-card">
-
-<h3>Throwball Accuracy</h3>
-
-<a href="#"
-class="btn-green">
-
-Watch Video
-
-</a>
-
-</div>
-
-<div class="video-card">
-
-<h3>Footlocking Techniques</h3>
-
-<a href="#"
-class="btn-green">
-
-Watch Video
-
-</a>
-
-</div>
-
-</div>
-
-</section>
-
-
-
-<section class="cta-banner">
-
-<h2>
-Ready To Climb?
-</h2>
-
-<p>
-
-Book a live training class
-or begin learning immediately
-inside the training app.
-
-</p>
-
-<a
-href="/climbing-class/public/pages/classes.html"
-class="btn-orange">
-
-Reserve Your Spot
-
-</a>
-
-</section>
-
-
-
-<footer>
-
-<img
-src="/img/tree-service-logo.png"
-class="footer-logo"
->
-
-<p>
-
-Email:
-<a href="mailto:support@chainsawclay.com">
-support@chainsawclay.com
-</a>
-
-</p>
-
-<p>
-
-Phone:
-<a href="tel:4706952055">
-(470) 695-2055
-</a>
-
-</p>
-
-<p>
-
-<a href="https://chainsawclay.com">
-
-Visit Chainsaw Clay Tree Service
-
-</a>
-
-</p>
-
-</footer>
+<script src="/climbing-class/public/js/climb-index.js"></script>
+<script src="/climbing-class/public/js/squirrel.js"></script>
 
 </body>
