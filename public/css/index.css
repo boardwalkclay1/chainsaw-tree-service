@@ -7,13 +7,18 @@ html, body {
   height: 100%;
 }
 
-body {
+html {
   background: #000;
+}
+
+body {
+  background: transparent;
   font-family: 'Anton', sans-serif;
   color: #00c853;
   overflow-x: hidden;
   overflow-y: auto;
   position: relative;
+  z-index: 0;
 }
 
 .green-text {
@@ -33,12 +38,11 @@ body {
   position: fixed;
   inset: 0;
   z-index: -2;
-  background-image: url('/img/tree-service-logo.png');
+  background-image: linear-gradient(rgba(0,0,0,0.65), rgba(0,0,0,0.65)), url('/img/tree-service-logo.png');
   background-repeat: no-repeat;
   background-position: center center;
   background-size: contain;
-  background-color: rgba(0,0,0,0.65);
-  background-blend-mode: darken;
+  background-color: #000;
   background-attachment: scroll;
   opacity: 1;
 }
@@ -359,6 +363,7 @@ footer a:hover {
 }
 
 .city-photo {
+  box-sizing: border-box;
   width: 100%;
   border-radius: 12px;
   margin-bottom: 12px;
@@ -434,6 +439,21 @@ footer a:hover {
   color: #000;
   border-radius: 12px;
   font-size: 1rem;
+}
+
+.contact-link:hover,
+.contact-link:focus-visible {
+  color: #000;
+  background: #71ed9a;
+  text-shadow: none;
+}
+
+#close-contact {
+  background: #111;
+  color: #00c853;
+  border: 2px solid #00c853;
+  border-radius: 12px;
+  padding: 10px 16px;
 }
 
 /* ============================
