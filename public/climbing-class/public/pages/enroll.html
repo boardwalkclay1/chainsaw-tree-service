@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+
+<title>Enroll | Chainsaw Clay</title>
+
+<link rel="stylesheet"
+href="/climbing-class/public/css/climb-index.css">
+
+</head>
+
+<body>
+
+<header id="compact-header">
+
+<img src="/img/climb-logo.jpg"
+id="header-logo">
+
+<div id="header-text">
+
+<h1>Course Enrollment</h1>
+
+<p>Select Training & Reserve A Spot</p>
+
+</div>
+
+</header>
+
+<div class="overlay">
+
+<section class="section">
+
+<h2>Student Information</h2>
+
+<form action="/climbing-class/public/pages/waiver.html">
+
+<input
+type="text"
+name="name"
+placeholder="Full Name"
+required>
+
+<input
+type="email"
+name="email"
+placeholder="Email"
+required>
+
+<input
+type="tel"
+name="phone"
+placeholder="Phone"
+required>
+
+<input
+type="text"
+name="emergency"
+placeholder="Emergency Contact">
+
+<select
+id="selectedCourse"
+name="course">
+
+<option value="rappelling">
+Professional Rappelling
+</option>
+
+<option value="fundamentals">
+Tree Climbing Fundamentals
+</option>
+
+<option value="footlocking">
+Footlocking Academy
+</option>
+
+<option value="bundle">
+Beginner Bundle
+</option>
+
+</select>
+
+<button
+class="btn primary">
+
+Continue To Waiver
+
+</button>
+
+</form>
+
+</section>
+
+</div>
+
+<script src="/climbing-class/public/js/climb-index.js"></script>
+<script src="/climbing-class/public/js/squirrel.js"></script>
+<script src="/climbing-class/public/js/student.js"></script>
+
+</body>
+</html>
