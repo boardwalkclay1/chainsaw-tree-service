@@ -1,7 +1,8 @@
 /* ============================
    GLOBAL
 ============================ */
-html, body {
+html,
+body {
   margin: 0;
   padding: 0;
   height: 100%;
@@ -33,13 +34,12 @@ body {
   position: fixed;
   inset: 0;
   z-index: -2;
+  background: #000;
   background-image: url('/img/tree-service-logo.png');
   background-repeat: no-repeat;
   background-position: center center;
   background-size: contain;
-  background-color: rgba(0,0,0,0.65);
   background-blend-mode: darken;
-  background-attachment: scroll;
   opacity: 1;
 }
 
@@ -74,10 +74,9 @@ footer a {
   padding: 10px 16px;
   border-radius: 999px;
   border: 2px solid #00c853;
-  background: rgba(0,0,0,0.75);
+  background: rgba(0, 0, 0, 0.75);
   color: #00c853;
   font-size: 1rem;
-  text-decoration: none;
   transition: 0.2s ease;
 }
 
@@ -96,11 +95,18 @@ footer a:hover {
 #top-bar {
   width: 100%;
   padding: 12px 16px;
-  background: rgba(0,0,0,0.85);
+  background: #000;
   border-bottom: 2px solid #00c853;
   display: flex;
   justify-content: space-between;
   align-items: center;
+  box-sizing: border-box;
+}
+
+#top-left,
+#top-right,
+#top-contact-stack {
+  background: #000;
 }
 
 #top-left {
@@ -109,12 +115,25 @@ footer a:hover {
   gap: 12px;
 }
 
+#top-contact-stack {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
 #main-logo,
 #climb-logo-top {
   height: 65px;
   width: auto;
+  background: #000;
+  border-radius: 12px;
   filter: drop-shadow(0 0 12px #00c853);
   cursor: pointer;
+  display: block;
+}
+
+.stack-item {
+  font-size: 0.9rem;
 }
 
 /* ============================
@@ -123,7 +142,7 @@ footer a:hover {
 #main-menu {
   position: fixed;
   inset: 0;
-  background: rgba(0,0,0,0.95);
+  background: rgba(0, 0, 0, 0.95);
   display: none;
   z-index: 99999;
 }
@@ -186,9 +205,10 @@ footer a:hover {
   bottom: 0;
   width: 100%;
   height: 70px;
-  background: linear-gradient(to top, rgba(0,0,0,0.85), transparent);
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.85), transparent);
   display: flex;
   justify-content: center;
+  align-items: center;
   gap: 10px;
   opacity: 0;
   pointer-events: none;
@@ -204,9 +224,10 @@ footer a:hover {
   padding: 8px 14px;
   border-radius: 999px;
   border: 2px solid #00c853;
-  background: rgba(0,0,0,0.85);
+  background: rgba(0, 0, 0, 0.85);
   color: #00c853;
   font-size: 0.9rem;
+  cursor: pointer;
 }
 
 .hero-title {
@@ -229,7 +250,7 @@ footer a:hover {
 #estimate-form {
   max-width: 500px;
   margin: 0 auto;
-  background: rgba(0,0,0,0.75);
+  background: rgba(0, 0, 0, 0.8);
   padding: 20px;
   border-radius: 16px;
   border: 2px solid #00c853;
@@ -241,9 +262,8 @@ footer a:hover {
 }
 
 .field-row label {
-  color: #ff7b00;
-  font-size: 1rem;
-  text-shadow: 0 0 10px #ff7b00;
+  display: block;
+  margin-bottom: 6px;
 }
 
 .field-row input,
@@ -251,6 +271,7 @@ footer a:hover {
 .field-row select {
   width: 100%;
   padding: 12px;
+  box-sizing: border-box;
   border-radius: 12px;
   border: 2px solid #00c853;
   background: #000;
@@ -262,9 +283,9 @@ footer a:hover {
   padding: 12px 20px;
   border-radius: 999px;
   border: 2px solid #00c853;
-  background: rgba(0,0,0,0.85);
+  background: rgba(0, 0, 0, 0.85);
   color: #00c853;
-  font-size: 1rem;
+  cursor: pointer;
 }
 
 /* ============================
@@ -279,10 +300,14 @@ footer a:hover {
 
 .section-logo {
   height: 100px;
+  width: auto;
+  background: #000;
+  border-radius: 12px;
   filter: drop-shadow(0 0 18px #00c853);
 }
 
 .section-photo {
+  display: block;
   width: 100%;
   max-width: 600px;
   margin: 25px auto;
@@ -298,38 +323,48 @@ footer a:hover {
 }
 
 .section-photo.climbing {
-  box-shadow: 0 0 35px #ff7b00 !important;
-  border-color: #ff7b00 !important;
+  border-color: #ff7b00;
+  box-shadow: 0 0 35px #ff7b00;
 }
 
 .section-body {
   padding: 0 15px;
-  font-family: 'Staatliches', sans-serif;
   font-size: 1rem;
-  color: #00c853;
 }
 
 .section-links {
   display: flex;
   justify-content: center;
+  flex-wrap: wrap;
   gap: 12px;
 }
 
 /* ============================
-   EQUIPMENT PHOTOS
+   EQUIPMENT
 ============================ */
+.equipment-grid {
+  display: grid;
+  gap: 25px;
+  padding: 15px;
+}
+
+.equipment-card {
+  background: rgba(0, 0, 0, 0.8);
+  border: 2px solid #00c853;
+  border-radius: 16px;
+  padding: 20px;
+}
+
 .equipment-photo {
-  box-sizing: border-box;
   width: 100%;
   max-width: 600px;
-  aspect-ratio: 4 / 3;
+  aspect-ratio: 4/3;
   object-fit: cover;
   border-radius: 16px;
   border: 3px solid #ff7b00;
   box-shadow: 0 0 25px #ff7b00;
 }
 
-/* The grapple truck is the second equipment card. */
 .equipment-card:nth-child(2) .equipment-photo {
   object-position: right center;
 }
@@ -350,12 +385,10 @@ footer a:hover {
 }
 
 .city-card {
-  background: rgba(0,0,0,0.75);
+  background: rgba(0, 0, 0, 0.8);
   border: 2px solid #00c853;
   border-radius: 16px;
   padding: 20px;
-  text-align: center;
-  color: #00c853;
 }
 
 .city-photo {
@@ -375,12 +408,10 @@ footer a:hover {
 }
 
 .review-card {
-  background: rgba(0,0,0,0.75);
+  background: rgba(0, 0, 0, 0.8);
   border: 2px solid #00c853;
   border-radius: 12px;
   padding: 20px;
-  font-size: 1rem;
-  color: #00c853;
 }
 
 /* ============================
@@ -388,14 +419,14 @@ footer a:hover {
 ============================ */
 #contact-now-btn {
   position: fixed;
-  bottom: 20px;
   right: 20px;
+  bottom: 20px;
   padding: 14px 20px;
   border-radius: 999px;
   background: #ff7b00;
   color: #000;
   border: none;
-  font-size: 1rem;
+  cursor: pointer;
   box-shadow: 0 0 14px #ff7b00;
   z-index: 9999;
 }
@@ -406,7 +437,7 @@ footer a:hover {
 #contact-popup {
   position: fixed;
   inset: 0;
-  background: rgba(0,0,0,0.85);
+  background: rgba(0, 0, 0, 0.85);
   display: none;
   justify-content: center;
   align-items: center;
@@ -423,7 +454,6 @@ footer a:hover {
   border-radius: 16px;
   border: 2px solid #00c853;
   text-align: center;
-  color: #00c853;
 }
 
 .contact-link {
@@ -433,16 +463,24 @@ footer a:hover {
   background: #00c853;
   color: #000;
   border-radius: 12px;
-  font-size: 1rem;
 }
 
 /* ============================
-   MOBILE BREAKPOINTS
+   MOBILE
 ============================ */
 @media (max-width: 480px) {
-  .hero-title { font-size: 1.7rem; }
-  .hero-tagline { font-size: 0.9rem; }
-  #main-logo, #climb-logo-top { height: 55px; }
+  .hero-title {
+    font-size: 1.7rem;
+  }
+
+  .hero-tagline {
+    font-size: 0.9rem;
+  }
+
+  #main-logo,
+  #climb-logo-top {
+    height: 55px;
+  }
 
   .city-grid {
     grid-template-columns: 1fr;
