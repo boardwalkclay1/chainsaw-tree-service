@@ -1,21 +1,19 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
 
 <meta charset="UTF-8">
 
 <title>
-Boardwalk Woodworks
+Checkout | Boardwalk Woodworks
 </title>
 
 <meta name="viewport"
 content="width=device-width,initial-scale=1">
 
 <meta property="og:title"
-content="Boardwalk Woodworks">
-
-<meta property="og:description"
-content="One-Of-One Live Edge Pieces Crafted From Unique Trees.">
+content="Boardwalk Woodworks Checkout">
 
 <meta property="og:image"
 content="https://chainsawclay.com/woodworks/img/hero.jpg">
@@ -34,68 +32,97 @@ Boardwalk Woodworks
 </h1>
 
 <p>
-
-One Tree.
-One Story.
-One Piece.
-
+Secure Checkout
 </p>
 
 </header>
 
-<section class="hero">
+<div class="wood-container">
 
-<img
-src="/woodworks/img/hero.jpg">
+<div class="checkout-summary">
 
-<h2>
+<h2>Your Piece</h2>
 
-Handcrafted Live Edge Pieces
+<div id="checkoutPiece">
 
-</h2>
+Loading Piece...
 
-<p>
+</div>
 
-Every piece receives
-a Certificate of Authenticity
-and a unique serial number.
+</div>
 
-</p>
+<form id="checkoutForm">
 
-<a
-href="/woodworks/available.html"
+<h2>Buyer Information</h2>
+
+<input
+type="text"
+name="name"
+placeholder="Full Name"
+required>
+
+<input
+type="email"
+name="email"
+placeholder="Email"
+required>
+
+<input
+type="tel"
+name="phone"
+placeholder="Phone Number">
+
+<h2>Shipping Information</h2>
+
+<input
+type="text"
+name="address"
+placeholder="Street Address"
+required>
+
+<input
+type="text"
+name="city"
+placeholder="City"
+required>
+
+<input
+type="text"
+name="state"
+placeholder="State"
+required>
+
+<input
+type="text"
+name="zip"
+placeholder="Zip Code"
+required>
+
+<select
+name="shippingType">
+
+<option value="pickup">
+Local Pickup
+</option>
+
+<option value="whiteglove">
+White Glove Delivery
+</option>
+
+<option value="freight">
+Freight Shipping
+</option>
+
+</select>
+
+<button
+type="submit"
 class="wood-btn">
 
-Browse Collection
+Complete Purchase
 
-</a>
+</button>
 
-</section>
-
-<section class="features">
-
-<div class="feature">
-
-<h3>
-Unique Serial Numbers
-</h3>
+</form>
 
 </div>
-
-<div class="feature">
-
-<h3>
-Certificate Included
-</h3>
-
-</div>
-
-<div class="feature">
-
-<h3>
-One Of One Pieces
-</h3>
-
-</div>
-
-</section>
