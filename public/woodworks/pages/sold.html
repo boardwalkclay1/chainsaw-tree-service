@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
 
 <meta charset="UTF-8">
@@ -15,17 +16,46 @@ href="/woodworks/css/woodworks.css">
 
 <body>
 
+<header class="wood-header">
+
 <h1>
-
-Sold Collection
-
+Past Collection
 </h1>
 
-<div id="soldPieces">
+<p>
+Previously Certified Boardwalk Woodworks Pieces
+</p>
+
+</header>
+
+<div class="wood-container">
+
+<div id="soldPieces"></div>
+
+</div>
+
+<div id="squirrelChat">
+
+<img
+src="/climbing-class/public/app/img/squirell-img.jpg"
+id="squirrelChatBtn">
+
+<div id="squirrelBubble">
+
+<div id="squirrelMessages"></div>
+
+<input
+id="squirrelInput"
+type="text"
+placeholder="Ask me something…">
+
+</div>
 
 </div>
 
 <script src="/woodworks/js/inventory.js"></script>
+<script src="/woodworks/js/woodworks.js"></script>
+<script src="/climbing-class/public/js/squirrel.js"></script>
 
 </body>
 </html>
