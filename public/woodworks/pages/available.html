@@ -1,12 +1,25 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
 
 <meta charset="UTF-8">
 
 <title>
-Available Pieces
+Available Pieces | Boardwalk Woodworks
 </title>
+
+<meta name="viewport"
+content="width=device-width,initial-scale=1">
+
+<meta property="og:title"
+content="Available Collection | Boardwalk Woodworks">
+
+<meta property="og:description"
+content="Browse certified one-of-one handcrafted live-edge pieces.">
+
+<meta property="og:image"
+content="https://chainsawclay.com/woodworks/img/hero.jpg">
 
 <link rel="stylesheet"
 href="/woodworks/css/woodworks.css">
@@ -15,18 +28,47 @@ href="/woodworks/css/woodworks.css">
 
 <body>
 
+<header class="wood-header">
+
 <h1>
-
 Available Collection
-
 </h1>
 
-<div id="availablePieces">
+<p>
+Certified One-Of-One Pieces
+</p>
+
+</header>
+
+<div class="wood-container">
+
+<div id="availablePieces"></div>
+
+</div>
+
+<div id="squirrelChat">
+
+<img
+src="/climbing-class/public/app/img/squirell-img.jpg"
+id="squirrelChatBtn">
+
+<div id="squirrelBubble">
+
+<div id="squirrelMessages"></div>
+
+<input
+id="squirrelInput"
+type="text"
+placeholder="Ask me something…">
+
+</div>
 
 </div>
 
 <script src="/woodworks/js/inventory.js"></script>
+<script src="/woodworks/js/cart.js"></script>
 <script src="/woodworks/js/woodworks.js"></script>
+<script src="/climbing-class/public/js/squirrel.js"></script>
 
 </body>
 </html>
