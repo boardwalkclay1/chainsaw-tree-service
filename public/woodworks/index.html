@@ -1,24 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
 
 <meta charset="UTF-8">
 
 <title>
-Boardwalk Woodworks
+Custom Commission Request
 </title>
-
-<meta name="viewport"
-content="width=device-width,initial-scale=1">
-
-<meta property="og:title"
-content="Boardwalk Woodworks">
-
-<meta property="og:description"
-content="One-Of-One Live Edge Pieces Crafted From Unique Trees.">
-
-<meta property="og:image"
-content="https://chainsawclay.com/woodworks/img/hero.jpg">
 
 <link rel="stylesheet"
 href="/woodworks/css/woodworks.css">
@@ -30,72 +19,92 @@ href="/woodworks/css/woodworks.css">
 <header class="wood-header">
 
 <h1>
-Boardwalk Woodworks
+Commission A Piece
 </h1>
 
 <p>
-
-One Tree.
-One Story.
-One Piece.
-
+Custom One-Of-One Creations
 </p>
 
 </header>
 
-<section class="hero">
+<div class="wood-container">
 
-<img
-src="/woodworks/img/hero.jpg">
+<form id="commissionForm">
 
-<h2>
+<input
+type="text"
+placeholder="Full Name"
+required>
 
-Handcrafted Live Edge Pieces
+<input
+type="email"
+placeholder="Email"
+required>
 
-</h2>
+<input
+type="tel"
+placeholder="Phone">
 
-<p>
+<select>
 
-Every piece receives
-a Certificate of Authenticity
-and a unique serial number.
+<option>
+Dining Table
+</option>
 
-</p>
+<option>
+Coffee Table
+</option>
 
-<a
-href="/woodworks/available.html"
+<option>
+Bench
+</option>
+
+<option>
+Desk
+</option>
+
+<option>
+Custom
+</option>
+
+</select>
+
+<textarea
+rows="8"
+placeholder="Describe Your Project"></textarea>
+
+<button
 class="wood-btn">
 
-Browse Collection
+Request Consultation
 
-</a>
+</button>
 
-</section>
-
-<section class="features">
-
-<div class="feature">
-
-<h3>
-Unique Serial Numbers
-</h3>
+</form>
 
 </div>
 
-<div class="feature">
+<div id="squirrelChat">
 
-<h3>
-Certificate Included
-</h3>
+<img
+src="/climbing-class/public/app/img/squirell-img.jpg"
+id="squirrelChatBtn">
+
+<div id="squirrelBubble">
+
+<div id="squirrelMessages"></div>
+
+<input
+id="squirrelInput"
+type="text"
+placeholder="Ask me something…">
 
 </div>
 
-<div class="feature">
-
-<h3>
-One Of One Pieces
-</h3>
-
 </div>
 
-</section>
+<script src="/climbing-class/public/js/squirrel.js"></script>
+
+</body>
+</html>
