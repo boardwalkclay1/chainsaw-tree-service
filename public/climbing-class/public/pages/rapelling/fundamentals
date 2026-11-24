@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<meta charset="UTF-8">
+
+<title>Tree Climbing Fundamentals</title>
+
+<meta property="og:title"
+content="Tree Climbing Fundamentals">
+
+<meta property="og:image"
+content="https://chainsawclay.com/img/insta-climb.jpg">
+
+<link rel="stylesheet"
+href="/climbing-class/public/css/climb-index.css">
+
+</head>
+
+<body>
+
+<div class="overlay">
+
+<section class="intro-section">
+
+<h2>Tree Climbing Fundamentals</h2>
+
+<p>
+
+The starting point for every climber.
+
+Learn equipment, harness setup,
+lifeline management, climbing systems,
+movement, safety, and positioning.
+
+</p>
+
+<img
+src="/img/insta-climb.jpg"
+style="max-width:600px;width:100%;border-radius:15px;">
+
+</section>
+
+<section class="section">
+
+<h2>What You'll Learn</h2>
+
+<div class="category-grid">
+
+<div class="category-card">
+
+<h3>Equipment</h3>
+
+<ul>
+
+<li>Harnesses</li>
+
+<li>Ropes</li>
+
+<li>Carabiners</li>
+
+<li>PPE</li>
+
+</ul>
+
+</div>
+
+<div class="category-card">
+
+<h3>Movement</h3>
+
+<ul>
+
+<li>Body Thrusting</li>
+
+<li>Basic Positioning</li>
+
+<li>Limb Walking</li>
+
+</ul>
+
+</div>
+
+<div class="category-card">
+
+<h3>Safety</h3>
+
+<ul>
+
+<li>Inspection</li>
+
+<li>Tie-In Points</li>
+
+<li>Risk Assessment</li>
+
+</ul>
+
+</div>
+
+</div>
+
+</section>
+
+</div>
+
+<div id="squirrelChat">
+<img src="/climbing-class/public/app/img/squirell-img.jpg" id="squirrelChatBtn">
+<div id="squirrelBubble">
+<div id="squirrelMessages"></div>
+<input id="squirrelInput" type="text" placeholder="Ask me something…">
+</div>
+</div>
+
+<script src="/climbing-class/public/js/climb-index.js"></script>
+<script src="/climbing-class/public/js/squirrel.js"></script>
+
+</body>
+</html>
