@@ -1,11 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
 
 <meta charset="UTF-8">
 
 <title>
-Custom Commissions
+Custom Commission Request
 </title>
 
 <link rel="stylesheet"
@@ -15,36 +16,95 @@ href="/woodworks/css/woodworks.css">
 
 <body>
 
+<header class="wood-header">
+
 <h1>
-
-Custom Commissions
-
+Commission A Piece
 </h1>
 
-<form>
+<p>
+Custom One-Of-One Creations
+</p>
+
+</header>
+
+<div class="wood-container">
+
+<form id="commissionForm">
 
 <input
 type="text"
-placeholder="Name">
+placeholder="Full Name"
+required>
 
 <input
 type="email"
-placeholder="Email">
+placeholder="Email"
+required>
 
 <input
-type="text"
-placeholder="Project Type">
+type="tel"
+placeholder="Phone">
+
+<select>
+
+<option>
+Dining Table
+</option>
+
+<option>
+Coffee Table
+</option>
+
+<option>
+Bench
+</option>
+
+<option>
+Desk
+</option>
+
+<option>
+Custom
+</option>
+
+</select>
 
 <textarea
-placeholder="Describe your project"></textarea>
+rows="8"
+placeholder="Describe Your Project"></textarea>
 
-<button>
+<button
+class="wood-btn">
 
-Request Commission
+Request Consultation
 
 </button>
 
 </form>
+
+</div>
+
+<div id="squirrelChat">
+
+<img
+src="/climbing-class/public/app/img/squirell-img.jpg"
+id="squirrelChatBtn">
+
+<div id="squirrelBubble">
+
+<div id="squirrelMessages"></div>
+
+<input
+id="squirrelInput"
+type="text"
+placeholder="Ask me something…">
+
+</div>
+
+</div>
+
+<script src="/climbing-class/public/js/squirrel.js"></script>
 
 </body>
 </html>
