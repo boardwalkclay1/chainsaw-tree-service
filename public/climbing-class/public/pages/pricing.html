@@ -1,362 +1,789 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-  <meta charset="UTF-8" />
-  <title>Training Prices — Tree Climbing Classes & Courses</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-  <link rel="icon" type="image/jpeg" href="/climb-logo.jpg" />
-  <link rel="stylesheet" href="/styles.css" />
+<meta charset="UTF-8">
 
-  <style>
-    body {
-      margin: 0;
-      padding: 0;
-      background: url('/img/climb-signup.jpg') no-repeat center center fixed;
-      background-size: cover;
-      color: #fff;
-      font-family: system-ui, sans-serif;
-    }
+<title>
+Training Prices | Chainsaw Clay Climbing Academy
+</title>
 
-    .overlay {
-      background: rgba(0,0,0,0.70);
-      min-height: 100vh;
-      padding-bottom: 60px;
-      position: relative;
-    }
+<meta name="viewport"
+      content="width=device-width, initial-scale=1">
 
-    /* HEADER */
-    .site-header {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 25px 30px;
-      background: rgba(0,0,0,0.65);
-      border-bottom: 2px solid #00c853;
-    }
+<meta name="description"
+      content="Professional tree climbing, rappelling, rigging, footlocking, arborist training, memberships, certifications, and gear packages.">
 
-    .left-header {
-      display: flex;
-      align-items: center;
-      gap: 15px;
-    }
+<link rel="icon"
+      type="image/jpeg"
+      href="/img/climb-logo.jpg">
 
-    .logo {
-      cursor: pointer;
-    }
+<!-- SOCIAL PREVIEW -->
 
-    .logo img {
-      width: 130px;
-      height: auto;
-      border-radius: 10px;
-      box-shadow: 0 0 12px rgba(0,0,0,0.6);
-    }
+<meta property="og:title"
+      content="Chainsaw Clay Climbing Academy Pricing">
 
-    .site-title {
-      font-size: 1.8rem;
-      font-weight: 700;
-      color: #00c853;
-      letter-spacing: 1px;
-    }
+<meta property="og:description"
+      content="Professional Arborist Training, Rappelling Academy, Rigging, Footlocking, Memberships and Certification Programs.">
 
-    /* NAVIGATION */
-    .top-nav a {
-      color: #fff;
-      text-decoration: none;
-      margin-left: 20px;
-      font-size: 1rem;
-      font-weight: 600;
-      transition: color 0.2s ease;
-    }
+<meta property="og:image"
+      content="https://chainsawclay.com/img/climb-logo.jpg">
 
-    .top-nav a:hover {
-      color: #00c853;
-    }
+<meta property="og:url"
+      content="https://chainsawclay.com/climbing-class/public/pages/pricing.html">
 
-    /* MENU PANEL */
-    #menuPanel {
-      position: fixed;
-      top: 0;
-      left: -280px;
-      width: 280px;
-      height: 100%;
-      background: rgba(0,0,0,0.95);
-      padding: 30px;
-      transition: 0.3s ease;
-      z-index: 9999;
-      border-right: 2px solid #00c853;
-    }
+<meta property="og:type"
+      content="website">
 
-    #menuPanel a {
-      display: block;
-      color: #fff;
-      text-decoration: none;
-      padding: 14px 0;
-      font-size: 18px;
-      border-bottom: 1px solid #333;
-    }
+<meta name="twitter:card"
+      content="summary_large_image">
 
-    .close-btn {
-      font-size: 28px;
-      font-weight: bold;
-      color: #00c853;
-      cursor: pointer;
-      margin-bottom: 20px;
-      display: inline-block;
-    }
+<meta name="twitter:title"
+      content="Chainsaw Clay Climbing Academy Pricing">
 
-    /* PRICING SECTIONS */
-    .pricing-section {
-      max-width: 900px;
-      margin: 0 auto;
-      padding: 40px 20px;
-    }
+<meta name="twitter:description"
+      content="Professional Arborist Training & Membership Programs">
 
-    .pricing-card {
-      background: rgba(0,0,0,0.55);
-      padding: 25px;
-      border-radius: 12px;
-      border: 1px solid #333;
-      margin-bottom: 25px;
-    }
+<meta name="twitter:image"
+      content="https://chainsawclay.com/img/climb-logo.jpg">
 
-    .pricing-card h2 {
-      margin-top: 0;
-      font-size: 28px;
-    }
+<!-- MAIN SITE CSS -->
 
-    .price {
-      font-size: 40px;
-      font-weight: bold;
-      color: #00c853;
-      margin-bottom: 10px;
-    }
+<link rel="stylesheet"
+      href="/climbing-class/public/css/climb-index.css">
 
-    .pricing-card ul {
-      padding-left: 20px;
-    }
-
-    /* DROPDOWNS */
-    details {
-      background: rgba(0,0,0,0.45);
-      padding: 15px;
-      border-radius: 10px;
-      border: 1px solid #222;
-      margin-top: 12px;
-      cursor: pointer;
-    }
-
-    summary {
-      font-size: 18px;
-      font-weight: 700;
-      color: #00c853;
-      cursor: pointer;
-    }
-
-    summary:hover {
-      opacity: 0.8;
-    }
-
-    /* SQUIRREL */
-    #squirrelChatBtn {
-      position: fixed;
-      bottom: 20px;
-      right: 20px;
-      width: 160px;
-      height: auto;
-      cursor: pointer;
-      z-index: 9999;
-    }
-
-    #squirrelChatBox {
-      position: fixed;
-      bottom: 200px;
-      right: 20px;
-      width: 320px;
-      background: rgba(0,0,0,0.92);
-      border: 2px solid #00c853;
-      border-radius: 12px;
-      padding: 15px;
-      display: none;
-      z-index: 9999;
-      color: #fff;
-    }
-
-    #squirrelMessages {
-      height: 180px;
-      overflow-y: auto;
-      margin-bottom: 10px;
-      font-size: 14px;
-      padding-right: 5px;
-    }
-
-    #squirrelInput {
-      width: 100%;
-      padding: 10px;
-      border-radius: 8px;
-      border: none;
-      outline: none;
-      font-size: 14px;
-    }
-  </style>
 </head>
 
 <body>
 
-<div class="overlay">
+<header id="compact-header">
 
-  <!-- HEADER -->
-  <header class="site-header">
+  <img src="/img/climb-logo.jpg"
+       id="header-logo"
+       onclick="toggleSidebar()">
 
-    <div class="left-header">
-      <div class="logo" onclick="toggleMenu()">
-        <img src="/climb-logo.jpg" alt="Logo">
-      </div>
+  <div id="header-text">
 
-      <div class="site-title">Tree Climbing Class</div>
-    </div>
+    <h1>
 
-    <nav class="top-nav">
-      <a href="/">Home</a>
-      <a href="/pages/classes.html">Classes</a>
-      <a href="/pages/pricing.html" style="color:#00c853;">Pricing</a>
-      <a href="/pages/app-info.html">About</a>
-      <a href="/pages/contact.html">Contact</a>
-    </nav>
+      Training Prices
 
-  </header>
+    </h1>
 
-  <!-- MENU PANEL -->
-  <div id="menuPanel">
-    <span class="close-btn" onclick="toggleMenu()">✕</span>
+    <p>
 
-    <a href="/">Home</a>
-    <a href="/pages/classes.html">Classes</a>
-    <a href="/pages/pricing.html">Pricing</a>
-    <a href="/pages/app-info.html">About the App</a>
-    <a href="/pages/contact.html">Contact</a>
-    <a href="/app/pages/index.html">Open Training App</a>
+      Live Classes • Memberships • Certifications
+
+    </p>
+
   </div>
 
-  <!-- PRICING CONTENT -->
-  <section class="pricing-section">
+</header>
 
-    <!-- LIVE CLASSES -->
-    <div class="pricing-card">
-      <h2>Group Climbing Class</h2>
-      <div class="price">$80</div>
-      <ul>
-        <li>Gear setup & safety</li>
-        <li>Throwline & anchor setting</li>
-        <li>Basic climbing techniques</li>
-        <li>Movement & positioning</li>
-        <li>Real‑tree climbing practice</li>
-      </ul>
-    </div>
 
-    <div class="pricing-card">
-      <h2>Personal 1‑on‑1 Training</h2>
-      <div class="price">$200/hr</div>
-      <ul>
-        <li>Advanced climbing systems</li>
-        <li>Rigging & lowering</li>
-        <li>Chainsaw technique overview</li>
-        <li>Business coaching</li>
-        <li>Real‑world jobsite scenarios</li>
-      </ul>
-    </div>
 
-    <div class="pricing-card">
-      <h2>$500 Beginner Gear + Climbing Package</h2>
-      <div class="price">$500</div>
-      <ul>
-        <li>Harness, rope, carabiners included</li>
-        <li>Body thrusting</li>
-        <li>Rappelling</li>
-        <li>Safe gear usage</li>
-      </ul>
-    </div>
+<nav id="sidebar">
 
-    <div class="pricing-card">
-      <h2>$700 Intermediate Gear + Technique Package</h2>
-      <div class="price">$700</div>
-      <ul>
-        <li>Harness, lifeline rope, 2 buckstraps, carabiners</li>
-        <li>Everything from the $500 package</li>
-        <li>Footlocking</li>
-        <li>Alternate lanyard technique</li>
-      </ul>
-    </div>
+  <div id="sidebar-close">
 
-    <div class="pricing-card">
-      <h2>$1000 Full Arborist Package</h2>
-      <div class="price">$1000</div>
-      <ul>
-        <li>Harness, lifeline rope, 2 buckstraps, carabiners, spikes</li>
-        <li>Everything from the $500 & $700 packages</li>
-        <li>Safe spiking technique</li>
-        <li>When to spike & when NOT to</li>
-        <li>How to land tree jobs</li>
-        <li>Business training</li>
-      </ul>
-      <p>Add a chainsaw for <strong>$200 extra</strong>.</p>
-    </div>
+    ✕
 
-    <!-- DIGITAL TRAINING -->
-    <div class="pricing-card">
-      <h2>Digital Training Courses</h2>
+  </div>
 
-      <details>
-        <summary>Basic Access — $20/month</summary>
-        <ul>
-          <li>All beginner lessons</li>
-          <li>Knots & friction hitches</li>
-          <li>Gear fundamentals</li>
-          <li>Progress tracking</li>
-        </ul>
-      </details>
+  <a href="/climbing-class/public/index.html">
+    Home
+  </a>
 
-      <details>
-        <summary>Pro Access — $49/month</summary>
-        <ul>
-          <li>Everything in Basic</li>
-          <li>Intermediate climbing lessons</li>
-          <li>Rigging fundamentals</li>
-          <li>Throwline mastery</li>
-          <li>Unlocks 10% class discounts every 5 videos</li>
-        </ul>
-      </details>
+  <a href="/climbing-class/public/pages/classes.html">
+    Classes
+  </a>
 
-      <details>
-        <summary>Elite Access — $99/month</summary>
-        <ul>
-          <li>Everything in Pro</li>
-          <li>Advanced climbing systems</li>
-          <li>Business & pricing lessons</li>
-          <li>Cutting & jobsite flow modules</li>
-          <li>Exclusive premium videos</li>
-          <li>Priority support</li>
-        </ul>
-      </details>
+  <a href="/climbing-class/public/pages/pricing.html">
+    Pricing
+  </a>
 
-      <p style="margin-top:15px;">
-        Every 5 videos you complete unlocks <strong>10% off</strong> a live class  
-        (up to <strong>20% max</strong> per class).
-      </p>
-    </div>
+  <a href="/climbing-class/public/pages/rappelling.html">
+    Rappelling Academy
+  </a>
 
-  </section>
+  <a href="/climbing-class/public/pages/videos.html">
+    Video Library
+  </a>
+
+  <a href="/climbing-class/public/pages/app-info.html">
+    About The App
+  </a>
+
+  <a href="/climbing-class/public/pages/contact.html">
+    Contact
+  </a>
+
+  <a href="/climbing-class/public/pages/privacy.html">
+    Privacy Agreement
+  </a>
+
+</nav>
+
+
+
+<div id="leaf-container"></div>
+
+
+
+<div class="overlay">
+
+<section class="intro-section">
+
+<h2>
+
+Invest In Your Skills
+
+</h2>
+
+<p>
+
+Whether you're learning for recreation,
+becoming a working climber,
+or building an arborist business,
+we have training programs designed
+to meet your goals.
+
+</p>
+
+</section>
+
+
+
+<section class="section">
+
+<h2>
+
+Live Training Programs
+
+</h2>
+
+<div class="category-grid">
+
+<div class="category-card"
+     data-cat="gear">
+
+<h3>
+
+Tree Climbing Fundamentals
+
+</h3>
+
+<h2>
+
+$99
+
+</h2>
+
+<ul>
+
+<li>Gear Setup</li>
+<li>Harness Adjustment</li>
+<li>Throwline Basics</li>
+<li>Anchor Selection</li>
+<li>Body Thrusting</li>
+<li>Tree Movement</li>
+
+</ul>
+
+<a
+class="btn primary"
+href="/climbing-class/public/pages/enroll.html?course=fundamentals">
+
+Reserve Spot
+
+</a>
 
 </div>
 
-<script>
-  function toggleMenu() {
-    const panel = document.getElementById("menuPanel");
-    panel.style.left = panel.style.left === "0px" ? "-280px" : "0px";
-  }
-</script>
 
-<script src="/public/js/squirrel.js"></script>
+
+<div class="category-card"
+     data-cat="rappelling">
+
+<h3>
+
+Professional Rappelling Academy
+
+</h3>
+
+<h2>
+
+$125
+
+</h2>
+
+<ul>
+
+<li>Figure Eight Devices</li>
+<li>Controlled Descents</li>
+<li>Backup Systems</li>
+<li>Emergency Procedures</li>
+<li>Work Positioning</li>
+
+</ul>
+
+<a
+class="btn primary"
+href="/climbing-class/public/pages/enroll.html?course=rappelling">
+
+Reserve Spot
+
+</a>
+
+</div>
+
+
+
+<div class="category-card"
+     data-cat="styles">
+
+<h3>
+
+Footlocking Academy
+
+</h3>
+
+<h2>
+
+$125
+
+</h2>
+
+<ul>
+
+<li>Ascending Systems</li>
+<li>Competition Techniques</li>
+<li>Efficiency Drills</li>
+<li>Advanced Footlocking</li>
+
+</ul>
+
+<a
+class="btn primary"
+href="/climbing-class/public/pages/enroll.html?course=footlocking">
+
+Reserve Spot
+
+</a>
+
+</div>
+
+
+
+<div class="category-card"
+     data-cat="rigging">
+
+<h3>
+
+Rigging Academy
+
+</h3>
+
+<h2>
+
+$150
+
+</h2>
+
+<ul>
+
+<li>Rigging Equipment</li>
+<li>Lowering Systems</li>
+<li>Speedlines</li>
+<li>Mechanical Advantage</li>
+
+</ul>
+
+<a
+class="btn primary"
+href="/climbing-class/public/pages/enroll.html?course=rigging">
+
+Reserve Spot
+
+</a>
+
+</div>
+
+
+
+<div class="category-card"
+     data-cat="business">
+
+<h3>
+
+Private Coaching
+
+</h3>
+
+<h2>
+
+$200 / Hour
+
+</h2>
+
+<ul>
+
+<li>One-On-One</li>
+<li>Real Jobsite Training</li>
+<li>Business Coaching</li>
+<li>Custom Curriculum</li>
+
+</ul>
+
+<a
+class="btn primary"
+href="/climbing-class/public/pages/enroll.html?course=private">
+
+Book Session
+
+</a>
+
+</div>
+
+</div>
+
+</section>
+
+
+
+<section class="section">
+
+<h2>
+
+Training Bundles
+
+</h2>
+
+<div class="category-grid">
+
+<div class="category-card"
+     data-cat="gear">
+
+<h3>
+
+Beginner Climber Bundle
+
+</h3>
+
+<h2>
+
+$299
+
+</h2>
+
+<ul>
+
+<li>Tree Climbing</li>
+<li>Rappelling</li>
+<li>Safety Systems</li>
+<li>Basic Knots</li>
+
+</ul>
+
+<p>
+
+Save over $50 compared to purchasing classes separately.
+
+</p>
+
+<a
+class="btn primary"
+href="/climbing-class/public/pages/enroll.html?course=beginner-bundle">
+
+Enroll Bundle
+
+</a>
+
+</div>
+
+
+
+<div class="category-card"
+     data-cat="styles">
+
+<h3>
+
+Working Climber Bundle
+
+</h3>
+
+<h2>
+
+$599
+
+</h2>
+
+<ul>
+
+<li>Fundamentals</li>
+<li>Rappelling</li>
+<li>Footlocking</li>
+<li>Rigging</li>
+<li>Advanced Rope Systems</li>
+
+</ul>
+
+<a
+class="btn primary"
+href="/climbing-class/public/pages/enroll.html?course=working-climber">
+
+Enroll Bundle
+
+</a>
+
+</div>
+
+
+
+<div class="category-card"
+     data-cat="business">
+
+<h3>
+
+Professional Arborist Program
+
+</h3>
+
+<h2>
+
+$999
+
+</h2>
+
+<ul>
+
+<li>All Core Classes</li>
+<li>Business Training</li>
+<li>Estimating Jobs</li>
+<li>Sales Training</li>
+<li>Customer Acquisition</li>
+
+</ul>
+
+<a
+class="btn primary"
+href="/climbing-class/public/pages/enroll.html?course=arborist-program">
+
+Apply Now
+
+</a>
+
+</div>
+
+</div>
+
+</section>
+
+
+
+<section class="section">
+
+<h2>
+
+Gear Packages
+
+</h2>
+
+<div class="category-grid">
+
+<div class="category-card">
+
+<h3>
+
+Starter Climber Package
+
+</h3>
+
+<h2>
+
+$500
+
+</h2>
+
+<ul>
+
+<li>Harness</li>
+<li>Rope</li>
+<li>Carabiners</li>
+<li>Tree Climbing Class</li>
+<li>Rappelling Class</li>
+
+</ul>
+
+</div>
+
+
+
+<div class="category-card">
+
+<h3>
+
+Professional Climber Package
+
+</h3>
+
+<h2>
+
+$700
+
+</h2>
+
+<ul>
+
+<li>Everything In Starter</li>
+<li>Buckstraps</li>
+<li>Footlocking</li>
+<li>Advanced Techniques</li>
+
+</ul>
+
+</div>
+
+
+
+<div class="category-card">
+
+<h3>
+
+Professional Arborist Package
+
+</h3>
+
+<h2>
+
+$1,000
+
+</h2>
+
+<ul>
+
+<li>Everything Above</li>
+<li>Spikes</li>
+<li>Business Training</li>
+<li>Professional Methods</li>
+
+</ul>
+
+</div>
+
+</div>
+
+</section>
+
+
+
+<section class="section">
+
+<h2>
+
+Premium Memberships
+
+</h2>
+
+<div class="category-grid">
+
+<div class="category-card">
+
+<h3>
+
+Student Membership
+
+</h3>
+
+<h2>
+
+$29/mo
+
+</h2>
+
+<ul>
+
+<li>Video Library</li>
+<li>Progress Tracking</li>
+<li>Student Dashboard</li>
+
+</ul>
+
+</div>
+
+
+
+<div class="category-card">
+
+<h3>
+
+Professional Membership
+
+</h3>
+
+<h2>
+
+$49/mo
+
+</h2>
+
+<ul>
+
+<li>Everything Above</li>
+<li>Rigging Videos</li>
+<li>Footlocking Videos</li>
+<li>Rappelling Videos</li>
+
+</ul>
+
+</div>
+
+
+
+<div class="category-card">
+
+<h3>
+
+Elite Arborist Membership
+
+</h3>
+
+<h2>
+
+$99/mo
+
+</h2>
+
+<ul>
+
+<li>Everything Included</li>
+<li>Business Training</li>
+<li>Premium Videos</li>
+<li>Priority Support</li>
+
+</ul>
+
+</div>
+
+</div>
+
+</section>
+
+
+
+<section class="section">
+
+<h2>
+
+Certification Path
+
+</h2>
+
+<div class="category-grid">
+
+<div class="category-card">
+<h3>Level 1</h3>
+<p>Tree Climbing Fundamentals</p>
+</div>
+
+<div class="category-card">
+<h3>Level 2</h3>
+<p>Professional Rappelling</p>
+</div>
+
+<div class="category-card">
+<h3>Level 3</h3>
+<p>Footlocking Academy</p>
+</div>
+
+<div class="category-card">
+<h3>Level 4</h3>
+<p>Rigging Academy</p>
+</div>
+
+<div class="category-card">
+<h3>Level 5</h3>
+<p>Professional Arborist Program</p>
+</div>
+
+</div>
+
+</section>
+
+
+
+<footer class="site-footer">
+
+<img id="treeLogoBottom"
+     src="/img/tree-service-logo.png">
+
+<p>
+
+<a href="mailto:support@chainsawclay.com">
+support@chainsawclay.com
+</a>
+
+</p>
+
+<p>
+
+<a href="tel:4706952055">
+(470) 695-2055
+</a>
+
+</p>
+
+</footer>
+
+</div>
+
+
+
+<div id="squirrelChat">
+
+<img src="/climbing-class/public/app/img/squirell-img.jpg"
+     id="squirrelChatBtn">
+
+<div id="squirrelBubble">
+
+<div id="squirrelMessages"></div>
+
+<input id="squirrelInput"
+       type="text"
+       placeholder="Ask me something…">
+
+</div>
+
+</div>
+
+
+
+<script src="/climbing-class/public/js/climb-index.js"></script>
+
+<script src="/climbing-class/public/js/squirrel.js"></script>
+
+<script>
+
+function toggleSidebar() {
+  document
+    .getElementById("sidebar")
+    .classList
+    .toggle("open");
+}
+
+document
+  .getElementById("sidebar-close")
+  .onclick = function () {
+
+  document
+    .getElementById("sidebar")
+    .classList
+    .remove("open");
+
+};
+
+</script>
 
 </body>
 </html>
