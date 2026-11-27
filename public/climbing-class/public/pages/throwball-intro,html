@@ -1,0 +1,734 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+
+<title>
+Throwline & Throwball Mastery | Chainsaw Clay Climbing Academy
+</title>
+
+<meta name="viewport"
+      content="width=device-width, initial-scale=1">
+
+<meta name="description"
+      content="Learn throwline and throwball techniques, anchor placement, canopy access, line isolation, advanced targeting, and professional arborist throwline systems.">
+
+<link rel="icon"
+      type="image/jpeg"
+      href="/img/climb-logo.jpg">
+
+<!-- SOCIAL PREVIEW -->
+
+<meta property="og:title"
+      content="Throwline & Throwball Mastery">
+
+<meta property="og:description"
+      content="Master throwline placement, canopy access, anchor selection, isolation techniques and professional arborist targeting skills.">
+
+<meta property="og:image"
+      content="https://chainsawclay.com/climbing-class/public/app/img/throwball.jpg">
+
+<meta property="og:url"
+      content="https://chainsawclay.com/climbing-class/public/pages/throwball-intro.html">
+
+<meta property="og:type"
+      content="website">
+
+<meta property="og:site_name"
+      content="Chainsaw Clay Climbing Academy">
+
+<meta name="twitter:card"
+      content="summary_large_image">
+
+<meta name="twitter:title"
+      content="Throwline & Throwball Mastery">
+
+<meta name="twitter:description"
+      content="Professional canopy access and throwline placement training.">
+
+<meta name="twitter:image"
+      content="https://chainsawclay.com/climbing-class/public/app/img/throwball.jpg">
+
+<link rel="stylesheet"
+      href="/climbing-class/public/css/climb-index.css">
+
+</head>
+
+<body>
+
+<header id="compact-header">
+
+<img src="/img/climb-logo.jpg"
+     id="header-logo"
+     onclick="toggleSidebar()">
+
+<div id="header-text">
+
+<h1>
+
+Throwline & Throwball Mastery
+
+</h1>
+
+<p>
+
+The Skill That Makes Every Climb Easier
+
+</p>
+
+</div>
+
+</header>
+
+
+
+<nav id="sidebar">
+
+<div id="sidebar-close">
+
+✕
+
+</div>
+
+<a href="/climbing-class/public/index.html">
+Home
+</a>
+
+<a href="/climbing-class/public/pages/classes.html">
+Classes
+</a>
+
+<a href="/climbing-class/public/pages/pricing.html">
+Pricing
+</a>
+
+<a href="/climbing-class/public/pages/videos.html">
+Video Library
+</a>
+
+<a href="/climbing-class/public/pages/student-dashboard.html">
+Student Dashboard
+</a>
+
+</nav>
+
+
+
+<div id="leaf-container"></div>
+
+
+
+<div class="overlay">
+
+<section class="intro-section">
+
+<h2>
+
+The Fastest Climber Is Usually The Best Thrower
+
+</h2>
+
+<p>
+
+Before climbers reach the canopy,
+they must first place their line.
+
+The throwline is often the difference
+between a quick climb and a frustrating day.
+
+</p>
+
+<p>
+
+This course teaches students how to
+accurately place throwballs,
+isolate limbs,
+select proper anchor points,
+and consistently access trees
+using professional arborist methods.
+
+</p>
+
+<img src="/climbing-class/public/app/img/throwball.jpg"
+     alt="Throwball Training">
+
+</section>
+
+
+
+<section class="section">
+
+<h2>
+
+What You'll Learn
+
+</h2>
+
+<div class="category-grid">
+
+<div class="category-card">
+
+<h3>
+
+Throwline Fundamentals
+
+</h3>
+
+<ul>
+
+<li>Equipment Selection</li>
+<li>Throwline Types</li>
+<li>Throw Weight Options</li>
+<li>Storage Methods</li>
+
+</ul>
+
+</div>
+
+
+
+<div class="category-card">
+
+<h3>
+
+Target Acquisition
+
+</h3>
+
+<ul>
+
+<li>Reading Tree Structure</li>
+<li>Anchor Identification</li>
+<li>Optimal Tie-In Points</li>
+<li>Planning Your Climb</li>
+
+</ul>
+
+</div>
+
+
+
+<div class="category-card">
+
+<h3>
+
+Isolation Techniques
+
+</h3>
+
+<ul>
+
+<li>Branch Isolation</li>
+<li>Canopy Navigation</li>
+<li>Line Management</li>
+<li>Anchor Correction</li>
+
+</ul>
+
+</div>
+
+
+
+<div class="category-card">
+
+<h3>
+
+Advanced Placement
+
+</h3>
+
+<ul>
+
+<li>High Throws</li>
+<li>Dense Canopies</li>
+<li>Difficult Targets</li>
+<li>Competition Techniques</li>
+
+</ul>
+
+</div>
+
+</div>
+
+</section>
+
+
+
+<section class="section">
+
+<h2>
+
+Why This Skill Matters
+
+</h2>
+
+<p>
+
+Most climbers spend more time getting
+into the tree than they do climbing it.
+
+A properly placed throwline can reduce
+setup time dramatically while also
+making climbing safer and more efficient.
+
+</p>
+
+<p>
+
+Professional arborists rely on throwline
+skills every day because access determines
+how efficiently every following task can be completed.
+
+</p>
+
+</section>
+
+
+
+<section class="section">
+
+<h2>
+
+Professional Outcomes
+
+</h2>
+
+<div class="category-grid">
+
+<div class="category-card">
+
+<h3>
+
+Faster Tree Access
+
+</h3>
+
+<p>
+
+Reach working height with less effort.
+
+</p>
+
+</div>
+
+<div class="category-card">
+
+<h3>
+
+Better Anchor Selection
+
+</h3>
+
+<p>
+
+Improve climbing efficiency and safety.
+
+</p>
+
+</div>
+
+<div class="category-card">
+
+<h3>
+
+Reduced Fatigue
+
+</h3>
+
+<p>
+
+Start every climb from the correct position.
+
+</p>
+
+</div>
+
+<div class="category-card">
+
+<h3>
+
+More Professional Workflow
+
+</h3>
+
+<p>
+
+Operate confidently on real jobsites.
+
+</p>
+
+</div>
+
+</div>
+
+</section>
+
+
+
+<section class="section">
+
+<h2>
+
+Enrollment Options
+
+</h2>
+
+<div class="category-grid">
+
+<div class="category-card">
+
+<h3>
+
+Course Only
+
+</h3>
+
+<h2>
+
+$79
+
+</h2>
+
+<p>
+
+Learn throwline theory and targeting systems.
+
+</p>
+
+<details>
+
+<summary>
+
+View Details
+
+</summary>
+
+<ul>
+
+<li>Throwline Fundamentals</li>
+<li>Anchor Selection</li>
+<li>Targeting Strategies</li>
+<li>Certificate Eligibility</li>
+
+</ul>
+
+</details>
+
+<a href="/climbing-class/public/pages/payment.html?course=throwline"
+
+class="btn primary">
+
+Purchase Course
+
+</a>
+
+</div>
+
+
+
+<div class="category-card">
+
+<h3>
+
+Group Class
+
+</h3>
+
+<h2>
+
+$99
+
+</h2>
+
+<p>
+
+Hands-on throwing and canopy access training.
+
+</p>
+
+<details>
+
+<summary>
+
+View Details
+
+</summary>
+
+<ul>
+
+<li>Live Practice</li>
+<li>Multiple Tree Types</li>
+<li>Instructor Feedback</li>
+<li>Real World Applications</li>
+
+</ul>
+
+</details>
+
+<a href="/climbing-class/public/pages/enroll.html?course=throwline-group"
+
+class="btn primary">
+
+Book Group Class
+
+</a>
+
+</div>
+
+
+
+<div class="category-card">
+
+<h3>
+
+Private Coaching
+
+</h3>
+
+<h2>
+
+$200/hr
+
+</h2>
+
+<p>
+
+Personalized throwline and canopy access training.
+
+</p>
+
+<details>
+
+<summary>
+
+View Details
+
+</summary>
+
+<ul>
+
+<li>Personal Coaching</li>
+<li>Advanced Isolation</li>
+<li>Target Correction</li>
+<li>Professional Techniques</li>
+
+</ul>
+
+</details>
+
+<a href="/climbing-class/public/pages/enroll.html?course=throwline-private"
+
+class="btn primary">
+
+Book Private Session
+
+</a>
+
+</div>
+
+
+
+<div class="category-card">
+
+<h3>
+
+Monthly Membership
+
+</h3>
+
+<h2>
+
+$29/mo
+
+</h2>
+
+<p>
+
+Access this and dozens of other lessons.
+
+</p>
+
+<details>
+
+<summary>
+
+View Details
+
+</summary>
+
+<ul>
+
+<li>Video Library Access</li>
+<li>Progress Tracking</li>
+<li>Member Discounts</li>
+<li>New Course Releases</li>
+
+</ul>
+
+</details>
+
+<a href="/climbing-class/public/pages/payment.html?membership=student"
+
+class="btn primary">
+
+Join Membership
+
+</a>
+
+</div>
+
+</div>
+
+</section>
+
+
+
+<section class="section">
+
+<h2>
+
+Recommended Next Courses
+
+</h2>
+
+<div class="category-grid">
+
+<a href="/climbing-class/public/pages/fundamentals.html"
+class="category-card">
+
+<h3>
+
+Tree Climbing Fundamentals
+
+</h3>
+
+<p>
+
+Put your new anchor placement skills to work.
+
+</p>
+
+</a>
+
+<a href="/climbing-class/public/pages/gear-intro.html"
+class="category-card">
+
+<h3>
+
+Gear & Safety
+
+</h3>
+
+<p>
+
+Understand the equipment attached to your throwline.
+
+</p>
+
+</a>
+
+<a href="/climbing-class/public/pages/rappelling.html"
+class="category-card">
+
+<h3>
+
+Professional Rappelling
+
+</h3>
+
+<p>
+
+Continue developing rope management skills.
+
+</p>
+
+</a>
+
+</div>
+
+</section>
+
+
+
+<footer class="site-footer">
+
+<img id="treeLogoBottom"
+     src="/img/tree-service-logo.png">
+
+<p>
+
+<a href="mailto:support@chainsawclay.com">
+
+support@chainsawclay.com
+
+</a>
+
+</p>
+
+<p>
+
+<a href="tel:4706952055">
+
+(470) 695-2055
+
+</a>
+
+</p>
+
+</footer>
+
+</div>
+
+
+
+<div id="squirrelChat">
+
+<img src="/climbing-class/public/app/img/squirell-img.jpg"
+     id="squirrelChatBtn">
+
+<div id="squirrelBubble">
+
+<div id="squirrelMessages"></div>
+
+<input id="squirrelInput"
+       type="text"
+       placeholder="Ask me something…">
+
+</div>
+
+</div>
+
+
+
+<script src="/climbing-class/public/js/climb-index.js"></script>
+<script src="/climbing-class/public/js/squirrel.js"></script>
+<script src="/climbing-class/public/js/intro.js"></script>
+
+<script>
+
+function toggleSidebar() {
+
+document
+.getElementById("sidebar")
+.classList
+.toggle("open");
+
+}
+
+document
+.getElementById("sidebar-close")
+.onclick = function(){
+
+document
+.getElementById("sidebar")
+.classList
+.remove("open");
+
+};
+
+</script>
+
+</body>
+</html>
