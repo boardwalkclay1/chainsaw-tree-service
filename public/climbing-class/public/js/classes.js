@@ -1,215 +1,481 @@
-// ===============================
-// CLASS SCHEDULE + SIGNUP LOGIC
-// ===============================
+// =====================================================
+// CHAINSAW CLAY CLASSES SYSTEM
+// =====================================================
 
-// Simple in-memory demo data.
-// In production, you’ll fetch this from your Cloudflare Worker (D1-backed).
-const demoClasses = [
-  {
-    id: "cls-1",
-    date: "2026-06-20",
-    time: "10:00 AM",
-    type: "group",
-    title: "Beginner Group Climbing Class",
-    price: 80,
-    spots: 8
-  },
-  {
-    id: "cls-2",
-    date: "2026-06-20",
-    time: "2:00 PM",
-    type: "personal",
-    title: "1-on-1 Advanced Climbing Session",
-    price: 200,
-    spots: 1
-  },
-  {
-    id: "cls-3",
-    date: "2026-06-22",
-    time: "9:00 AM",
-    type: "group",
-    title: "Gear, Knots & Safety Group Class",
-    price: 80,
-    spots: 10
-  },
-  {
-    id: "cls-4",
-    date: "2026-06-25",
-    time: "1:00 PM",
-    type: "personal",
-    title: "1-on-1 Rigging & Jobsite Flow",
-    price: 200,
-    spots: 1
-  }
+const classSchedule = [
+
+{
+id:"fund-001",
+
+date:"2026-12-05",
+
+time:"9:00 AM",
+
+title:"Tree Climbing Fundamentals",
+
+price:99,
+
+spots:12,
+
+course:"fundamentals"
+
+},
+
+{
+id:"rapp-001",
+
+date:"2026-12-06",
+
+time:"10:00 AM",
+
+title:"Professional Rappelling Academy",
+
+price:125,
+
+spots:10,
+
+course:"rappelling"
+
+},
+
+{
+id:"foot-001",
+
+date:"2026-12-12",
+
+time:"9:00 AM",
+
+title:"Footlocking Academy",
+
+price:125,
+
+spots:8,
+
+course:"footlocking"
+
+},
+
+{
+id:"rig-001",
+
+date:"2026-12-19",
+
+time:"9:00 AM",
+
+title:"Rigging Academy",
+
+price:150,
+
+spots:8,
+
+course:"rigging"
+
+},
+
+{
+id:"priv-001",
+
+date:"2026-12-20",
+
+time:"Custom",
+
+title:"Private Coaching Session",
+
+price:200,
+
+spots:1,
+
+course:"private"
+
+}
+
 ];
 
-let selectedDate = null;
-let selectedClassId = null;
+// =====================================================
+// DOM
+// =====================================================
 
-// DOM refs
-const calendarHeader = document.getElementById("calendarHeader");
-const calendarGrid = document.getElementById("calendarGrid");
-const classesList = document.getElementById("classesList");
-const selectedClassLabel = document.getElementById("selectedClassLabel");
-const signupName = document.getElementById("signupName");
-const signupEmail = document.getElementById("signupEmail");
-const signupType = document.getElementById("signupType");
-const signupSubmit = document.getElementById("signupSubmit");
-const signupStatus = document.getElementById("signupStatus");
+const calendarHeader =
+document.getElementById(
+"calendarHeader"
+);
 
-// Build calendar for current month
+const calendarGrid =
+document.getElementById(
+"calendarGrid"
+);
+
+const classesList =
+document.getElementById(
+"classesList"
+);
+
+// =====================================================
+// CALENDAR
+// =====================================================
+
 function buildCalendar() {
-  const today = new Date();
-  const year = today.getFullYear();
-  const month = today.getMonth(); // 0-based
 
-  const firstDay = new Date(year, month, 1);
-  const lastDay = new Date(year, month + 1, 0);
-  const startWeekday = firstDay.getDay(); // 0=Sun
-  const totalDays = lastDay.getDate();
+if(!calendarGrid) return;
 
-  calendarHeader.textContent = `${firstDay.toLocaleString("default", {
-    month: "long"
-  })} ${year}`;
+const today =
+new Date();
 
-  calendarGrid.innerHTML = "";
+const year =
+today.getFullYear();
 
-  // Fill blanks before first day
-  for (let i = 0; i < startWeekday; i++) {
-    const blank = document.createElement("div");
-    blank.className = "calendar-day";
-    blank.style.visibility = "hidden";
-    calendarGrid.appendChild(blank);
-  }
+const month =
+today.getMonth();
 
-  // Fill actual days
-  for (let day = 1; day <= totalDays; day++) {
-    const dateObj = new Date(year, month, day);
-    const dateStr = dateObj.toISOString().slice(0, 10);
+const firstDay =
+new Date(
+year,
+month,
+1
+);
 
-    const dayDiv = document.createElement("div");
-    dayDiv.className = "calendar-day";
-    dayDiv.textContent = day;
+const lastDay =
+new Date(
+year,
+month + 1,
+0
+);
 
-    const hasClass = demoClasses.some(c => c.date === dateStr);
-    if (hasClass) {
-      dayDiv.classList.add("has-class");
-    }
+calendarHeader.textContent =
 
-    dayDiv.addEventListener("click", () => {
-      selectedDate = dateStr;
-      highlightSelectedDay(dayDiv);
-      renderClassesForDate(dateStr);
-    });
+firstDay.toLocaleString(
+"default",
+{
+month:"long"
+}
+)
 
-    calendarGrid.appendChild(dayDiv);
-  }
++ " " +
+
+year;
+
+calendarGrid.innerHTML = "";
+
+const blanks =
+firstDay.getDay();
+
+for(
+let i = 0;
+i < blanks;
+i++
+){
+
+const empty =
+document.createElement("div");
+
+empty.className =
+"calendar-day empty";
+
+calendarGrid.appendChild(
+empty
+);
+
 }
 
-function highlightSelectedDay(selectedDiv) {
-  const allDays = calendarGrid.querySelectorAll(".calendar-day");
-  allDays.forEach(d => d.classList.remove("selected"));
-  selectedDiv.classList.add("selected");
+for(
+let d = 1;
+d <= lastDay.getDate();
+d++
+){
+
+const currentDate =
+new Date(
+year,
+month,
+d
+);
+
+const dateString =
+currentDate
+.toISOString()
+.split("T")[0];
+
+const day =
+document.createElement(
+"div"
+);
+
+day.className =
+"calendar-day";
+
+day.textContent = d;
+
+const hasClass =
+
+classSchedule.some(
+c =>
+c.date === dateString
+);
+
+if(hasClass){
+
+day.classList.add(
+"has-class"
+);
+
 }
 
-// Render classes for selected date
-function renderClassesForDate(dateStr) {
-  const classes = demoClasses.filter(c => c.date === dateStr);
-  classesList.innerHTML = "";
+day.onclick = () => {
 
-  if (!classes.length) {
-    classesList.innerHTML = "<p>No classes scheduled for this date yet.</p>";
-    selectedClassId = null;
-    selectedClassLabel.textContent = "No class selected yet.";
-    return;
-  }
+document
+.querySelectorAll(
+".calendar-day"
+)
+.forEach(
+el =>
+el.classList.remove(
+"selected"
+)
+);
 
-  classes.forEach(cls => {
-    const card = document.createElement("div");
-    card.className = "class-card";
+day.classList.add(
+"selected"
+);
 
-    card.innerHTML = `
-      <h3>${cls.title}</h3>
-      <p><strong>Time:</strong> ${cls.time}</p>
-      <p><strong>Type:</strong> ${cls.type === "group" ? "Group Class ($80)" : "Personal 1-on-1 ($200/hr)"}</p>
-      <p><strong>Spots Left:</strong> ${cls.spots}</p>
-      <button class="btn-primary" data-id="${cls.id}">Select This Class</button>
-    `;
+renderClasses(
+dateString
+);
 
-    const btn = card.querySelector("button");
-    btn.addEventListener("click", () => {
-      selectedClassId = cls.id;
-      selectedClassLabel.textContent = `Selected: ${cls.title} on ${cls.date} at ${cls.time}`;
-      signupType.value = cls.type;
-    });
+};
 
-    classesList.appendChild(card);
-  });
+calendarGrid.appendChild(
+day
+);
+
 }
 
-// Handle signup
-signupSubmit.addEventListener("click", async () => {
-  signupStatus.textContent = "";
+}
 
-  if (!selectedClassId) {
-    signupStatus.textContent = "Please select a class first.";
-    return;
-  }
+// =====================================================
+// CLASSES
+// =====================================================
 
-  const name = signupName.value.trim();
-  const email = signupEmail.value.trim();
-  const type = signupType.value;
+function renderClasses(
+date
+){
 
-  if (!name || !email) {
-    signupStatus.textContent = "Please enter your name and email.";
-    return;
-  }
+if(!classesList) return;
 
-  // Payload for Cloudflare Worker
-  const payload = {
-    classId: selectedClassId,
-    name,
-    email,
-    type
-  };
+const classes =
 
-  signupStatus.textContent = "Submitting your reservation...";
+classSchedule.filter(
+c =>
+c.date === date
+);
 
-  try {
-    // In production, point this to your Worker route, e.g. /api/class-signup
-    const res = await fetch("/api/class-signup", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(payload)
-    });
+classesList.innerHTML = "";
 
-    if (!res.ok) {
-      throw new Error("Signup failed");
-    }
+if(
+classes.length === 0
+){
 
-    const data = await res.json();
-    signupStatus.textContent = data.message || "Reservation confirmed! Check your email for details.";
-  } catch (err) {
-    signupStatus.textContent = "There was an issue submitting your reservation. Please try again.";
-  }
-});
+classesList.innerHTML = `
 
-// Init
+<div class="category-card">
+
+<h3>
+
+No Classes Scheduled
+
+</h3>
+
+<p>
+
+No training sessions
+scheduled on this date.
+
+</p>
+
+</div>
+
+`;
+
+return;
+
+}
+
+classes.forEach(
+cls => {
+
+const card =
+document.createElement(
+"div"
+);
+
+card.className =
+"category-card";
+
+card.innerHTML = `
+
+<h3>
+
+${cls.title}
+
+</h3>
+
+<p>
+
+Date:
+${cls.date}
+
+</p>
+
+<p>
+
+Time:
+${cls.time}
+
+</p>
+
+<p>
+
+Spots Available:
+${cls.spots}
+
+</p>
+
+<h2>
+
+$${cls.price}
+
+</h2>
+
+<a
+href="/climbing-class/public/pages/enroll.html?course=${cls.course}&class=${cls.id}"
+class="btn primary">
+
+Reserve Spot
+
+</a>
+
+`;
+
+classesList.appendChild(
+card
+);
+
+}
+
+);
+
+}
+
+// =====================================================
+// DASHBOARD COUNTS
+// =====================================================
+
+function loadDashboardStats(){
+
+const stats =
+document.getElementById(
+"dashboardStats"
+);
+
+if(!stats) return;
+
+stats.innerHTML = `
+
+<div class="category-card">
+
+<h3>
+
+Active Courses
+
+</h3>
+
+<h2>
+
+4
+
+</h2>
+
+</div>
+
+<div class="category-card">
+
+<h3>
+
+Certificates Earned
+
+</h3>
+
+<h2>
+
+0
+
+</h2>
+
+</div>
+
+<div class="category-card">
+
+<h3>
+
+Upcoming Classes
+
+</h3>
+
+<h2>
+
+${classSchedule.length}
+
+</h2>
+
+</div>
+
+`;
+
+}
+
+// =====================================================
+// MEMBERSHIP DISPLAY
+// =====================================================
+
+function membershipStatus(){
+
+const card =
+document.getElementById(
+"membershipStatus"
+);
+
+if(!card) return;
+
+card.innerHTML = `
+
+<h3>
+
+Student Membership
+
+</h3>
+
+<p>
+
+Active
+
+</p>
+
+`;
+
+}
+
+// =====================================================
+// INIT
+// =====================================================
+
+document.addEventListener(
+"DOMContentLoaded",
+() => {
+
 buildCalendar();
 
-// Optional: auto-select today’s date if it has classes
-(function autoSelectToday() {
-  const todayStr = new Date().toISOString().slice(0, 10);
-  const todayClasses = demoClasses.filter(c => c.date === todayStr);
-  if (todayClasses.length) {
-    selectedDate = todayStr;
-    // Find matching day div
-    const allDays = calendarGrid.querySelectorAll(".calendar-day");
-    allDays.forEach(d => {
-      if (d.textContent === String(new Date().getDate())) {
-        highlightSelectedDay(d);
-      }
-    });
-    renderClassesForDate(todayStr);
-  }
-})();
+loadDashboardStats();
+
+membershipStatus();
+
+}
+);
